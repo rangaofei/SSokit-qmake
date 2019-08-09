@@ -48,5 +48,8 @@
         <file>qml/GeneralSettingView.qml</file>
         <file>qml/ShortCutSettingView.qml</file>
         <file>qml/AboutSettingView.qml</file>
+        <file>assets/images/function.png</file>
+        <file>qml/SocketHeaderView.qml</file>
+        <file>qml/LogViewDelegate.qml</file>
     </qresource>
 </RCC>

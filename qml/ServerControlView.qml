@@ -55,7 +55,7 @@ Column {
             color: "black"
             font.bold: true
             topPadding: 10
-            font.pointSize:15
+            font.pixelSize:15
             elide: Text.ElideRight
         }
         ColumnLayout{
@@ -190,14 +190,14 @@ Column {
                     verticalAlignment: Text.AlignVCenter
                     height: 20
                     text:addr
-                    font.pointSize: 13
+                    font.pixelSize: 13
                     color:parent.parent.highlighted ? "white" : "black"
                 }
                 Text {
                     x:15
                     verticalAlignment: Text.AlignVCenter
                     height: 20
-                    font.pointSize: 10
+                    font.pixelSize: 10
                     color:parent.parent.highlighted ? "#cfd8dc" : "#424242"
                     text: labelTime+time }
             }

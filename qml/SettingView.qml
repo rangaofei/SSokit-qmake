@@ -47,7 +47,7 @@ Drawer {
                 text: qsTr("setting")
                 color: "#ffffff"
                 Layout.alignment: Qt.AlignHCenter
-                font.pointSize: 12
+                font.pixelSize: 12
                 font.bold: true
             }
             Rectangle {
@@ -72,15 +72,33 @@ Drawer {
                 }
                 container_about.checked=false
                 container_shortcut.checked=false
+                container_function.checked=false
                 tabView.currentIndex=0
             }
         }
 
-
+        ImageButton{
+            id:container_function
+            width: parent.width;
+            anchors.top: container_general.bottom
+            anchors.topMargin: 20
+            text: qsTr("function")
+            checked: false
+            source: "qrc:/assets/images/function.png"
+            onCheckedChanged: {
+                if(!checked){
+                    return
+                }
+                container_about.checked=false
+                container_general.checked=false
+                container_shortcut.checked=false
+                tabView.currentIndex=0
+            }
+        }
         ImageButton{
             id:container_shortcut
             width: parent.width
-            anchors.top: container_general.bottom
+            anchors.top: container_function.bottom
             anchors.topMargin: 20
             source: "qrc:/assets/images/shortcut.png"
             text: qsTr("shortcut")
@@ -90,6 +108,7 @@ Drawer {
                 }
                 container_about.checked=false
                 container_general.checked=false
+                container_function.checked=false
                 tabView.currentIndex=1
             }
         }
@@ -106,6 +125,7 @@ Drawer {
                 }
                 container_general.checked=false
                 container_shortcut.checked=false
+                container_function.checked=false
                 tabView.currentIndex=2
             }
         }

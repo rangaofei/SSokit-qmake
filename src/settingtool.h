@@ -15,12 +15,13 @@
 #define POSITION_Y "position_y"
 #define LANGUAGE "language"    //0-en，1-cn
 
+
 #define TCP_SERVER_PORTS "tcp_server_ports"
 #define TCP_CLIENT_PORTS "tcp_client_ports"
 #define UDP_SERVER_PORTS "udp_server_ports"
 #define UDP_CLIENT_PORTS "udp_client_ports"
 #define PORT "port"
-
+#define SHOW_HEADER "show_header"
 
 #define WINDOW_DEFAULT_W 800
 #define WINDOW_DEFAULT_H 600
@@ -68,6 +69,9 @@ public slots:
     void savePorts( int viewType,QList<QString> ports);
 
     void flush();
+
+    void setShowHeader(bool show);
+    bool getShowHeader();
 
 };
 

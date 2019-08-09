@@ -144,7 +144,16 @@ void ServerModel::sendWithHeader(const QString &key,const QString header, const 
     length.resize(lengthSize);
     QDataStream sendData(&length,QIODevice::WriteOnly);
     sendData.setByteOrder(bigEndian? QDataStream::BigEndian: QDataStream::LittleEndian);
-    sendData<<lengthSize;
+    switch (lengthSize) {
+        case 0:
+        break;
+    case 2:
+        sendData<<quint16(dataBin.size());
+        break;
+    case 4:
+        sendData<<quint32(dataBin.size());
+        break;
+    }
     dataBin.prepend(length);
     dataBin.prepend(headerBin);
     qDebug()<<"client model send data "<<data;

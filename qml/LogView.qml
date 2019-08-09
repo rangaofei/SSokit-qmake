@@ -15,6 +15,10 @@ ColumnLayout{
     signal sendMsg(string msg)
     signal sendMsgWithHeader(string header,int lengthSize,bool bigEndian,string msg)
 
+    LogViewDelegate{
+        id:logViewDelegate
+    }
+
     SendView{
         id:sendView
         Layout.preferredHeight:130
@@ -210,7 +214,6 @@ ColumnLayout{
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    console.log("click"+index)
                     logListView.currentIndex=index
                 }
             }
@@ -227,7 +230,7 @@ ColumnLayout{
             id:model
         }
 
-        delegate: listViewItem
+        delegate: logViewDelegate
         focus: true
         onCurrentIndexChanged: {
             detail.text=model.count>0 ? model.get(logListView.currentIndex).ascData : ""

@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.12
 import src.settingtool 1.0
 
 ApplicationWindow{
-    property int windowW: 800
+    property int windowW: 1000
     property int windwoH: 600
     property bool drawerOpened: false
 

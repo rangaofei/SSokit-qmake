@@ -165,5 +165,13 @@ void SettingTool::flush()
     getInstance()->sync();
 }
 
+void SettingTool::setShowHeader(bool show)
+{
+    getInstance()->setValue(SHOW_HEADER,show);
+    flush();
+}
 
-
+bool SettingTool::getShowHeader()
+{
+    return getInstance()->value(SHOW_HEADER,false).toBool();
+}

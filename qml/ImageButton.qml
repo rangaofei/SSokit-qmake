@@ -35,7 +35,7 @@ ColumnLayout{
         id:t
         color: checked?checkedColor:uncheckedColor
         Layout.alignment: Qt.AlignHCenter
-        font.pointSize: 12
+        font.pixelSize: 12
         font.bold: true
     }
     TapHandler {
