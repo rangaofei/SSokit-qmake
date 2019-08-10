@@ -2,7 +2,7 @@ import QtQuick 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5
 import QtQuick.Controls.Styles 1.4
-
+import src.strings 1.0
 GroupBox{
     property bool canSendMsg: false
 
@@ -43,7 +43,7 @@ GroupBox{
                     Layout.preferredWidth: 50
                     Layout.fillHeight: false
                     Layout.preferredHeight: 30
-                    text: qsTr("Buf1")
+                    text: Strings.sendBuf1
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                 }
@@ -63,7 +63,7 @@ GroupBox{
                     Layout.preferredWidth: 50
                     Layout.fillHeight:false
                     Layout.preferredHeight: 25
-                    text: qsTr("send")
+                    text: Strings.send
                     background: Rectangle{
                         border.color: enabled?"#37474f":"#cfd8dc"
                         color: "transparent"
@@ -80,7 +80,7 @@ GroupBox{
                     Layout.preferredWidth: 50
                     Layout.fillHeight: false
                     Layout.preferredHeight: 30
-                    text: qsTr("Buf2")
+                    text: Strings.sendBuf2
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                 }
@@ -100,7 +100,7 @@ GroupBox{
                     Layout.preferredWidth: 50
                     Layout.fillHeight:false
                     Layout.preferredHeight: 25
-                    text: qsTr("send")
+                    text: Strings.send
                     background: Rectangle{
                         border.color: enabled?"#37474f":"#cfd8dc"
                         color: "transparent"
@@ -117,7 +117,7 @@ GroupBox{
                     Layout.preferredWidth: 50
                     Layout.fillHeight: false
                     Layout.preferredHeight: 30
-                    text: qsTr("Buf3")
+                    text: Strings.sendBuf3
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                 }
@@ -137,7 +137,7 @@ GroupBox{
                     Layout.preferredWidth: 50
                     Layout.fillHeight:false
                     Layout.preferredHeight: 25
-                    text: qsTr("send")
+                    text: Strings.send
                     background: Rectangle{
                         border.color: enabled?"#37474f":"#cfd8dc"
                         color: "transparent"
@@ -154,7 +154,7 @@ GroupBox{
                 CheckBox{
                     Layout.leftMargin: 50
                     id:showHeader
-                    text: qsTr("advance")
+                    text: Strings.sendAdvance
                     Layout.preferredHeight: 16
                     checked: true
                     indicator: Rectangle{

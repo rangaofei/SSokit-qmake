@@ -30,13 +30,10 @@
         <file>qml/BottomButton.qml</file>
         <file>qml/BlueToothView.qml</file>
         <file>qml/AboutDialog.qml</file>
-        <file>qml/HelpDialog.qml</file>
         <file>assets/images/logo.png</file>
         <file>qml/SSokit.qml</file>
         <file>assets/images/setting.png</file>
         <file>qml/SettingView.qml</file>
-        <file>assets/lauguage/SSokit_en_US.qm</file>
-        <file>assets/lauguage/SSokit_zh_CN.qm</file>
         <file>assets/images/shortcut.png</file>
         <file>assets/images/catalogue.png</file>
         <file>assets/images/catalogue_white.png</file>
@@ -52,5 +49,10 @@
         <file>qml/SocketHeaderView.qml</file>
         <file>qml/LogViewDelegate.qml</file>
         <file>assets/images/header_setting.png</file>
+        <file>qml/Colors.qml</file>
+        <file>assets/language/Strings.qml</file>
+        <file>assets/language/SSokit_en_US.qm</file>
+        <file>assets/language/SSokit_zh_CN.qm</file>
+        <file>assets/Colors.qml</file>
     </qresource>
 </RCC>

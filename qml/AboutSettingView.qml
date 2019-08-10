@@ -1,10 +1,10 @@
 import QtQuick 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
+import src.strings 1.0
+
 Item {
     ColumnLayout{
-        Layout.fillHeight: true
-        Layout.fillWidth: true
         anchors.fill: parent
         Image{
             Layout.preferredHeight: 130
@@ -24,7 +24,7 @@ Item {
             Layout.leftMargin: 20
             Layout.rightMargin: 20
 
-            Text { text: qsTr("Author"); font.bold: true; }
+            Text { text: Strings.author; font.bold: true; }
             Text {
                 Layout.columnSpan: 2;
                 text: "<a href=\"https://juejin.im/user/5855ebea8d6d810065a4befa\">saka</a>";
@@ -32,11 +32,11 @@ Item {
                 verticalAlignment: Text.AlignVCenter
                 clip: true
             }
-            Text { text: qsTr("Version"); font.bold: true; }
-            Text { Layout.columnSpan: 2;text: qsTr("1.0.4 - Base On Qt5.13.0"); }
-            Text { text: qsTr("ReleaseDate"); font.bold: true; }
-            Text { Layout.columnSpan: 2;text: "2019.8.6"; }
-            Text { text: qsTr("Source"); font.bold: true }
+            Text { text: Strings.version; font.bold: true; }
+            Text { Layout.columnSpan: 2;text: Strings.versionValue; }
+            Text { text: Strings.releaseDate; font.bold: true; }
+            Text { Layout.columnSpan: 2;text: Strings.releaseDateValue; }
+            Text { text: Strings.source; font.bold: true }
             Text {
                 Layout.columnSpan: 2
                 Layout.fillWidth: true

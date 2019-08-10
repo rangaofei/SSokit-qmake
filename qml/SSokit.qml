@@ -2,6 +2,7 @@ import QtQuick.Controls 2.5
 import QtQuick 2.12
 import QtQuick.Layouts 1.12
 import src.settingtool 1.0
+import src.strings 1.0
 
 ApplicationWindow{
     property int windowW: 900
@@ -10,12 +11,6 @@ ApplicationWindow{
     //关于对话框
     AboutDialog{
         id:aboutDialog
-        showing: false
-    }
-    //帮助对话框
-    HelpDialog{
-        id:helpDialog
-        showing:false
     }
 
     //设置工具
@@ -25,7 +20,7 @@ ApplicationWindow{
 
     id:window
     visible: true
-    title: qsTr("SSokit")
+    title: Strings.applicationTitle
     width: windowW
     height: windwoH
     minimumWidth: windowW
@@ -51,27 +46,27 @@ ApplicationWindow{
 
 
             BottomButton {
-                name:qsTr("Tcp")
+                text:Strings.mainTabTcp
             }
             BottomButton {
-                name:qsTr("Udp")
+                text:Strings.mainTabUdp
             }
             //        BottomButton {
-            //            name:qsTr("WebSocket")
+            //            text:Strings.mainTabWebSocket
             //        }
             //        BottomButton {
-            //            name:qsTr("BlueTooth")
+            //            text:Strings.mainBlueTooth
             //        }
             //        BottomButton{
-            //            name:qsTr("COM")
+            //            text:Strings.mainTabCOM
             //        }
             BottomButton{
                 id:notepad
-                name:qsTr("Notepad")
+                text:Strings.mainTabNotePad
             }
             //        BottomButton{
             //            id:peltte
-            //            name:"Plette"
+            //            text:"Plette"
             //        }
 
         }
@@ -107,7 +102,7 @@ ApplicationWindow{
             anchors.top: parent.top
             anchors.margins:15
             TapHandler {
-                onTapped: toggleDrawer()
+                onTapped: drawer.toggleDrawer()
             }
             visible: true
         }
@@ -121,7 +116,7 @@ ApplicationWindow{
             anchors.top: parent.top
             anchors.margins:15
             TapHandler {
-                onTapped: toggleAboutDialog()
+                onTapped: aboutDialog.toggleAboutDialog()
             }
             visible: true
         }
@@ -152,17 +147,5 @@ ApplicationWindow{
     function switchTab(){
         footerBar.currentIndex++
         footerBar.currentIndex=footerBar.currentIndex % footerBar.count
-    }
-    //开关关于对话框
-    function toggleAboutDialog(){
-        aboutDialog.toggleAboutDialog()
-    }
-    //开关设置抽屉
-    function toggleDrawer(){
-        if(!drawer.visible){
-            drawer.open()
-        }else{
-            drawer.close()
-        }
     }
 }

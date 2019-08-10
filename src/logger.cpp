@@ -24,62 +24,6 @@ Logger::~Logger()
 	m_file.close();
 }
 
-void Logger::init(QTreeWidget* o, QCheckBox* w, QPlainTextEdit* d)
-{
-	m_cmlog.clear();
-	m_cmtxt.clear();
-
-	if (m_treeOut)
-		m_treeOut->disconnect(this);
-
-	if (m_textOut)
-		m_textOut->disconnect(this);
-
-	if (m_chkWrite)
-		m_chkWrite->disconnect(this);
-
-    m_treeOut = o;
-	m_textOut = d;
-    m_chkWrite = w;
-
-	if (m_treeOut && m_textOut && m_chkWrite)
-	{
-		QList<QKeySequence> ks;
-		ks << QKeySequence(Qt::CTRL + Qt::Key_D);
-
-		QAction* copy = new QAction(tr("Copy"), this);
-		copy->setShortcuts(QKeySequence::Copy);
-		connect(copy, SIGNAL(triggered()), this, SLOT(copy()));
-
-		QAction* clear = new QAction(tr("Clear"), this);
-		clear->setShortcuts(ks);
-		connect(clear, SIGNAL(triggered()), this, SIGNAL(clearLog()));
-
-		QAction* all = new QAction(tr("Select All"), this);
-		all->setShortcuts(QKeySequence::SelectAll);
-        connect(all, SIGNAL(triggered()), m_textOut, SLOT(selectAll()));
-
-		m_cmlog.addAction(copy);
-		m_cmlog.addSeparator();
-		m_cmlog.addAction(clear);
-
-		m_cmtxt.addAction(copy);
-		m_cmtxt.addSeparator();
-		m_cmtxt.addAction(all);
-
-		QPalette pal = m_textOut->palette();
-		pal.setBrush(QPalette::Base, m_treeOut->palette().brush(QPalette::Window));
-		m_textOut->setPalette(pal);
-
-		m_treeOut->setContextMenuPolicy(Qt::CustomContextMenu);
-		connect(m_treeOut, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(ctxmenu(const QPoint&)));
-		connect(m_treeOut, SIGNAL(itemSelectionChanged()), this, SLOT(syncOutput()));
-
-		m_textOut->setContextMenuPolicy(Qt::CustomContextMenu);
-		connect(m_textOut, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(ctxmenu(const QPoint&)));
-	}
-}
-
 void Logger::syncOutput()
 {
 	QList<QTreeWidgetItem*> list = m_treeOut->selectedItems();

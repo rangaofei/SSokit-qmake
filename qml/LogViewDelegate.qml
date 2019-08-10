@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
+import src.strings 1.0
 
 Component{
     id:listViewItem
@@ -47,7 +48,7 @@ Component{
                     clip :true
                     wrapMode: Text.NoWrap
                     color:delegate.highlighted?"white":"#37474f"
-                    text: qsTr("Time:")
+                    text: Strings.logTime+" : "
                 }
                 Text {
                     height: 20
@@ -71,7 +72,7 @@ Component{
                     clip :true
                     wrapMode: Text.NoWrap
                     color:delegate.highlighted?"white":"#37474f"
-                    text: qsTr("Ip:")
+                    text: Strings.logTime+" : "
                     rightPadding: 10
                 }
                 Text {
@@ -97,7 +98,7 @@ Component{
                     clip :true
                     wrapMode: Text.NoWrap
                     color:delegate.highlighted?"white":"#37474f"
-                    text: qsTr("Length:")
+                    text: Strings.logLength+" : "
                     rightPadding: 10
                 }
                 Text {

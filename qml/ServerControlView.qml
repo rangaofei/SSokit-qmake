@@ -4,17 +4,17 @@ import QtQuick.Controls 2.5
 import QtGraphicalEffects 1.12
 
 import src.settingtool 1.0
-
+import src.strings 1.0
 Column {
     property int viewType: 1 /*1是tcpserver,2是tcpclient,3是udpserver,4是udpclient*/
-    property string title: qsTr("ControlCenter")//标题
-    property string labelAddr: qsTr("ADDR")
-    property string labelPort: qsTr("PORT")
-    property string btnConnect: qsTr("Connect")
-    property string btnDisconnect: qsTr("Disconnect")
-    property string btnDisable: qsTr("Disable")
-    property string portTip: qsTr("Port must be between 1024-63365")
-    property string labelTime: qsTr("Time: ")
+    property string title: Strings.controlCenter//标题
+    property string labelAddr: Strings.controlAddr
+    property string labelPort: Strings.controlPort
+    property string btnConnect: Strings.controlConnect
+    property string btnDisconnect: Strings.controlDisconnect
+    property string btnDisable: Strings.controlDisable
+    property string portTip: Strings.controlPortTip
+    property string labelTime: Strings.controlTime
     property int windowW: 250
 
     //开启/关闭连接

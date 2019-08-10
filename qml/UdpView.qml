@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5
+import src.strings 1.0
 
 Rectangle{
     Layout.fillWidth: true
@@ -20,13 +21,13 @@ Rectangle{
         anchors.horizontalCenter: parent.horizontalCenter
         currentIndex: view.currentIndex
         TopButton {
-            name:qsTr("Server")
+            name:Strings.headerServer
         }
         TopButton{
-            name:qsTr("Client")
+            name:Strings.headerClient
         }
 //        TopButton{
-//            name:"UdpTransfer"
+//            name:Strings.headerTransfer
 //        }
     }
     StackLayout{

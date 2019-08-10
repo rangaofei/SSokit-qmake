@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
+import src.strings 1.0
 
 ColumnLayout{
     id:logView
@@ -25,11 +26,9 @@ ColumnLayout{
         Layout.fillWidth: true
         canSendMsg: canSendMsg
         onSendMsg: {
-            console.log("logview sendMsg")
             logView.sendMsg(msg)
         }
         onSendMsgWithHeader: {
-            console.log("logview sendMsgWithHeader")
             logView.sendMsgWithHeader(header,lengthSize,bigEndian,msg)
         }
     }
@@ -44,7 +43,7 @@ ColumnLayout{
             Layout.fillWidth: true
             Layout.fillHeight: true
 
-            text: qsTr("Recv : ")+recvC
+            text: Strings.logRecv+" : "+recvC
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
         }
@@ -52,7 +51,7 @@ ColumnLayout{
         Label{
             Layout.fillWidth: true
             Layout.fillHeight: true
-            text: qsTr("Send : ")+sendC
+            text: Strings.logSend+" : "+sendC
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
         }
@@ -68,155 +67,8 @@ ColumnLayout{
                 border.color: "#37474f"
 
             }
-            text: qsTr("Clear")
+            text: Strings.logClear
             onClicked: clearData()
-        }
-    }
-    Component{
-        id:listViewItem
-        ItemDelegate{
-            id:delegate
-            width: parent.width
-            height: 50
-            background: Rectangle{
-                color: delegate.highlighted?"#37474f":"#00000000"
-                radius:4
-            }
-            onHighlightedChanged: {
-                downArrow.requestPaint()
-                upArrow.requestPaint()
-            }
-
-            highlighted: logListView.currentIndex==index
-            Column{
-                width:parent.width
-                spacing: 5
-                Row{
-                    leftPadding: 10
-                    rightPadding: 10
-                    width:parent.width
-                    topPadding: 5
-                    IconUpArrow{
-                        id:upArrow
-                        y:5
-                        hightlighted: delegate.highlighted
-                        visible: !isRev
-                    }
-                    IconDownArrow{
-                        id:downArrow
-                        y:5
-                        hightlighted: delegate.highlighted
-                        visible:isRev}
-                    Text {
-                        width: 50
-                        height: 20
-                        verticalAlignment: Text.AlignVCenter
-                        maximumLineCount: 1
-                        textFormat: Text.PlainText
-                        clip :true
-                        wrapMode: Text.NoWrap
-                        color:delegate.highlighted?"white":"#37474f"
-                        text: qsTr("Time:")
-                    }
-                    Text {
-                        height: 20
-                        text: time
-                        width: 100
-                        elide: Text.ElideRight
-                        verticalAlignment: Text.AlignVCenter
-                        maximumLineCount: 1
-                        textFormat: Text.PlainText
-                        clip :true
-                        wrapMode: Text.NoWrap
-                        color:delegate.highlighted?"white":"#37474f"
-
-                    }
-                    Text {
-                        height: 20
-                        width: 50
-                        verticalAlignment: Text.AlignVCenter
-
-                        maximumLineCount: 1
-                        textFormat: Text.PlainText
-                        clip :true
-                        wrapMode: Text.NoWrap
-                        color:delegate.highlighted?"white":"#37474f"
-                        text: qsTr("Ip:")
-                        rightPadding: 10
-                    }
-                    Text {
-                        width: 140
-                        height: 20
-                        text: host
-                        elide: Text.ElideRight
-                        verticalAlignment: Text.AlignVCenter
-                        maximumLineCount: 1
-                        textFormat: Text.PlainText
-                        clip :true
-                        wrapMode: Text.NoWrap
-                        color:delegate.highlighted?"white":"#37474f"
-
-                    }
-                    Text {
-                        height: 20
-                        width: 50
-                        verticalAlignment: Text.AlignVCenter
-
-                        maximumLineCount: 1
-                        textFormat: Text.PlainText
-                        clip :true
-                        wrapMode: Text.NoWrap
-                        color:delegate.highlighted?"white":"#37474f"
-                        text: qsTr("Length:")
-                        rightPadding: 10
-                    }
-                    Text {
-                        height: 20
-                        text: length
-                        elide: Text.ElideRight
-                        verticalAlignment: Text.AlignVCenter
-                        maximumLineCount: 1
-                        textFormat: Text.PlainText
-                        clip :true
-                        wrapMode: Text.NoWrap
-                        color:delegate.highlighted?"white":"#37474f"
-
-                    }
-                }
-
-                Row{
-                    width:parent.width
-                    leftPadding: 10
-                    rightPadding: 10
-                    //                    Text {
-                    //                        text:qsTr("HEXDATA")
-                    //                    }
-                    Text {
-                        width: parent.width
-                        height: 20
-                        text: hexData
-                        elide: Text.ElideRight
-                        maximumLineCount: 1
-                        textFormat: Text.PlainText
-                        clip :true
-                        wrapMode: Text.NoWrap
-                        color:delegate.highlighted?"white":"#37474f"
-                    }
-                }
-
-
-                //                Rectangle{
-                //                    height: 1
-                //                    width: parent.width
-                //                    color: "#bdbdbd"
-                //                }
-            }
-            MouseArea{
-                anchors.fill: parent
-                onClicked: {
-                    logListView.currentIndex=index
-                }
-            }
         }
     }
 
@@ -265,7 +117,6 @@ ColumnLayout{
         }else{
             sendC+=1
         }
-        console.log("LogView: ascData="+ascData)
         model.append({
                          time:time,
                          isRev:isRev,

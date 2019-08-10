@@ -2,11 +2,10 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 
 TabButton {
-    property var name
     property int topRadius: 5
     property int bottomRadius: 5
     property double pi: 3.1415926
-    text: qsTr(name)
+    font.bold: true
     background: Canvas{
         id:canvas
         width: parent.width

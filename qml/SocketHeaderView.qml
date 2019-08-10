@@ -1,21 +1,20 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-
+import src.strings 1.0
 
 ColumnLayout{
     property int content_Width: 150
     property int content_height: 30
     property bool checkEnabled: false
     property bool isVisible: true
-    //    visible: isVisible
 
     id:container
     RowLayout{
         Layout.fillWidth: true
         Layout.preferredHeight: 30
         Label{
-            text: qsTr("Header")
+            text: Strings.header
             Layout.preferredHeight: content_height
             Layout.preferredWidth: 50
             verticalAlignment: Text.AlignVCenter
@@ -42,7 +41,7 @@ ColumnLayout{
                     Layout.preferredHeight: content_height
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
-                    text: qsTr("type")
+                    text: Strings.headerLengthType
                 }
                 EditComboBox{
                     id:lengthSizeBox
@@ -51,10 +50,11 @@ ColumnLayout{
                     showLeftIndicator: false
                     editable: false
                     model: ListModel {
-                        id: model
-                        ListElement { text: qsTr("None") }
-                        ListElement { text: qsTr("Short") }
-                        ListElement { text: qsTr("Int") }
+                        Component.onCompleted: {
+                            append({ text: Strings.headerNone })
+                            append({ text: Strings.headerShort })
+                            append({ text: Strings.headerInt })
+                        }
                     }
 
                 }
@@ -67,7 +67,7 @@ ColumnLayout{
                     Layout.preferredHeight: content_height
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
-                    text: qsTr("Endian")
+                    text: Strings.headerEndian
                 }
                 EditComboBox{
                     id:endianBox
@@ -76,8 +76,10 @@ ColumnLayout{
                     showLeftIndicator: false
                     currentIndex: 0
                     model: ListModel {
-                        ListElement { text: qsTr("Big") }
-                        ListElement { text: qsTr("Little") }
+                        Component.onCompleted: {
+                            append({ text: Strings.headerEndianValue[0] })
+                            append({ text: Strings.headerEndianValue[1] })
+                        }
                     }
                 }
             }
@@ -85,14 +87,14 @@ ColumnLayout{
         ColumnLayout{
             Layout.fillWidth: true
             Layout.preferredHeight: 30
-//            Text{
-//                Layout.preferredWidth: 50
-//                Layout.preferredHeight: 20
-//                verticalAlignment: Text.AlignVCenter
-//                horizontalAlignment: Text.AlignHCenter
-//                text: qsTr("Enable")
-//                visible: true
-//            }
+            //            Text{
+            //                Layout.preferredWidth: 50
+            //                Layout.preferredHeight: 20
+            //                verticalAlignment: Text.AlignVCenter
+            //                horizontalAlignment: Text.AlignHCenter
+            //                text: qsTr("Enable")
+            //                visible: true
+            //            }
 
             RoundCheckBox{
                 id:withHeader
@@ -101,7 +103,6 @@ ColumnLayout{
                 Layout.preferredHeight: 50
                 checked: false
                 showText: false
-                text: qsTr("添加")
                 visible: true
             }
         }

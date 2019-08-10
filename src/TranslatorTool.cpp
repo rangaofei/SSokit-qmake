@@ -4,7 +4,7 @@
 #include <QDebug>
 #include <QApplication>
 #include "settingtool.h"
-#define LANGUAGE_DIR ":/assets/lauguage"
+#define LANGUAGE_DIR ":/assets/language"
 QTranslator *TranslatorTool::translator=nullptr;
 
 TranslatorTool::TranslatorTool(QObject *parent) : QObject(parent)
@@ -42,6 +42,7 @@ void TranslatorTool::initLanguage()
     }
     getInstance()->load(fileName,QLatin1String(LANGUAGE_DIR));
     QApplication::installTranslator(getInstance()); //安装翻译器
+
 }
 
 QTranslator *TranslatorTool::getInstance()

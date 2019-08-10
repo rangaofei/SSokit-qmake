@@ -6,7 +6,6 @@ CheckBox {
     property bool showText: false
 
     id: control
-    text: qsTr("CheckBox")
     checked: false
 
     background: Rectangle{

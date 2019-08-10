@@ -4,6 +4,7 @@ import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.13
 
 import src.settingtool 1.0
+import src.strings 1.0
 
 Drawer {
     property bool isOpened: false
@@ -12,14 +13,13 @@ Drawer {
     SettingTool{
         id:settingTool
     }
-    id: drawer
 
+    id: drawer
     clip: true
     edge: Qt.LeftEdge
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
 
     background: Rectangle{
-        anchors.fill: parent
         color: "#ffffff"
     }
     Rectangle{
@@ -44,7 +44,7 @@ Drawer {
             }
             Text{
                 id:setting
-                text: qsTr("setting")
+                text: Strings.setting
                 color: "#ffffff"
                 Layout.alignment: Qt.AlignHCenter
                 font.pixelSize: 12
@@ -63,7 +63,7 @@ Drawer {
             width: parent.width;
             anchors.top: container_header.bottom
             anchors.topMargin: 20
-            text: qsTr("general")
+            text: Strings.settingGeneral
             checked: true
             source: "qrc:/assets/images/setting.png"
             onCheckedChanged: {
@@ -82,7 +82,7 @@ Drawer {
             width: parent.width;
             anchors.top: container_general.bottom
             anchors.topMargin: 20
-            text: qsTr("function")
+            text: Strings.settingFunction
             checked: false
             source: "qrc:/assets/images/function.png"
             onCheckedChanged: {
@@ -102,7 +102,7 @@ Drawer {
             anchors.top: container_function.bottom
             anchors.topMargin: 20
             source: "qrc:/assets/images/shortcut.png"
-            text: qsTr("shortcut")
+            text: Strings.settingShortCut
             onCheckedChanged: {
                 if(!checked){
                     return
@@ -119,7 +119,7 @@ Drawer {
             anchors.top: container_shortcut.bottom
             anchors.topMargin: 20
             source: "qrc:/assets/images/about_selected.png"
-            text: qsTr("about")
+            text: Strings.settingAbout
             onCheckedChanged: {
                 if(!checked){
                     return
@@ -163,5 +163,13 @@ Drawer {
     }
     onXChanged: {
         drawXChanged((drawer.x+drawer.width)/drawer.width)
+    }
+
+    function toggleDrawer(){
+        if(visible){
+            close()
+        }else{
+            open()
+        }
     }
 }

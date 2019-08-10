@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
+import src.strings 1.0
 
 Item{
     anchors.fill:parent
@@ -15,7 +16,7 @@ Item{
             Layout.fillWidth: true
             Layout.maximumWidth: parent.width/3
             id: language
-            text: qsTr("language")
+            text: Strings.settingLanguage
         }
         EditComboBox {
             id:language_box
@@ -25,8 +26,10 @@ Item{
             currentIndex:settingTool.getLanguage()
             model: ListModel {
                 id: model
-                ListElement { text: qsTr("English") }
-                ListElement { text: qsTr("Chinese") }
+                Component.onCompleted: {
+                    append({ text: Strings.settingLanguageValues[0] })
+                    append({ text: Strings.settingLanguageValues[1] })
+                }
             }
             onActivated: {
                 settingTool.setLanguage(index)
@@ -56,7 +59,7 @@ Item{
             Layout.maximumWidth: parent.width*2/3
             Layout.fillWidth: true
             Text{
-                text: qsTr("Effective after restart")
+                text: Strings.settingLanguageTip
                 font.bold: false
                 font.pixelSize: 10
                 color: "#000000"
@@ -84,7 +87,7 @@ Item{
             Layout.fillWidth: true
             Layout.maximumWidth: parent.width/3
             id: port
-            text: qsTr("remember port")
+            text: Strings.settingRememberPort
         }
         CheckBox{
         }

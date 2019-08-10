@@ -51,6 +51,7 @@ HEADERS +=  src/bluetoothmodel.h \
             src/websocketclientmodel.h \
             src/settingtool.h \
             src/sqlitetool.h
+            src/logger.h
 
 RESOURCES += qml.qrc
 
@@ -61,8 +62,8 @@ win32{
 RC_ICONS += SSOkit.ico
 }
 
-TRANSLATIONS += assets/lauguage/SSokit_zh_CN.ts \
-                assets/lauguage/SSokit_en_US.ts
+TRANSLATIONS += assets/language/SSokit_zh_CN.ts \
+                assets/language/SSokit_en_US.ts
 
 CONFIG(debug,debug|release) {
 

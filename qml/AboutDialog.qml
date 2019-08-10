@@ -1,10 +1,10 @@
 import QtQuick.Layouts 1.12
 import QtQuick 2.12
 import QtQuick.Controls 2.12
+import src.strings 1.0
 Dialog {
     property int defaultW: 400
     property int defaultH: 400
-    property bool showing: false
 
     modal: false
     width: defaultW
@@ -20,17 +20,17 @@ Dialog {
         }
         RowLayout {
             anchors.fill: parent
-            //            标题
+            //标题
             Text {
                 horizontalAlignment: Qt.AlignHCenter
                 verticalAlignment: Qt.AlignVCenter
-                text: qsTr("About SSokit")
+                text: Strings.aboutDialogTitle
                 font.bold: true
                 Layout.fillWidth: true
                 Layout.topMargin: 10
                 font.pixelSize: 20
             }
-            //            关闭按钮
+            //关闭按钮,暂不显示
             Image{
                 Layout.preferredHeight: 15
                 Layout.preferredWidth: 15
@@ -48,13 +48,14 @@ Dialog {
             }
         }
     }
+
     ColumnLayout{
         Layout.fillHeight: true
         Layout.fillWidth: true
         anchors.fill: parent
         Image{
-            Layout.preferredHeight: 130
-            Layout.preferredWidth: 130
+            Layout.preferredHeight: 100
+            Layout.preferredWidth: 100
             Layout.fillHeight: false
             Layout.fillWidth: false
             Layout.alignment: Qt.AlignHCenter
@@ -70,7 +71,7 @@ Dialog {
             Layout.leftMargin: 20
             Layout.rightMargin: 20
 
-            Text { text: qsTr("Author"); font.bold: true; }
+            Text { text: Strings.author; font.bold: true; }
             Text {
                 Layout.columnSpan: 2;
                 text: "<a href=\"https://juejin.im/user/5855ebea8d6d810065a4befa\">saka</a>";
@@ -78,11 +79,11 @@ Dialog {
                 verticalAlignment: Text.AlignVCenter
                 clip: true
             }
-            Text { text: qsTr("Version"); font.bold: true; }
-            Text { Layout.columnSpan: 2;text: qsTr("1.0.4 - Base On Qt5.13.0"); }
-            Text { text: qsTr("ReleaseDate"); font.bold: true; }
-            Text { Layout.columnSpan: 2;text: "2019.8.6"; }
-            Text { text: qsTr("Source"); font.bold: true }
+            Text { text: Strings.version; font.bold: true; }
+            Text { Layout.columnSpan: 2;text: Strings.versionValue; }
+            Text { text: Strings.releaseDate; font.bold: true; }
+            Text { Layout.columnSpan: 2;text: Strings.releaseDateValue; }
+            Text { text: Strings.source; font.bold: true }
             Text {
                 Layout.columnSpan: 2
                 Layout.fillWidth: true
@@ -103,11 +104,10 @@ Dialog {
     }
 
     function toggleAboutDialog(){
-        if(showing){
+        if(visible){
             close()
         }else{
             open()
         }
     }
-
 }

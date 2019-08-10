@@ -12,7 +12,6 @@ ColumnLayout{
         Text {
             id:title
             anchors.horizontalCenter: parent.horizontalCenter
-            text: qsTr("Server")
             font.bold:true
         }
     }

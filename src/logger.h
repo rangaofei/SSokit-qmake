@@ -17,8 +17,6 @@ public:
 	explicit Logger(QObject *parent = Q_NULLPTR);
 	~Logger() override;
 
-	void init(QTreeWidget* o, QCheckBox* w, QPlainTextEdit* d);
-
 	void clear();
 	void output(const QString& title, const QString& info);
 	void output(const char* buf, quint32 len);

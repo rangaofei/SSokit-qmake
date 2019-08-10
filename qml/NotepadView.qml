@@ -3,7 +3,7 @@ import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.12
 
 import src.notepadmodel 1.0
-
+import src.strings 1.0
 
 ColumnLayout{
     Layout.fillWidth: true
@@ -17,7 +17,7 @@ ColumnLayout{
         Layout.alignment: Qt.AlignHCenter
         TopButton {
             id:title
-            name:qsTr("Notepad")
+            name:Strings.mainTabNotePad
         }
     }
     Rectangle {

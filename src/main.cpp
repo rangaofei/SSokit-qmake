@@ -44,6 +44,8 @@ void registerQml(){
     qmlRegisterType<UdpClientModel>("src.udpclientmodel", 1, 0, "UdpClientModel");
     qmlRegisterType<SettingTool>("src.settingtool",1,0,"SettingTool");
     qmlRegisterType<ItemPort>("src.itemport", 1, 0, "ItemPort");
+    qmlRegisterSingletonType(QUrl("qrc:/assets/language/Strings.qml"), "src.strings", 1, 0, "Strings");
+    qmlRegisterSingletonType(QUrl("qrc:/qml/Colors.qml"),"src.colors",1,0,"Clors");
 }
 
 /**
@@ -56,6 +58,7 @@ int main(int argc, char *argv[]) {
     TranslatorTool translatorTool;
     translatorTool.initLanguage();
     registerQml();
+
 
     //    SQLiteTool *s=new SQLiteTool();
 
