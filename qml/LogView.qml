@@ -21,7 +21,7 @@ ColumnLayout{
 
     SendView{
         id:sendView
-        Layout.preferredHeight:130
+        Layout.preferredHeight:150
         Layout.fillWidth: true
         canSendMsg: canSendMsg
         onSendMsg: {
@@ -240,7 +240,7 @@ ColumnLayout{
 
     GroupBox{
         Layout.fillWidth: true
-        Layout.preferredHeight: 100
+        Layout.preferredHeight: 50
         background: Rectangle{radius: 5;color:"#00000000";border.color: "#bdbdbd";border.width: 1}
         ColumnLayout{
             width: parent.width

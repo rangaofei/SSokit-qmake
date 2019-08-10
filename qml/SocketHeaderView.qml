@@ -2,80 +2,153 @@ import QtQuick 2.0
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 
-GridLayout{
+
+ColumnLayout{
     property int content_Width: 150
+    property int content_height: 30
     property bool checkEnabled: false
+    property bool isVisible: true
+    //    visible: isVisible
 
-    columns: 3
-    rows: 4
-    columnSpacing: 10
-    Label{
-        Layout.columnSpan: 1
-        text: qsTr("Header:")
-        verticalAlignment: Text.AlignVCenter
-        horizontalAlignment: Text.AlignHCenter
-    }
-    TextField{
-        id:header
-        Layout.columnSpan: 2
-        Layout.preferredWidth: content_Width
-        background: Rectangle {
-            color: enabled ? "transparent" : "#00ffffff"
-            border.color: enabled ? "#bdbdbd" : "#bdbdbd"
-            radius: 3
+    id:container
+    RowLayout{
+        Layout.fillWidth: true
+        Layout.preferredHeight: 30
+        Label{
+            text: qsTr("Header")
+            Layout.preferredHeight: content_height
+            Layout.preferredWidth: 50
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
+        }
+        TextField{
+            id:header
+            Layout.preferredWidth: content_Width
+            Layout.preferredHeight: content_height
+            background: Rectangle {
+                color: enabled ? "transparent" : "#00ffffff"
+                border.color: enabled ? "#bdbdbd" : "#bdbdbd"
+                radius: 3
+            }
         }
     }
-    Text{
-        Layout.columnSpan: 1
-        Layout.preferredWidth:50
-        Layout.preferredHeight: 25
-        verticalAlignment: Text.AlignVCenter
-        horizontalAlignment: Text.AlignHCenter
-        text: qsTr("长度类型")
-    }
-    EditComboBox{
-        id:lengthSizeBox
-        Layout.columnSpan: 2
-        Layout.preferredWidth: content_Width
-        editable: false
-        //                enabled: canSendMsg
-        model: ListModel {
-            id: model
-            ListElement { text: qsTr("none") }
-            ListElement { text: qsTr("short") }
-            ListElement { text: qsTr("int") }
-        }
+    RowLayout{
+        ColumnLayout{
+            RowLayout{
+                Layout.fillWidth: true
+                Layout.preferredHeight: 30
+                Text{
+                    Layout.preferredWidth:50
+                    Layout.preferredHeight: content_height
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    text: qsTr("type")
+                }
+                EditComboBox{
+                    id:lengthSizeBox
+                    Layout.preferredHeight: content_height
+                    Layout.preferredWidth: content_Width*2/3
+                    showLeftIndicator: false
+                    editable: false
+                    model: ListModel {
+                        id: model
+                        ListElement { text: qsTr("None") }
+                        ListElement { text: qsTr("Short") }
+                        ListElement { text: qsTr("Int") }
+                    }
 
-    }
-    Text{
-        Layout.columnSpan: 1
-        Layout.preferredWidth: 50
-        Layout.preferredHeight: 25
-        verticalAlignment: Text.AlignVCenter
-        horizontalAlignment: Text.AlignHCenter
-        text: qsTr("Endian")
-    }
-    EditComboBox{
-        id:endianBox
-        Layout.columnSpan: 2
-        Layout.preferredWidth: content_Width
-        currentIndex: 0
-        model: ListModel {
-            ListElement { text: qsTr("Big") }
-            ListElement { text: qsTr("Little") }
+                }
+            }
+            RowLayout{
+                Layout.fillWidth: true
+                Layout.preferredHeight: 30
+                Text{
+                    Layout.preferredWidth: 50
+                    Layout.preferredHeight: content_height
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    text: qsTr("Endian")
+                }
+                EditComboBox{
+                    id:endianBox
+                    Layout.preferredHeight: content_height
+                    Layout.preferredWidth: content_Width*2/3
+                    showLeftIndicator: false
+                    currentIndex: 0
+                    model: ListModel {
+                        ListElement { text: qsTr("Big") }
+                        ListElement { text: qsTr("Little") }
+                    }
+                }
+            }
+        }
+        ColumnLayout{
+            Layout.fillWidth: true
+            Layout.preferredHeight: 30
+//            Text{
+//                Layout.preferredWidth: 50
+//                Layout.preferredHeight: 20
+//                verticalAlignment: Text.AlignVCenter
+//                horizontalAlignment: Text.AlignHCenter
+//                text: qsTr("Enable")
+//                visible: true
+//            }
+
+            RoundCheckBox{
+                id:withHeader
+                enabled: checkEnabled
+                Layout.preferredWidth: content_Width/3
+                Layout.preferredHeight: 50
+                checked: false
+                showText: false
+                text: qsTr("添加")
+                visible: true
+            }
         }
     }
-    RoundCheckBox{
-        id:withHeader
-        Layout.columnSpan: 3
-        enabled: checkEnabled
-        Layout.preferredWidth: 50
-        Layout.fillHeight:false
-        Layout.preferredHeight: 25
-        checked: false
-        showText: false
-        text: qsTr("添加")
+    //组合动画
+    ParallelAnimation{
+        id: menuStartAnim
+        //属性动画
+        NumberAnimation{
+            target: container
+            properties: "x"
+            from:-210
+            to: 0
+            //动画持续时间，毫秒
+            duration: 300
+            //动画渐变曲线
+            easing.type: Easing.OutQuad
+        }
+        NumberAnimation{
+            target: container
+            properties: "opacity"
+            from: 0.2
+            to: 1.0
+            duration: 300;
+            easing.type: Easing.OutQuad
+        }
     }
+    ParallelAnimation{
+        id: menuStopAnim
+        NumberAnimation{
+            target: container
+            properties: "x"
+            from: 0
+            to: -210
+            duration: 300
+            easing.type: Easing.Linear
+        }
+        NumberAnimation{
+            target: container
+            properties: "opacity"
+            from: 1.0
+            to: 0.2
+            duration: 500;
+            easing.type: Easing.Linear
+        }
+    }
+
     function getHeader(){
         console.log("header text::"+header.text)
         return header.text
@@ -90,6 +163,14 @@ GridLayout{
     }
     function isWithHeader(){
         return withHeader.checked
+    }
+
+    function startShow(){
+        menuStartAnim.start()
+    }
+
+    function stopShow(){
+        menuStopAnim.start()
     }
 }
 

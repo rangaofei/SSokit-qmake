@@ -94,6 +94,7 @@ Drawer {
                 container_shortcut.checked=false
                 tabView.currentIndex=0
             }
+            visible: false
         }
         ImageButton{
             id:container_shortcut

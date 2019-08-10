@@ -20,10 +20,10 @@ Rectangle{
         anchors.horizontalCenter: parent.horizontalCenter
         currentIndex: view.currentIndex
         TopButton {
-            name:"Server"
+            name:qsTr("Server")
         }
         TopButton{
-            name:"Client"
+            name:qsTr("Client")
         }
 //        TopButton{
 //            name:"UdpTransfer"

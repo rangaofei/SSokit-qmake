@@ -4,6 +4,7 @@ import QtQuick.Controls 2.12
 ComboBox {
     property int maxLength: 32767
     property var validate
+    property var showLeftIndicator: true
     id: control
     rightPadding: 10
     delegate: ItemDelegate {
@@ -22,7 +23,7 @@ ComboBox {
             id:selectIndic
             x: 5
             y: (parent.height-20)/2
-            visible:control.currentIndex === index
+            visible:showLeftIndicator&&control.currentIndex === index
             color: parent.highlighted?"white":"black"
             Connections{
                 target: control

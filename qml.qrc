@@ -51,5 +51,6 @@
         <file>assets/images/function.png</file>
         <file>qml/SocketHeaderView.qml</file>
         <file>qml/LogViewDelegate.qml</file>
+        <file>assets/images/header_setting.png</file>
     </qresource>
 </RCC>

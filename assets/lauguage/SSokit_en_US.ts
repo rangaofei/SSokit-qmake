@@ -20,7 +20,7 @@
     </message>
     <message>
         <location filename="../../qml/AboutDialog.qml" line="82"/>
-        <source>1.0.3 - Base On Qt5.13.0</source>
+        <source>1.0.4 - Base On Qt5.13.0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -48,7 +48,7 @@
     </message>
     <message>
         <location filename="../../qml/AboutSettingView.qml" line="36"/>
-        <source>1.0.3 - Base On Qt5.13.0</source>
+        <source>1.0.4 - Base On Qt5.13.0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -124,32 +124,50 @@
 <context>
     <name>LogView</name>
     <message>
-        <location filename="../../qml/LogView.qml" line="37"/>
+        <location filename="../../qml/LogView.qml" line="47"/>
         <source>Recv : </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../qml/LogView.qml" line="45"/>
+        <location filename="../../qml/LogView.qml" line="55"/>
         <source>Send : </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../qml/LogView.qml" line="61"/>
+        <location filename="../../qml/LogView.qml" line="71"/>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../qml/LogView.qml" line="109"/>
+        <location filename="../../qml/LogView.qml" line="119"/>
         <source>Time:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../qml/LogView.qml" line="134"/>
+        <location filename="../../qml/LogView.qml" line="144"/>
         <source>Ip:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../qml/LogView.qml" line="160"/>
+        <location filename="../../qml/LogView.qml" line="170"/>
+        <source>Length:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LogViewDelegate</name>
+    <message>
+        <location filename="../../qml/LogViewDelegate.qml" line="50"/>
+        <source>Time:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../qml/LogViewDelegate.qml" line="74"/>
+        <source>Ip:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../qml/LogViewDelegate.qml" line="100"/>
         <source>Length:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -214,29 +232,30 @@
 <context>
     <name>SendView</name>
     <message>
-        <location filename="../../qml/SendView.qml" line="26"/>
-        <source>Header:</source>
+        <location filename="../../qml/SendView.qml" line="46"/>
+        <source>Buf1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../qml/SendView.qml" line="49"/>
-        <source>添加</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../qml/SendView.qml" line="59"/>
-        <source>Buf1:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../qml/SendView.qml" line="79"/>
-        <location filename="../../qml/SendView.qml" line="115"/>
+        <location filename="../../qml/SendView.qml" line="66"/>
+        <location filename="../../qml/SendView.qml" line="103"/>
+        <location filename="../../qml/SendView.qml" line="140"/>
         <source>send</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../qml/SendView.qml" line="95"/>
-        <source>Buf2:</source>
+        <location filename="../../qml/SendView.qml" line="83"/>
+        <source>Buf2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../qml/SendView.qml" line="120"/>
+        <source>Buf3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../qml/SendView.qml" line="157"/>
+        <source>advance</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -296,12 +315,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../qml/SettingView.qml" line="86"/>
+        <location filename="../../qml/SettingView.qml" line="85"/>
+        <source>function</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../qml/SettingView.qml" line="104"/>
         <source>shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../qml/SettingView.qml" line="102"/>
+        <location filename="../../qml/SettingView.qml" line="121"/>
         <source>about</source>
         <translation type="unfinished"></translation>
     </message>
@@ -320,10 +344,84 @@
     </message>
 </context>
 <context>
+    <name>SocketHeaderView</name>
+    <message>
+        <location filename="../../qml/SocketHeaderView.qml" line="18"/>
+        <source>Header</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../qml/SocketHeaderView.qml" line="45"/>
+        <source>type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../qml/SocketHeaderView.qml" line="55"/>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../qml/SocketHeaderView.qml" line="56"/>
+        <source>Short</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../qml/SocketHeaderView.qml" line="57"/>
+        <source>Int</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../qml/SocketHeaderView.qml" line="70"/>
+        <source>Endian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../qml/SocketHeaderView.qml" line="79"/>
+        <source>Big</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../qml/SocketHeaderView.qml" line="80"/>
+        <source>Little</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../qml/SocketHeaderView.qml" line="104"/>
+        <source>添加</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TcpView</name>
+    <message>
+        <location filename="../../qml/TcpView.qml" line="23"/>
+        <source>Server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../qml/TcpView.qml" line="26"/>
+        <source>Client</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TransferView</name>
     <message>
         <location filename="../../qml/TransferView.qml" line="15"/>
         <source>Server</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UdpView</name>
+    <message>
+        <location filename="../../qml/UdpView.qml" line="23"/>
+        <source>Server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../qml/UdpView.qml" line="26"/>
+        <source>Client</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
