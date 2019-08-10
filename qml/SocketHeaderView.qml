@@ -49,11 +49,12 @@ ColumnLayout{
                     Layout.preferredWidth: content_Width*2/3
                     showLeftIndicator: false
                     editable: false
+                    currentIndex:0
                     model: ListModel {
                         Component.onCompleted: {
-                            append({ text: Strings.headerNone })
-                            append({ text: Strings.headerShort })
-                            append({ text: Strings.headerInt })
+                            append({ text: Strings.headerLengthValue[0] })
+                            append({ text: Strings.headerLengthValue[1] })
+                            append({ text: Strings.headerLengthValue[2] })
                         }
                     }
 
@@ -138,7 +139,7 @@ ColumnLayout{
             from: 0
             to: -210
             duration: 300
-            easing.type: Easing.Linear
+            easing.type: Easing.OutQuad
         }
         NumberAnimation{
             target: container
@@ -146,7 +147,7 @@ ColumnLayout{
             from: 1.0
             to: 0.2
             duration: 500;
-            easing.type: Easing.Linear
+            easing.type: Easing.OutQuad
         }
     }
 
