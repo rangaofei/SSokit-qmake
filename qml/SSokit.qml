@@ -14,10 +14,11 @@ ApplicationWindow{
     }
     //帮助对话框
     HelpDialog{
-        id:helpdialog
+        id:helpDialog
         showing:false
     }
 
+    //设置工具
     SettingTool{
         id:settingtool
     }
@@ -39,7 +40,7 @@ ApplicationWindow{
         anchors.bottom: parent.bottom
         TabBar {
             id: footerBar
-            contentWidth:  parent.width
+            contentWidth: parent.width
             currentIndex: view.currentIndex
             anchors.bottom: parent.bottom
             leftPadding: 50
@@ -83,22 +84,16 @@ ApplicationWindow{
             currentIndex: footerBar.currentIndex
             clip: true
             interactive:false
-            TcpView{
+            TcpView{}
 
-            }
-
-            UdpView{
-
-            }
+            UdpView{}
             //        WebSocketView{}
 
             //            BlueToothView{
 
             //            }
 
-            NotepadView{
-
-            }
+            NotepadView{}
             //            ColorList{
 
             //            }
@@ -112,14 +107,7 @@ ApplicationWindow{
             anchors.top: parent.top
             anchors.margins:15
             TapHandler {
-                onTapped: {
-                    if(!drawer.visible){
-                        drawer.open()
-                    }else{
-                        drawer.close()
-                    }
-                }
-
+                onTapped: toggleDrawer()
             }
             visible: true
         }
@@ -134,7 +122,6 @@ ApplicationWindow{
             anchors.margins:15
             TapHandler {
                 onTapped: toggleAboutDialog()
-
             }
             visible: true
         }
@@ -143,41 +130,39 @@ ApplicationWindow{
 
     SettingView {
         id: drawer
-        width: parent.width*0.5
+        width: 400
         height: parent.height
         modal: true
         dim:false
         onDrawXChanged: {
             container.x=positionXPercent*drawer.width
-//            container.scale=1-positionXPercent<0.8?0.8:1-positionXPercent
         }
     }
-
+    //关闭时保存当前窗口位置
     onClosing: {
         settingtool.setWindowPosition(window.x,window.y)
     }
-
-    //    Shortcut{
-    //        sequence: "F1"
-    //        context:Qt.ApplicationShortcut
-    //        onActivated: helpdialog.toggleDialog()
-    //    }
-
+    //切换tab的快捷键
     Shortcut{
         sequences: ["shift+tab"]
         context: Qt.ApplicationShortcut
         onActivated: switchTab()
     }
+    //切换tab
     function switchTab(){
         footerBar.currentIndex++
         footerBar.currentIndex=footerBar.currentIndex % footerBar.count
     }
-    function showDialog(){
-        helpdialog.toggleDialog()
-    }
-
+    //开关关于对话框
     function toggleAboutDialog(){
         aboutDialog.toggleAboutDialog()
     }
-
+    //开关设置抽屉
+    function toggleDrawer(){
+        if(!drawer.visible){
+            drawer.open()
+        }else{
+            drawer.close()
+        }
+    }
 }
