@@ -42,7 +42,7 @@ Row{
 
     ServerControlView{
         id:serverControl
-        viewType: 2
+        viewType: 4
         onStartConnect: {
             console.log("start udp client---"+addr+":"+port)
             udpModel.toggleConnect(checked,addr,port)

@@ -92,9 +92,9 @@ Drawer {
                 container_about.checked=false
                 container_general.checked=false
                 container_shortcut.checked=false
-                tabView.currentIndex=0
+                tabView.currentIndex=1
             }
-            visible: false
+            visible: true
         }
         ImageButton{
             id:container_shortcut
@@ -110,7 +110,7 @@ Drawer {
                 container_about.checked=false
                 container_general.checked=false
                 container_function.checked=false
-                tabView.currentIndex=1
+                tabView.currentIndex=2
             }
         }
         ImageButton{
@@ -127,7 +127,7 @@ Drawer {
                 container_general.checked=false
                 container_shortcut.checked=false
                 container_function.checked=false
-                tabView.currentIndex=2
+                tabView.currentIndex=3
             }
         }
     }
@@ -152,6 +152,9 @@ Drawer {
         Tab{
             GeneralSettingView{
             }
+        }
+        Tab{
+            FunctionSettingView{}
         }
         Tab{
             ShortCutSettingView{

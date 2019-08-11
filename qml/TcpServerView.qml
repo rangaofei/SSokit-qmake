@@ -13,8 +13,8 @@ Row{
 
     ServerControlView{
         id:serverControl
+        viewType: 1
         onStartConnect: {
-            console.log("打开开关:"+checked)
             tcpModel.toggleConnect(checked,addr,port)
         }
 
@@ -22,7 +22,6 @@ Row{
             tcpModel.kill(addr)
         }
         onConnectState: {
-            console.log("change state "+state)
             tcpLog.setSendMsgState(state)
         }
     }

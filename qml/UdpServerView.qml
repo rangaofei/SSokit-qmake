@@ -19,6 +19,7 @@ Row{
 
     ServerControlView{
         id:serverControl
+        viewType: 3
         onStartConnect: {
             udpModel.toggleConnect(checked,addr,port)
         }
