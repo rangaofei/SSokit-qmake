@@ -1,4 +1,4 @@
-import QtQuick.Controls 2.5
+import QtQuick.Controls 2.12
 import QtQuick 2.12
 import QtQuick.Layouts 1.12
 import src.settingtool 1.0
@@ -38,8 +38,10 @@ ApplicationWindow{
             contentWidth: parent.width
             currentIndex: view.currentIndex
             anchors.bottom: parent.bottom
-            leftPadding: 50
-            rightPadding: 50
+            anchors.left: parent.left
+            anchors.right: parent.right
+            leftPadding: 20
+            rightPadding: 20
             background: Rectangle {
                 color: "#37474f"
             }
@@ -61,7 +63,6 @@ ApplicationWindow{
             //            text:Strings.mainTabCOM
             //        }
             BottomButton{
-                id:notepad
                 text:Strings.mainTabNotePad
             }
             //        BottomButton{
@@ -147,5 +148,8 @@ ApplicationWindow{
     function switchTab(){
         footerBar.currentIndex++
         footerBar.currentIndex=footerBar.currentIndex % footerBar.count
+    }
+    Component.onCompleted: {
+        console.log("main window width::"+footerBar.width)
     }
 }
