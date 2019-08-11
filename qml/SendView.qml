@@ -22,6 +22,7 @@ GroupBox{
         SocketHeaderView{
             id:socketView
             checkEnabled: canSendMsg
+            state: showHeader.checked?"in":"out"
         }
 
         Rectangle{
@@ -151,39 +152,12 @@ GroupBox{
                 Layout.fillWidth: true
                 Layout.fillHeight: false
                 Layout.preferredHeight: 30
-                CheckBox{
+                GeneralCheckBox{
                     Layout.leftMargin: 50
                     id:showHeader
                     text: Strings.sendAdvance
                     Layout.preferredHeight: 16
-                    checked: true
-                    indicator: Rectangle{
-                        implicitWidth: 14;
-                        implicitHeight: 14;
-                        border.color: "gray";
-                        border.width: 1;
-                        color: "#00000000"
-                        Canvas{
-                            anchors.fill: parent;
-                            anchors.margins: 3;
-                            visible: showHeader.checked;
-                            onPaint: {
-                                var ctx = getContext("2d");
-                                ctx.save();
-                                ctx.strokeStyle = "#37474f";
-                                ctx.lineWidth = 2;
-                                ctx.fillStyle = "#00000000"
-                                ctx.lineCap="round";
-                                ctx.beginPath();
-                                ctx.moveTo(2,5);
-                                ctx.lineTo(4,7);
-                                ctx.lineTo(7,2);
-                                ctx.stroke();
-                            }
-                        }
-                    }
-
-
+                    checked: false
 
                     onCheckedChanged: {
                         if(checked){
@@ -204,15 +178,6 @@ GroupBox{
         }
     }
 
-    Component{
-
-
-        id: checkStyle;
-        CheckBoxStyle{
-
-
-        }
-    }
 
     function sendMessage(buf){
         if(socketView.isWithHeader()){

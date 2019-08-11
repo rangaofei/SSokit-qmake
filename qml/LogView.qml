@@ -22,7 +22,7 @@ ColumnLayout{
 
     SendView{
         id:sendView
-        Layout.preferredHeight:150
+        Layout.preferredHeight:160
         Layout.fillWidth: true
         canSendMsg: canSendMsg
         onSendMsg: {
