@@ -49,10 +49,10 @@
         <file>qml/SocketHeaderView.qml</file>
         <file>qml/LogViewDelegate.qml</file>
         <file>assets/images/header_setting.png</file>
-        <file>qml/Colors.qml</file>
         <file>assets/language/Strings.qml</file>
         <file>assets/language/SSokit_en_US.qm</file>
         <file>assets/language/SSokit_zh_CN.qm</file>
         <file>assets/Colors.qml</file>
+        <file>qml/GeneralCheckBox.qml</file>
     </qresource>
 </RCC>
