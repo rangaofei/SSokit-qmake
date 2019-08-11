@@ -144,6 +144,11 @@ ApplicationWindow{
         context: Qt.ApplicationShortcut
         onActivated: switchTab()
     }
+    Shortcut{
+        sequence: StandardKey.Preferences
+        context: Qt.ApplicationShortcut
+        onActivated: drawer.toggleDrawer()
+    }
     //切换tab
     function switchTab(){
         footerBar.currentIndex++
