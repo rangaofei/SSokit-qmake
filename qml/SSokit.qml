@@ -40,8 +40,8 @@ ApplicationWindow{
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: parent.right
-            leftPadding: 20
-            rightPadding: 20
+            leftPadding: 30
+            rightPadding: 30
             background: Rectangle {
                 color: "#37474f"
             }
@@ -148,8 +148,5 @@ ApplicationWindow{
     function switchTab(){
         footerBar.currentIndex++
         footerBar.currentIndex=footerBar.currentIndex % footerBar.count
-    }
-    Component.onCompleted: {
-        console.log("main window width::"+footerBar.width)
     }
 }

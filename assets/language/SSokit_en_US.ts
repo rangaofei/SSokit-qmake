@@ -93,7 +93,8 @@
     </message>
     <message>
         <location filename="Strings.qml" line="25"/>
-        <source>1.0.4 - Base On Qt5.13.0</source>
+        <source>1.0.5 - Base On Qt5.13.0</source>
+        <oldsource>1.0.4 - Base On Qt5.13.0</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -190,7 +191,7 @@
     </message>
     <message>
         <location filename="Strings.qml" line="52"/>
-        <location filename="Strings.qml" line="73"/>
+        <location filename="Strings.qml" line="74"/>
         <source>Length</source>
         <translation type="unfinished"></translation>
     </message>
@@ -246,7 +247,8 @@
     </message>
     <message>
         <location filename="Strings.qml" line="69"/>
-        <source>ort must be between 1024-63365</source>
+        <source>Port must be between 1024-63365</source>
+        <oldsource>ort must be between 1024-63365</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -255,33 +257,43 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="74"/>
-        <source>None</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="Strings.qml" line="74"/>
-        <source>Short</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="Strings.qml" line="74"/>
-        <source>Int</source>
+        <location filename="Strings.qml" line="73"/>
+        <source>Tailer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Strings.qml" line="75"/>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Strings.qml" line="75"/>
+        <source>Short</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Strings.qml" line="75"/>
+        <source>Int</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Strings.qml" line="76"/>
         <source>Endian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="76"/>
+        <location filename="Strings.qml" line="77"/>
         <source>Big</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="76"/>
+        <location filename="Strings.qml" line="77"/>
         <source>Little</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Strings.qml" line="78"/>
+        <source>Enable</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

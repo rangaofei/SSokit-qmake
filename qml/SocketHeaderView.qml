@@ -31,6 +31,28 @@ ColumnLayout{
             }
         }
     }
+
+    RowLayout{
+        Layout.fillWidth: true
+        Layout.preferredHeight: 30
+        Label{
+            text: Strings.tailer
+            Layout.preferredHeight: content_height
+            Layout.preferredWidth: 50
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
+        }
+        TextField{
+            id:tailer
+            Layout.preferredWidth: content_Width
+            Layout.preferredHeight: content_height
+            background: Rectangle {
+                color: enabled ? "transparent" : "#00ffffff"
+                border.color: enabled ? "#bdbdbd" : "#bdbdbd"
+                radius: 3
+            }
+        }
+    }
     RowLayout{
         ColumnLayout{
             RowLayout{
@@ -87,21 +109,22 @@ ColumnLayout{
         }
         ColumnLayout{
             Layout.fillWidth: true
+            Layout.leftMargin: 10
             Layout.preferredHeight: 30
-            //            Text{
-            //                Layout.preferredWidth: 50
-            //                Layout.preferredHeight: 20
-            //                verticalAlignment: Text.AlignVCenter
-            //                horizontalAlignment: Text.AlignHCenter
-            //                text: qsTr("Enable")
-            //                visible: true
-            //            }
+            Text{
+                Layout.preferredWidth: 30
+                Layout.preferredHeight: 20
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                text: Strings.headerEnable
+                visible: true
+            }
 
             RoundCheckBox{
                 id:withHeader
                 enabled: checkEnabled
-                Layout.preferredWidth: content_Width/3
-                Layout.preferredHeight: 50
+                Layout.preferredWidth: 30
+                Layout.preferredHeight: 30
                 checked: false
                 showText: false
                 visible: true
@@ -136,8 +159,11 @@ ColumnLayout{
 
 
     function getHeader(){
-        console.log("header text::"+header.text)
         return header.text
+    }
+
+    function getTailer(){
+        return tailer.text
     }
 
     function getLengthSize(){

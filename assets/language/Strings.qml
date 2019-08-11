@@ -22,9 +22,9 @@ QtObject {
     property var aboutDialogTitle: qsTr("About SSokit")
     property var author: qsTr("Author")
     property var version: qsTr("Version")
-    property var versionValue: qsTr("1.0.4 - Base On Qt5.13.0")
+    property var versionValue: qsTr("1.0.5 - Base On Qt5.13.0")
     property var releaseDate: qsTr("ReleaseDate")
-    property var releaseDateValue: "2019.8.10"
+    property var releaseDateValue: "2019.8.11"
     property var source: qsTr("Source")
 
     //SettingView
@@ -66,12 +66,14 @@ QtObject {
     property var controlTime: qsTr("Time")
     property var controlDisconnect: qsTr("Disconnect")
     property var controlDisable: qsTr("Disable")
-    property var controlPortTip: qsTr("ort must be between 1024-63365")
+    property var controlPortTip: qsTr("Port must be between 1024-63365")
 
     //SocketHeaderView
     property var header: qsTr("Header")
+    property var tailer: qsTr("Tailer")
     property var headerLengthType: qsTr("Length")
     property var headerLengthValue: [qsTr("None"),qsTr("Short"),qsTr("Int")]
     property var headerEndian: qsTr("Endian")
     property var headerEndianValue: [qsTr("Big"),qsTr("Little")]
+    property var headerEnable: qsTr("Enable")
 }

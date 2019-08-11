@@ -184,7 +184,8 @@ GroupBox{
             var headerStr=socketView.getHeader()
             var isBigEndian=socketView.isBigEndian()
             var length=socketView.getLengthSize()
-            sendMsgWithHeader(headerStr,length,isBigEndian,buf)
+            var bufWithTailer=buf+socketView.getTailer()
+            sendMsgWithHeader(headerStr,length,isBigEndian,bufWithTailer)
         }else{
             sendMsg(buf)
         }
