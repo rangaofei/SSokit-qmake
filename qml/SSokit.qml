@@ -144,11 +144,13 @@ ApplicationWindow{
         context: Qt.ApplicationShortcut
         onActivated: switchTab()
     }
+    //显示设置的快捷键
     Shortcut{
-        sequence: StandardKey.Preferences
+        sequences: [StandardKey.Preferences,"Ctrl+S"]
         context: Qt.ApplicationShortcut
         onActivated: drawer.toggleDrawer()
     }
+
     //切换tab
     function switchTab(){
         footerBar.currentIndex++

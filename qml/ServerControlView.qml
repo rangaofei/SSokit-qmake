@@ -310,7 +310,7 @@ Column {
         for(var i=0;i<ports.length;i++){
             portListModel.append({port:ports[i]})
         }
-
+        portBox.currentIndex=0
     }
 
     Component.onDestruction: {

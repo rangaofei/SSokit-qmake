@@ -6,90 +6,83 @@ import src.strings 1.0
 Item{
     anchors.fill:parent
     anchors.topMargin: 50
-
-    RowLayout{
+    GroupBox{
         id:layout_language
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.right: parent.right
-        Text {
-            Layout.fillWidth: true
-            Layout.maximumWidth: parent.width/3
-            id: language
-            text: Strings.settingLanguage
+        title: Strings.settingLanguage
+        implicitWidth: parent.width
+        background: Rectangle{
+            color: "#00000000"
         }
-        EditComboBox {
-            id:language_box
-            editable: false
-            Layout.fillWidth: true
-            Layout.maximumHeight: parent.width*2/3
-            currentIndex:settingTool.getLanguage()
-            model: ListModel {
-                id: model
-                Component.onCompleted: {
-                    append({ text: Strings.settingLanguageValues[0] })
-                    append({ text: Strings.settingLanguageValues[1] })
+        ColumnLayout{
+
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.right: parent.right
+
+            EditComboBox {
+                id:language_box
+                editable: false
+                Layout.fillWidth: true
+                Layout.maximumHeight: parent.width*2/3
+                currentIndex:settingTool.getLanguage()
+                model: ListModel {
+                    id: model
+                    Component.onCompleted: {
+                        append({ text: Strings.settingLanguageValues[0] })
+                        append({ text: Strings.settingLanguageValues[1] })
+                    }
+                }
+                onActivated: {
+                    settingTool.setLanguage(index)
                 }
             }
-            onActivated: {
-                settingTool.setLanguage(index)
+            RowLayout{
+                Layout.alignment: Qt.AlignRight
+                Image{
+                    Layout.preferredWidth: 12
+                    Layout.preferredHeight: 12
+                    source: "qrc:/assets/images/about.png"
+                }
+                Text{
+                    text: Strings.settingLanguageTip
+                    font.bold: false
+                    font.pixelSize: 10
+                    color: "#000000"
+                }
+            }
+            Rectangle{
+                Layout.topMargin: 20
+                Layout.fillWidth: true
+                Layout.preferredHeight:1
+                color: "#bdbdbd"
             }
         }
     }
-    RowLayout{
-        id:layout_language_tip
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.topMargin: 10
+
+    GroupBox{
+        id:layout_window
         anchors.top: layout_language.bottom
-        Item {
-            Layout.alignment: Qt.AlignVCenter
-            Layout.maximumWidth: parent.width/3
-            Layout.fillWidth: true
-            //                        Image{
-            //                            width: 15
-            //                            height: 15
-            //                            anchors.right: parent.right
-            //                            source: "qrc:/assets/images/about.png"
-            //                        }
+        anchors.topMargin: 20
+        implicitWidth: parent.width
+        background: Rectangle{
+            color: "#00000000"
         }
-        Item {
-
-            Layout.alignment: Qt.AlignHCenter|Qt.AlignRight
-            Layout.maximumWidth: parent.width*2/3
-            Layout.fillWidth: true
-            Text{
-                text: Strings.settingLanguageTip
-                font.bold: false
-                font.pixelSize: 10
-                color: "#000000"
+        title: "Window"
+        ColumnLayout{
+            anchors.left: parent.left
+            anchors.right: parent.right
+            GeneralCheckBox{
+                text: "记住窗口位置"
             }
-        }
-    }
-
-    Rectangle{
-        id:divider1
-        anchors.top: layout_language_tip.bottom
-        anchors.topMargin: 20
-        anchors.left: parent.left
-        anchors.right: parent.right
-        height:1
-        color: "#bdbdbd"
-    }
-    RowLayout{
-        id:layout_port
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: divider1.bottom
-        anchors.topMargin: 20
-        visible: false
-        Text {
-            Layout.fillWidth: true
-            Layout.maximumWidth: parent.width/3
-            id: port
-            text: Strings.settingRememberPort
-        }
-        CheckBox{
+            GeneralCheckBox{
+                text: "记住窗口大小"
+            }
+            Rectangle{
+                Layout.topMargin: 20
+                Layout.fillWidth: true
+                Layout.preferredHeight:1
+                color: "#bdbdbd"
+            }
         }
     }
 }

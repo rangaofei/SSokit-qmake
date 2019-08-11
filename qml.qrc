@@ -54,5 +54,6 @@
         <file>assets/language/SSokit_zh_CN.qm</file>
         <file>assets/Colors.qml</file>
         <file>qml/GeneralCheckBox.qml</file>
+        <file>qml/FunctionSettingView.qml</file>
     </qresource>
 </RCC>
