@@ -15,15 +15,15 @@ Just download the dmg file and double click then it will run ok,also ,you can co
 
 It can used be as a Tcp/Udp server,the user interface is just like this :
 
-![](https://github.com/rangaofei/SSokit-qmake/blob/master/img/1.png)
+![](https://github.com/rangaofei/SSokit-qmake/blob/master/img/1_en.png)
 
 or it can be used as a TcpClient/UdpClient,the user interface is just like this :
 
-![](https://github.com/rangaofei/SSokit-qmake/blob/master/img/2.png)
+![](https://github.com/rangaofei/SSokit-qmake/blob/master/img/2_en.png)
 
 And now you can active the Checkbox under the bufData line,you can see an advance setting view.
 
-![](https://github.com/rangaofei/SSokit-qmake/blob/master/img/3.png)
+![](https://github.com/rangaofei/SSokit-qmake/blob/master/img/3_en.png)
 
 Then you can setting the headers format,here is a brief introduction
 
@@ -33,7 +33,7 @@ Then you can setting the headers format,here is a brief introduction
 
 `Endian` just as the littleEndian and bigEndian of the Length.
 
-![](https://github.com/rangaofei/SSokit-qmake/blob/master/img/4.png)
+![](https://github.com/rangaofei/SSokit-qmake/blob/master/img/4_en.png)
 
 Be happy with it.
 **This app is a advanced qml project for sokit
