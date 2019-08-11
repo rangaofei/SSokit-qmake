@@ -45,7 +45,7 @@ void registerQml(){
     qmlRegisterType<SettingTool>("src.settingtool",1,0,"SettingTool");
     qmlRegisterType<ItemPort>("src.itemport", 1, 0, "ItemPort");
     qmlRegisterSingletonType(QUrl("qrc:/assets/language/Strings.qml"), "src.strings", 1, 0, "Strings");
-    qmlRegisterSingletonType(QUrl("qrc:/qml/Colors.qml"),"src.colors",1,0,"Clors");
+    qmlRegisterSingletonType(QUrl("qrc:/assets/Colors.qml"),"src.colors",1,0,"Colors");
 }
 
 /**
