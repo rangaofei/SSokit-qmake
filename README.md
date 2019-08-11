@@ -70,7 +70,7 @@ MacOS版本下载地址:
 
 - `Header` 添加到发送信息的最开始，可以输入16进制或者asc码
 
-- `Length` 选择`None`不会添加buf+header的长度到header之后；选择`Short`将会添加一个占2byte的短整型buf+header的长度到header之后，buf之前；选择`Int`将会添加一个占4byte的整型buf+header的长度到header之后，buf之前。
+- `Length` 选择`None`不会添加buf+tailer的长度到header之后；选择`Short`将会添加一个占2byte的短整型buf+tailer的长度到header之后，buf之前；选择`Int`将会添加一个占4byte的整型buf+tailer的长度到header之后，buf之前。
 
 `Endian` 代表上边的length字节序采用的是大端模式还是小端模式
 
