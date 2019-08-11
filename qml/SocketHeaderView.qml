@@ -108,48 +108,32 @@ ColumnLayout{
             }
         }
     }
-    //组合动画
-    ParallelAnimation{
-        id: menuStartAnim
-        //属性动画
-        NumberAnimation{
-            target: container
-            properties: "x"
-            from:-210
-            to: 0
-            //动画持续时间，毫秒
-            duration: 300
-            //动画渐变曲线
-            easing.type: Easing.OutQuad
+
+    states: [
+        State {
+            name: "in"
+            PropertyChanges {
+                target: container
+                x:0
+                opacity:1.0
+            }
+        },
+        State {
+            name: "out"
+            PropertyChanges {
+                target: container
+                x:-210
+                opacity:0.5
+            }
         }
-        NumberAnimation{
-            target: container
-            properties: "opacity"
-            from: 0.2
-            to: 1.0
-            duration: 300;
-            easing.type: Easing.OutQuad
-        }
+    ]
+
+
+    transitions: Transition {
+        PropertyAnimation {
+            properties: "x,opacity"; duration: 200; easing.type: Easing.OutQuad }
     }
-    ParallelAnimation{
-        id: menuStopAnim
-        NumberAnimation{
-            target: container
-            properties: "x"
-            from: 0
-            to: -210
-            duration: 300
-            easing.type: Easing.OutQuad
-        }
-        NumberAnimation{
-            target: container
-            properties: "opacity"
-            from: 1.0
-            to: 0.2
-            duration: 500;
-            easing.type: Easing.OutQuad
-        }
-    }
+
 
     function getHeader(){
         console.log("header text::"+header.text)
@@ -168,11 +152,11 @@ ColumnLayout{
     }
 
     function startShow(){
-        menuStartAnim.start()
+        container.state="in"
     }
 
     function stopShow(){
-        menuStopAnim.start()
+        container.state="out"
     }
 }
 
