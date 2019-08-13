@@ -39,6 +39,9 @@ QtObject {
     property var settingLanguageValues: [qsTr("English"),qsTr("Chinese")]
     property var settingLanguageTip: qsTr("Effective after restart")
     property var settingRememberPort: qsTr("RememberPort")
+    property var settingWindow: qsTr("Window")
+    property var settingRememberPos: qsTr("Remember Window Position")
+    property var settingRememberSize: qsTr("Remember Window Size")
 
     //ShortCutSettingView
     property var settingSwtichTab: qsTr("SwitchTab")

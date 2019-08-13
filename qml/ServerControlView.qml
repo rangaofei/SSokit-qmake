@@ -308,8 +308,4 @@ Column {
         }
         portBox.currentIndex=0
     }
-
-    Component.onDestruction: {
-        console.log("ServerControllView onDestruction")
-    }
 }

@@ -44,13 +44,13 @@ Be happy with it.
 SSokit现在已经支持win系统和mac系统
 
 Windows版本下载地址:
-[https://coding.net/s/1565b4e8-f11f-4517-b14c-4c5c17614130](https://coding.net/s/1565b4e8-f11f-4517-b14c-4c5c17614130)
+[https://coding.net/u/rgf456/p/SSokit/git/raw/master/v1.0.5/SSokit.dmg](https://coding.net/u/rgf456/p/SSokit/git/raw/master/v1.0.5/SSokit.dmg)
 
 下载后直接解压到一个文件夹，双击SSokit.exe即可使用
 
 MacOS版本下载地址:
 
-[https://coding.net/s/6257256e-9369-44e0-8a6e-d9b56db18dfa](https://coding.net/s/6257256e-9369-44e0-8a6e-d9b56db18dfa)
+[https://coding.net/u/rgf456/p/SSokit/git/raw/master/v1.0.5/SSokit.dmg](https://coding.net/u/rgf456/p/SSokit/git/raw/master/v1.0.5/SSokit.dmg)
 
 下载后直接双击dmg文件即可使用，为了方便使用你也可以将它复制到`Application`中
 

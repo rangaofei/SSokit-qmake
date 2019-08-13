@@ -23,8 +23,9 @@ Item{
             EditComboBox {
                 id:language_box
                 editable: false
-                Layout.fillWidth: true
+                Layout.preferredWidth: parent.width/2
                 Layout.maximumHeight: parent.width*2/3
+                Layout.alignment: Qt.AlignRight
                 currentIndex:SettingTool.getLanguage()
                 model: ListModel {
                     id: model
@@ -68,15 +69,25 @@ Item{
         background: Rectangle{
             color: "#00000000"
         }
-        title: "Window"
+        title: Strings.settingWindow
         ColumnLayout{
             anchors.left: parent.left
             anchors.right: parent.right
             GeneralCheckBox{
-                text: "记住窗口位置"
+                Layout.alignment: Qt.AlignRight
+                text: Strings.settingRememberPos
+                checked: SettingTool.getRememberWindowPos()
+                onCheckStateChanged: {
+                    SettingTool.setRememberWindowPos(checked)
+                }
             }
             GeneralCheckBox{
-                text: "记住窗口大小"
+                Layout.alignment: Qt.AlignRight
+                text: Strings.settingRememberSize
+                checked: SettingTool.getRememberWindowSize()
+                onCheckStateChanged: {
+                    SettingTool.setRememberWindowSize(checked)
+                }
             }
             Rectangle{
                 Layout.topMargin: 20
