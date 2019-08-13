@@ -54,6 +54,9 @@ int SettingTool::getWindowHeight()
 
 void SettingTool::setWindowSize(int w, int h)
 {
+    if(!getRememberWindowSize()){
+        return;
+    }
     settings->setValue(WINDOW_W,w);
     settings->setValue(WINDOW_H,h);
     flush();
@@ -61,6 +64,9 @@ void SettingTool::setWindowSize(int w, int h)
 
 void SettingTool::setWindowPosition(int x, int y)
 {
+    if(!getRememberWindowPos()){
+        return;
+    }
     settings->setValue(POSITION_X,x);
     settings->setValue(POSITION_Y,y);
     flush();
@@ -157,4 +163,24 @@ void SettingTool::setShowHeader(bool show)
 bool SettingTool::getShowHeader()
 {
     return settings->value(SHOW_HEADER,false).toBool();
+}
+
+void SettingTool::setRememberWindowSize(bool remember)
+{
+    settings->setValue(REMEMBER_SIZE,remember);
+}
+
+bool SettingTool::getRememberWindowSize()
+{
+    return settings->value(REMEMBER_SIZE,true).toBool();
+}
+
+void SettingTool::setRememberWindowPos(bool remember)
+{
+    settings->setValue(REMEMBER_POSITION,remember);
+}
+
+bool SettingTool::getRememberWindowPos()
+{
+    return settings->value(REMEMBER_POSITION,true).toBool();
 }

@@ -25,6 +25,14 @@
     </message>
 </context>
 <context>
+    <name>FunctionSettingView</name>
+    <message>
+        <location filename="../../qml/FunctionSettingView.qml" line="8"/>
+        <source>等待完善</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Strings</name>
     <message>
         <location filename="Strings.qml" line="8"/>
@@ -158,141 +166,156 @@
         <translation>记住端口</translation>
     </message>
     <message>
+        <location filename="Strings.qml" line="42"/>
+        <source>Window</source>
+        <translation>窗口</translation>
+    </message>
+    <message>
+        <location filename="Strings.qml" line="43"/>
+        <source>Remember Window Position</source>
+        <translation>记住位置</translation>
+    </message>
+    <message>
         <location filename="Strings.qml" line="44"/>
+        <source>Remember Window Size</source>
+        <translation>记住大小</translation>
+    </message>
+    <message>
+        <location filename="Strings.qml" line="47"/>
         <source>SwitchTab</source>
         <translation>切换页面</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="47"/>
+        <location filename="Strings.qml" line="50"/>
         <source>Recv</source>
         <translation>接收</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="48"/>
-        <location filename="Strings.qml" line="55"/>
+        <location filename="Strings.qml" line="51"/>
+        <location filename="Strings.qml" line="58"/>
         <source>Send</source>
         <translation>发送</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="49"/>
+        <location filename="Strings.qml" line="52"/>
         <source>Clear</source>
         <translation>清除</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="50"/>
-        <location filename="Strings.qml" line="66"/>
+        <location filename="Strings.qml" line="53"/>
+        <location filename="Strings.qml" line="69"/>
         <source>Time</source>
         <translation>时间</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="51"/>
+        <location filename="Strings.qml" line="54"/>
         <source>IP</source>
         <translation>IP</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="52"/>
-        <location filename="Strings.qml" line="74"/>
+        <location filename="Strings.qml" line="55"/>
+        <location filename="Strings.qml" line="77"/>
         <source>Length</source>
         <translation>长度</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="56"/>
+        <location filename="Strings.qml" line="59"/>
         <source>Buf1</source>
         <translation>数据1</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="57"/>
+        <location filename="Strings.qml" line="60"/>
         <source>Buf2</source>
         <translation>数据2</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="58"/>
+        <location filename="Strings.qml" line="61"/>
         <source>Buf3</source>
         <translation>数据3</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="59"/>
+        <location filename="Strings.qml" line="62"/>
         <source>Advance</source>
         <translation>高级</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="62"/>
+        <location filename="Strings.qml" line="65"/>
         <source>ControlCenter</source>
         <translation>控制中心</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="63"/>
+        <location filename="Strings.qml" line="66"/>
         <source>ADDR</source>
         <translation>地址</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="64"/>
+        <location filename="Strings.qml" line="67"/>
         <source>PORT</source>
         <translation>端口</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="65"/>
+        <location filename="Strings.qml" line="68"/>
         <source>Connect</source>
         <translation>连接</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="67"/>
+        <location filename="Strings.qml" line="70"/>
         <source>Disconnect</source>
         <translation>断开</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="68"/>
+        <location filename="Strings.qml" line="71"/>
         <source>Disable</source>
         <translation>断开</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="69"/>
+        <location filename="Strings.qml" line="72"/>
         <source>Port must be between 1024-63365</source>
         <oldsource>ort must be between 1024-63365</oldsource>
         <translation>端口必须在1024-63365之间</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="72"/>
+        <location filename="Strings.qml" line="75"/>
         <source>Header</source>
         <translation>头信息</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="73"/>
+        <location filename="Strings.qml" line="76"/>
         <source>Tailer</source>
         <translation>尾信息</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="75"/>
+        <location filename="Strings.qml" line="78"/>
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="75"/>
+        <location filename="Strings.qml" line="78"/>
         <source>Short</source>
         <translation>短整型</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="75"/>
+        <location filename="Strings.qml" line="78"/>
         <source>Int</source>
         <translation>整型</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="76"/>
+        <location filename="Strings.qml" line="79"/>
         <source>Endian</source>
         <translation>字节序</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="77"/>
+        <location filename="Strings.qml" line="80"/>
         <source>Big</source>
         <translation>大端</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="77"/>
+        <location filename="Strings.qml" line="80"/>
         <source>Little</source>
         <translation>小端</translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="78"/>
+        <location filename="Strings.qml" line="81"/>
         <source>Enable</source>
         <translation>激活</translation>
     </message>

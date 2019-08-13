@@ -17,8 +17,8 @@ ApplicationWindow{
     id:window
     visible: true
     title: Strings.applicationTitle
-    width: windowW
-    height: windwoH
+    width: SettingTool.getRememberWindowSize()?SettingTool.getWindowWidth() : windowW
+    height: SettingTool.getRememberWindowSize()?SettingTool.getWindowHeight() : windwoH
     minimumWidth: windowW
     minimumHeight:windwoH
     x:SettingTool.getWindowPositionX()
@@ -133,6 +133,7 @@ ApplicationWindow{
     //关闭时保存当前窗口位置
     onClosing: {
         SettingTool.setWindowPosition(window.x,window.y)
+        SettingTool.setWindowSize(window.width,window.height)
     }
     //切换tab的快捷键
     Shortcut{
