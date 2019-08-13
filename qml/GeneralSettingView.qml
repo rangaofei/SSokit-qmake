@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import src.strings 1.0
+import src.settingtool 1.0
 
 Item{
     anchors.fill:parent
@@ -24,7 +25,7 @@ Item{
                 editable: false
                 Layout.fillWidth: true
                 Layout.maximumHeight: parent.width*2/3
-                currentIndex:settingTool.getLanguage()
+                currentIndex:SettingTool.getLanguage()
                 model: ListModel {
                     id: model
                     Component.onCompleted: {
@@ -33,7 +34,7 @@ Item{
                     }
                 }
                 onActivated: {
-                    settingTool.setLanguage(index)
+                    SettingTool.setLanguage(index)
                 }
             }
             RowLayout{

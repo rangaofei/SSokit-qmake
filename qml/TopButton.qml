@@ -6,12 +6,13 @@ TabButton {
     width: implicitWidth
 
     contentItem: Label {
-        text: qsTr(name)
+        text: name
         color: "black"
         font.bold:true
         verticalAlignment: Text.AlignVCenter
     }
-    background: Rectangle { width: parent.width
+    background: Rectangle {
+        width: parent.width
         height: parent.implicitHeight
         opacity: enabled ? 1 : 0.3
         color: checked ? "#22000000":"#00000000"

@@ -29,17 +29,13 @@
 class SettingTool : public QObject
 {
     Q_OBJECT
-protected:
+
+public:
     explicit SettingTool(QObject *parent = nullptr);
     ~SettingTool();
 
 private:
-    static SettingTool *instance;
-    static QSettings *settings;
-
-public:
-    static QSettings *getInstance();
-
+    QSettings *settings=nullptr;
 
 signals:
 
@@ -71,6 +67,7 @@ public slots:
     void flush();
 
     void setShowHeader(bool show);
+
     bool getShowHeader();
 
 };
