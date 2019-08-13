@@ -10,9 +10,6 @@ Drawer {
     property bool isOpened: false
     signal drawXChanged(var positionXPercent)
 
-    SettingTool{
-        id:settingTool
-    }
 
     id: drawer
     clip: true

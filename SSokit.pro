@@ -13,6 +13,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        src/SettingTool.cpp \
         src/TranslatorTool.cpp \
         src/itemport.cpp \
         src/main.cpp \
@@ -31,10 +32,10 @@ SOURCES += \
         src/UdpClientModel.cpp \
         src/websocketservermodel.cpp \
         src/websocketclientmodel.cpp \
-        src/settingtool.cpp \
         src/sqlitetool.cpp
 
 HEADERS +=  src/bluetoothmodel.h \
+            src/SettingTool.h \
             src/TranslatorTool.h \
             src/itemport.h \
             src/logmodel.h \
@@ -49,7 +50,6 @@ HEADERS +=  src/bluetoothmodel.h \
             src/StringListModel.h \
             src/websocketservermodel.h \
             src/websocketclientmodel.h \
-            src/settingtool.h \
             src/sqlitetool.h
             src/logger.h
 

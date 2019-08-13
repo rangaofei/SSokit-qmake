@@ -3,6 +3,11 @@
 
 #include <QObject>
 #include <QTranslator>
+#include <QLocale>
+#include <QDebug>
+#include <QApplication>
+#include "settingtool.h"
+#define LANGUAGE_DIR ":/assets/language"
 
 class TranslatorTool : public QObject
 {
@@ -11,9 +16,7 @@ public:
     explicit TranslatorTool(QObject *parent = nullptr);
 
 signals:
-    void onLanguageSet(int type);
 public slots:
-    void setLanguage(int type);
 
     void initLanguage();
 

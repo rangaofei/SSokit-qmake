@@ -9,7 +9,7 @@
 #include "toolkit.h"
 #include "setting.h"
 #include "logger.h"
-#include "settingtool.h"
+#include "SettingTool.h"
 
 #define SET_MAX_LOGITM  100
 #define SET_MAX_LOGTRM  30

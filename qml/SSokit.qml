@@ -13,10 +13,6 @@ ApplicationWindow{
         id:aboutDialog
     }
 
-    //设置工具
-    SettingTool{
-        id:settingtool
-    }
 
     id:window
     visible: true
@@ -25,8 +21,8 @@ ApplicationWindow{
     height: windwoH
     minimumWidth: windowW
     minimumHeight:windwoH
-    x:settingtool.getWindowPositionX()
-    y:settingtool.getWindowPositionY()
+    x:SettingTool.getWindowPositionX()
+    y:SettingTool.getWindowPositionY()
 
     Item {
         id:container
@@ -136,7 +132,7 @@ ApplicationWindow{
     }
     //关闭时保存当前窗口位置
     onClosing: {
-        settingtool.setWindowPosition(window.x,window.y)
+        SettingTool.setWindowPosition(window.x,window.y)
     }
     //切换tab的快捷键
     Shortcut{

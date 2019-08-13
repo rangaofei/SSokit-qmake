@@ -24,10 +24,6 @@ Column {
     //当前连接状态
     signal connectState(bool state)
 
-    //    设置
-    SettingTool{
-        id:settingTool
-    }
     //    端口数据列表
     ListModel{
         id:portListModel
@@ -159,7 +155,7 @@ Column {
                     for(var i=0;i<portListModel.count;i++){
                         ports.push(portListModel.get(i).port)
                     }
-                    settingTool.savePorts(viewType,ports)
+                    SettingTool.savePorts(viewType,ports)
                 }
             }
             Item {
@@ -306,7 +302,7 @@ Column {
     }
 
     Component.onCompleted: {
-        var ports=settingTool.getPorts(viewType)
+        var ports=SettingTool.getPorts(viewType)
         for(var i=0;i<ports.length;i++){
             portListModel.append({port:ports[i]})
         }

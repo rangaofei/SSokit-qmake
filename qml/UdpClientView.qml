@@ -33,7 +33,6 @@ Row{
                 return
             }
             if(!msg){
-                console.log("信息无内容")
                 return
             }
             udpModel.sendWithHeader(header,lengthSize,bigEndian,msg)
@@ -44,7 +43,6 @@ Row{
         id:serverControl
         viewType: 4
         onStartConnect: {
-            console.log("start udp client---"+addr+":"+port)
             udpModel.toggleConnect(checked,addr,port)
         }
 
@@ -52,7 +50,6 @@ Row{
             udpModel.kill(addr)
         }
         onConnectState: {
-            console.log("change state "+state)
             udpLog.setSendMsgState(state)
         }
     }
