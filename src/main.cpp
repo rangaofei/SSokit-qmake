@@ -19,7 +19,6 @@
 #include "TranslatorTool.h"
 //#include "sqlitetool.h"
 
-#define LANGUAGE_DIR ":/assets/lauguage"
 
 /**
  * @brief initSettings
