@@ -172,7 +172,7 @@ void SettingTool::setRememberWindowSize(bool remember)
 
 bool SettingTool::getRememberWindowSize()
 {
-    return settings->value(REMEMBER_SIZE,true).toBool();
+    return settings->value(REMEMBER_SIZE,false).toBool();
 }
 
 void SettingTool::setRememberWindowPos(bool remember)
@@ -182,5 +182,5 @@ void SettingTool::setRememberWindowPos(bool remember)
 
 bool SettingTool::getRememberWindowPos()
 {
-    return settings->value(REMEMBER_POSITION,true).toBool();
+    return settings->value(REMEMBER_POSITION,false).toBool();
 }

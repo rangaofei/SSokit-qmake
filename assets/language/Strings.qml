@@ -22,9 +22,9 @@ QtObject {
     property var aboutDialogTitle: qsTr("About SSokit")
     property var author: qsTr("Author")
     property var version: qsTr("Version")
-    property var versionValue: qsTr("1.0.5 - Base On Qt5.13.0")
+    property var versionValue: qsTr("1.0.6 - Base On Qt5.13.0")
     property var releaseDate: qsTr("ReleaseDate")
-    property var releaseDateValue: "2019.8.11"
+    property var releaseDateValue: "2019.8.15"
     property var source: qsTr("Source")
 
     //SettingView
