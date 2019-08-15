@@ -127,3 +127,4 @@ compile_commands.json
 .idea/modules.xml
 .idea/vcs.xml
 cmake-build-debug/
+/build/
