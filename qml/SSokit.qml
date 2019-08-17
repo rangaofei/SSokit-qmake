@@ -3,6 +3,7 @@ import QtQuick 2.12
 import QtQuick.Layouts 1.12
 import src.settingtool 1.0
 import src.strings 1.0
+import src.httpmanager 1.0
 
 ApplicationWindow{
     property int windowW: 900
@@ -134,6 +135,9 @@ ApplicationWindow{
     onClosing: {
         SettingTool.setWindowPosition(window.x,window.y)
         SettingTool.setWindowSize(window.width,window.height)
+    }
+    Component.onCompleted: {
+        HttpManager.checkVersion()
     }
     //切换tab的快捷键
     Shortcut{
