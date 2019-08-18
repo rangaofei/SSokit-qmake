@@ -1,6 +1,7 @@
 pragma Singleton
 
 import QtQuick 2.12
+import src.config 1.0
 
 QtObject {
 
@@ -18,13 +19,20 @@ QtObject {
     property var mainTabBlueTooth: qsTr("BlueTooth")
     property var mainTabCOM: qsTr("COM")
 
+    //升级对话框
+    property var newVersionTitle: qsTr("Find New Version")
+    property var currentVersion: qsTr("CurrentVersion")
+    property var newVersion: qsTr("NewVersion")
+    property var newReleaseDate: "ReleaseDate"
+    property var download: qsTr("Downlaod Now")
+
     //AboutDialog和AboutSettingView
     property var aboutDialogTitle: qsTr("About SSokit")
     property var author: qsTr("Author")
     property var version: qsTr("Version")
-    property var versionValue: qsTr("1.0.6 - Base On Qt5.13.0")
+    property var versionValue: Config.getVersionName()
     property var releaseDate: qsTr("ReleaseDate")
-    property var releaseDateValue: "2019.8.15"
+    property var releaseDateValue: Config.getDate()
     property var source: qsTr("Source")
 
     //SettingView

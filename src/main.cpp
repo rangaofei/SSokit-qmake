@@ -51,16 +51,20 @@ void registerQml(){
                                           [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
         Q_UNUSED(engine)
         Q_UNUSED(scriptEngine)
-
         SettingTool *settintTool = new SettingTool();
         return settintTool;
     });
     qmlRegisterSingletonType<HttpManager>("src.httpmanager",1,0,"HttpManager", [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
         Q_UNUSED(engine)
         Q_UNUSED(scriptEngine)
-
         HttpManager *httpManager = new HttpManager();
         return httpManager;
+    });
+    qmlRegisterSingletonType<Config>("src.config",1,0,"Config", [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
+        Q_UNUSED(engine)
+        Q_UNUSED(scriptEngine)
+        Config *config = new Config();
+        return config;
     });
 }
 

@@ -1,6 +1,5 @@
 #include "HttpManager.h"
-#include <QJsonObject>
-#include <QJsonParseError>
+
 
 HttpManager::HttpManager(QObject *parent) : QObject(parent)
 {
@@ -13,9 +12,8 @@ void HttpManager::checkVersion()
     QNetworkAccessManager* naManager = new QNetworkAccessManager(this);
     QMetaObject::Connection connRet = QObject::connect(naManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(requestFinished(QNetworkReply*)));
     Q_ASSERT(connRet);
-    qDebug()<<"start check version";
     request.setUrl(QUrl("http://www.rangaofei.cn/ssokit/version.json"));
-    QNetworkReply* reply = naManager->get(request);
+    naManager->get(request);
 }
 
 void HttpManager::requestFinished(QNetworkReply *reply)
@@ -34,8 +32,6 @@ void HttpManager::requestFinished(QNetworkReply *reply)
         qDebug() << "Failed: " << reply->errorString();
     }
     else {
-        // 获取返回内容
-//        qDebug() << reply->readAll();
         QJsonParseError json_error;
         QJsonDocument jsonDoc(QJsonDocument::fromJson(reply->readAll(), &json_error));
         if(json_error.error != QJsonParseError::NoError)
@@ -47,10 +43,17 @@ void HttpManager::requestFinished(QNetworkReply *reply)
             return;
         }
         QJsonObject rootObj = jsonDoc.object();
-        QStringList keys = rootObj.keys();
-        for(int i = 0; i < keys.size(); i++)
-        {
-            qDebug() << "key" << i << " is:" << keys.at(i);
+        int version=rootObj.value("version_code").toInt();
+        if(version<=Config::getVersionCode()){
+            return;
         }
+        emit showUpdateVersion(
+                    rootObj.value("version_name").toString(),
+                    rootObj.value("content_cn").toString(),
+                    rootObj.value("content_en").toString(),
+                    rootObj.value("release_date").toString(),
+                    rootObj.value("url").toString(),
+                    rootObj.value("force_update").toBool()
+                    );
     }
 }

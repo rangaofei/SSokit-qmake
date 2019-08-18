@@ -39,6 +39,7 @@ HEADERS +=  src/bluetoothmodel.h \
             src/HttpManager.h \
             src/SettingTool.h \
             src/TranslatorTool.h \
+            src/config.h \
             src/itemport.h \
             src/logmodel.h \
             src/TcpServerModel.h \

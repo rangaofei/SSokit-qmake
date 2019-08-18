@@ -9,7 +9,7 @@ Just download the zip file and unzip it, find SSokit.exe file,and double click t
 
 The mac version download address:
 
-[https://coding.net/u/rgf456/p/SSokit/git/raw/master/v1.0.5/SSokit.dmg](https://coding.net/u/rgf456/p/SSokit/git/raw/master/v1.0.5/SSokit.dmg)
+[http://ssokit.rangaofei.cn/SSokit_1.0.7.dmg](http://ssokit.rangaofei.cn/SSokit_1.0.7.dmg)
 
 Just download the dmg file and double click then it will run ok,also ,you can copy it to you `~/Application` dir.
 
@@ -50,7 +50,7 @@ Windows版本下载地址:
 
 MacOS版本下载地址:
 
-[http://ssokit.rangaofei.cn/SSokit.dmg](http://ssokit.rangaofei.cn/SSokit.dmg)
+[http://ssokit.rangaofei.cn/SSokit_1.0.7.dmg](http://ssokit.rangaofei.cn/SSokit_1.0.7.dmg)
 
 下载后直接双击dmg文件即可使用，为了方便使用你也可以将它复制到`Application`中
 

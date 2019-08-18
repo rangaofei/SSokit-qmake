@@ -68,7 +68,7 @@ public slots:
     //设置语言种类
     void setLanguage(QString type);
     //获取语言种类
-    QString getLanguage();
+    int getLanguage();
 
     //获取端口列表
     QList<QString> getPorts(int viewType);
