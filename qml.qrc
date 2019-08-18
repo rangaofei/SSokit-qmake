@@ -55,5 +55,7 @@
         <file>assets/Colors.qml</file>
         <file>qml/GeneralCheckBox.qml</file>
         <file>qml/FunctionSettingView.qml</file>
+        <file>qml/UpdateDialog.qml</file>
+        <file>assets/images/ic_update.png</file>
     </qresource>
 </RCC>

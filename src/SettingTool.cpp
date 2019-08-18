@@ -88,9 +88,9 @@ void SettingTool::setLanguage(QString type)
     flush();
 }
 
-QString SettingTool::getLanguage()
+int SettingTool::getLanguage()
 {
-    return settings->value(LANGUAGE,0).toString();
+    return settings->value(LANGUAGE,0).toInt();
 }
 
 /*1是tcpserver,2是tcpclient,3是udpserver,4是udpclient*/

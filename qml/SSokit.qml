@@ -14,6 +14,10 @@ ApplicationWindow{
         id:aboutDialog
     }
 
+    UpdateDialog{
+        id:updateDialog
+    }
+
 
     id:window
     visible: true
@@ -137,8 +141,15 @@ ApplicationWindow{
         SettingTool.setWindowSize(window.width,window.height)
     }
     Component.onCompleted: {
+        HttpManager.showUpdateVersion.connect(updateDialog.showDialog)
         HttpManager.checkVersion()
     }
+
+    Component.onDestruction: {
+        HttpManager.showUpdateVersion.disconnect(updateDialog.showDialog)
+    }
+
+
     //切换tab的快捷键
     Shortcut{
         sequences: ["shift+tab"]
