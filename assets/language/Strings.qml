@@ -51,6 +51,10 @@ QtObject {
     property var settingRememberPos: qsTr("Remember Window Position")
     property var settingRememberSize: qsTr("Remember Window Size")
 
+    //FunctionSettingView
+    property var settingEnableHovver: qsTr("LogView Enable Hover To Select")
+    property var settingShowClear: qsTr("SendView Show Clear")
+
     //ShortCutSettingView
     property var settingSwtichTab: qsTr("SwitchTab")
 

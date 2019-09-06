@@ -3,6 +3,8 @@ import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5
 import QtQuick.Controls.Styles 1.4
 import src.strings 1.0
+import src.settingtool 1.0
+
 GroupBox{
     property bool canSendMsg: false
 
@@ -49,15 +51,27 @@ GroupBox{
                     horizontalAlignment: Text.AlignHCenter
                 }
                 TextField{
-                    id:butffer1
+                    id:buffer1
                     Layout.fillWidth: true
                     Layout.fillHeight: false
                     Layout.preferredHeight: 30
                     background: Rectangle {
-                        color: butffer1.enabled ? "transparent" : "#00ffffff"
-                        border.color: butffer1.enabled ? "#bdbdbd" : "#bdbdbd"
+                        color: buffer1.enabled ? "transparent" : "#00ffffff"
+                        border.color: buffer1.enabled ? "#bdbdbd" : "#bdbdbd"
                         radius: 3
                     }
+                }
+                Image {
+                    Layout.preferredHeight: 15
+                    Layout.preferredWidth: 15
+                    Layout.fillHeight: false
+                    Layout.fillWidth: false
+                    Layout.alignment: Qt.AlignHCenter
+                    source: "qrc:/assets/images/ic_clear.png"
+                    TapHandler{
+                        onTapped: buffer1.clear()
+                    }
+                    visible: SettingTool.getShowSendClear()
                 }
                 Button{
                     enabled: canSendMsg
@@ -71,7 +85,7 @@ GroupBox{
                         border.width: 1
                         radius: parent.height/2
                     }
-                    onClicked: {sendMessage(butffer1.text)}
+                    onClicked: {sendMessage(buffer1.text)}
                 }
             }
             RowLayout{
@@ -95,6 +109,18 @@ GroupBox{
                         border.color: buffer2.enabled ? "#bdbdbd" : "#bdbdbd"
                         radius: 3
                     }
+                }
+                Image {
+                    Layout.preferredHeight: 15
+                    Layout.preferredWidth: 15
+                    Layout.fillHeight: false
+                    Layout.fillWidth: false
+                    Layout.alignment: Qt.AlignHCenter
+                    source: "qrc:/assets/images/ic_clear.png"
+                    TapHandler{
+                        onTapped: buffer2.clear()
+                    }
+                     visible: SettingTool.getShowSendClear()
                 }
                 Button{
                     enabled: canSendMsg
@@ -127,11 +153,24 @@ GroupBox{
                     Layout.fillWidth: true
                     Layout.fillHeight: false
                     Layout.preferredHeight: 30
+
                     background: Rectangle {
                         color: buffer3.enabled ? "transparent" : "transparent"
                         border.color: buffer3.enabled ? "#bdbdbd" : "#bdbdbd"
                         radius: 3
                     }
+                }
+                Image {
+                    Layout.preferredHeight: 15
+                    Layout.preferredWidth: 15
+                    Layout.fillHeight: false
+                    Layout.fillWidth: false
+                    Layout.alignment: Qt.AlignHCenter
+                    source: "qrc:/assets/images/ic_clear.png"
+                    TapHandler{
+                        onTapped: buffer3.clear()
+                    }
+                     visible: SettingTool.getShowSendClear()
                 }
                 Button{
                     enabled: canSendMsg

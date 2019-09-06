@@ -1,17 +1,17 @@
-//#ifndef SQLITETOOL_H
-//#define SQLITETOOL_H
+#ifndef SQLITETOOL_H
+#define SQLITETOOL_H
 
-//#include <QObject>
+#include <QObject>
 
-//class SQLiteTool : public QObject
-//{
-//    Q_OBJECT
-//public:
-//    explicit SQLiteTool(QObject *parent = nullptr);
+class SQLiteTool : public QObject
+{
+    Q_OBJECT
+public:
+    explicit SQLiteTool(QObject *parent = nullptr);
 
-//signals:
+signals:
 
-//public slots:
-//};
+public slots:
+};
 
-//#endif // SQLITETOOL_H
+#endif // SQLITETOOL_H

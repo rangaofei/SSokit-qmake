@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import src.strings 1.0
+import src.settingtool 1.0
 
 Component{
     id:listViewItem
@@ -134,8 +135,14 @@ Component{
         }
         MouseArea{
             anchors.fill: parent
+            hoverEnabled: SettingTool.getEnableLogHover()
             onClicked: {
                 logListView.currentIndex=index
+            }
+            onEntered: {
+                logListView.currentIndex=index
+            }
+            onExited: {
             }
         }
     }

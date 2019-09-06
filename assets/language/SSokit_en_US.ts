@@ -25,316 +25,313 @@
     </message>
 </context>
 <context>
-    <name>FunctionSettingView</name>
-    <message>
-        <location filename="../../qml/FunctionSettingView.qml" line="8"/>
-        <source>等待完善</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>Strings</name>
     <message>
-        <location filename="Strings.qml" line="8"/>
+        <location filename="Strings.qml" line="9"/>
         <source>SSokit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="9"/>
+        <location filename="Strings.qml" line="10"/>
         <source>Server</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="10"/>
+        <location filename="Strings.qml" line="11"/>
         <source>Client</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="11"/>
+        <location filename="Strings.qml" line="12"/>
         <source>Transfer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="14"/>
+        <location filename="Strings.qml" line="15"/>
         <source>TCP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="15"/>
+        <location filename="Strings.qml" line="16"/>
         <source>UDP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="16"/>
+        <location filename="Strings.qml" line="17"/>
         <source>NotePad</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="17"/>
+        <location filename="Strings.qml" line="18"/>
         <source>WebSocket</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="18"/>
+        <location filename="Strings.qml" line="19"/>
         <source>BlueTooth</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="19"/>
+        <location filename="Strings.qml" line="20"/>
         <source>COM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="22"/>
+        <location filename="Strings.qml" line="23"/>
         <source>Find New Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="23"/>
+        <location filename="Strings.qml" line="24"/>
         <source>CurrentVersion</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="24"/>
+        <location filename="Strings.qml" line="25"/>
         <source>NewVersion</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="26"/>
+        <location filename="Strings.qml" line="27"/>
         <source>Downlaod Now</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="29"/>
+        <location filename="Strings.qml" line="30"/>
         <source>About SSokit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="30"/>
+        <location filename="Strings.qml" line="31"/>
         <source>Author</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="31"/>
+        <location filename="Strings.qml" line="32"/>
         <source>Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="32"/>
-        <source>1.0.6 - Base On Qt5.13.0</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="Strings.qml" line="33"/>
+        <location filename="Strings.qml" line="34"/>
         <source>ReleaseDate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="35"/>
+        <location filename="Strings.qml" line="36"/>
         <source>Source</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="38"/>
+        <location filename="Strings.qml" line="39"/>
         <source>Setting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="41"/>
+        <location filename="Strings.qml" line="42"/>
         <source>General</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="42"/>
+        <location filename="Strings.qml" line="43"/>
         <source>Function</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="43"/>
+        <location filename="Strings.qml" line="44"/>
         <source>ShortCut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="44"/>
+        <location filename="Strings.qml" line="45"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="45"/>
+        <location filename="Strings.qml" line="46"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="46"/>
+        <location filename="Strings.qml" line="47"/>
         <source>English</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="46"/>
+        <location filename="Strings.qml" line="47"/>
         <source>Chinese</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="47"/>
+        <location filename="Strings.qml" line="48"/>
         <source>Effective after restart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="48"/>
+        <location filename="Strings.qml" line="49"/>
         <source>RememberPort</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="49"/>
+        <location filename="Strings.qml" line="50"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="50"/>
+        <location filename="Strings.qml" line="51"/>
         <source>Remember Window Position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="51"/>
+        <location filename="Strings.qml" line="52"/>
         <source>Remember Window Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="54"/>
-        <source>SwitchTab</source>
+        <location filename="Strings.qml" line="55"/>
+        <source>LogView Enable Hover To Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="57"/>
-        <source>Recv</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="Strings.qml" line="58"/>
-        <location filename="Strings.qml" line="65"/>
-        <source>Send</source>
+        <location filename="Strings.qml" line="56"/>
+        <source>SendView Show Clear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Strings.qml" line="59"/>
-        <source>Clear</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="Strings.qml" line="60"/>
-        <location filename="Strings.qml" line="76"/>
-        <source>Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="Strings.qml" line="61"/>
-        <source>IP</source>
+        <source>SwitchTab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Strings.qml" line="62"/>
-        <location filename="Strings.qml" line="84"/>
-        <source>Length</source>
+        <source>Recv</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Strings.qml" line="63"/>
+        <location filename="Strings.qml" line="70"/>
+        <source>Send</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Strings.qml" line="64"/>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Strings.qml" line="65"/>
+        <location filename="Strings.qml" line="81"/>
+        <source>Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Strings.qml" line="66"/>
-        <source>Buf1</source>
+        <source>IP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Strings.qml" line="67"/>
-        <source>Buf2</source>
+        <location filename="Strings.qml" line="89"/>
+        <source>Length</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="68"/>
-        <source>Buf3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="Strings.qml" line="69"/>
-        <source>Advance</source>
+        <location filename="Strings.qml" line="71"/>
+        <source>Buf1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Strings.qml" line="72"/>
-        <source>ControlCenter</source>
+        <source>Buf2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Strings.qml" line="73"/>
-        <source>ADDR</source>
+        <source>Buf3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Strings.qml" line="74"/>
-        <source>PORT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="Strings.qml" line="75"/>
-        <source>Connect</source>
+        <source>Advance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Strings.qml" line="77"/>
-        <source>Disconnect</source>
+        <source>ControlCenter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Strings.qml" line="78"/>
-        <source>Disable</source>
+        <source>ADDR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Strings.qml" line="79"/>
+        <source>PORT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Strings.qml" line="80"/>
+        <source>Connect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Strings.qml" line="82"/>
+        <source>Disconnect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Strings.qml" line="83"/>
+        <source>Disable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Strings.qml" line="84"/>
         <source>Port must be between 1024-63365</source>
         <oldsource>ort must be between 1024-63365</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="82"/>
+        <location filename="Strings.qml" line="87"/>
         <source>Header</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="83"/>
+        <location filename="Strings.qml" line="88"/>
         <source>Tailer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="85"/>
+        <location filename="Strings.qml" line="90"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="85"/>
+        <location filename="Strings.qml" line="90"/>
         <source>Short</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="85"/>
+        <location filename="Strings.qml" line="90"/>
         <source>Int</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="86"/>
+        <location filename="Strings.qml" line="91"/>
         <source>Endian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="87"/>
+        <location filename="Strings.qml" line="92"/>
         <source>Big</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="87"/>
+        <location filename="Strings.qml" line="92"/>
         <source>Little</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="88"/>
+        <location filename="Strings.qml" line="93"/>
         <source>Enable</source>
         <translation type="unfinished"></translation>
     </message>

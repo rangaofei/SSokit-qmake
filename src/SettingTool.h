@@ -24,6 +24,8 @@
 #define UDP_CLIENT_PORTS    "udp_client_ports"
 #define PORT                "port"
 #define SHOW_HEADER         "show_header"
+#define LOG_ENABLE_HOVER    "log_enable_hover"
+#define SHOW_SEND_CLEAR     "show_send_clear"
 
 #define WINDOW_DEFAULT_W 800
 #define WINDOW_DEFAULT_H 600
@@ -88,6 +90,12 @@ public slots:
 
     void setRememberWindowPos(bool remember);
     bool getRememberWindowPos();
+
+    void setShowSendClear(bool clear);
+    bool getShowSendClear();
+
+    void setEnableLogHover(bool enable);
+    bool getEnableLogHover();
 };
 
 

@@ -184,3 +184,23 @@ bool SettingTool::getRememberWindowPos()
 {
     return settings->value(REMEMBER_POSITION,false).toBool();
 }
+
+void SettingTool::setShowSendClear(bool clear)
+{
+    settings->setValue(SHOW_SEND_CLEAR,clear);
+}
+
+bool SettingTool::getShowSendClear()
+{
+    return settings->value(SHOW_SEND_CLEAR,false).toBool();
+}
+
+void SettingTool::setEnableLogHover(bool enable)
+{
+    settings->setValue(LOG_ENABLE_HOVER,enable);
+}
+
+bool SettingTool::getEnableLogHover()
+{
+    return settings->value(LOG_ENABLE_HOVER,false).toBool();
+}

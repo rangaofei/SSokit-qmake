@@ -57,5 +57,6 @@
         <file>qml/FunctionSettingView.qml</file>
         <file>qml/UpdateDialog.qml</file>
         <file>assets/images/ic_update.png</file>
+        <file>assets/images/ic_clear.png</file>
     </qresource>
 </RCC>
