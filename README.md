@@ -3,7 +3,7 @@
 Now this support MacOS and Win system.
 
 The win version download address:
-[http://ssokit.rangaofei.cn/SSokitRelease-win-1.0.7.7z](http://ssokit.rangaofei.cn/SSokitRelease-win-1.0.7.7z)
+[http://ssokit.rangaofei.cn/SSokit_1.0.8.7z](http://ssokit.rangaofei.cn/SSokit_1.0.8.7z)
 
 Just download the zip file and unzip it, find SSokit.exe file,and double click then it will run ok;
 
@@ -44,7 +44,7 @@ Be happy with it.
 SSokit现在已经支持win系统和mac系统
 
 Windows版本下载地址:
-[http://ssokit.rangaofei.cn/SSokitRelease-win-1.0.7.zip](http://ssokit.rangaofei.cn/SSokitRelease-win-1.0.7.zip)
+[hhttp://ssokit.rangaofei.cn/SSokit_1.0.8.7z](http://ssokit.rangaofei.cn/SSokit_1.0.8.7z)
 
 下载后直接解压到一个文件夹，双击SSokit.exe即可使用
 
