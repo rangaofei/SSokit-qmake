@@ -18,6 +18,7 @@
 #include "SettingTool.h"
 #include "TranslatorTool.h"
 #include "HttpManager.h"
+#include "sqlitetool.h"
 //#include "sqlitetool.h"
 
 
@@ -80,7 +81,7 @@ int main(int argc, char *argv[]) {
     registerQml();
 
 
-    //    SQLiteTool *s=new SQLiteTool();
+//    SQLiteTool *s=new SQLiteTool();
 
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/qml/SSokit.qml")));
