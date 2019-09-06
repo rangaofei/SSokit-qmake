@@ -5,7 +5,7 @@
 
 #define MAJOR_VERSION 1
 #define MINOR_VERSION 0
-#define PATCH_VERSION 8
+#define PATCH_VERSION 6
 
 #define YEAR 2019
 #define MONTH 9
@@ -16,6 +16,8 @@ class Config : public QObject
     Q_OBJECT
 
 public:
+
+
 
 signals:
 
@@ -34,6 +36,25 @@ public slots:
         QString date;
         date.sprintf("%d-%d-%d",YEAR,MONTH,DAY);
         return date;
+    }
+
+    static int32_t getSystem(){
+        int result=0;
+#ifdef Q_OS_WIN
+    // Windows上的代码
+        result=1;
+#endif
+
+#ifdef Q_OS_LINUX
+    // Linux上的代码
+        result=2;
+#endif
+
+#ifdef Q_OS_MAC
+    // Mac上的代码
+        result=3;
+#endif
+        return result;
     }
 };
 
