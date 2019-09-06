@@ -47,12 +47,28 @@ void HttpManager::requestFinished(QNetworkReply *reply)
         if(version<=Config::getVersionCode()){
             return;
         }
+        int32_t sys=Config::getSystem();
+        QString url="";
+        switch (sys) {
+        case 0:
+            break;
+        case 1:
+            url=rootObj.value("win_url").toString();
+            break;
+        case 2:
+            url=rootObj.value("linux_url").toString();
+            break;
+        case 3:
+            url=rootObj.value("mac_url").toString();
+            break;
+        }
+        qDebug()<<url;
         emit showUpdateVersion(
                     rootObj.value("version_name").toString(),
                     rootObj.value("content_cn").toString(),
                     rootObj.value("content_en").toString(),
                     rootObj.value("release_date").toString(),
-                    rootObj.value("url").toString(),
+                    url,
                     rootObj.value("force_update").toBool()
                     );
     }
