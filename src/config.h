@@ -5,11 +5,11 @@
 
 #define MAJOR_VERSION 1
 #define MINOR_VERSION 0
-#define PATCH_VERSION 8
+#define PATCH_VERSION 9
 
 #define YEAR 2019
 #define MONTH 9
-#define DAY 6
+#define DAY 14
 
 class Config : public QObject
 {
