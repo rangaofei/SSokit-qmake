@@ -107,7 +107,7 @@ ColumnLayout{
                 visible: titleListView.currentIndex>=0
                 TextArea {
                     Layout.fillWidth: true
-                    font.pointSize: 20
+                    font.pixelSize: 20
                     text: titleListView.model.length<=0?"":titleListView.model[titleListView.currentIndex].title
                     onTextChanged: {
                         if(titleListView.currentIndex==-1){
@@ -170,7 +170,7 @@ ColumnLayout{
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     focus: true
-                    font.pointSize: 15
+                    font.pixelSize: 15
                     text: titleListView.model.length<=0?"":titleListView.model[titleListView.currentIndex].content
 
                     onTextChanged: {
@@ -209,7 +209,7 @@ ColumnLayout{
                     Layout.preferredHeight: 20
                     Layout.fillWidth: true
                     text: title
-                    font.pointSize: 15
+                    font.pixelSize: 15
                     elide: Text.ElideRight
                     verticalAlignment: Text.AlignVCenter
                     maximumLineCount: 1
@@ -227,7 +227,7 @@ ColumnLayout{
                     maximumLineCount: 1
                     textFormat: Text.PlainText
                     clip :true
-                    font.pointSize: 10
+                    font.pixelSize: 10
                     wrapMode: Text.NoWrap
                     color:delegate.highlighted?"white":"#37474f"
                 }

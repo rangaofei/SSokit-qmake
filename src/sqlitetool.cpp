@@ -1,7 +1,7 @@
 #include "sqlitetool.h"
 
 #include <QSqlQuery>
-#include <qsqlerror>
+#include <QSqlError>
 #include <qdebug.h>
 #include <QUrl>
 #include <QStandardPaths>
