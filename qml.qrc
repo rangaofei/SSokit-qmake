@@ -58,5 +58,9 @@
         <file>qml/UpdateDialog.qml</file>
         <file>assets/images/ic_update.png</file>
         <file>assets/images/ic_clear.png</file>
+        <file>assets/images/add.png</file>
+        <file>assets/images/clear.png</file>
+        <file>assets/images/save.png</file>
+        <file>assets/images/delete.png</file>
     </qresource>
 </RCC>

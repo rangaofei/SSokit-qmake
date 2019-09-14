@@ -39,6 +39,7 @@ HEADERS +=  src/bluetoothmodel.h \
             src/HttpManager.h \
             src/SettingTool.h \
             src/TranslatorTool.h \
+            src/atomicops.h \
             src/config.h \
             src/itemport.h \
             src/logmodel.h \
@@ -51,10 +52,11 @@ HEADERS +=  src/bluetoothmodel.h \
             src/ServerModel.h \
             src/Logger.h \
             src/StringListModel.h \
+            src/readerwriterqueue.h \
             src/websocketservermodel.h \
             src/websocketclientmodel.h \
-            src/sqlitetool.h
-            src/logger.h
+            src/sqlitetool.h \
+
 
 RESOURCES += qml.qrc
 
@@ -88,7 +90,7 @@ QML_DESIGNER_IMPORT_PATH =
 QT += widgets \
       bluetooth \
       websockets \
-#      sql
+      sql
 
 
 # Default rules for deployment.
