@@ -108,7 +108,6 @@ public slots:
 private:
     QList<NoteBook*> m_notes;
     QSqlDatabase m_db;
-    QSqlQuery *m_qslQuery;
 };
 
 #endif // SQLITETOOL_H

@@ -3,14 +3,17 @@
 #include <QSqlQuery>
 #include <qsqlerror>
 #include <qdebug.h>
+#include <QUrl>
+#include <QStandardPaths>
 
 SQLiteTool::SQLiteTool(QObject *parent) : QObject(parent)
 {
+    QString tmp=QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+"/SSokit.db";
     m_db =QSqlDatabase::addDatabase("QSQLITE");
     m_db.setHostName("rangaofei.cn");
-    m_db.setDatabaseName("ssokit_note.db");
+    m_db.setDatabaseName(tmp);
     m_db.setUserName("rangaofei");
-    m_db.setPassword("");
+    m_db.setPassword("123456");
     if(!openDb()){
         return;
     }
@@ -51,36 +54,37 @@ void SQLiteTool::createTable()
             .arg(COLUMN_CONTENT)
             .arg(COLUMN_CREATE_AT)
             .arg(COLUMN_UPDATE_AT);
-    qDebug()<<sqlStr;
     //创建表格
-    m_qslQuery = new QSqlQuery(m_db);
-    if(!m_qslQuery->exec(sqlStr))
+    QSqlQuery sqlQuery = QSqlQuery(m_db);
+    if(!sqlQuery.exec(sqlStr))
     {
-        qDebug() << "Error: Fail to create table."<< m_qslQuery->lastError().text();
+        qDebug() << "Error: Fail to create table."<< sqlQuery.lastError().text();
     }
     else
     {
         qDebug() << "Table created!";
     }
+    sqlQuery.finish();
 }
 
 QQmlListProperty<NoteBook> SQLiteTool::notes()
 {
     m_notes.clear();
     //查询数据
-    m_qslQuery->exec("select * from note_book order by update_at desc");
-    if(!m_qslQuery->exec())
+    QSqlQuery sqlQuery = QSqlQuery(m_db);
+    sqlQuery.exec("select * from note_book order by update_at desc");
+    if(!sqlQuery.exec())
     {
-        qDebug()<<m_qslQuery->lastError();
+        qDebug()<<sqlQuery.lastError();
     }
     else
     {
-        while(m_qslQuery->next())
+        while(sqlQuery.next())
         {
-            int id = m_qslQuery->value(0).toInt();
-            QString title = m_qslQuery->value(1).toString();
-            QString content = m_qslQuery->value(2).toString();
-            QString updateAt=m_qslQuery->value(4).toString();
+            int id = sqlQuery.value(0).toInt();
+            QString title = sqlQuery.value(1).toString();
+            QString content = sqlQuery.value(2).toString();
+            QString updateAt=sqlQuery.value(4).toString();
             NoteBook *n=new NoteBook;
             n->setId(id);
             n->setTitle(title);
@@ -89,6 +93,7 @@ QQmlListProperty<NoteBook> SQLiteTool::notes()
             m_notes.append(n);
         }
     }
+    sqlQuery.finish();
     return QQmlListProperty<NoteBook>(this,m_notes);
 }
 
@@ -97,12 +102,12 @@ void SQLiteTool::appendData(NoteBook *noteBook)
     if(noteBook==nullptr){
         return;
     }
-    QSqlQuery *sqlQuery=new QSqlQuery(m_db);
-    sqlQuery->prepare("INSERT INTO note_book (title,content) VALUES (:title,:content)");
-    sqlQuery->bindValue(":title", noteBook->title());
-    sqlQuery->bindValue(":content",noteBook->content());
-    sqlQuery->exec();
-
+    QSqlQuery sqlQuery=QSqlQuery(m_db);
+    sqlQuery.prepare("INSERT INTO note_book (title,content) VALUES (:title,:content)");
+    sqlQuery.bindValue(":title", noteBook->title());
+    sqlQuery.bindValue(":content",noteBook->content());
+    sqlQuery.exec();
+    sqlQuery.finish();
 }
 
 void SQLiteTool::updateData(NoteBook *noteBook)
@@ -110,15 +115,16 @@ void SQLiteTool::updateData(NoteBook *noteBook)
     if(noteBook==nullptr){
         return;
     }
-    QSqlQuery *sqlQuery=new QSqlQuery(m_db);
-    sqlQuery->prepare("UPDATE note_book SET title = :title, content = :content, update_at = :update_at where id = :id");
-    sqlQuery->bindValue(":id",noteBook->id());
-    sqlQuery->bindValue(":title",noteBook->title());
-    sqlQuery->bindValue(":content",noteBook->content());
+    QSqlQuery sqlQuery=QSqlQuery(m_db);
+    sqlQuery.prepare("UPDATE note_book SET title = :title, content = :content, update_at = :update_at where id = :id");
+    sqlQuery.bindValue(":id",noteBook->id());
+    sqlQuery.bindValue(":title",noteBook->title());
+    sqlQuery.bindValue(":content",noteBook->content());
     QDateTime current_date_time =QDateTime::currentDateTime();
     QString current_date =current_date_time.toString("yyyy-MM-dd hh:mm:ss");
-    sqlQuery->bindValue(":update_at",current_date);
-    sqlQuery->exec();
+    sqlQuery.bindValue(":update_at",current_date);
+    sqlQuery.exec();
+    sqlQuery.finish();
     emit itemChanged();
 }
 
@@ -129,24 +135,26 @@ void SQLiteTool::deleteData(NoteBook *noteBook)
         return;
     }
     qDebug()<<noteBook->id()<<"----";
-    QSqlQuery *sqlQuery=new QSqlQuery(m_db);
-    sqlQuery->prepare("delete from note_book where id = ?");
-    sqlQuery->addBindValue(noteBook->id());
-    sqlQuery->exec();
+    QSqlQuery sqlQuery=QSqlQuery(m_db);
+    sqlQuery.prepare("delete from note_book where id = ?");
+    sqlQuery.addBindValue(noteBook->id());
+    sqlQuery.exec();
+    sqlQuery.finish();
     emit itemChanged();
 }
 
 void SQLiteTool::addNewData()
 {
     NoteBook *noteBook=new NoteBook;
-    QSqlQuery *sqlQuery=new QSqlQuery(m_db);
+    QSqlQuery sqlQuery=QSqlQuery(m_db);
     QDateTime current_date_time =QDateTime::currentDateTime();
     QString current_date =current_date_time.toString("yyyy-MM-ddhh:mm:ss");
     noteBook->setTitle(current_date);
-    sqlQuery->prepare("INSERT INTO note_book (title,content) VALUES (:title,:content)");
-    sqlQuery->bindValue(":title", noteBook->title());
-    sqlQuery->bindValue(":content",noteBook->content());
-    sqlQuery->exec();
+    sqlQuery.prepare("INSERT INTO note_book (title,content) VALUES (:title,:content)");
+    sqlQuery.bindValue(":title", noteBook->title());
+    sqlQuery.bindValue(":content",noteBook->content());
+    sqlQuery.exec();
+    sqlQuery.finish();
     delete noteBook;
     emit itemChanged();
 }
