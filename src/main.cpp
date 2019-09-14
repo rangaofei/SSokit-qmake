@@ -19,7 +19,6 @@
 #include "TranslatorTool.h"
 #include "HttpManager.h"
 #include "sqlitetool.h"
-//#include "sqlitetool.h"
 
 
 /**
@@ -43,7 +42,13 @@ void registerQml(){
     qmlRegisterType<UdpServerModel>("src.udpservermodel", 1, 0, "UdpServerModel");
     qmlRegisterType<TcpClientModel>("src.tcpclientmodel", 1, 0, "TcpClientModel");
     qmlRegisterType<UdpClientModel>("src.udpclientmodel", 1, 0, "UdpClientModel");
-    //    qmlRegisterType<SettingTool>("src.settingtool",1,0,"SettingTool");
+    qmlRegisterType<NoteBook>("src.notebook",1,0,"NoteBook");
+    qmlRegisterSingletonType<SQLiteTool>("src.sqlitetool",1,0,"SqliteTool",[](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
+        Q_UNUSED(engine)
+        Q_UNUSED(scriptEngine)
+        SQLiteTool *sqliteTool = new SQLiteTool();
+        return sqliteTool;
+    });
     qmlRegisterType<ItemPort>("src.itemport", 1, 0, "ItemPort");
     qmlRegisterSingletonType(QUrl("qrc:/assets/language/Strings.qml"), "src.strings", 1, 0, "Strings");
     qmlRegisterSingletonType(QUrl("qrc:/assets/Colors.qml"),"src.colors",1,0,"Colors");
@@ -79,10 +84,6 @@ int main(int argc, char *argv[]) {
     TranslatorTool translatorTool;
     translatorTool.initLanguage();
     registerQml();
-
-
-//    SQLiteTool *s=new SQLiteTool();
-
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/qml/SSokit.qml")));
     if (engine.rootObjects().isEmpty())
