@@ -16,30 +16,25 @@ Row{
         id:tcpLog
         w: parent.width-serverControl.width-parent.spacing-parent.rightPadding-parent.leftPadding
         h:parent.height
-
+        recvC: tcpModel.revCount
+        sendC: tcpModel.senCount
+        modelList: tcpModel.dataList
         onSendMsg:{
             if(!serverControl.getCurrentConn()){
                 console.log("TCP Client View:当前连接为空 无法发送信息")
                 return
             }
-            if(!msg){
+            if(!data){
                 console.log("信息无内容")
                 return
             }
-            tcpModel.send(msg)
+            tcpModel.sendMessageData(data)
         }
-        onSendMsgWithHeader: {
-            if(!serverControl.getCurrentConn()){
-                console.log("UDP Client View : 当前无连接信息,无法发送信息")
-                return
-            }
-            if(!msg){
-                console.log("信息无内容")
-                return
-            }
-            console.log("TCP client 发送信息"+msg+",size:"+lengthSize)
-            tcpModel.sendWithHeader(header,lengthSize,bigEndian,msg)
+
+        onClearData: {
+            tcpModel.clearAll()
         }
+
     }
 
     ServerControlView{
@@ -53,12 +48,13 @@ Row{
             tcpModel.kill(addr)
         }
         onConnectState: {
-            console.log("change state "+state)
             tcpLog.setSendMsgState(state)
         }
     }
 
-
+    function setCurrentIndex(index){
+        tcpLog.setCurrentIndex(index)
+    }
 
     function appendLocalAddr(msg){
         serverControl.appendLocalAddr(msg)
@@ -68,11 +64,6 @@ Row{
         serverControl.appendHistoryConnect(msg)
     }
 
-    function appendLogMsg(time,type,host,ascData,hexData,length){
-        console.log("TcpServer:ascData="+ascData)
-        tcpLog.appendData(time,type,host,ascData,hexData,length)
-    }
-
 
     function connClose(addr){
         console.log("close connection "+addr)
@@ -80,7 +71,6 @@ Row{
     }
 
     function setSendErrMsg(type,msg,isErr){
-        console.log("error type "+type+"||||"+msg+"||||"+isErr)
         if(type===1||type===2){
             serverControl.setErrMsg(type,msg,isErr)
         }else if(type===3){
@@ -92,7 +82,7 @@ Row{
 
     Component.onCompleted: {
         tcpModel.appendLocalAddr.connect(appendLocalAddr)
-        tcpModel.sendLogMsg.connect(appendLogMsg)
+        tcpModel.setCurrentIndex.connect(setCurrentIndex)
         tcpModel.appendConnAddr.connect(appendConnec)
         tcpModel.connClose.connect(connClose)
         tcpModel.sendErrMsg.connect(setSendErrMsg)
@@ -101,7 +91,7 @@ Row{
 
     Component.onDestruction: {
         tcpModel.appendLocalAddr.disconnect(appendLocalAddr)
-        tcpModel.sendLogMsg.disconnect(appendLogMsg)
+        tcpModel.setCurrentIndex.disconnect(setCurrentIndex)
         tcpModel.appendConnAddr.disconnect(appendConnec)
         tcpModel.connClose.disconnect(connClose)
         tcpModel.sendErrMsg.connect(setSendErrMsg)

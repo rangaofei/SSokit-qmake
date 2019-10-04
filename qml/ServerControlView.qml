@@ -24,7 +24,7 @@ Column {
     //当前连接状态
     signal connectState(bool state)
 
-    //    端口数据列表
+    //端口数据列表
     ListModel{
         id:portListModel
     }

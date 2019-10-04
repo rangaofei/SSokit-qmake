@@ -63,10 +63,12 @@ QtObject {
     property var logSend: qsTr("Send")
     property var logClear: qsTr("Clear")
     property var logTime:qsTr("Time")
+    property var logHost: qsTr("Host")
     property var logIP: qsTr("IP")
     property var logLength: qsTr("Length")
 
     //SendView
+    property var plainText: qsTr("plainText")
     property var send: qsTr("Send")
     property var sendBuf1: qsTr("Buf1")
     property var sendBuf2: qsTr("Buf2")
@@ -91,4 +93,7 @@ QtObject {
     property var headerEndian: qsTr("Endian")
     property var headerEndianValue: [qsTr("Big"),qsTr("Little")]
     property var headerEnable: qsTr("Enable")
+
+    //LogItemDetailView
+    property var logItemDataType: [qsTr("ASC"),qsTr("HEX"),qsTr("TEXT"),qsTr("HEX2")]
 }

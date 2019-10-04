@@ -1,5 +1,5 @@
-import QtQuick 2.12
-import QtQuick.Controls 2.12
+import QtQuick 2.13
+import QtQuick.Controls 2.13
 import QtQuick.Layouts 1.12
 import src.strings 1.0
 import src.settingtool 1.0
@@ -23,11 +23,14 @@ Component{
         ColumnLayout{
             width:parent.width
             spacing: 5
+
             RowLayout{
                 Layout.leftMargin: 10
                 Layout.rightMargin: 10
                 Layout.fillWidth: true
+                Layout.fillHeight: false
                 Layout.topMargin: 5
+                clip: true
                 IconUpArrow{
                     id:upArrow
                     y:5
@@ -73,7 +76,7 @@ Component{
                     clip :true
                     wrapMode: Text.NoWrap
                     color:delegate.highlighted?"white":"#37474f"
-                    text: Strings.logTime+" : "
+                    text: Strings.logHost+" : "
                     rightPadding: 10
                 }
                 Text {
@@ -116,13 +119,20 @@ Component{
                 }
             }
 
-            Row{
+            RowLayout{
                 Layout.fillWidth: true
-                leftPadding: 10
-                rightPadding: 10
+                Layout.fillHeight: false
+                Layout.leftMargin: 10
+                Layout.rightMargin: 10
+                clip: true
+                Image{
+                    Layout.preferredWidth: 20
+                    Layout.preferredHeight: 20
+                    z: 4
+                    source: delegate.highlighted?"qrc:/assets/images/translate_white.png":"qrc:/assets/images/translate.png"
+                }
                 Text {
-                    width: parent.width
-                    height: 20
+                    Layout.fillWidth: true
                     text: hexData
                     elide: Text.ElideRight
                     maximumLineCount: 1
@@ -131,6 +141,7 @@ Component{
                     wrapMode: Text.NoWrap
                     color:delegate.highlighted?"white":"#37474f"
                 }
+
             }
         }
         MouseArea{
@@ -143,6 +154,9 @@ Component{
                 logListView.currentIndex=index
             }
             onExited: {
+            }
+            onDoubleClicked: {
+                logView.showDetail();
             }
         }
     }

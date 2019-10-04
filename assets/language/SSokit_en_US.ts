@@ -208,7 +208,7 @@
     </message>
     <message>
         <location filename="Strings.qml" line="63"/>
-        <location filename="Strings.qml" line="70"/>
+        <location filename="Strings.qml" line="72"/>
         <source>Send</source>
         <translation type="unfinished"></translation>
     </message>
@@ -219,119 +219,129 @@
     </message>
     <message>
         <location filename="Strings.qml" line="65"/>
-        <location filename="Strings.qml" line="81"/>
+        <location filename="Strings.qml" line="83"/>
         <source>Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Strings.qml" line="66"/>
-        <source>IP</source>
+        <source>Host</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Strings.qml" line="67"/>
-        <location filename="Strings.qml" line="89"/>
+        <source>IP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Strings.qml" line="68"/>
+        <location filename="Strings.qml" line="91"/>
         <source>Length</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Strings.qml" line="71"/>
-        <source>Buf1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="Strings.qml" line="72"/>
-        <source>Buf2</source>
+        <source>plainText</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Strings.qml" line="73"/>
-        <source>Buf3</source>
+        <source>Buf1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Strings.qml" line="74"/>
+        <source>Buf2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Strings.qml" line="75"/>
+        <source>Buf3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Strings.qml" line="76"/>
         <source>Advance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="77"/>
+        <location filename="Strings.qml" line="79"/>
         <source>ControlCenter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="78"/>
+        <location filename="Strings.qml" line="80"/>
         <source>ADDR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="79"/>
+        <location filename="Strings.qml" line="81"/>
         <source>PORT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="80"/>
+        <location filename="Strings.qml" line="82"/>
         <source>Connect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="82"/>
+        <location filename="Strings.qml" line="84"/>
         <source>Disconnect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="83"/>
+        <location filename="Strings.qml" line="85"/>
         <source>Disable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="84"/>
+        <location filename="Strings.qml" line="86"/>
         <source>Port must be between 1024-63365</source>
         <oldsource>ort must be between 1024-63365</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="87"/>
+        <location filename="Strings.qml" line="89"/>
         <source>Header</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="88"/>
+        <location filename="Strings.qml" line="90"/>
         <source>Tailer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="90"/>
+        <location filename="Strings.qml" line="92"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="90"/>
+        <location filename="Strings.qml" line="92"/>
         <source>Short</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="90"/>
+        <location filename="Strings.qml" line="92"/>
         <source>Int</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="91"/>
+        <location filename="Strings.qml" line="93"/>
         <source>Endian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="92"/>
+        <location filename="Strings.qml" line="94"/>
         <source>Big</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="92"/>
+        <location filename="Strings.qml" line="94"/>
         <source>Little</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Strings.qml" line="93"/>
+        <location filename="Strings.qml" line="95"/>
         <source>Enable</source>
         <translation type="unfinished"></translation>
     </message>

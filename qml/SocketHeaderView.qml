@@ -7,7 +7,6 @@ ColumnLayout{
     property int content_Width: 150
     property int content_height: 30
     property bool checkEnabled: false
-    property bool isVisible: true
 
     id:container
     RowLayout{

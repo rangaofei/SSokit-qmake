@@ -52,6 +52,7 @@ bool TcpServerModel::close(void *cookie) {
 }
 
 void TcpServerModel::sendToDst(void *cookie, const QByteArray &bin) {
+    qDebug()<<"sendToDst";
     Conn *conn = (Conn *) cookie;
 
     const char *src = bin.constData();
@@ -74,7 +75,7 @@ void TcpServerModel::sendToDst(void *cookie, const QByteArray &bin) {
 
 //    recordSend(writeLen);
 //    dump(src, srcLen, true, conn->key);
-    dumpLogMsg(false, conn->key, src, writeLen);
+    dumpLogMsg(false, conn->key, bin, writeLen);
 }
 
 void TcpServerModel::error() {
@@ -143,7 +144,7 @@ void TcpServerModel::newData() {
         dumpLogMsg(true, conn->key, buf, readLen);
     }
 
-    TK::releaseBuffer(buf);
+//    TK::releaseBuffer(buf);
 
 }
 

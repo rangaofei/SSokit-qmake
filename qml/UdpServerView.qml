@@ -36,34 +36,25 @@ Row{
         id:udpLog
         w: parent.width-serverControl.width-parent.spacing-parent.rightPadding-parent.leftPadding
         h:parent.height
-
+        recvC: udpModel.revCount
+        sendC: udpModel.senCount
+        modelList: udpModel.dataList
         onSendMsg:{
             if(!serverControl.getCurrentConn()){
                 console.log("无法发送信息")
                 return
             }
-            if(!msg){
+            if(!data){
                 console.log("信息无内容")
                 return
             }
-
-            console.log(msg+"---"+serverControl.getCurrentConn())
-            udpModel.send(serverControl.getCurrentConn(),msg)
+            udpModel.sendMessageData(serverControl.getCurrentConn(),data)
         }
-        onSendMsgWithHeader: {
-            if(!serverControl.getCurrentConn()){
-                console.log("无法发送信息")
-                return
-            }
-            if(!msg){
-                console.log("信息无内容")
-                return
-            }
-            udpModel.sendWithHeader(serverControl.getCurrentConn(),header,lengthSize,bigEndian,msg)
-        }
-
     }
 
+    function setCurrentIndex(index){
+        udpLog.setCurrentIndex(index)
+    }
 
     function appendConnec(msg){
         serverControl.appendHistoryConnect(msg)
@@ -73,10 +64,6 @@ Row{
         serverControl.appendLocalAddr(msg)
     }
 
-    function appendLogMsg(time,type,host,ascData,hexData,length){
-        console.log("length="+length)
-        udpLog.appendData(time,type,host,ascData,hexData,length)
-    }
 
     function connClose(addr){
         serverControl.connClose(addr)
@@ -95,7 +82,7 @@ Row{
 
     Component.onCompleted: {
         udpModel.appendLocalAddr.connect(appendLocalAddr)
-        udpModel.sendLogMsg.connect(appendLogMsg)
+        udpModel.setCurrentIndex.connect(setCurrentIndex)
         udpModel.appendConnAddr.connect(appendConnec)
         udpModel.connClose.connect(connClose)
         udpModel.sendErrMsg.connect(setSendErrMsg)
@@ -104,7 +91,7 @@ Row{
 
     Component.onDestruction: {
         udpModel.appendLocalAddr.disconnect(appendLocalAddr)
-        udpModel.sendLogMsg.disconnect(appendLogMsg)
+        udpModel.setCurrentIndex.disconnect(setCurrentIndex)
         udpModel.appendConnAddr.disconnect(appendConnec)
         udpModel.connClose.disconnect(connClose)
         udpModel.sendErrMsg.disconnect(setSendErrMsg)

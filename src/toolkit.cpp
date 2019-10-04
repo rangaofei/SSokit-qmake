@@ -1,7 +1,5 @@
 #include <QNetworkInterface>
-#include <QComboBox>
 #include <QAbstractSocket>
-#include <QToolButton>
 #include <QCoreApplication>
 #include <QAction>
 
@@ -237,7 +235,6 @@ bool TK::ascii2bin(const QString& src, QByteArray& dst, QString& err)
 
 	QDataStream os(&dst, QIODevice::WriteOnly);
 
-
 	QVector<uint> lst = src.toUcs4();
 
 	PARSE_STA status = OUT;
@@ -249,7 +246,6 @@ bool TK::ascii2bin(const QString& src, QByteArray& dst, QString& err)
 	for (int i=0; i<len; ++i)
 	{
 		uint val = lst.at(i);
-
 		if ('[' == val)
 		{
 			switch (status)
@@ -366,5 +362,5 @@ char* TK::createBuffer(qint64& cap, qint64 limit)
 void  TK::releaseBuffer(char*& buf)
 {
 	delete buf;
-    buf = 0;
+    buf = nullptr;
 }

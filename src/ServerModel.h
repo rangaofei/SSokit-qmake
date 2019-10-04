@@ -9,9 +9,12 @@
 #include <QObject>
 #include "serverskt.h"
 #include "StringListModel.h"
+#include "SendMessageData.h"
+#include "LogMessageModel.h"
+#include "QmlLogModel.h"
 
 
-class ServerModel : public QObject {
+class ServerModel : public QmlLogModel {
     Q_OBJECT
 #define START_ERR 1
 #define CLOSE_ERR 2
@@ -23,9 +26,12 @@ class ServerModel : public QObject {
     typedef QHash<QString, void *> OBJMAP;
 
 public:
+
+
     explicit ServerModel(QObject *parent = nullptr);
 
     virtual ~ServerModel();
+
 
 signals:
 
@@ -104,6 +110,7 @@ public slots:
 
     void sendWithHeader(const QString &key,const QString header,const qint32 lengthSize,bool bigEndian, const QString &data);
 
+    void sendMessageData(const QString &key,SendMessageData *data);
 protected:
 
     virtual bool openServer(QString &addr, quint16 port) = 0;
@@ -123,8 +130,6 @@ protected:
     void unsetCookie(const QString &k);
 
     void *getCookie(const QString &k);
-
-    void dumpLogMsg(bool rev, QString &host, const char *buf, qint64 length);
 
     virtual void initConfig();
 

@@ -5,6 +5,8 @@ ComboBox {
     property int maxLength: 32767
     property var validate
     property var showLeftIndicator: true
+    property var normalColor: "black"
+    property var indicatorColor: "#37474f"
     id: control
     rightPadding: 10
     delegate: ItemDelegate {
@@ -40,7 +42,7 @@ ComboBox {
         id: canvas
         x: control.width - width - control.rightPadding
         y: control.topPadding + (control.availableHeight - height) / 2
-
+        enableColor: indicatorColor
         Connections {
             target: control
             onEnabledChanged:{
@@ -60,7 +62,7 @@ ComboBox {
         leftPadding: 0
         text: control.displayText
         font: control.font
-        color: control.enabled ? "black" : "#bdbdbd"
+        color: control.enabled ? normalColor : "#bdbdbd"
         verticalAlignment: TextInput.AlignVCenter
         horizontalAlignment: TextInput.AlignRight
         maximumLength: maxLength

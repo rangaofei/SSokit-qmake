@@ -7,6 +7,7 @@
 #include <QApplication>
 #include <QTranslator>
 #include <QLibraryInfo>
+#include <QThread>
 
 #include "bluetoothmodel.h"
 #include "logmodel.h"
@@ -19,6 +20,9 @@
 #include "TranslatorTool.h"
 #include "HttpManager.h"
 #include "sqlitetool.h"
+#include "SendMessageData.h"
+#include "WavTools.h"
+#include "LogMessageModel.h"
 
 
 /**
@@ -42,6 +46,8 @@ void registerQml(){
     qmlRegisterType<UdpServerModel>("src.udpservermodel", 1, 0, "UdpServerModel");
     qmlRegisterType<TcpClientModel>("src.tcpclientmodel", 1, 0, "TcpClientModel");
     qmlRegisterType<UdpClientModel>("src.udpclientmodel", 1, 0, "UdpClientModel");
+    qmlRegisterType<SendMessageData>("src.sendmessagedata",1,0,"SendMessageData");
+    qmlRegisterUncreatableType<LogMessageModel>("src.logmessagedata",1,0,"LogMessageData","Reference only");
     qmlRegisterType<NoteBook>("src.notebook",1,0,"NoteBook");
     qmlRegisterSingletonType<SQLiteTool>("src.sqlitetool",1,0,"SqliteTool",[](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
         Q_UNUSED(engine)
@@ -84,8 +90,9 @@ int main(int argc, char *argv[]) {
     TranslatorTool translatorTool;
     translatorTool.initLanguage();
     registerQml();
+    qDebug()<<"main thread:"<<QThread::currentThreadId();
     QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("qrc:/qml/SSokit.qml")));
+    engine.load(QUrl(QStringLiteral("qrc:/qml/SSokit.qml")));  
     if (engine.rootObjects().isEmpty())
         return -1;
     return QApplication::exec();

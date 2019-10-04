@@ -4,12 +4,20 @@ import QtQuick.Controls 2.5
 import QtQuick.Controls.Styles 1.4
 import src.strings 1.0
 import src.settingtool 1.0
+import src.sendmessagedata 1.0
 
 GroupBox{
     property bool canSendMsg: false
+    signal sendMsg(SendMessageData data)
 
-    signal sendMsgWithHeader(string header,int lengthSize,bool bigEndian,string msg)
-    signal sendMsg(string msg)
+    SendMessageData{
+        id:sendMessageData
+        header: socketView.getHeader()
+        footer: socketView.getTailer()
+        lengthSize: socketView.getLengthSize()
+        endian: socketView.isBigEndian()
+        withHeader: socketView.isWithHeader()
+    }
 
     background: Rectangle{
         radius: 5
@@ -85,7 +93,10 @@ GroupBox{
                         border.width: 1
                         radius: parent.height/2
                     }
-                    onClicked: {sendMessage(buffer1.text)}
+                    onClicked: {
+                        sendMessageData.setPlainText(false)
+                        sendMessage(buffer1.text)
+                    }
                 }
             }
             RowLayout{
@@ -134,7 +145,11 @@ GroupBox{
                         border.width: 1
                         radius: parent.height/2
                     }
-                    onClicked: {sendMessage(buffer2.text)}
+                    onClicked: {
+                        sendMessageData.setPlainText(false)
+
+                        sendMessage(buffer2.text)
+                    }
                 }
             }
             RowLayout{
@@ -153,7 +168,7 @@ GroupBox{
                     Layout.fillWidth: true
                     Layout.fillHeight: false
                     Layout.preferredHeight: 30
-
+                    placeholderText: "该行内容为纯文本发送"
                     background: Rectangle {
                         color: buffer3.enabled ? "transparent" : "transparent"
                         border.color: buffer3.enabled ? "#bdbdbd" : "#bdbdbd"
@@ -172,6 +187,7 @@ GroupBox{
                     }
                      visible: SettingTool.getShowSendClear()
                 }
+
                 Button{
                     enabled: canSendMsg
                     Layout.preferredWidth: 50
@@ -184,7 +200,10 @@ GroupBox{
                         border.width: 1
                         radius: parent.height/2
                     }
-                    onClicked: {sendMessage(buffer3.text)}
+                    onClicked: {
+                        sendMessageData.setPlainText(true)
+                        sendMessage(buffer3.text)
+                    }
                 }
             }
             RowLayout{
@@ -217,17 +236,9 @@ GroupBox{
         }
     }
 
-
     function sendMessage(buf){
-        if(socketView.isWithHeader()){
-            var headerStr=socketView.getHeader()
-            var isBigEndian=socketView.isBigEndian()
-            var length=socketView.getLengthSize()
-            var bufWithTailer=buf+socketView.getTailer()
-            sendMsgWithHeader(headerStr,length,isBigEndian,bufWithTailer)
-        }else{
-            sendMsg(buf)
-        }
+        sendMessageData.setContent(buf)
+        sendMsg(sendMessageData)
     }
 
     function setSendMsgState(canSend){
