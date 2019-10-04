@@ -6,9 +6,13 @@
 #define SSOKIT_CLIENTMODEL_H
 
 
+#include "LogMessageModel.h"
+#include "QmlLogModel.h"
+#include "SendMessageData.h"
+
 #include <QObject>
 
-class ClientModel : public QObject {
+class ClientModel : public QmlLogModel {
 
     Q_OBJECT
 
@@ -19,8 +23,11 @@ class ClientModel : public QObject {
 
 #define MAXBUFFER 1024*1024
 #define PROP_CONN  "CONN"
+
 public:
-    ClientModel(QObject *parent = nullptr);
+
+
+    explicit ClientModel(QObject *parent = nullptr);
 
 signals:
 
@@ -32,15 +39,15 @@ signals:
     void appendLocalAddr(QString addr);
 
     /**
-  * qml信号
-  * 发送接收到的客户端发送的信息
-  * @param time
-  * @param type
-  * @param host
-  * @param msg
-  * @param hexData
-  * @param length
-  */
+     * qml信号
+     * 发送接收到的客户端发送的信息
+     * @param time
+     * @param type
+     * @param host
+     * @param msg
+     * @param hexData
+     * @param length
+     */
     void sendLogMsg(QString time, bool type, QString host, QString msg, QString hexData, quint64 length);
 
     /**
@@ -84,13 +91,6 @@ public slots:
 
     /**
      * qml槽
-     * 主动关闭客户端的连接
-     * @param key
-     */
-    void kill(const QString &key);
-
-    /**
-     * qml槽
      * 发送信息
      * @param key
      * @param data
@@ -98,6 +98,8 @@ public slots:
     void send(const QString &data);
 
     void sendWithHeader(const QString header,const qint32 lengthSize,bool bigEndian, const QString &data);
+
+    void sendMessageData(SendMessageData *data);
 
 protected:
 
@@ -109,7 +111,6 @@ protected:
 
     bool closeClient();
 
-    void dumpLogMsg(bool rev, QString &host, const char *buf, qint64 length);
 
 protected:
 

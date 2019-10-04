@@ -13,12 +13,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        src/LogMessageModel.cpp \
         src/HttpManager.cpp \
+        src/QmlLogModel.cpp \
+        src/ReceiveMessageData.cpp \
+        src/SendMessageData.cpp \
         src/SettingTool.cpp \
         src/TranslatorTool.cpp \
+        src/WavTools.cpp \
         src/itemport.cpp \
         src/main.cpp \
-        src/logger.cpp \
+        src/Logger.cpp \
         src/toolkit.cpp \
         src/notepadmodel.cpp \
         src/ServerModel.cpp \
@@ -36,9 +41,14 @@ SOURCES += \
         src/sqlitetool.cpp
 
 HEADERS +=  src/bluetoothmodel.h \
+    src/LogMessageModel.h \
             src/HttpManager.h \
+    src/QmlLogModel.h \
+    src/ReceiveMessageData.h \
+    src/SendMessageData.h \
             src/SettingTool.h \
             src/TranslatorTool.h \
+    src/WavTools.h \
             src/atomicops.h \
             src/config.h \
             src/itemport.h \
@@ -90,7 +100,8 @@ QML_DESIGNER_IMPORT_PATH =
 QT += widgets \
       bluetooth \
       websockets \
-      sql
+      sql \
+      multimedia
 
 
 # Default rules for deployment.

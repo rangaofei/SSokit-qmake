@@ -9,7 +9,6 @@ SettingTool::SettingTool(QObject *parent) : QObject(parent)
 
 SettingTool::~SettingTool()
 {
-    qDebug()<<"destroy settingtool";
     if( settings!=nullptr){
         delete  SettingTool::settings;
         settings=nullptr;

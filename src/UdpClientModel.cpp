@@ -5,6 +5,8 @@
 #include "UdpClientModel.h"
 #include "toolkit.h"
 
+#include <QThread>
+
 bool UdpClientModel::openClient(QString &addr, quint16 port) {
     qDebug("begin to connect %s : %d",addr.toStdString().data(),port);
     connect(&m_udp_socket, SIGNAL(readyRead()), this, SLOT(newData()));
@@ -30,6 +32,7 @@ bool UdpClientModel::close() {
 }
 
 void UdpClientModel::sendToDst(const QByteArray &bin) {
+    qDebug()<<"send thread:"<<QThread::currentThreadId();
     if (m_udp_socket.errorString() != nullptr)
         qDebug() << "发送udp发生错误+++" << m_udp_socket.error();
     const char *src = bin.constData();
@@ -84,13 +87,13 @@ void UdpClientModel::newData() {
 }
 
 void UdpClientModel::closed() {
-    qDebug() << (QString("UDP connection closed!"));
+    qDebug() << "UDP connection closed!";
     closeClient();
 }
 
 void UdpClientModel::error() {
     QUdpSocket *s = qobject_cast<QUdpSocket *>(sender());
-    qDebug() << (QString("UDP socket error %1, %2").arg(s->error()).arg(s->errorString()));
+    qDebug() << QString("UDP socket error %1, %2").arg(s->error()).arg(s->errorString());
     sendErrMsg(CLOSE_ERR, s->errorString(), true);
     closeClient();
 }

@@ -20,7 +20,6 @@
         <file>qml/NotepadView.qml</file>
         <file>qml/MessageLabel.qml</file>
         <file>qml/LogView.qml</file>
-        <file>qml/LogListModel.qml</file>
         <file>qml/IconUpArrow.qml</file>
         <file>qml/IconTriangle.qml</file>
         <file>qml/IconSelected.qml</file>
@@ -62,5 +61,8 @@
         <file>assets/images/clear.png</file>
         <file>assets/images/save.png</file>
         <file>assets/images/delete.png</file>
+        <file>assets/images/translate_white.png</file>
+        <file>assets/images/translate.png</file>
+        <file>qml/LogDetailView.qml</file>
     </qresource>
 </RCC>

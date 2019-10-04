@@ -8,6 +8,7 @@
 
 #include <QTcpSocket>
 #include "ClientModel.h"
+#include "LogMessageModel.h"
 
 
 class TcpClientModel : public ClientModel {
@@ -34,7 +35,7 @@ private slots:
 
 private:
     QTcpSocket m_tcp_socket;
-
+    LogMessageList *logMessageList;
 };
 
 

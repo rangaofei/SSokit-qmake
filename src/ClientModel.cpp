@@ -9,7 +9,9 @@
 #include "ClientModel.h"
 #include "toolkit.h"
 
-ClientModel::ClientModel(QObject *parent) : QObject(parent) {}
+ClientModel::ClientModel(QObject *parent) : QmlLogModel(parent)
+{
+}
 
 void ClientModel::getAddr() {
     QList<QHostAddress> lst = QNetworkInterface::allAddresses();
@@ -27,10 +29,6 @@ void ClientModel::toggleConnect(bool checked, QString addr, QString port) {
     } else {
         closeClient();
     }
-}
-
-void ClientModel::kill(const QString &key) {
-
 }
 
 void ClientModel::send(const QString &data) {
@@ -66,7 +64,7 @@ void ClientModel::sendWithHeader(const QString header, const qint32 lengthSize, 
     QDataStream sendData(&length,QIODevice::WriteOnly);
     sendData.setByteOrder(bigEndian? QDataStream::BigEndian: QDataStream::LittleEndian);
     switch (lengthSize) {
-        case 0:
+    case 0:
         break;
     case 2:
         sendData<<quint16(dataBin.size());
@@ -82,18 +80,61 @@ void ClientModel::sendWithHeader(const QString header, const qint32 lengthSize, 
     sendToDst(dataBin);
 }
 
+void ClientModel::sendMessageData(SendMessageData *data)
+{
+    if(data->plainText()){
+        qDebug()<<"纯文本发送";
+        sendToDst(data->content().toUtf8());
+        return;
+    }else {
+        qDebug()<<"非纯文本发送";
+    }
+    if(!data->withHeader()){
+        send(data->content());
+        return;
+    }
+    QString err;
+    QByteArray dataBin;
+    QByteArray headerBin;
+
+    if (!TK::ascii2bin(data->header(), headerBin, err)) {
+        qDebug() << ("bad data format to send: " + err);
+        return;
+    }
+
+    if (!TK::ascii2bin(data->getTargetMsg(), dataBin, err)) {
+        qDebug() << ("bad data format to send: " + err);
+        return;
+    }
+    QByteArray length;
+    length.resize(data->lengthSize());
+    QDataStream sendData(&length,QIODevice::WriteOnly);
+    sendData.setByteOrder(data->endian()? QDataStream::BigEndian: QDataStream::LittleEndian);
+    switch (data->lengthSize()) {
+    case 0:
+        break;
+    case 2:
+        sendData<<quint16(dataBin.size());
+        break;
+    case 4:
+        sendData<<quint32(dataBin.size());
+        break;
+    }
+
+
+    dataBin.prepend(length);
+    dataBin.prepend(headerBin);
+    sendToDst(dataBin);
+}
+
+
 bool ClientModel::closeClient() {
     emit connClose(host);
     close();
     return true;
 }
 
-void ClientModel::dumpLogMsg(bool rev, QString &host, const char *buf, qint64 length) {
-    qDebug() << "dumpLogMsg";
-    QString lab(QTime::currentTime().toString("HH:mm:ss.zzz "));
-    QString ascData = TK::bin2ascii(buf, length);
-    QString hexData = TK::bin2hex(buf, length);
-    emit sendLogMsg(lab, rev, host, ascData, hexData, length);
-}
+
+
 
 

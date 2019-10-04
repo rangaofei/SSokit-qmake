@@ -15,7 +15,9 @@ bool TcpClientModel::openClient(QString &addr, quint16 port) {
     host = TK::ipstr(QHostAddress(addr), port);
     m_tcp_socket.connectToHost(addr, port);
     if (m_tcp_socket.waitForConnected(1000*10))
+    {
         qDebug("Connected!");
+    }
     else
         qDebug("error !");
     return true;
@@ -76,7 +78,7 @@ void TcpClientModel::newData() {
         dumpLogMsg(true, host, buf, readLen);
     }
 
-    TK::releaseBuffer(buf);
+//    TK::releaseBuffer(buf);
 }
 
 void TcpClientModel::closed() {
