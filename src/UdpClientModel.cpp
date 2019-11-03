@@ -2,6 +2,7 @@
 // Created by saka on 2019-02-28.
 //
 
+#include "SoundManager.h"
 #include "UdpClientModel.h"
 #include "toolkit.h"
 
@@ -54,6 +55,7 @@ void UdpClientModel::sendToDst(const QByteArray &bin) {
         sendErrMsg(SEND_ERR,"Send data error",true);
         return;
     }
+    SoundManager::playSend();
     dumpLogMsg(false, host, src, writeLen);
 
 }
@@ -80,6 +82,7 @@ void UdpClientModel::newData() {
     }
 
     if (ioLen >= 0) {
+        SoundManager::playReceive();
         dumpLogMsg(true, host, buf, readLen);
     }
 

@@ -40,6 +40,31 @@ Item {
                 Layout.preferredHeight:1
                 color: "#bdbdbd"
             }
+
+            GeneralCheckBox{
+                Layout.alignment: Qt.AlignRight
+                text: Strings.settingEnableReceiveSound
+                checked: SettingTool.getEnableReceiveSound()
+                onCheckStateChanged: {
+                    SettingTool.setEnableReceiveSound(checked)
+                }
+            }
+            GeneralCheckBox{
+                Layout.alignment: Qt.AlignRight
+                text: Strings.settingEnableSendSound
+                checked: SettingTool.getEnableSendSound()
+                onCheckStateChanged: {
+                    SettingTool.setEnableSendSound(checked)
+                }
+            }
+            GeneralCheckBox{
+                Layout.alignment: Qt.AlignRight
+                text: Strings.settingEnableSound
+                checked: SettingTool.getEnableSysSound()
+                onCheckStateChanged: {
+                    SettingTool.setEnableSysSound(checked)
+                }
+            }
         }
     }
 }

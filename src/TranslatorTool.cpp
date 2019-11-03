@@ -1,5 +1,7 @@
 #include "TranslatorTool.h"
 
+#include <QSettings>
+
 
 QTranslator *TranslatorTool::translator=nullptr;
 

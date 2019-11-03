@@ -54,6 +54,9 @@ QtObject {
     //FunctionSettingView
     property var settingEnableHovver: qsTr("LogView Enable Hover To Select")
     property var settingShowClear: qsTr("SendView Show Clear")
+    property var settingEnableReceiveSound: qsTr("Enable Receive Sound")
+    property var settingEnableSendSound: qsTr("Enable Send Sound")
+    property var settingEnableSound: qsTr("Enable Sound")
 
     //ShortCutSettingView
     property var settingSwtichTab: qsTr("SwitchTab")

@@ -6,7 +6,6 @@
 #include <QLocale>
 #include <QDebug>
 #include <QApplication>
-#include "settingtool.h"
 #define LANGUAGE_DIR ":/assets/language"
 
 class TranslatorTool : public QObject

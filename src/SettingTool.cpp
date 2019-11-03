@@ -1,10 +1,10 @@
 #include "SettingTool.h"
 
+QSettings *SettingTool::settings=new QSettings;
 
 SettingTool::SettingTool(QObject *parent) : QObject(parent)
 {
     qDebug()<<"constructor settingtool";
-    settings=new QSettings;
 }
 
 SettingTool::~SettingTool()
@@ -203,3 +203,34 @@ bool SettingTool::getEnableLogHover()
 {
     return settings->value(LOG_ENABLE_HOVER,false).toBool();
 }
+
+void SettingTool::setEnableSendSound(bool enable)
+{
+    settings->setValue(PLAY_SEND_SOUND,enable);
+}
+
+bool SettingTool::getEnableSendSound()
+{
+    return settings->value(PLAY_SEND_SOUND,false).toBool();
+}
+
+void SettingTool::setEnableReceiveSound(bool enable)
+{
+    settings->setValue(PLAY_RECEIVE_SOUND,enable);
+}
+
+bool SettingTool::getEnableReceiveSound()
+{
+    return settings->value(PLAY_RECEIVE_SOUND,false).toBool();
+}
+
+void SettingTool::setEnableSysSound(bool enable)
+{
+    settings->setValue(PLAY_SYSTEM_SOUND,enable);
+}
+
+bool SettingTool::getEnableSysSound()
+{
+    return settings->value(PLAY_SYSTEM_SOUND,false).toBool();
+}
+

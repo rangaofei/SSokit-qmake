@@ -23,6 +23,7 @@
 #include "SendMessageData.h"
 #include "WavTools.h"
 #include "LogMessageModel.h"
+#include "SoundManager.h"
 
 
 /**
@@ -77,6 +78,12 @@ void registerQml(){
         Q_UNUSED(scriptEngine)
         Config *config = new Config();
         return config;
+    });
+    qmlRegisterSingletonType<SoundManager>("src.soundmanager",1,0,"SoundManager", [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
+        Q_UNUSED(engine)
+        Q_UNUSED(scriptEngine)
+        SoundManager *manager = new SoundManager();
+        return manager;
     });
 }
 

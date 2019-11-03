@@ -70,7 +70,7 @@ void WebSocketServerModel:: error(){
 }
 
 void WebSocketServerModel:: close(QObject *obj){
-
+    Q_UNUSED(obj)
 }
 
 bool WebSocketServerModel::close(void *cookie){

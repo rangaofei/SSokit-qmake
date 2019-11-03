@@ -3,6 +3,7 @@
 //
 
 #include <QTcpSocket>
+#include "SoundManager.h"
 #include "TcpServerModel.h"
 #include "toolkit.h"
 
@@ -75,6 +76,7 @@ void TcpServerModel::sendToDst(void *cookie, const QByteArray &bin) {
 
 //    recordSend(writeLen);
 //    dump(src, srcLen, true, conn->key);
+    SoundManager::playSend();
     dumpLogMsg(false, conn->key, bin, writeLen);
 }
 
@@ -141,6 +143,7 @@ void TcpServerModel::newData() {
     if (ioLen >= 0) {
 //        recordRecv(readLen);
 //        dump(buf, readLen, false, conn->key);
+        SoundManager::playReceive();
         dumpLogMsg(true, conn->key, buf, readLen);
     }
 
