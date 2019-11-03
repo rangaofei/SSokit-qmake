@@ -11,7 +11,7 @@ SoundManager::~SoundManager()
 
 void SoundManager::playSound(int type)
 {
-
+    Q_UNUSED(type)
 }
 
 void SoundManager::playSlideOpen()

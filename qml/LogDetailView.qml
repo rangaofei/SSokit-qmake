@@ -3,6 +3,7 @@ import QtQuick.Controls 2.13
 import QtQuick.Layouts 1.12
 import src.strings 1.0
 import QtQuick.Controls.Styles 1.4
+import src.soundmanager 1.0
 
 GroupBox{
     property var detailLogText: ""
@@ -189,10 +190,12 @@ GroupBox{
     }
 
     function showLogItemDetail(){
+        SoundManager.playSlideOpen()
         container.state="in"
     }
 
     function hideLogItemDetail(){
+        SoundManager.playSlideClose()
         container.state="out"
     }
 
