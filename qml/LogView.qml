@@ -70,7 +70,7 @@ ColumnLayout{
         LogDetailView{
             id:logDetailView
             dataWidth: parent.width*0.6-20
-            state: showLogItemDetail?"in":"out"
+            state: showLogItemDetail.checked?"in":"out"
             width: parent.width*0.6
             height: parent.height
             detailLogText: getLogItemDetail(logDetailView.getTypeIndex())
@@ -121,6 +121,7 @@ ColumnLayout{
             }
             text: Strings.logClear
             onClicked: {
+                console.log("clear Button cl")
                 showLogItemDetail.checked=false
                 clearData()
             }
@@ -133,10 +134,13 @@ ColumnLayout{
             Layout.preferredWidth: 30
             Layout.preferredHeight: 15
             text: "详细信息"
-            checked: show
             onCheckedChanged: {
+                console.log("GeneralCheckBox GeneralCheckBox")
                 if(modelList.rowCount()<=0){
                     checked=false
+                    if(logDetailView.state=='out'){
+                        return
+                    }
                 }
                 if(checked){
                     logDetailView.showLogItemDetail()

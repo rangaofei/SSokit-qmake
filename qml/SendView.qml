@@ -35,6 +35,7 @@ GroupBox{
             state: showHeader.checked?"in":"out"
         }
 
+
         Rectangle{
             id:divider
             width: 1

@@ -8,7 +8,7 @@
 #include <QPlainTextEdit>
 #include "toolkit.h"
 #include "setting.h"
-#include "logger.h"
+#include "Logger.h"
 #include "SettingTool.h"
 
 #define SET_MAX_LOGITM  100
