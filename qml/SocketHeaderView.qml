@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import src.strings 1.0
-
+import src.soundmanager 1.0
 ColumnLayout{
     property int content_Width: 150
     property int content_height: 30
@@ -177,10 +177,12 @@ ColumnLayout{
     }
 
     function startShow(){
+        SoundManager.playSlideOpen()
         container.state="in"
     }
 
     function stopShow(){
+        SoundManager.playSlideClose()
         container.state="out"
     }
 }

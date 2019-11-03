@@ -64,5 +64,9 @@
         <file>assets/images/translate_white.png</file>
         <file>assets/images/translate.png</file>
         <file>qml/LogDetailView.qml</file>
+        <file>assets/rings/receive.wav</file>
+        <file>assets/rings/send.wav</file>
+        <file>assets/rings/slide_close.wav</file>
+        <file>assets/rings/slide_open.wav</file>
     </qresource>
 </RCC>

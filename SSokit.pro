@@ -19,6 +19,7 @@ SOURCES += \
         src/ReceiveMessageData.cpp \
         src/SendMessageData.cpp \
         src/SettingTool.cpp \
+        src/SoundManager.cpp \
         src/TranslatorTool.cpp \
         src/WavTools.cpp \
         src/itemport.cpp \
@@ -47,6 +48,7 @@ HEADERS +=  src/bluetoothmodel.h \
     src/ReceiveMessageData.h \
     src/SendMessageData.h \
             src/SettingTool.h \
+    src/SoundManager.h \
             src/TranslatorTool.h \
     src/WavTools.h \
             src/atomicops.h \

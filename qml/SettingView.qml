@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.13
 
 import src.settingtool 1.0
 import src.strings 1.0
+import src.soundmanager 1.0
 
 Drawer {
     property bool isOpened: false
@@ -167,8 +168,10 @@ Drawer {
 
     function toggleDrawer(){
         if(visible){
+            SoundManager.playSlideClose()
             close()
         }else{
+            SoundManager.playSlideOpen()
             open()
         }
     }

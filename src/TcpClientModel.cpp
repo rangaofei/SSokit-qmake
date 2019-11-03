@@ -2,6 +2,8 @@
 // Created by saka on 2019-02-28.
 //
 
+#include <QSound>
+#include "SoundManager.h"
 #include "TcpClientModel.h"
 #include "toolkit.h"
 
@@ -47,7 +49,7 @@ void TcpClientModel::sendToDst(const QByteArray &bin) {
         emit sendErrMsg(SEND_ERR, "Send data failed", true);
         return;
     }
-
+    SoundManager::playSend();
     dumpLogMsg(false, host, src, writeLen);
 
 }
@@ -75,6 +77,7 @@ void TcpClientModel::newData() {
     }
 
     if (ioLen >= 0) {
+        SoundManager::playReceive();
         dumpLogMsg(true, host, buf, readLen);
     }
 

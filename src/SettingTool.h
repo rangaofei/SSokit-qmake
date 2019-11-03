@@ -26,6 +26,10 @@
 #define SHOW_HEADER         "show_header"
 #define LOG_ENABLE_HOVER    "log_enable_hover"
 #define SHOW_SEND_CLEAR     "show_send_clear"
+#define PLAY_SEND_SOUND     "play_send_sound"
+#define PLAY_RECEIVE_SOUND  "play_receive_sound"
+
+#define PLAY_SYSTEM_SOUND   "play_system_sound"
 
 #define WINDOW_DEFAULT_W 800
 #define WINDOW_DEFAULT_H 600
@@ -39,7 +43,7 @@ public:
     ~SettingTool();
 
 private:
-    QSettings *settings=nullptr;
+    static QSettings *settings;
 
 signals:
 
@@ -96,6 +100,16 @@ public slots:
 
     void setEnableLogHover(bool enable);
     bool getEnableLogHover();
+
+    static void setEnableSendSound(bool enable);
+    static bool getEnableSendSound();
+
+    static void setEnableReceiveSound(bool enable);
+    static bool getEnableReceiveSound();
+
+    static void setEnableSysSound(bool enable);
+
+    static bool getEnableSysSound();
 };
 
 
