@@ -24,6 +24,7 @@
 #include "WavTools.h"
 #include "LogMessageModel.h"
 #include "SoundManager.h"
+#include "BroadcastModel.h"
 
 
 /**
@@ -48,6 +49,7 @@ void registerQml(){
     qmlRegisterType<TcpClientModel>("src.tcpclientmodel", 1, 0, "TcpClientModel");
     qmlRegisterType<UdpClientModel>("src.udpclientmodel", 1, 0, "UdpClientModel");
     qmlRegisterType<SendMessageData>("src.sendmessagedata",1,0,"SendMessageData");
+    qmlRegisterType<BroadcastModel>("src.broadcastmodel",1,0,"BroadcastModel");
     qmlRegisterUncreatableType<LogMessageModel>("src.logmessagedata",1,0,"LogMessageData","Reference only");
     qmlRegisterType<NoteBook>("src.notebook",1,0,"NoteBook");
     qmlRegisterSingletonType<SQLiteTool>("src.sqlitetool",1,0,"SqliteTool",[](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
@@ -99,7 +101,7 @@ int main(int argc, char *argv[]) {
     registerQml();
     qDebug()<<"main thread:"<<QThread::currentThreadId();
     QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("qrc:/qml/SSokit.qml")));  
+    engine.load(QUrl(QStringLiteral("qrc:/qml/SSokit.qml")));
     if (engine.rootObjects().isEmpty())
         return -1;
     return QApplication::exec();

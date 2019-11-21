@@ -12,7 +12,6 @@ Rectangle{
         GradientStop { position: 1.0; color: "#cfd8dc" }
     }
 
-
     TabBar {
         id:serverBar
         width: implicitWidth
@@ -27,9 +26,6 @@ Rectangle{
         TopButton{
             name:Strings.headerClient
         }
-        TopButton{
-            name:"广播"
-        }
     }
     StackLayout{
         id:view
@@ -38,14 +34,13 @@ Rectangle{
         currentIndex: serverBar.currentIndex
         width:parent.width
         height: parent.height-serverBar.height-30
+        TcpServerView{
+        }
+        TcpClientView{
 
-        UdpServerView{}
-        UdpClientView{}
-        BoradcastView{}
+        }
     }
 }
-
-
 
 
 

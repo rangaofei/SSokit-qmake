@@ -68,5 +68,9 @@
         <file>assets/rings/send.wav</file>
         <file>assets/rings/slide_close.wav</file>
         <file>assets/rings/slide_open.wav</file>
+        <file>qml/MulticastView.qml</file>
+        <file>qml/SideButton.qml</file>
+        <file>qml/SideBar.qml</file>
+        <file>qml/BoradcastView.qml</file>
     </qresource>
 </RCC>

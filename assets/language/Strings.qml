@@ -18,6 +18,7 @@ QtObject {
     property var mainTabWebSocket: qsTr("WebSocket")
     property var mainTabBlueTooth: qsTr("BlueTooth")
     property var mainTabCOM: qsTr("COM")
+    property var mainTabMulticast: qsTr("Multicast")
 
     //升级对话框
     property var newVersionTitle: qsTr("Find New Version")
