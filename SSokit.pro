@@ -14,6 +14,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         src/BroadcastModel.cpp \
+        src/FileWriter.cpp \
         src/LogMessageModel.cpp \
         src/HttpManager.cpp \
         src/QmlLogModel.cpp \
@@ -41,7 +42,9 @@ SOURCES += \
         src/sqlitetool.cpp
 
 HEADERS +=  src/bluetoothmodel.h \
+
             src/BroadcastModel.h \
+            src/FileWriter.h \
             src/LogMessageModel.h \
             src/HttpManager.h \
             src/QmlLogModel.h \
