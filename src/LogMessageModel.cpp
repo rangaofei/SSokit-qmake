@@ -32,6 +32,7 @@ void LogMessageList::clearData()
 {
     beginRemoveRows(QModelIndex(), 0, m_dataList.size()-1);
     qDeleteAll(m_dataList);
+    m_dataList.clear();
     endRemoveRows();
 }
 
