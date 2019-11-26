@@ -80,6 +80,7 @@ void QmlLogModel::clearRevCount(bool clearData)
     emit revCountChanged();
     if(clearData){
        this->m_dataList->clearRecvData();
+        emit dataListChanged();
     }
 }
 
@@ -89,14 +90,16 @@ void QmlLogModel::clearSenCount(bool clearData)
     emit senCountChanged();
     if(clearData){
         this->m_dataList->clearSendData();
+        emit dataListChanged();
     }
 }
 
 void QmlLogModel::clearAll(bool clearData)
 {
-    clearRevCount(clearData);
-//    clearSenCount(clearData);
-//    this->m_dataList->clearData();
+    clearRevCount(false);
+    clearSenCount(false);
+    this->m_dataList->clearData();
+    emit dataListChanged();
 }
 
 void QmlLogModel::clearData(QmlLogModel::ClearType type)
