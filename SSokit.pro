@@ -21,7 +21,6 @@ SOURCES += \
         src/SettingTool.cpp \
         src/SoundManager.cpp \
         src/TranslatorTool.cpp \
-        src/WavTools.cpp \
         src/itemport.cpp \
         src/main.cpp \
         src/Logger.cpp \
@@ -29,7 +28,6 @@ SOURCES += \
         src/notepadmodel.cpp \
         src/ServerModel.cpp \
         src/bluetoothmodel.cpp \
-        src/logmodel.cpp \
         src/logtreemodel.cpp \
         src/TcpServerModel.cpp \
         src/UdpServerModel.cpp \
@@ -50,11 +48,9 @@ HEADERS +=  src/bluetoothmodel.h \
             src/SettingTool.h \
     src/SoundManager.h \
             src/TranslatorTool.h \
-    src/WavTools.h \
             src/atomicops.h \
             src/config.h \
             src/itemport.h \
-            src/logmodel.h \
             src/TcpServerModel.h \
             src/UdpServerModel.h \
             src/notepadmodel.h \
