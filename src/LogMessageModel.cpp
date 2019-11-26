@@ -30,9 +30,39 @@ void LogMessageList::addData(LogMessageModel *model)
 
 void LogMessageList::clearData()
 {
-    beginRemoveRows(QModelIndex(), 0, m_dataList.size());
-    m_dataList.clear();
+    beginRemoveRows(QModelIndex(), 0, m_dataList.size()-1);
+    qDeleteAll(m_dataList);
     endRemoveRows();
+}
+
+void LogMessageList::clearRecvData()
+{
+    int length=m_dataList.size();
+    if(length<=0){
+        return;
+    }
+    for(int i=length-1;i>=0;i--){
+        if(m_dataList.at(i)->isRev()){
+            beginRemoveRows(QModelIndex(),i,i);
+            m_dataList.removeAt(i);
+            endRemoveRows();
+        }
+    }
+}
+
+void LogMessageList::clearSendData()
+{
+    int length=m_dataList.size();
+    if(length<=0){
+        return;
+    }
+    for(int i=length-1;i>=0;i--){
+        if(!m_dataList.at(i)->isRev()){
+            beginRemoveRows(QModelIndex(),i,1);
+            m_dataList.removeAt(i);
+            endRemoveRows();
+        }
+    }
 }
 
 LogMessageModel* LogMessageList::get(int index)

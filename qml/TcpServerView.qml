@@ -46,7 +46,7 @@ Row{
             tcpModel.sendMessageData(serverControl.getCurrentConn(),data)
         }
         onClearData: {
-            tcpModel.clearAll()
+            tcpModel.clearAll(true)
         }
     }
 

@@ -40,13 +40,13 @@ SOURCES += \
         src/sqlitetool.cpp
 
 HEADERS +=  src/bluetoothmodel.h \
-    src/LogMessageModel.h \
+            src/LogMessageModel.h \
             src/HttpManager.h \
-    src/QmlLogModel.h \
-    src/ReceiveMessageData.h \
-    src/SendMessageData.h \
+            src/QmlLogModel.h \
+            src/ReceiveMessageData.h \
+            src/SendMessageData.h \
             src/SettingTool.h \
-    src/SoundManager.h \
+            src/SoundManager.h \
             src/TranslatorTool.h \
             src/atomicops.h \
             src/config.h \

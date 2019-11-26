@@ -10,11 +10,21 @@ QmlLogModel::~QmlLogModel()
 
 }
 
+/***
+ * 接收的信息数量
+ * @brief QmlLogModel::revCount
+ * @return
+ */
 qint64 QmlLogModel::revCount()
 {
     return m_revCount;
 }
 
+/***
+ * 设置接收信息数量
+ * @brief QmlLogModel::setRevCount
+ * @param count
+ */
 void QmlLogModel::setRevCount(qint64 count)
 {
     this->m_revCount=count;
@@ -64,21 +74,42 @@ void QmlLogModel::dumpLogMsg(LogMessageModel* data) {
 }
 
 
-void QmlLogModel::clearRevCount()
+void QmlLogModel::clearRevCount(bool clearData)
 {
     this->m_revCount=0;
     emit revCountChanged();
+    if(clearData){
+       this->m_dataList->clearRecvData();
+    }
 }
 
-void QmlLogModel::clearSenCount()
+void QmlLogModel::clearSenCount(bool clearData)
 {
     this->m_senCount=0;
     emit senCountChanged();
+    if(clearData){
+        this->m_dataList->clearSendData();
+    }
 }
 
-void QmlLogModel::clearAll()
+void QmlLogModel::clearAll(bool clearData)
 {
-    clearRevCount();
-    clearSenCount();
-    this->m_dataList->clearData();
+    clearRevCount(clearData);
+//    clearSenCount(clearData);
+//    this->m_dataList->clearData();
+}
+
+void QmlLogModel::clearData(QmlLogModel::ClearType type)
+{
+    switch (type) {
+    case ALL:
+        this->m_dataList->clearData();
+        break;
+    case RECEIVE:
+        this->m_dataList->clearRecvData();
+        break;
+    case SEND:
+        this->m_dataList->clearSendData();
+        break;
+    }
 }
