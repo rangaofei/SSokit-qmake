@@ -32,7 +32,7 @@ Row{
         }
 
         onClearData: {
-            tcpModel.clearAll()
+            tcpModel.clearAll(true)
         }
 
     }

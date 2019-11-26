@@ -12,8 +12,8 @@ class LogMessageModel : public QObject
     Q_PROPERTY(QString time READ time WRITE setTime NOTIFY timeChanged)
     Q_PROPERTY(bool isRev READ isRev WRITE setIsRev NOTIFY isRevChanged)
     Q_PROPERTY(QString host READ host WRITE setHost NOTIFY hostChanged)
-//    Q_PROPERTY(QString ascData READ ascData WRITE setAscData NOTIFY ascDataChanged)
-//    Q_PROPERTY(QString hexData READ hexData WRITE setHexData NOTIFY hexDataChanged)
+    //    Q_PROPERTY(QString ascData READ ascData WRITE setAscData NOTIFY ascDataChanged)
+    //    Q_PROPERTY(QString hexData READ hexData WRITE setHexData NOTIFY hexDataChanged)
     Q_PROPERTY(int32_t length READ length WRITE setLength NOTIFY lengthChanged)
 
 public:
@@ -50,21 +50,21 @@ public:
         this->m_host=host;
     }
 
-//    Q_INVOKABLE QString ascData() const{
-//        return this->m_ascData;
-//    }
+    //    Q_INVOKABLE QString ascData() const{
+    //        return this->m_ascData;
+    //    }
 
-//    Q_INVOKABLE void setAscData(QString ascData){
-//        this->m_ascData=ascData;
-//    }
+    //    Q_INVOKABLE void setAscData(QString ascData){
+    //        this->m_ascData=ascData;
+    //    }
 
-//    Q_INVOKABLE QString hexData() const{
-//        return m_hexData;
-//    }
+    //    Q_INVOKABLE QString hexData() const{
+    //        return m_hexData;
+    //    }
 
-//    Q_INVOKABLE void setHexData(QString hexData){
-//        this->m_hexData=hexData;
-//    }
+    //    Q_INVOKABLE void setHexData(QString hexData){
+    //        this->m_hexData=hexData;
+    //    }
 
     Q_INVOKABLE int64_t length() const{
         return this->m_length;
@@ -90,8 +90,8 @@ signals:
     void timeChanged();
     void isRevChanged();
     void hostChanged();
-//    void ascDataChanged();
-//    void hexDataChanged();
+    //    void ascDataChanged();
+    //    void hexDataChanged();
     void lengthChanged();
 
 public slots:
@@ -101,8 +101,8 @@ private:
     QString m_time;
     bool m_isRev;
     QString m_host;
-//    QString m_ascData;
-//    QString m_hexData;
+    //    QString m_ascData;
+    //    QString m_hexData;
     int64_t m_length;
     QByteArray m_buf;
 };
@@ -136,6 +136,10 @@ public slots:
     void addData(LogMessageModel* model);
 
     void clearData();
+
+    void clearRecvData();
+
+    void clearSendData();
 
     LogMessageModel* get(int index);
 

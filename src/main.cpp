@@ -10,7 +10,6 @@
 #include <QThread>
 
 #include "bluetoothmodel.h"
-#include "logmodel.h"
 #include "TcpServerModel.h"
 #include "UdpServerModel.h"
 #include "notepadmodel.h"
@@ -21,7 +20,6 @@
 #include "HttpManager.h"
 #include "sqlitetool.h"
 #include "SendMessageData.h"
-#include "WavTools.h"
 #include "LogMessageModel.h"
 #include "SoundManager.h"
 
