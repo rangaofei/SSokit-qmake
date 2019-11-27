@@ -4,7 +4,8 @@ import QtQuick.Layouts 1.12
 import src.settingtool 1.0
 import src.strings 1.0
 
-import "./widget" as Widget
+import "./component" as Components
+
 
 Item {
     anchors.fill:parent
@@ -19,25 +20,35 @@ Item {
         ColumnLayout{
             anchors.left: parent.left
             anchors.right: parent.right
-            GeneralCheckBox{
-                Layout.alignment: Qt.AlignRight
-                 text: Strings.settingEnableHovver
+
+
+            Components.SwitchLayout{
+                text: Strings.settingEnableHovver
                 checked: SettingTool.getEnableLogHover()
-                onCheckStateChanged: {
+                onSwitchCheckedChanged: {
                     SettingTool.setEnableLogHover(checked)
                 }
 
             }
-            Widget.SwitchButton{
-                Layout.alignment: Qt.AlignRight
+
+            Rectangle{
+                Layout.fillWidth: true
+                Layout.leftMargin: 30
+                Layout.preferredHeight:1
+                color: "#bdbdbd"
+            }
+
+
+            Components.SwitchLayout{
                 text: Strings.settingShowClear
                 checked: SettingTool.getShowSendClear()
 
-                onCheckedChanged: {
+                onSwitchCheckedChanged: {
                     SettingTool.setShowSendClear(checked)
                 }
-
             }
+
+
             Rectangle{
                 Layout.topMargin: 20
                 Layout.fillWidth: true
@@ -45,27 +56,43 @@ Item {
                 color: "#bdbdbd"
             }
 
-            GeneralCheckBox{
-                Layout.alignment: Qt.AlignRight
+
+            Components.SwitchLayout{
                 text: Strings.settingEnableReceiveSound
                 checked: SettingTool.getEnableReceiveSound()
-                onCheckStateChanged: {
+                onSwitchCheckedChanged: {
                     SettingTool.setEnableReceiveSound(checked)
                 }
             }
-            GeneralCheckBox{
-                Layout.alignment: Qt.AlignRight
+
+            Rectangle{
+                Layout.fillWidth: true
+                Layout.leftMargin: 30
+                Layout.preferredHeight:1
+                color: "#bdbdbd"
+            }
+
+
+            Components.SwitchLayout{
                 text: Strings.settingEnableSendSound
                 checked: SettingTool.getEnableSendSound()
-                onCheckStateChanged: {
+                onSwitchCheckedChanged: {
                     SettingTool.setEnableSendSound(checked)
                 }
             }
-            GeneralCheckBox{
-                Layout.alignment: Qt.AlignRight
+
+            Rectangle{
+                Layout.fillWidth: true
+                Layout.leftMargin: 30
+                Layout.preferredHeight:1
+                color: "#bdbdbd"
+            }
+
+
+            Components.SwitchLayout{
                 text: Strings.settingEnableSound
                 checked: SettingTool.getEnableSysSound()
-                onCheckStateChanged: {
+                onSwitchCheckedChanged: {
                     SettingTool.setEnableSysSound(checked)
                 }
             }
