@@ -18,7 +18,7 @@ void SoundManager::playSlideOpen()
 {
     if(SettingTool::getInstance()->getEnableSysSound())
     {
-        QSound::play("qrc:/assets/rings/slide_open.wav");
+        QSound::play(WAV_SLIDE_OPEN);
     }
 }
 
@@ -26,7 +26,7 @@ void SoundManager::playSlideClose()
 {
     if(SettingTool::getInstance()->getEnableSysSound())
     {
-        QSound::play("qrc:/assets/rings/slide_close.wav");
+        QSound::play(WAV_SLIDE_CLOSE);
     }
 }
 
@@ -34,7 +34,7 @@ void SoundManager::playReceive()
 {
     if(SettingTool::getInstance()->getEnableReceiveSound())
     {
-        QSound::play("qrc:/assets/rings/receive.wav");
+        QSound::play(WAV_RECEIVE);
     }
 }
 
@@ -42,7 +42,7 @@ void SoundManager::playSend()
 {
     if(SettingTool::getInstance()->getEnableSendSound())
     {
-        QSound::play("qrc:/assets/rings/send.wav");
+        QSound::play(WAV_SEND);
     }
 }
 
