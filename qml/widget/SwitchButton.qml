@@ -4,8 +4,8 @@ import QtQuick.Controls 2.12
 Switch {
     property color checkedColor: "#0ACF97"
     property color uncheckedColor: "#D5D5D5"
-    property var swidth:44
-    property var sheight: 24
+    property var swidth:40
+    property var sheight: 20
 
     id: switchRoot
 

@@ -11,15 +11,15 @@ RowLayout {
     signal switchCheckedChanged(var checked)
     Text {
         Layout.leftMargin: 30
-        Layout.alignment: Qt.AlignLeft
+        Layout.alignment: Qt.AlignLeft|Qt.AlignVCenter
         Layout.fillWidth: true
         id: title
-        font.pixelSize: 14
+        font.pixelSize: 13
 
     }
 
     Widget.SwitchButton{
-        Layout.alignment: Qt.AlignRight
+        Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
         Layout.fillWidth: false
         id:switchButton
         onCheckedChanged: switchCheckedChanged(checked)

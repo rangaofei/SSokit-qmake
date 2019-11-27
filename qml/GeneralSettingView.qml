@@ -75,29 +75,28 @@ Item{
         ColumnLayout{
             anchors.left: parent.left
             anchors.right: parent.right
-            GeneralCheckBox{
-                Layout.alignment: Qt.AlignRight
+
+            Components.SwitchLayout{
                 text: Strings.settingRememberPos
                 checked: SettingTool.getRememberWindowPos()
-                onCheckStateChanged: {
+                Layout.alignment: Qt.AlignRight
+                onSwitchCheckedChanged: {
                     SettingTool.setRememberWindowPos(checked)
                 }
             }
-//            GeneralCheckBox{
-//                Layout.alignment: Qt.AlignRight
-//                text: Strings.settingRememberSize
-//                checked: SettingTool.getRememberWindowSize()
-//                onCheckStateChanged: {
-//                    SettingTool.setRememberWindowSize(checked)
-//                }
-//            }
+
+            Rectangle{
+                Layout.fillWidth: true
+                Layout.leftMargin: 30
+                Layout.preferredHeight:1
+                color: "#bdbdbd"
+            }
 
             Components.SwitchLayout{
-                text: "记住窗口大小"
+                text: Strings.settingRememberSize
                 Layout.alignment: Qt.AlignRight
                 checked: SettingTool.getRememberWindowSize()
                 onSwitchCheckedChanged: {
-                    console.log(checked)
                     SettingTool.setRememberWindowSize(checked)
                 }
             }
