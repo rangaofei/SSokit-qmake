@@ -8,7 +8,7 @@ RowLayout {
     property alias checked: switchButton.checked
     property alias text: title.text
 
-    signal onCheckedChanged(var checked)
+    signal switchCheckedChanged(var checked)
     Text {
         Layout.leftMargin: 30
         Layout.alignment: Qt.AlignLeft
@@ -22,7 +22,7 @@ RowLayout {
         Layout.alignment: Qt.AlignRight
         Layout.fillWidth: false
         id:switchButton
-        onCheckedChanged: onCheckedChanged(checked)
+        onCheckedChanged: switchCheckedChanged(checked)
     }
 
 }

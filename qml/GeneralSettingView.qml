@@ -83,21 +83,22 @@ Item{
                     SettingTool.setRememberWindowPos(checked)
                 }
             }
-            GeneralCheckBox{
-                Layout.alignment: Qt.AlignRight
-                text: Strings.settingRememberSize
-                checked: SettingTool.getRememberWindowSize()
-                onCheckStateChanged: {
-                    SettingTool.setRememberWindowSize(checked)
-                }
-            }
+//            GeneralCheckBox{
+//                Layout.alignment: Qt.AlignRight
+//                text: Strings.settingRememberSize
+//                checked: SettingTool.getRememberWindowSize()
+//                onCheckStateChanged: {
+//                    SettingTool.setRememberWindowSize(checked)
+//                }
+//            }
 
             Components.SwitchLayout{
                 text: "记住窗口大小"
                 Layout.alignment: Qt.AlignRight
                 checked: SettingTool.getRememberWindowSize()
-                onCheckedChanged: {
-                 SettingTool.setRememberWindowPos(checked)
+                onSwitchCheckedChanged: {
+                    console.log(checked)
+                    SettingTool.setRememberWindowSize(checked)
                 }
             }
 
