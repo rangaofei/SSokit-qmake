@@ -39,11 +39,19 @@ class SettingTool : public QObject
     Q_OBJECT
 
 public:
-    explicit SettingTool(QObject *parent = nullptr);
-    ~SettingTool();
+
+    static SettingTool* getInstance(){
+        static SettingTool* instance=new SettingTool;
+        return instance;
+    }
 
 private:
-    static QSettings *settings;
+    explicit SettingTool(QObject *parent = nullptr);
+    ~SettingTool();
+    SettingTool(const SettingTool&);
+    SettingTool& operator=(const SettingTool&);
+private:
+    QSettings *settings;
 
 signals:
 
@@ -101,15 +109,15 @@ public slots:
     void setEnableLogHover(bool enable);
     bool getEnableLogHover();
 
-    static void setEnableSendSound(bool enable);
-    static bool getEnableSendSound();
+    void setEnableSendSound(bool enable);
+    bool getEnableSendSound();
 
-    static void setEnableReceiveSound(bool enable);
-    static bool getEnableReceiveSound();
+    void setEnableReceiveSound(bool enable);
+    bool getEnableReceiveSound();
 
-    static void setEnableSysSound(bool enable);
+    void setEnableSysSound(bool enable);
 
-    static bool getEnableSysSound();
+    bool getEnableSysSound();
 };
 
 
