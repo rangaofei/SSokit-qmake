@@ -28,10 +28,13 @@ public slots:
 
     //播放滑动打开音效
     static void playSlideOpen();
+
     //播放滑动关闭音效
     static void playSlideClose();
+
     //播放接收消息音效
     static void playReceive();
+
     //播放发送消息音效
     static void playSend();
 private:

@@ -69,5 +69,6 @@
         <file>assets/rings/slide_close.wav</file>
         <file>assets/rings/slide_open.wav</file>
         <file>qml/widget/SwitchButton.qml</file>
+        <file>qml/component/SwitchLayout.qml</file>
     </qresource>
 </RCC>

@@ -4,6 +4,8 @@ import QtQuick.Layouts 1.12
 import src.strings 1.0
 import src.settingtool 1.0
 
+import "./component" as Components
+
 Item{
     anchors.fill:parent
     anchors.topMargin: 50
@@ -89,6 +91,16 @@ Item{
                     SettingTool.setRememberWindowSize(checked)
                 }
             }
+
+            Components.SwitchLayout{
+                text: "记住窗口大小"
+                Layout.alignment: Qt.AlignRight
+                checked: SettingTool.getRememberWindowSize()
+                onCheckedChanged: {
+                 SettingTool.setRememberWindowPos(checked)
+                }
+            }
+
             Rectangle{
                 Layout.topMargin: 20
                 Layout.fillWidth: true
