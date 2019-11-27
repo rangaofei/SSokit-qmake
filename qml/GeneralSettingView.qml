@@ -4,6 +4,8 @@ import QtQuick.Layouts 1.12
 import src.strings 1.0
 import src.settingtool 1.0
 
+import "./component" as Components
+
 Item{
     anchors.fill:parent
     anchors.topMargin: 50
@@ -73,22 +75,32 @@ Item{
         ColumnLayout{
             anchors.left: parent.left
             anchors.right: parent.right
-            GeneralCheckBox{
-                Layout.alignment: Qt.AlignRight
+
+            Components.SwitchLayout{
                 text: Strings.settingRememberPos
                 checked: SettingTool.getRememberWindowPos()
-                onCheckStateChanged: {
+                Layout.alignment: Qt.AlignRight
+                onSwitchCheckedChanged: {
                     SettingTool.setRememberWindowPos(checked)
                 }
             }
-            GeneralCheckBox{
-                Layout.alignment: Qt.AlignRight
+
+            Rectangle{
+                Layout.fillWidth: true
+                Layout.leftMargin: 30
+                Layout.preferredHeight:1
+                color: "#bdbdbd"
+            }
+
+            Components.SwitchLayout{
                 text: Strings.settingRememberSize
+                Layout.alignment: Qt.AlignRight
                 checked: SettingTool.getRememberWindowSize()
-                onCheckStateChanged: {
+                onSwitchCheckedChanged: {
                     SettingTool.setRememberWindowSize(checked)
                 }
             }
+
             Rectangle{
                 Layout.topMargin: 20
                 Layout.fillWidth: true
