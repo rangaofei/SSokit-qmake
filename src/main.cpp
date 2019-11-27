@@ -62,8 +62,7 @@ void registerQml(){
                                           [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
         Q_UNUSED(engine)
         Q_UNUSED(scriptEngine)
-        SettingTool *settintTool = new SettingTool();
-        return settintTool;
+        return SettingTool::getInstance();
     });
     qmlRegisterSingletonType<HttpManager>("src.httpmanager",1,0,"HttpManager", [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
         Q_UNUSED(engine)
