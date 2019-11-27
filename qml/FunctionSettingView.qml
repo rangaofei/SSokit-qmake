@@ -4,6 +4,8 @@ import QtQuick.Layouts 1.12
 import src.settingtool 1.0
 import src.strings 1.0
 
+import "./widget" as Widget
+
 Item {
     anchors.fill:parent
     anchors.topMargin: 50
@@ -26,13 +28,15 @@ Item {
                 }
 
             }
-            GeneralCheckBox{
+            Widget.SwitchButton{
                 Layout.alignment: Qt.AlignRight
                 text: Strings.settingShowClear
                 checked: SettingTool.getShowSendClear()
-                onCheckStateChanged: {
+
+                onCheckedChanged: {
                     SettingTool.setShowSendClear(checked)
                 }
+
             }
             Rectangle{
                 Layout.topMargin: 20
