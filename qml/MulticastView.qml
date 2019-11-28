@@ -3,9 +3,6 @@ import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5
 import src.strings 1.0
 
-import "../widgets" as Widgets
-import "../" as Main
-
 Rectangle{
     Layout.fillWidth: true
     Layout.fillHeight: true
@@ -15,7 +12,6 @@ Rectangle{
         GradientStop { position: 1.0; color: "#cfd8dc" }
     }
 
-
     TabBar {
         id:serverBar
         width: implicitWidth
@@ -24,14 +20,11 @@ Rectangle{
         anchors.topMargin: 15
         anchors.horizontalCenter: parent.horizontalCenter
         currentIndex: view.currentIndex
-        Widgets.TopButton {
+        TopButton {
             name:Strings.headerServer
         }
-        Widgets.TopButton{
+        TopButton{
             name:Strings.headerClient
-        }
-        Widgets.TopButton{
-            name:"广播"
         }
     }
     StackLayout{
@@ -41,14 +34,13 @@ Rectangle{
         currentIndex: serverBar.currentIndex
         width:parent.width
         height: parent.height-serverBar.height-30
+        TcpServerView{
+        }
+        TcpClientView{
 
-        UdpServerView{}
-        UdpClientView{}
-        Main.BoradcastView{}
+        }
     }
 }
-
-
 
 
 

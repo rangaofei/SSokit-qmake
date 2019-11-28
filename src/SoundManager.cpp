@@ -46,3 +46,11 @@ void SoundManager::playSend()
     }
 }
 
+void SoundManager::playClear()
+{
+    if(SettingTool::getInstance()->getEnableSysSound())
+    {
+        QSound::play(WAV_CLEAR);
+    }
+}
+

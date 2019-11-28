@@ -10,7 +10,8 @@
 #define WAV_SLIDE_CLOSE     "qrc:/assets/rings/slide_close.wav"
 #define WAV_RECEIVE         "qrc:/assets/rings/receive.wav"
 #define WAV_SEND            "qrc:/assets/rings/send.wav"
-
+#define WAV_CLEAR           ""
+//TODO 增加清除操作
 
 class SoundManager : public QObject
 {
@@ -37,6 +38,9 @@ public slots:
 
     //播放发送消息音效
     static void playSend();
+
+    //播放清除音效
+    static void playClear();
 private:
 };
 
