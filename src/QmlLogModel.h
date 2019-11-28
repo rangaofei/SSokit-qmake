@@ -3,6 +3,7 @@
 
 #include "LogMessageModel.h"
 #include "toolkit.h"
+#include "SoundManager.h"
 
 #include <QObject>
 #include <QTime>

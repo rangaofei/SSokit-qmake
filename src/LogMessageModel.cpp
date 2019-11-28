@@ -71,7 +71,7 @@ LogMessageModel* LogMessageList::get(int index)
     if(index<0||index>=m_dataList.size()){
         return nullptr;
     }
-    return m_dataList[index];
+    return m_dataList.at(index);
 }
 
 int LogMessageList::rowCount(const QModelIndex &parent) const

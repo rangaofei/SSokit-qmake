@@ -42,7 +42,6 @@ SOURCES += \
         src/sqlitetool.cpp
 
 HEADERS +=  src/bluetoothmodel.h \
-
             src/BroadcastModel.h \
             src/FileWriter.h \
             src/LogMessageModel.h \
