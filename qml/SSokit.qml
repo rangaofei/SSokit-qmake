@@ -5,16 +5,24 @@ import src.settingtool 1.0
 import src.strings 1.0
 import src.httpmanager 1.0
 
+import "./dialogs" as Dialogs
+import "./widgets" as Widgets
+import "./tcp" as Tcps
+import "./udp" as Udps
+import "./notepad" as NotePads
+import "./setting" as Settings
+
+
 ApplicationWindow{
     property int windowW: 900
     property int windwoH: 600
 
     //关于对话框
-    AboutDialog{
+    Dialogs.AboutDialog{
         id:aboutDialog
     }
 
-    UpdateDialog{
+    Dialogs.UpdateDialog{
         id:updateDialog
     }
 
@@ -48,10 +56,10 @@ ApplicationWindow{
             }
 
 
-            BottomButton {
+            Widgets.BottomButton {
                 text:Strings.mainTabTcp
             }
-            BottomButton {
+            Widgets.BottomButton {
                 text:Strings.mainTabUdp
             }
             //        BottomButton {
@@ -63,7 +71,7 @@ ApplicationWindow{
             //        BottomButton{
             //            text:Strings.mainTabCOM
             //        }
-            BottomButton{
+            Widgets.BottomButton{
                 text:Strings.mainTabNotePad
             }
             //        BottomButton{
@@ -81,16 +89,16 @@ ApplicationWindow{
             currentIndex: footerBar.currentIndex
             clip: true
             interactive:false
-            TcpView{}
+            Tcps.TcpView{}
 
-            UdpView{}
+            Udps.UdpView{}
             //        WebSocketView{}
 
             //            BlueToothView{
 
             //            }
 
-            NotepadView{}
+            NotePads.NotepadView{}
             //            ColorList{
 
             //            }
@@ -125,7 +133,7 @@ ApplicationWindow{
     }
 
 
-    SettingView {
+    Settings.SettingView {
         id: drawer
         width: 400
         height: parent.height

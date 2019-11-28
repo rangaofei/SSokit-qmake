@@ -94,7 +94,7 @@ void QmlLogModel::clearSenCount(bool clearData)
     }
 }
 
-void QmlLogModel::clearAll(bool clearData)
+void QmlLogModel::clearAll()
 {
     clearRevCount(false);
     clearSenCount(false);

@@ -4,6 +4,9 @@ import QtQuick.Layouts 1.3
 import src.strings 1.0
 import src.sendmessagedata 1.0
 
+import "../components" as Components
+import "../widgets" as Widgets
+
 ColumnLayout{
 
     property var modelList
@@ -24,7 +27,7 @@ ColumnLayout{
         id:logViewDelegate
     }
 
-    SendView{
+    Components.SendView{
         id:sendView
         Layout.preferredHeight:160
         Layout.fillWidth: true
@@ -127,7 +130,7 @@ ColumnLayout{
             }
         }
 
-        GeneralCheckBox{
+        Widgets.GeneralCheckBox{
             id: showLogItemDetail
             Layout.columnSpan: 1
             Layout.fillWidth: true

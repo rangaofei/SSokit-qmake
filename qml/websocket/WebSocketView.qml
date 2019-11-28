@@ -2,6 +2,8 @@ import QtQuick 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5
 
+import "../widgets" as Widgets
+
 Rectangle{
     Layout.fillWidth: true
     Layout.fillHeight: true
@@ -19,10 +21,10 @@ Rectangle{
         anchors.topMargin: 15
         anchors.horizontalCenter: parent.horizontalCenter
         currentIndex: view.currentIndex
-        TopButton {
+        Widgets.TopButton {
             name:"Server"
         }
-        TopButton{
+        Widgets.TopButton{
             name:"Client"
         }
 //        TopButton{
