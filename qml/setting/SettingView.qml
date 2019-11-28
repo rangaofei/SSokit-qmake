@@ -7,6 +7,8 @@ import src.settingtool 1.0
 import src.strings 1.0
 import src.soundmanager 1.0
 
+import "../widgets" as Widgets
+
 Drawer {
     property bool isOpened: false
     signal drawXChanged(var positionXPercent)
@@ -56,7 +58,7 @@ Drawer {
 
         }
 
-        ImageButton{
+        Widgets.ImageButton{
             id:container_general
             width: parent.width;
             anchors.top: container_header.bottom
@@ -75,7 +77,7 @@ Drawer {
             }
         }
 
-        ImageButton{
+        Widgets.ImageButton{
             id:container_function
             width: parent.width;
             anchors.top: container_general.bottom
@@ -94,7 +96,7 @@ Drawer {
             }
             visible: true
         }
-        ImageButton{
+        Widgets.ImageButton{
             id:container_shortcut
             width: parent.width
             anchors.top: container_function.bottom
@@ -111,7 +113,7 @@ Drawer {
                 tabView.currentIndex=2
             }
         }
-        ImageButton{
+        Widgets.ImageButton{
             id:container_about
             width: parent.width
             anchors.top: container_shortcut.bottom

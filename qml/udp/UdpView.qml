@@ -3,6 +3,8 @@ import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5
 import src.strings 1.0
 
+import "../widgets" as Widgets
+
 Rectangle{
     Layout.fillWidth: true
     Layout.fillHeight: true
@@ -13,19 +15,22 @@ Rectangle{
     }
 
     TabBar {
-        id:serverBar
+         id:serverBar
         width: implicitWidth
         height: implicitHeight
         anchors.top: parent.top
         anchors.topMargin: 15
         anchors.horizontalCenter: parent.horizontalCenter
         currentIndex: view.currentIndex
-        TopButton {
+        Widgets.TopButton {
             name:Strings.headerServer
         }
-        TopButton{
+        Widgets.TopButton{
             name:Strings.headerClient
         }
+//        TopButton{
+//            name:Strings.headerTransfer
+//        }
     }
     StackLayout{
         id:view
@@ -34,13 +39,13 @@ Rectangle{
         currentIndex: serverBar.currentIndex
         width:parent.width
         height: parent.height-serverBar.height-30
-        TcpServerView{
+        UdpServerView{
         }
-        TcpClientView{
-
-        }
+        UdpClientView{}
     }
 }
+
+
 
 
 

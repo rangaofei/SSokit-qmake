@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 
+import "../icons" as Icons
 ComboBox {
     property int maxLength: 32767
     property var validate
@@ -21,7 +22,7 @@ ComboBox {
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignRight
         }
-        indicator:IconSelected{
+        indicator:Icons.IconSelected{
             id:selectIndic
             x: 5
             y: (parent.height-20)/2
@@ -38,7 +39,7 @@ ComboBox {
         }
     }
 
-    indicator: IconTriangle {
+    indicator: Icons.IconTriangle {
         id: canvas
         x: control.width - width - control.rightPadding
         y: control.topPadding + (control.availableHeight - height) / 2

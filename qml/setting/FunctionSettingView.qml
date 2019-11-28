@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.12
 import src.settingtool 1.0
 import src.strings 1.0
 
-import "./component" as Components
+import "../components" as Components
 
 
 Item {
