@@ -14,6 +14,7 @@ Rectangle{
         GradientStop { position: 1.0; color: "#cfd8dc" }
     }
 
+
     TabBar {
         id:serverBar
         width: implicitWidth

@@ -31,7 +31,9 @@
         <file>assets/rings/receive.wav</file>
         <file>assets/rings/send.wav</file>
         <file>assets/rings/slide_close.wav</file>
-        <file>assets/rings/slide_open.wav</file>        <file>qml/notepad/NotepadView.qml</file>
+
+        <file>assets/rings/slide_open.wav</file>
+        <file>qml/notepad/NotepadView.qml</file>
         <file>qml/setting/AboutSettingView.qml</file>
         <file>qml/setting/FunctionSettingView.qml</file>
         <file>qml/setting/GeneralSettingView.qml</file>

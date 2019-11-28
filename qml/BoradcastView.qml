@@ -6,6 +6,7 @@ import src.broadcastmodel 1.0
 import "./components" as Components
 
 
+
 Row{
     property bool canSendMsg: false
 
@@ -33,6 +34,7 @@ Row{
     }
 
     Components.LogView{
+
         id:udpLog
         w: parent.width-serverControl.width-parent.spacing-parent.rightPadding-parent.leftPadding
         h:parent.height
