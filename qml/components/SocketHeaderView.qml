@@ -3,6 +3,9 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import src.strings 1.0
 import src.soundmanager 1.0
+
+import "../widgets" as Widgets
+
 ColumnLayout{
     property int content_Width: 150
     property int content_height: 30
@@ -64,7 +67,7 @@ ColumnLayout{
                     horizontalAlignment: Text.AlignHCenter
                     text: Strings.headerLengthType
                 }
-                EditComboBox{
+                Widgets.EditComboBox{
                     id:lengthSizeBox
                     Layout.preferredHeight: content_height
                     Layout.preferredWidth: content_Width*2/3
@@ -91,7 +94,7 @@ ColumnLayout{
                     horizontalAlignment: Text.AlignHCenter
                     text: Strings.headerEndian
                 }
-                EditComboBox{
+                Widgets.EditComboBox{
                     id:endianBox
                     Layout.preferredHeight: content_height
                     Layout.preferredWidth: content_Width*2/3
@@ -119,7 +122,7 @@ ColumnLayout{
                 visible: true
             }
 
-            RoundCheckBox{
+            Widgets.RoundCheckBox{
                 id:withHeader
                 enabled: checkEnabled
                 Layout.preferredWidth: 30

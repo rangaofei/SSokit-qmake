@@ -1,59 +1,56 @@
 import QtQuick 2.12
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.5
-import src.tcpclientmodel 1.0
+import src.udpclientmodel 1.0
+
+import "../components" as Components
 
 Row{
-    id:tcpClientView
     leftPadding:10
     rightPadding: 10
-    TcpClientModel{
-        id:tcpModel
+    UdpClientModel{
+        id:udpModel
     }
     spacing:10
 
-    LogView{
-        id:tcpLog
+    Components.LogView{
+        id:udpLog
         w: parent.width-serverControl.width-parent.spacing-parent.rightPadding-parent.leftPadding
         h:parent.height
-        recvC: tcpModel.revCount
-        sendC: tcpModel.senCount
-        modelList: tcpModel.dataList
+        recvC: udpModel.revCount
+        sendC: udpModel.senCount
+        modelList: udpModel.dataList
         onSendMsg:{
             if(!serverControl.getCurrentConn()){
-                console.log("TCP Client View:当前连接为空 无法发送信息")
+                console.log("UDP Client View : 当前无连接信息,无法发送信息")
                 return
             }
             if(!data){
                 console.log("信息无内容")
                 return
             }
-            tcpModel.sendMessageData(data)
-        }
-
-        onClearData: {
-            tcpModel.clearAll(true)
+            udpModel.sendMessageData(data)
         }
 
     }
 
-    ServerControlView{
+    Components.ServerControlView{
         id:serverControl
-        viewType: 2
+        viewType: 4
         onStartConnect: {
-            tcpModel.toggleConnect(checked,addr,port)
+            udpModel.toggleConnect(checked,addr,port)
         }
 
         onDisconnectConn: {
-            tcpModel.kill(addr)
+            udpModel.kill(addr)
         }
         onConnectState: {
-            tcpLog.setSendMsgState(state)
+            udpLog.setSendMsgState(state)
         }
     }
 
     function setCurrentIndex(index){
-        tcpLog.setCurrentIndex(index)
+        udpLog.setCurrentIndex(index)
     }
 
     function appendLocalAddr(msg){
@@ -66,7 +63,6 @@ Row{
 
 
     function connClose(addr){
-        console.log("close connection "+addr)
         serverControl.connClose(addr)
     }
 
@@ -81,20 +77,20 @@ Row{
     }
 
     Component.onCompleted: {
-        tcpModel.appendLocalAddr.connect(appendLocalAddr)
-        tcpModel.setCurrentIndex.connect(setCurrentIndex)
-        tcpModel.appendConnAddr.connect(appendConnec)
-        tcpModel.connClose.connect(connClose)
-        tcpModel.sendErrMsg.connect(setSendErrMsg)
-        tcpModel.getAddr()
+        udpModel.appendLocalAddr.connect(appendLocalAddr)
+        udpModel.setCurrentIndex.connect(setCurrentIndex)
+        udpModel.appendConnAddr.connect(appendConnec)
+        udpModel.connClose.connect(connClose)
+        udpModel.sendErrMsg.connect(setSendErrMsg)
+        udpModel.getAddr()
     }
 
     Component.onDestruction: {
-        tcpModel.appendLocalAddr.disconnect(appendLocalAddr)
-        tcpModel.setCurrentIndex.disconnect(setCurrentIndex)
-        tcpModel.appendConnAddr.disconnect(appendConnec)
-        tcpModel.connClose.disconnect(connClose)
-        tcpModel.sendErrMsg.connect(setSendErrMsg)
+        udpModel.appendLocalAddr.disconnect(appendLocalAddr)
+        udpModel.setCurrentIndex.disconnect(setCurrentIndex)
+        udpModel.appendConnAddr.disconnect(appendConnec)
+        udpModel.connClose.disconnect(connClose)
+        udpModel.sendErrMsg.connect(setSendErrMsg)
     }
 
 }

@@ -4,6 +4,8 @@ import QtQuick.Layouts 1.12
 import src.strings 1.0
 import src.settingtool 1.0
 
+import "../icons" as Icons
+
 Component{
     id:listViewItem
     ItemDelegate{
@@ -31,13 +33,13 @@ Component{
                 Layout.fillHeight: false
                 Layout.topMargin: 5
                 clip: true
-                IconUpArrow{
+                Icons.IconUpArrow{
                     id:upArrow
                     y:5
                     hightlighted: delegate.highlighted
                     visible: !isRev
                 }
-                IconDownArrow{
+                Icons.IconDownArrow{
                     id:downArrow
                     y:5
                     hightlighted: delegate.highlighted

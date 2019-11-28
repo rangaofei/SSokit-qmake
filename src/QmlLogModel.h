@@ -74,7 +74,7 @@ public slots:
     void clearSenCount(bool clearData);
 
     //清除所有
-    void clearAll(bool clearData);
+    void clearAll();
 
 private:
     void clearData(ClearType type);

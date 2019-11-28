@@ -1,17 +1,38 @@
 import QtQuick 2.12
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.5
-import src.udpclientmodel 1.0
+import src.udpservermodel 1.0
+
+import "../components" as Components
+
 
 Row{
-    leftPadding:10
-    rightPadding: 10
-    UdpClientModel{
+    property bool canSendMsg: false
+
+    UdpServerModel{
         id:udpModel
     }
+    leftPadding:10
+    rightPadding: 10
+
     spacing:10
 
-    LogView{
+    Components.ServerControlView{
+        id:serverControl
+        viewType: 3
+        onStartConnect: {
+            udpModel.toggleConnect(checked,addr,port)
+        }
+        onDisconnectConn: {
+            udpModel.kill(addr)
+        }
+        onConnectState: {
+            console.log("change state "+state)
+            udpLog.setSendMsgState(state)
+        }
+    }
+
+    Components.LogView{
         id:udpLog
         w: parent.width-serverControl.width-parent.spacing-parent.rightPadding-parent.leftPadding
         h:parent.height
@@ -20,30 +41,14 @@ Row{
         modelList: udpModel.dataList
         onSendMsg:{
             if(!serverControl.getCurrentConn()){
-                console.log("UDP Client View : 当前无连接信息,无法发送信息")
+                console.log("无法发送信息")
                 return
             }
             if(!data){
                 console.log("信息无内容")
                 return
             }
-            udpModel.sendMessageData(data)
-        }
-
-    }
-
-    ServerControlView{
-        id:serverControl
-        viewType: 4
-        onStartConnect: {
-            udpModel.toggleConnect(checked,addr,port)
-        }
-
-        onDisconnectConn: {
-            udpModel.kill(addr)
-        }
-        onConnectState: {
-            udpLog.setSendMsgState(state)
+            udpModel.sendMessageData(serverControl.getCurrentConn(),data)
         }
     }
 
@@ -51,12 +56,12 @@ Row{
         udpLog.setCurrentIndex(index)
     }
 
-    function appendLocalAddr(msg){
-        serverControl.appendLocalAddr(msg)
-    }
-
     function appendConnec(msg){
         serverControl.appendHistoryConnect(msg)
+    }
+
+    function appendLocalAddr(msg){
+        serverControl.appendLocalAddr(msg)
     }
 
 
@@ -65,6 +70,7 @@ Row{
     }
 
     function setSendErrMsg(type,msg,isErr){
+        console.log("error type "+type+"||||"+msg+"||||"+isErr)
         if(type===1||type===2){
             serverControl.setErrMsg(type,msg,isErr)
         }else if(type===3){
@@ -88,7 +94,8 @@ Row{
         udpModel.setCurrentIndex.disconnect(setCurrentIndex)
         udpModel.appendConnAddr.disconnect(appendConnec)
         udpModel.connClose.disconnect(connClose)
-        udpModel.sendErrMsg.connect(setSendErrMsg)
+        udpModel.sendErrMsg.disconnect(setSendErrMsg)
     }
 
 }
+

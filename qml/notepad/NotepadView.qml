@@ -7,6 +7,8 @@ import src.strings 1.0
 import src.sqlitetool 1.0
 import src.notebook 1.0
 
+import "../widgets" as Widgets
+
 ColumnLayout{
     Layout.fillWidth: true
     Layout.fillHeight: true
@@ -21,7 +23,7 @@ ColumnLayout{
         Layout.topMargin: 15
         currentIndex: 0
         Layout.alignment: Qt.AlignHCenter
-        TopButton {
+        Widgets.TopButton {
             id:title
             name:Strings.mainTabNotePad
         }

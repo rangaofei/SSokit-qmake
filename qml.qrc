@@ -3,58 +3,23 @@
         <file>assets/images/close_black.png</file>
         <file>assets/images/about.png</file>
         <file>assets/images/help.png</file>
-        <file>qml/TcpClientView.qml</file>
-        <file>qml/UdpClientView.qml</file>
-        <file>qml/ServerControlView.qml</file>
-        <file>qml/WebSocketClientView.qml</file>
-        <file>qml/WebSocketView.qml</file>
-        <file>qml/WebSocketServerView.qml</file>
-        <file>qml/UdpView.qml</file>
-        <file>qml/UdpServerView.qml</file>
         <file>qml/TransferView.qml</file>
-        <file>qml/TopButton.qml</file>
-        <file>qml/TipLabel.qml</file>
-        <file>qml/TcpView.qml</file>
-        <file>qml/TcpServerView.qml</file>
-        <file>qml/SendView.qml</file>
-        <file>qml/NotepadView.qml</file>
-        <file>qml/MessageLabel.qml</file>
-        <file>qml/LogView.qml</file>
-        <file>qml/IconUpArrow.qml</file>
-        <file>qml/IconTriangle.qml</file>
-        <file>qml/IconSelected.qml</file>
-        <file>qml/IconDownArrow.qml</file>
-        <file>qml/EditComboBox.qml</file>
         <file>qml/ColorList.qml</file>
-        <file>qml/BottomButton.qml</file>
-        <file>qml/BlueToothView.qml</file>
-        <file>qml/AboutDialog.qml</file>
         <file>assets/images/logo.png</file>
         <file>qml/SSokit.qml</file>
         <file>assets/images/setting.png</file>
-        <file>qml/SettingView.qml</file>
         <file>assets/images/shortcut.png</file>
         <file>assets/images/catalogue.png</file>
         <file>assets/images/catalogue_white.png</file>
-        <file>qml/ImageButton.qml</file>
         <file>assets/images/about_unselected.png</file>
         <file>assets/images/about_selected.png</file>
-        <file>qml/RoundCheckBox.qml</file>
         <file>assets/images/checked.png</file>
-        <file>qml/GeneralSettingView.qml</file>
-        <file>qml/ShortCutSettingView.qml</file>
-        <file>qml/AboutSettingView.qml</file>
         <file>assets/images/function.png</file>
-        <file>qml/SocketHeaderView.qml</file>
-        <file>qml/LogViewDelegate.qml</file>
         <file>assets/images/header_setting.png</file>
         <file>assets/language/Strings.qml</file>
         <file>assets/language/SSokit_en_US.qm</file>
         <file>assets/language/SSokit_zh_CN.qm</file>
         <file>assets/Colors.qml</file>
-        <file>qml/GeneralCheckBox.qml</file>
-        <file>qml/FunctionSettingView.qml</file>
-        <file>qml/UpdateDialog.qml</file>
         <file>assets/images/ic_update.png</file>
         <file>assets/images/ic_clear.png</file>
         <file>assets/images/add.png</file>
@@ -63,12 +28,47 @@
         <file>assets/images/delete.png</file>
         <file>assets/images/translate_white.png</file>
         <file>assets/images/translate.png</file>
-        <file>qml/LogDetailView.qml</file>
         <file>assets/rings/receive.wav</file>
         <file>assets/rings/send.wav</file>
         <file>assets/rings/slide_close.wav</file>
         <file>assets/rings/slide_open.wav</file>
-        <file>qml/widget/SwitchButton.qml</file>
-        <file>qml/component/SwitchLayout.qml</file>
+        <file>qml/notepad/NotepadView.qml</file>
+        <file>qml/setting/AboutSettingView.qml</file>
+        <file>qml/setting/FunctionSettingView.qml</file>
+        <file>qml/setting/GeneralSettingView.qml</file>
+        <file>qml/tcp/TcpClientView.qml</file>
+        <file>qml/tcp/TcpServerView.qml</file>
+        <file>qml/tcp/TcpView.qml</file>
+        <file>qml/udp/UdpClientView.qml</file>
+        <file>qml/udp/UdpServerView.qml</file>
+        <file>qml/udp/UdpView.qml</file>
+        <file>qml/websocket/WebSocketClientView.qml</file>
+        <file>qml/websocket/WebSocketServerView.qml</file>
+        <file>qml/websocket/WebSocketView.qml</file>
+        <file>qml/bluetooth/BlueToothView.qml</file>
+        <file>qml/setting/SettingView.qml</file>
+        <file>qml/setting/ShortCutSettingView.qml</file>
+        <file>qml/components/LogDetailView.qml</file>
+        <file>qml/components/LogView.qml</file>
+        <file>qml/components/LogViewDelegate.qml</file>
+        <file>qml/components/MessageLabel.qml</file>
+        <file>qml/components/SendView.qml</file>
+        <file>qml/components/ServerControlView.qml</file>
+        <file>qml/components/SocketHeaderView.qml</file>
+        <file>qml/components/SwitchLayout.qml</file>
+        <file>qml/dialogs/AboutDialog.qml</file>
+        <file>qml/dialogs/UpdateDialog.qml</file>
+        <file>qml/icons/IconDownArrow.qml</file>
+        <file>qml/icons/IconSelected.qml</file>
+        <file>qml/icons/IconTriangle.qml</file>
+        <file>qml/icons/IconUpArrow.qml</file>
+        <file>qml/widgets/BottomButton.qml</file>
+        <file>qml/widgets/EditComboBox.qml</file>
+        <file>qml/widgets/GeneralCheckBox.qml</file>
+        <file>qml/widgets/ImageButton.qml</file>
+        <file>qml/widgets/RoundCheckBox.qml</file>
+        <file>qml/widgets/SwitchButton.qml</file>
+        <file>qml/widgets/TipLabel.qml</file>
+        <file>qml/widgets/TopButton.qml</file>
     </qresource>
 </RCC>
