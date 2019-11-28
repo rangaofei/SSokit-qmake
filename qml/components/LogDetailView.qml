@@ -5,6 +5,8 @@ import src.strings 1.0
 import QtQuick.Controls.Styles 1.4
 import src.soundmanager 1.0
 
+import "../widgets" as Widgets
+
 GroupBox{
     property var detailLogText: ""
     property var time: ""
@@ -36,7 +38,7 @@ GroupBox{
                 color: "white"
                 wrapMode: Text.WordWrap
             }
-            EditComboBox{
+            Widgets.EditComboBox{
                 id: dataType
                 Layout.preferredHeight: 30
                 Layout.preferredWidth: 150

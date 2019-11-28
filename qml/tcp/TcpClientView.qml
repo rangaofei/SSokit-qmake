@@ -1,19 +1,47 @@
 import QtQuick 2.12
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.5
-import src.tcpservermodel 1.0
+import src.tcpclientmodel 1.0
+
+import "../components" as Components
 
 Row{
+    id:tcpClientView
     leftPadding:10
     rightPadding: 10
-    TcpServerModel{
+    TcpClientModel{
         id:tcpModel
     }
     spacing:10
 
-    ServerControlView{
+    Components.LogView{
+        id:tcpLog
+        w: parent.width-serverControl.width-parent.spacing-parent.rightPadding-parent.leftPadding
+        h:parent.height
+        recvC: tcpModel.revCount
+        sendC: tcpModel.senCount
+        modelList: tcpModel.dataList
+        onSendMsg:{
+            if(!serverControl.getCurrentConn()){
+                console.log("TCP Client View:当前连接为空 无法发送信息")
+                return
+            }
+            if(!data){
+                console.log("信息无内容")
+                return
+            }
+            tcpModel.sendMessageData(data)
+        }
+
+        onClearData: {
+            tcpModel.clearAll()
+        }
+
+    }
+
+    Components.ServerControlView{
         id:serverControl
-        viewType: 1
+        viewType: 2
         onStartConnect: {
             tcpModel.toggleConnect(checked,addr,port)
         }
@@ -23,30 +51,6 @@ Row{
         }
         onConnectState: {
             tcpLog.setSendMsgState(state)
-        }
-    }
-
-    LogView{
-        id:tcpLog
-        w: parent.width-serverControl.width-parent.spacing-parent.rightPadding-parent.leftPadding
-        h:parent.height
-        recvC: tcpModel.revCount
-        sendC: tcpModel.senCount
-        modelList: tcpModel.dataList
-        onSendMsg:{
-            if(!serverControl.getCurrentConn()){
-                console.log("无法发送信息")
-                return
-            }
-            if(!data){
-                console.log("信息无内容")
-                return
-            }
-            console.log("send messageData")
-            tcpModel.sendMessageData(serverControl.getCurrentConn(),data)
-        }
-        onClearData: {
-            tcpModel.clearAll(true)
         }
     }
 
@@ -62,29 +66,26 @@ Row{
         serverControl.appendHistoryConnect(msg)
     }
 
-    function appendLogMsg(time,type,host,ascData,hexData,length){
-        tcpLog.appendData(time,type,host,ascData,hexData,length)
-    }
-
 
     function connClose(addr){
+        console.log("close connection "+addr)
         serverControl.connClose(addr)
     }
 
     function setSendErrMsg(type,msg,isErr){
         if(type===1||type===2){
-            if(serverControl){
-                serverControl.setErrMsg(type,msg,isErr)}
+            serverControl.setErrMsg(type,msg,isErr)
         }else if(type===3){
             udpLog.setErrMsg(msg)
         }else if(type===4){
+            console.log(msg)
         }
     }
 
     Component.onCompleted: {
         tcpModel.appendLocalAddr.connect(appendLocalAddr)
-        tcpModel.appendConnAddr.connect(appendConnec)
         tcpModel.setCurrentIndex.connect(setCurrentIndex)
+        tcpModel.appendConnAddr.connect(appendConnec)
         tcpModel.connClose.connect(connClose)
         tcpModel.sendErrMsg.connect(setSendErrMsg)
         tcpModel.getAddr()

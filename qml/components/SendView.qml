@@ -6,6 +6,8 @@ import src.strings 1.0
 import src.settingtool 1.0
 import src.sendmessagedata 1.0
 
+import "../widgets" as Widgets
+
 GroupBox{
     property bool canSendMsg: false
     signal sendMsg(SendMessageData data)
@@ -211,7 +213,7 @@ GroupBox{
                 Layout.fillWidth: true
                 Layout.fillHeight: false
                 Layout.preferredHeight: 30
-                GeneralCheckBox{
+                Widgets.GeneralCheckBox{
                     Layout.leftMargin: 50
                     id:showHeader
                     text: Strings.sendAdvance
@@ -226,7 +228,7 @@ GroupBox{
                         }
                     }
                 }
-                TipLabel{
+                Widgets.TipLabel{
                     id:errMsg
                     Layout.fillWidth: true
                     Layout.fillHeight: true

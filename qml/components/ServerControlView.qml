@@ -5,6 +5,8 @@ import QtGraphicalEffects 1.12
 
 import src.settingtool 1.0
 import src.strings 1.0
+
+import "../widgets" as Widgets
 Column {
     property int viewType: 1 /*1是tcpserver,2是tcpclient,3是udpserver,4是udpclient*/
     property string title: Strings.controlCenter//标题
@@ -64,7 +66,7 @@ Column {
                     text: labelAddr
                     font.bold: true
                 }
-                EditComboBox{
+                Widgets.EditComboBox{
                     id:addrBox
                     Layout.fillWidth: true
                     Layout.preferredHeight: 30
@@ -85,7 +87,7 @@ Column {
                     text:labelPort
                     font.bold: true
                 }
-                EditComboBox{
+                Widgets.EditComboBox{
                     id:portBox
                     Layout.fillWidth: true
                     Layout.preferredHeight: 30
@@ -161,7 +163,7 @@ Column {
             Item {
                 height:10
             }
-            TipLabel{
+            Widgets.TipLabel{
                 id:tip
                 Layout.fillWidth: true
                 Layout.preferredHeight: 30

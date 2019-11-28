@@ -3,8 +3,8 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import src.strings 1.0
 import src.settingtool 1.0
-
-import "./component" as Components
+import "../components" as Components
+import "../widgets" as Widgets
 
 Item{
     anchors.fill:parent
@@ -22,7 +22,7 @@ Item{
             anchors.left: parent.left
             anchors.right: parent.right
 
-            EditComboBox {
+            Widgets.EditComboBox {
                 id:language_box
                 editable: false
                 Layout.preferredWidth: parent.width/2

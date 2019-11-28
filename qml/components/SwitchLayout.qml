@@ -2,7 +2,7 @@ import QtQuick 2.0
 
 import QtQuick.Layouts 1.12
 
-import "../widget" as Widget
+import "../widgets" as Widget
 
 RowLayout {
     property alias checked: switchButton.checked
