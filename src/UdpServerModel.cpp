@@ -89,7 +89,7 @@ void UdpServerModel::newData() {
         SoundManager::playReceive();
         dumpLogMsg(true, conn->key, buf, readLen);
     }
-    TK::releaseBuffer(buf);
+//    TK::releaseBuffer(buf);
 }
 
 bool UdpServerModel::close(void *cookie) {
