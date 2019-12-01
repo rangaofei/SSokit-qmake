@@ -84,7 +84,7 @@ void UdpClientModel::newData() {
         dumpLogMsg(true, host, QByteArray::fromRawData(buf,readLen), readLen);
     }
 
-    TK::releaseBuffer(buf);
+//    TK::releaseBuffer(buf);
 }
 
 void UdpClientModel::closed() {
