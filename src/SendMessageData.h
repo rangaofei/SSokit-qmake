@@ -4,7 +4,7 @@
 #include <QObject>
 
 
-
+//qml类，用来传递发送信息
 class SendMessageData : public QObject
 {
     Q_OBJECT
@@ -22,19 +22,33 @@ public:
 signals:
 
 public slots:
+    //发送的主要内容
     const QString content();
+    //设置发送的主要内容
     void setContent(QString content);
+    //发送头信息
     const QString header();
+    //设置发送头信息
     void setHeader(QString header);
+    //发送尾信息
     const QString footer();
+    //设置发送尾信息
     void setFooter(QString footer);
+    //是否发送头
     bool withHeader();
+    //设置是否发送头
     void setWithHeader(bool withHeader);
+    //内容长度
     int lengthSize();
+    //设置内容长度
     void setLengthSize(int lengthSize);
+    //大小端
     bool endian();
+    //设置是否大端
     void setEndian(bool endian);
+    //是否纯文本
     bool plainText();
+    //设置是否纯文本
     void setPlainText(bool plainText);
 
 

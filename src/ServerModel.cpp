@@ -25,7 +25,7 @@ void ServerModel::saveConfig() {
 
 
 void ServerModel::kill(QStringList &list) {
-
+    Q_UNUSED(list)
 }
 
 
@@ -108,6 +108,7 @@ void ServerModel::send(const QString &key, const QString &data) {
         if (!TK::ascii2bin(data, bin, err))
             qDebug() << ("bad data format to send: " + err);
         else
+            qDebug()<<bin<<"==bin";
             sendToDst(v, bin);
     }
 }
@@ -147,7 +148,6 @@ void ServerModel::sendWithHeader(const QString &key,const QString header, const 
     }
     dataBin.prepend(length);
     dataBin.prepend(headerBin);
-    qDebug()<<"client model send data "<<data;
     sendToDst(v,dataBin);
 }
 

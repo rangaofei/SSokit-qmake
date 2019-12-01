@@ -33,12 +33,13 @@ bool TcpClientModel::close() {
 }
 
 void TcpClientModel::sendToDst(const QByteArray &bin) {
-    const char *src = bin.constData();
+
     qint64 srcLen = bin.length();
-    qDebug()<<"send tcp client data::"<<bin;
+    char * src=TK::createBuffer(srcLen,MAXBUFFER);
+    qDebug()<<bin<<"+++++"<<src;
+    memcpy(src,bin.data(),srcLen);
     qint64 writeLen = 0;
     qint64 ioLen = m_tcp_socket.write(src, srcLen);
-
     while (ioLen > 0) {
         writeLen += ioLen;
         ioLen = m_tcp_socket.write(src + writeLen, srcLen - writeLen);
@@ -67,7 +68,6 @@ void TcpClientModel::newData() {
     qint64 bufLen = s->bytesAvailable();
     char *buf = TK::createBuffer(bufLen, MAXBUFFER);
     if (!buf) return;
-
     qint64 readLen = 0;
     qint64 ioLen = s->read(buf, bufLen);
 
@@ -81,7 +81,6 @@ void TcpClientModel::newData() {
         dumpLogMsg(true, host, buf, readLen);
     }
 
-//    TK::releaseBuffer(buf);
 }
 
 void TcpClientModel::closed() {
