@@ -50,9 +50,8 @@ void QmlLogModel::setDataList(LogMessageList *dataList)
     this->m_dataList=dataList;
 }
 
-void QmlLogModel::dumpLogMsg(bool rev, QString &host, const QByteArray& buf, qint64 length)
+void QmlLogModel::dumpLogMsg(bool rev, QString &host,const char* buf, qint64 length)
 {
-    QString hexData = TK::bin2hex(buf, static_cast<uint>(length));
     LogMessageModel* data=new LogMessageModel;
     data->setIsRev(rev);
     data->setHost(host);

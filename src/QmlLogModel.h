@@ -62,7 +62,7 @@ public slots:
     void setDataList(LogMessageList* dataList);
 
     //输出日志
-    void dumpLogMsg(bool rev, QString &host,const QByteArray& buf, qint64 length);
+    void dumpLogMsg(bool rev, QString &host,const char* buf, qint64 length);
 
     //输出日志的重载方法
     void dumpLogMsg(LogMessageModel* model);

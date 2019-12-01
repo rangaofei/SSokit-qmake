@@ -68,7 +68,6 @@ Row{
 
 
     function connClose(addr){
-        console.log("close connection "+addr)
         serverControl.connClose(addr)
     }
 
@@ -96,7 +95,7 @@ Row{
         tcpModel.setCurrentIndex.disconnect(setCurrentIndex)
         tcpModel.appendConnAddr.disconnect(appendConnec)
         tcpModel.connClose.disconnect(connClose)
-        tcpModel.sendErrMsg.connect(setSendErrMsg)
+        tcpModel.sendErrMsg.disconnect(setSendErrMsg)
     }
 
 }
