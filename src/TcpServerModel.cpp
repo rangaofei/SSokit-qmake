@@ -53,12 +53,11 @@ bool TcpServerModel::close(void *cookie) {
 }
 
 void TcpServerModel::sendToDst(void *cookie, const QByteArray &bin) {
-    qDebug()<<"sendToDst";
     Conn *conn = (Conn *) cookie;
-
-    const char *src = bin.constData();
     qint64 srcLen = bin.length();
-
+    char * src=TK::createBuffer(srcLen,MAXBUFFER);
+    qDebug()<<bin<<"+++++"<<src;
+    memcpy(src,bin.data(),srcLen);
     qint64 writeLen = 0;
     qint64 ioLen = conn->client->write(src, srcLen);
 
@@ -77,7 +76,7 @@ void TcpServerModel::sendToDst(void *cookie, const QByteArray &bin) {
 //    recordSend(writeLen);
 //    dump(src, srcLen, true, conn->key);
     SoundManager::playSend();
-    dumpLogMsg(false, conn->key, bin, writeLen);
+    dumpLogMsg(false, conn->key, src, writeLen);
 }
 
 void TcpServerModel::error() {

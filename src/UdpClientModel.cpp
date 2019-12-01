@@ -33,21 +33,19 @@ bool UdpClientModel::close() {
 }
 
 void UdpClientModel::sendToDst(const QByteArray &bin) {
-    qDebug()<<"send thread:"<<QThread::currentThreadId();
     if (m_udp_socket.errorString() != nullptr)
         qDebug() << "发送udp发生错误+++" << m_udp_socket.error();
-    const char *src = bin.constData();
     qint64 srcLen = bin.length();
-    qDebug()<<"send udp client data::"<<bin;
+    char * src=TK::createBuffer(srcLen,MAXBUFFER);
+    qDebug()<<bin<<"+++++"<<src;
+    memcpy(src,bin.data(),srcLen);
     qint64 writeLen = 0;
     qint64 ioLen = m_udp_socket.write(src, srcLen);
     qDebug()<<m_udp_socket.peerAddress()<<"---"<<m_udp_socket.peerPort();
-    qDebug()<<"第一次写入长度:"<<ioLen;
     while (ioLen > 0) {
         writeLen += ioLen;
         ioLen = (writeLen >= srcLen) ? 0 :
                 m_udp_socket.write(src+writeLen, srcLen-writeLen);
-        qDebug()<<"每次写入长度"<<writeLen;
     }
 
     if (writeLen != srcLen) {
@@ -83,7 +81,7 @@ void UdpClientModel::newData() {
 
     if (ioLen >= 0) {
         SoundManager::playReceive();
-        dumpLogMsg(true, host, buf, readLen);
+        dumpLogMsg(true, host, QByteArray::fromRawData(buf,readLen), readLen);
     }
 
     TK::releaseBuffer(buf);
