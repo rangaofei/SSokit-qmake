@@ -16,18 +16,7 @@ ColumnLayout{
         id:noteBook
     }
 
-    TabBar {
-        id:notepadTopBar
-        Layout.fillWidth: false
-        Layout.preferredHeight: title.height
-        Layout.topMargin: 15
-        currentIndex: 0
-        Layout.alignment: Qt.AlignHCenter
-        Widgets.TopButton {
-            id:title
-            name:Strings.mainTabNotePad
-        }
-    }
+
     RowLayout{
         spacing: 0
         Rectangle{
