@@ -4,11 +4,15 @@
 QmlLogModel::QmlLogModel(QObject *parent) : QObject(parent),m_revCount(0),m_senCount(0)
 {
     m_dataList=new LogMessageList;
+    fileWrite=new FileWriter;
+    QDateTime time = QDateTime::currentDateTime();   //获取当前时间
+    QString name=time.toString("yyyy_MM_dd_hh_mm_ss_zzz")+".txt";
+    fileWrite->setFileName(name);
 }
 
 QmlLogModel::~QmlLogModel()
 {
-
+    delete fileWrite;
 }
 
 /**
@@ -96,6 +100,7 @@ void QmlLogModel::dumpLogMsg(bool rev, QString &host, const QByteArray& buf, qin
  * 输出日志
  */
 void QmlLogModel::dumpLogMsg(LogMessageModel* data) {
+    fileWrite->writeLogMessage(data);
     m_dataList->addData(data);
     if(data->isRev()){
         ++m_revCount;

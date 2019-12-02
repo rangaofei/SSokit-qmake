@@ -4,6 +4,7 @@
 #include "LogMessageModel.h"
 #include "toolkit.h"
 #include "SoundManager.h"
+#include "FileWriter.h"
 
 #include <QObject>
 #include <QTime>
@@ -84,6 +85,7 @@ protected:
     qint64 m_revCount;
     qint64 m_senCount;
     LogMessageList* m_dataList;
+    FileWriter *fileWrite;
 
 };
 

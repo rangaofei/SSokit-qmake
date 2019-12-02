@@ -7,6 +7,9 @@
 #include <QJsonParseError>
 #include "config.h"
 
+#define BASE_URL "http://www.rangaofei.cn/ssokit/"
+#define PATH_VERSION "version"
+
 class HttpManager : public QObject
 {
     Q_OBJECT
