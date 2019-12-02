@@ -9,7 +9,7 @@ import "./dialogs" as Dialogs
 import "./widgets" as Widgets
 import "./tcp" as Tcps
 import "./udp" as Udps
-import "./notepad" as NotePads
+import "./tool" as Tool
 import "./setting" as Settings
 
 
@@ -72,7 +72,7 @@ ApplicationWindow{
             //            text:Strings.mainTabCOM
             //        }
             Widgets.BottomButton{
-                text:Strings.mainTabNotePad
+                text:Strings.mainTabTool
             }
             //        BottomButton{
             //            id:peltte
@@ -98,7 +98,7 @@ ApplicationWindow{
 
             //            }
 
-            NotePads.NotepadView{}
+            Tool.ToolView{}
             //            ColorList{
 
             //            }
