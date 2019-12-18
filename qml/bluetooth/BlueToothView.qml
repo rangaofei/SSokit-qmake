@@ -36,6 +36,7 @@ Rectangle {
                         break;
                     default:
                         console.log("Error: Unknown Error"); break;
+                        break;
                     }
             }
        }

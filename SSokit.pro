@@ -48,6 +48,7 @@ HEADERS +=  src/bluetoothmodel.h \
             src/SettingTool.h \
             src/SoundManager.h \
             src/TranslatorTool.h \
+    src/Util.h \
             src/atomicops.h \
             src/config.h \
             src/itemport.h \
