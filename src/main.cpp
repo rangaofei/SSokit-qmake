@@ -8,6 +8,8 @@
 #include <QTranslator>
 #include <QLibraryInfo>
 #include <QThread>
+#include <QHostInfo>
+#include <QNetworkInterface>
 
 #include "bluetoothmodel.h"
 #include "TcpServerModel.h"
@@ -84,6 +86,7 @@ void registerQml(){
     });
 }
 
+
 /**
  * 程序入口
  */
@@ -96,7 +99,7 @@ int main(int argc, char *argv[]) {
     registerQml();
     qDebug()<<"main thread:"<<QThread::currentThreadId();
     QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("qrc:/qml/SSokit.qml")));  
+    engine.load(QUrl(QStringLiteral("qrc:/qml/SSokit.qml")));
     if (engine.rootObjects().isEmpty())
         return -1;
     return QApplication::exec();

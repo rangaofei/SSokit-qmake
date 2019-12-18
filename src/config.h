@@ -5,11 +5,11 @@
 
 #define MAJOR_VERSION 1
 #define MINOR_VERSION 1
-#define PATCH_VERSION 3
+#define PATCH_VERSION 4
 
 #define YEAR 2019
 #define MONTH 12
-#define DAY 1
+#define DAY 12
 
 class Config : public QObject
 {
@@ -41,20 +41,33 @@ public slots:
     static int32_t getSystem(){
         int result=0;
 #ifdef Q_OS_WIN
-    // Windows上的代码
+        // Windows上的代码
         result=1;
 #endif
 
 #ifdef Q_OS_LINUX
-    // Linux上的代码
+        // Linux上的代码
         result=2;
 #endif
 
 #ifdef Q_OS_MAC
-    // Mac上的代码
+        // Mac上的代码
         result=3;
 #endif
         return result;
+    }
+
+    static QString getSystemStr(){
+        switch (getSystem()) {
+        case 1:
+            return "windows";
+        case 2:
+            return "linux";
+        case 3:
+            return "macOS";
+        default:
+            return "unknown";
+        }
     }
 };
 
