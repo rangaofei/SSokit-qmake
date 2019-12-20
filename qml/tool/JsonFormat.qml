@@ -12,12 +12,18 @@ Rectangle{
         GroupBox{
             width: 0.3*parent.width
             height: parent.height
-            TextEdit{
+            TextArea{
                 width: parent.width
                 cursorVisible: true
                 id: originData
                 wrapMode: Text.Wrap
                 text: qsTr("text")
+                placeholderText: "这是啥"
+                selectByMouse: true
+                selectedTextColor: "white"
+                selectionColor: "#3399FF"
+                font.pixelSize: 30
+
             }
         }
         GroupBox{
