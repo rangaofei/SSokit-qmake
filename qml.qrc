@@ -72,5 +72,9 @@
         <file>qml/tool/NotepadView.qml</file>
         <file>qml/tool/ToolView.qml</file>
         <file>qml/tool/JsonFormat.qml</file>
+        <file>qml/components/TextTreeView.qml</file>
+        <file>qml/components/TextTreeItemDelegate.qml</file>
+        <file>qml/components/TextTreeRowDelegate.qml</file>
+        <file>qml/components/TextTreeHeaderDelegate.qml</file>
     </qresource>
 </RCC>
