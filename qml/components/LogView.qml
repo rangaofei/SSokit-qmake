@@ -141,7 +141,7 @@ ColumnLayout{
                 console.log("GeneralCheckBox GeneralCheckBox")
                 if(modelList.rowCount()<=0){
                     checked=false
-                    if(logDetailView.state=='out'){
+                    if(logDetailView.state==='out'){
                         return
                     }
                 }
