@@ -101,6 +101,7 @@ public:
         textData,
         binData,
     };
+    Q_ENUM(Datatype)
 
     explicit LogMessageList(QObject *parent=nullptr);
     ~LogMessageList();
