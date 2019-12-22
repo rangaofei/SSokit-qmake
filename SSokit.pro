@@ -22,6 +22,7 @@ SOURCES += \
         src/SettingTool.cpp \
         src/SoundManager.cpp \
         src/TranslatorTool.cpp \
+        src/TreeItem.cpp \
         src/itemport.cpp \
         src/main.cpp \
         src/Logger.cpp \
@@ -50,6 +51,7 @@ HEADERS +=  src/bluetoothmodel.h \
             src/SettingTool.h \
             src/SoundManager.h \
             src/TranslatorTool.h \
+    src/TreeItem.h \
     src/Util.h \
             src/atomicops.h \
             src/config.h \

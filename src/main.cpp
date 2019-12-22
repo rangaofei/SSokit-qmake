@@ -99,7 +99,6 @@ int main(int argc, char *argv[]) {
     TranslatorTool translatorTool;
     translatorTool.initLanguage();
     registerQml();
-    qDebug()<<"main thread:"<<QThread::currentThreadId();
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/qml/SSokit.qml")));
     if (engine.rootObjects().isEmpty())

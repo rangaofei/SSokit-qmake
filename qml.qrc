@@ -76,5 +76,7 @@
         <file>qml/components/TextTreeItemDelegate.qml</file>
         <file>qml/components/TextTreeRowDelegate.qml</file>
         <file>qml/components/TextTreeHeaderDelegate.qml</file>
+        <file>qml/tool/JsonTreeView.qml</file>
+        <file>qml/tool/JsonFormatView.qml</file>
     </qresource>
 </RCC>

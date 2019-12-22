@@ -9,6 +9,7 @@ HttpManager::HttpManager(QObject *parent) : QObject(parent)
 
 void HttpManager::checkVersion()
 {
+#ifdef QT_NO_DEBUG
     QNetworkRequest request;
     QNetworkAccessManager* naManager = new QNetworkAccessManager(this);
     QMetaObject::Connection connRet = QObject::connect(naManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(requestFinished(QNetworkReply*)));
@@ -21,6 +22,9 @@ void HttpManager::checkVersion()
     request.setRawHeader(QByteArray("sys-type"),Util::getSystemType().toUtf8());
     request.setRawHeader(QByteArray("sys-version"),Util::getSystemVersion().toUtf8());
     naManager->get(request);
+#else
+    qDebug() << "debug mode,will not update";
+#endif
 }
 
 void HttpManager::requestFinished(QNetworkReply *reply)
@@ -75,7 +79,6 @@ void HttpManager::requestFinished(QNetworkReply *reply)
             url=rootObj.value("mac_url").toString();
             break;
         }
-        qDebug()<<url;
         emit showUpdateVersion(
                     rootObj.value("version_name").toString(),
                     rootObj.value("content_cn").toString(),
