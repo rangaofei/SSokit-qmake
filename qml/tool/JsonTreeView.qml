@@ -9,24 +9,18 @@ Item {
         anchors.fill: parent
         TableViewColumn {
             title: "Name"
-            role: "fileName"
+            role: "key"
             width: 300
         }
 
         model: jsonModel
         itemDelegate: Item {
-            Button {
+            Text {
                 anchors.verticalCenter: parent.verticalCenter
                 text: styleData.value
-               onClicked: {
-//                   console.log("onClicked:", index)
-//                   console.log("isExpanded:",isExpanded(index))
-                   console.log(styleData.value)
-               }
             }
         }
-
-
+        sortIndicatorVisible: true
     }
 
 }

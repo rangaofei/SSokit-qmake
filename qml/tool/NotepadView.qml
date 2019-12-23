@@ -100,6 +100,9 @@ ColumnLayout{
                     Layout.fillWidth: true
                     font.pixelSize: 20
                     text: titleListView.model.length<=0?"":titleListView.model[titleListView.currentIndex].title
+                    selectByMouse: true
+                    selectedTextColor: "white"
+                    selectionColor: "#3399FF"
                     onTextChanged: {
                         if(titleListView.currentIndex==-1){
                             return
@@ -163,7 +166,9 @@ ColumnLayout{
                     focus: true
                     font.pixelSize: 15
                     text: titleListView.model.length<=0?"":titleListView.model[titleListView.currentIndex].content
-
+                    selectByMouse: true
+                    selectedTextColor: "white"
+                    selectionColor: "#3399FF"
                     onTextChanged: {
                         titleListView.model[titleListView.currentIndex].content=text
                     }

@@ -37,8 +37,9 @@ ColumnLayout{
     Shortcut{
         sequences: ["Ctrl+F"]
         onActivated: {
-            jsonFormat.checkJonsStr(jsonFormatView.getText())
-            jsonFormat.convertJsonToTree(jsonFormatView.getText())
+            var json=jsonFormatView.getText()
+            jsonFormat.checkJonsStr(json)
+            jsonFormat.convertJsonToTreeModel(json)
         }
 
     }

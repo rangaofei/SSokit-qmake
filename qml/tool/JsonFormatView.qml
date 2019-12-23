@@ -23,10 +23,11 @@ RowLayout {
 
 
     function formattedJson( formattedJsonData){
-        originData.text=formattedJsonData
+        originData.clear()
+        originData.append(formattedJsonData)
     }
     function getText(){
-        return originData.text
+        return originData.text.toString()
     }
 
 }

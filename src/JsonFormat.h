@@ -7,7 +7,7 @@
 #include <QJsonArray>
 #include <QAbstractListModel>
 #include "TreeItem.h"
-
+#include <QString>
 
 class JsonModel : public QAbstractItemModel
 {
@@ -34,6 +34,9 @@ public:
 
     void convertJsonToTree(QJsonDocument *doc);
 
+    void parseJsonObject(TreeItem * parentItem,QJsonObject *jsonValue);
+    void parseJsonArray(TreeItem * parentItem,QJsonArray *jsonValue);
+
 protected:
     QHash<int,QByteArray> roleNames() const;
 
@@ -59,11 +62,9 @@ public slots:
 
     void setJsonModel(JsonModel *jsonModel);
 
-    void checkJonsStr(const QString jsonStr);
+    void checkJonsStr(const QVariant data);
 
-    void formatJson(const QString jsonStr);
-
-    void convertJsonToTree(const QString jsonStr);
+    void convertJsonToTreeModel(const QVariant data);
 
 signals:
     void jsonModelChanged();
