@@ -27,9 +27,8 @@ int TreeItem::childCount() const
 
 QString TreeItem::data(int column) const
 {
-    if (column < 0 || column >= m_itemData.size())
-        return QString();
-    return m_itemData.at(column);
+    return m_itemData;
+
 }
 
 void TreeItem::setData(QString data)

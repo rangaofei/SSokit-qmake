@@ -23,9 +23,11 @@ void JsonFormat::setJsonModel(JsonModel *jsonModel){
 }
 
 
-void JsonFormat::checkJonsStr(const QString jsonStr)
+void JsonFormat::checkJonsStr(const QVariant data)
 {
-    const QByteArray jsonArray=jsonStr.toLatin1();
+    QString jsonStr=data.toString();
+    qDebug()<<jsonStr;
+    const QByteArray jsonArray=jsonStr.toUtf8();
     m_jsonDocument=new QJsonDocument(QJsonDocument::fromJson(jsonArray,&m_error));
     if(m_error.error != QJsonParseError::NoError)
     {
@@ -39,41 +41,14 @@ void JsonFormat::checkJonsStr(const QString jsonStr)
 }
 
 
-void JsonFormat::formatJson(const QString jsonStr)
+void JsonFormat::convertJsonToTreeModel(const QVariant data)
 {
-    const QByteArray jsonArray=jsonStr.toLatin1();
-    m_jsonDocument=new QJsonDocument(QJsonDocument::fromJson(jsonArray,&m_error));
-    if(m_error.error!=QJsonParseError::NoError)
-    {
-        qDebug() << "json error!"<<m_error.errorString();
-        qDebug()<<m_error.offset;
-        return;
-    }
-    if(m_jsonDocument->isNull()||m_jsonDocument->isEmpty()){
-        return;
-    }
-    if(m_jsonDocument->isObject())
-    {
-        QJsonObject jsonObject=m_jsonDocument->object();
-        jsonObject.keys();
-    }else if(m_jsonDocument->isArray())
-    {
-        QJsonArray jsonArray=m_jsonDocument->array();
-        foreach (QJsonValue childValue, jsonArray) {
-            if(childValue.isObject()){
-                QJsonObject aa=childValue.toObject();
-            }
-        }
-    }
-
-}
-
-void JsonFormat::convertJsonToTree(const QString jsonStr)
-{
+    QString jsonStr=data.toString();
+    qDebug()<<jsonStr;
     if(jsonStr==nullptr||jsonStr.isNull()||jsonStr.isEmpty()){
         return;
     }
-    const QByteArray jsonArray=jsonStr.toLatin1();
+    const QByteArray jsonArray=jsonStr.toUtf8();
     QJsonDocument *jsonDoc=new QJsonDocument(QJsonDocument::fromJson(jsonArray));
     if(m_error.error!=QJsonParseError::NoError)
     {
@@ -82,6 +57,7 @@ void JsonFormat::convertJsonToTree(const QString jsonStr)
         return;
     }
     if(jsonDoc==nullptr||jsonDoc->isEmpty()||jsonDoc->isNull()){
+        qDebug()<<"jsondoc is empty";
         return;
     }
     m_jsonModel=new JsonModel();
@@ -112,15 +88,14 @@ QVariant JsonModel::data(const QModelIndex &index, int role) const
         qDebug()<<"index inValid";
         return QVariant();
     }
-
-    //    switch (role) {
-    //    case JsonType::KEY:
-    //        return "key";
-    //    }
-    qDebug()<<"index valid";
     TreeItem *item = static_cast<TreeItem*>(index.internalPointer());
+    switch (role) {
+    case JsonType::KEY:
+        return item->data(0);
+    }
+    return QVariant();
 
-    return item->data(index.column());
+
 }
 
 Qt::ItemFlags JsonModel::flags(const QModelIndex &index) const
@@ -137,26 +112,78 @@ void JsonModel::convertJsonToTree(QJsonDocument *doc)
     rootItem=new TreeItem();
     rootItem->setData("JSON");
     if(doc->isObject()){
-        QJsonObject jsonObject=doc->object();
-        QStringList keyList=jsonObject.keys();
-        int count=keyList.size();
-        for(int i=0;i<count;i++){
-            QString key=keyList.at(i);
-            QJsonValue jsonValue = jsonObject.value(key);
-            if(jsonValue==QJsonValue::Undefined){
-                continue;
-            }
-            TreeItem * childItem=new TreeItem(rootItem);
-            if(jsonValue.isBool()){
-                childItem->setData(key+":"+(jsonValue.toBool()?"true":"false"));
-            }else if(jsonValue.isString()){
-
-                childItem->setData(key+":"+jsonValue.toString());
-                qDebug()<<jsonValue.toString();
-            }
-            rootItem->appendChild(childItem);
-        }
+        QJsonObject jo=doc->object();
+        parseJsonObject(rootItem,&jo);
     }
+
+}
+
+void JsonModel::parseJsonObject(TreeItem *parentItem, QJsonObject *jsonValue)
+{
+    QStringList keyList=jsonValue->keys();
+    int count=keyList.size();
+    for(int i=0;i<count;i++){
+        QString key=keyList.at(i);
+        QJsonValue jv = jsonValue->value(key);
+
+        TreeItem * childItem=new TreeItem(rootItem);
+        if(jv==QJsonValue::Undefined){
+            childItem->setData(key+":"+"null");
+        }else if(jv.isBool()){
+            childItem->setData(key+":"+(jv.toBool()?"true":"false"));
+        }else if(jv.isString()){
+            childItem->setData(key+":"+jv.toString());
+        }else if(jv.isDouble())
+        {
+            childItem->setData(key+QString::number(jv.toDouble()));
+        }
+        else if (jv.isObject()) {
+            childItem->setData(key);
+            QJsonObject jo=jv.toObject();
+            parseJsonObject(childItem,&jo);
+        }else if (jv.isArray()) {
+            childItem->setData(key);
+            QJsonArray ja=jv.toArray();
+            parseJsonArray(childItem,&ja);
+        }else {
+            qDebug()<<jv.toString();
+            childItem->setData(key+":"+jv.toString("null"));
+        }
+        parentItem->appendChild(childItem);
+    }
+}
+
+void JsonModel::parseJsonArray(TreeItem *parentItem, QJsonArray *jsonValue)
+{
+    int count=jsonValue->size();
+    for(int i=0;i<count;i++){
+        QJsonValue jv=jsonValue->at(i);
+        if(jv==QJsonValue::Undefined){
+            continue;
+        }
+        TreeItem * childItem=new TreeItem(rootItem);
+        if(jv.isBool())
+        {
+            childItem->setData(QString::number(i)+":"+(jv.toBool()?"true":"false"));
+        }
+        else if(jv.isString()){
+            childItem->setData(QString::number(i)+":"+jv.toString());
+        }
+        else if (jv.isDouble()) {
+            childItem->setData(QString::number(i)+":"+QString::number(jv.toDouble()));
+        }
+        else if(jv.isObject()){
+            childItem->setData(QString::number(i)+":");
+            QJsonObject jo=jv.toObject();
+            parseJsonObject(childItem,&jo);
+        }else if(jv.isArray()){
+            QJsonArray ja=jv.toArray();
+            childItem->setData(QString::number(i)+":");
+            parseJsonArray(childItem,&ja);
+        }
+        parentItem->appendChild(childItem);
+    }
+
 
 }
 
@@ -195,8 +222,6 @@ QModelIndex JsonModel::parent(const QModelIndex &index) const
 int JsonModel::rowCount(const QModelIndex &parent) const
 {
     TreeItem *parentItem;
-    if (parent.column() > 0)
-        return 0;
 
     if (!parent.isValid())
         parentItem = rootItem;

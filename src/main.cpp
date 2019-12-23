@@ -86,6 +86,7 @@ void registerQml(){
         SoundManager *manager = new SoundManager();
         return manager;
     });
+    qmlRegisterUncreatableType<TreeItem>("src.treeitem",1,0,"TreeItem","Reference only");
 }
 
 
