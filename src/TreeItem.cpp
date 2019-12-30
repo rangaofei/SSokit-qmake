@@ -25,11 +25,6 @@ int TreeItem::childCount() const
 }
 
 
-QString TreeItem::data(int column) const
-{
-    return m_itemData;
-
-}
 
 void TreeItem::setData(QString data)
 {
@@ -40,6 +35,42 @@ TreeItem *TreeItem::parentItem()
 {
     return m_parentItem;
 }
+
+QString TreeItem::key()
+{
+    return m_key;
+}
+
+void TreeItem::setKey(QString key)
+{
+    this->m_key=key;
+}
+
+QString TreeItem::sep()
+{
+    return m_sep;
+}
+
+void TreeItem::setSep(QString sep)
+{
+    this->m_sep=sep;
+}
+
+QString TreeItem::value()
+{
+    return m_value;
+}
+
+void TreeItem::setValue(QString value)
+{
+    this->m_value=value;
+}
+
+QString TreeItem::itemData()
+{
+    return m_itemData;
+}
+
 
 int TreeItem::row() const
 {
