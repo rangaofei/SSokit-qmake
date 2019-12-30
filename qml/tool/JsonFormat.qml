@@ -18,7 +18,7 @@ ColumnLayout{
             name:"格式化"
         }
         Widgets.TopButton{
-            name:"树形"
+            name:"视图"
         }
 
     }
