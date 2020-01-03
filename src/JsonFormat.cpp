@@ -114,6 +114,9 @@ void JsonModel::convertJsonToTree(QJsonDocument *doc)
     if(doc->isObject()){
         QJsonObject jo=doc->object();
         parseJsonObject(rootItem,&jo);
+    }else if(doc->isArray()){
+        QJsonArray ja=doc->array();
+        parseJsonArray(rootItem,&ja);
     }
 
 }

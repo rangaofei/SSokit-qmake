@@ -23,9 +23,9 @@ RowLayout {
 
 
     function formattedJson( formattedJsonData){
-        originData.clear()
-        originData.append(formattedJsonData)
+        originData.text=formattedJsonData
     }
+
     function getText(){
         return originData.text.toString()
     }
