@@ -9,9 +9,9 @@ class JsonCustomProperty : public QObject
 {
 
     Q_OBJECT
-    Q_PROPERTY(QString key READ key WRITE setKey)
-    Q_PROPERTY(QString value READ value WRITE setValue)
-    Q_PROPERTY(int type READ type WRITE setType)
+    Q_PROPERTY(QString jsonKey READ key WRITE setKey NOTIFY keyChanged)
+    Q_PROPERTY(QString jsonValue READ value WRITE setValue NOTIFY valueChanged)
+    Q_PROPERTY(int jsonValue READ type WRITE setType NOTIFY typeChanged)
 public:
     JsonCustomProperty(QObject *parent = nullptr):QObject(parent)
     {
@@ -58,6 +58,11 @@ public:
     {
         this->m_type=type;
     }
+
+signals:
+    void keyChanged();
+    void valueChanged();
+    void typeChanged();
 
 private:
     QString m_key;
