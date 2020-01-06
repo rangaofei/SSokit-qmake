@@ -1,4 +1,5 @@
 #include "TreeItem.h"
+
 TreeItem::TreeItem(TreeItem *itemParent,QObject *parent)
     : QObject(parent),m_parentItem(itemParent)
 {}

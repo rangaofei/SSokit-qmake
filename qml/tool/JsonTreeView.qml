@@ -14,27 +14,36 @@ RowLayout {
             title: "Name"
             role: "key"
         }
-        TableViewColumn {
-            title: "Obj"
-            role: "Value"
-        }
+
         model: jsonModel
 
         style: TreeViewStyle{
             backgroundColor: "#00000000"
             textColor: "green"
             itemDelegate: Rectangle {
-                Text {
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: styleData.value.key
-                    color: styleData.selected ? "white" : "black"
-                    font.bold: styleData.selected
+                RowLayout{
+                    anchors.fill: parent
+                    Text {
+                        Layout.preferredWidth: 50
+                        Layout.alignment: Qt.AlignVCenter
+                        text: styleData.value.jsonKey===null?"":styleData.value.jsonKey
+                        color: styleData.selected ? "white" : "black"
+                        font.bold: styleData.selected
 
+                    }
+                    Text {
+                        Layout.leftMargin: 20
+                        Layout.alignment: Qt.AlignVCenter
+                        text: styleData.value.jsonValue===null?"":styleData.value.jsonValue
+                        color: styleData.selected ? "white" : "black"
+                        font.bold: styleData.selected
+
+                    }
                 }
                 color: "transparent"
 
             }
-//            indentation: 4
+            //            indentation: 4
             rowDelegate:Rectangle{
                 color: styleData.selected ? "#3399FF" : "transparent";
                 height: 28
