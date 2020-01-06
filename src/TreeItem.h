@@ -7,6 +7,7 @@
 
 class JsonCustomProperty : public QObject
 {
+
     Q_OBJECT
     Q_PROPERTY(QString key READ key WRITE setKey)
     Q_PROPERTY(QString value READ value WRITE setValue)
@@ -17,7 +18,7 @@ public:
 
     }
 
-    JsonCustomProperty(const JsonCustomProperty &other)
+    JsonCustomProperty(const JsonCustomProperty &other):QObject (nullptr)
     {
         m_key=other.m_key;
         m_value=other.m_value;
@@ -82,15 +83,16 @@ public:
     int row() const;
     Q_INVOKABLE QString getData();
     TreeItem *parentItem();
-
+    QString itemData();
+    void setItemData(QString itemData);
     void setProperty(QString key,QString value,int type);
-    QVariant property();
+    JsonCustomProperty* property();
 
 private:
     QVector<TreeItem*> m_childItems;
     QString m_itemData;
     TreeItem *m_parentItem;
-    JsonCustomProperty m_property;
+    JsonCustomProperty* m_property;
 };
 
 #endif // TREEITEM_H
