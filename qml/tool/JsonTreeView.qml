@@ -2,10 +2,13 @@ import QtQuick 2.0
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 
-Item {
+import QtQuick.Layouts 1.12
+
+RowLayout {
     property var jsonModel
     TreeView {
-        anchors.fill: parent
+        Layout.fillHeight: true
+        Layout.fillWidth: true
         backgroundVisible: false
         TableViewColumn {
             title: "Name"
@@ -23,7 +26,7 @@ Item {
             itemDelegate: Rectangle {
                 Text {
                     anchors.verticalCenter: parent.verticalCenter
-                    text: styleData.value.itemData
+                    text: styleData.value.key
                     color: styleData.selected ? "white" : "black"
                     font.bold: styleData.selected
 
@@ -31,7 +34,7 @@ Item {
                 color: "transparent"
 
             }
-            indentation: 4
+//            indentation: 4
             rowDelegate:Rectangle{
                 color: styleData.selected ? "#3399FF" : "transparent";
                 height: 28

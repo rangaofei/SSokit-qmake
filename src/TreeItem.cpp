@@ -36,14 +36,25 @@ TreeItem *TreeItem::parentItem()
     return m_parentItem;
 }
 
-void TreeItem::setProperty(QString key,QString value,int type)
+QString TreeItem::itemData()
 {
-    this->m_property.setKey(key);
-    this->m_property.setValue(value);
-    this->m_property.setType(type);
+    return this->m_itemData;
 }
 
-QVariant TreeItem::property()
+void TreeItem::setItemData(QString itemData)
+{
+    this->m_itemData=itemData;
+}
+
+void TreeItem::setProperty(QString key,QString value,int type)
+{
+    this->m_property=new JsonCustomProperty;
+    this->m_property->setKey(key);
+    this->m_property->setValue(value);
+    this->m_property->setType(type);
+}
+
+JsonCustomProperty* TreeItem::property()
 {
     return this->m_property;
 }

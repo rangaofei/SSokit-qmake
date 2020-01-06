@@ -89,9 +89,11 @@ QVariant JsonModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
     TreeItem *item = static_cast<TreeItem*>(index.internalPointer());
+    JsonCustomProperty* prop=item->property();
     switch (role) {
     case JsonType::KEY:
-        return item->property();
+        return  QVariant::fromValue(prop);
+//        return item->property().key();
     case JsonType::VALUE:
         return "value";
     }
@@ -116,6 +118,9 @@ void JsonModel::convertJsonToTree(QJsonDocument *doc)
     if(doc->isObject()){
         QJsonObject jo=doc->object();
         parseJsonObject(rootItem,&jo);
+    }else if(doc->isArray()){
+        QJsonArray ja=doc->array();
+        parseJsonArray(rootItem,&ja);
     }
 
 }
@@ -131,25 +136,32 @@ void JsonModel::parseJsonObject(TreeItem *parentItem, QJsonObject *jsonValue)
         TreeItem * childItem=new TreeItem(rootItem);
         if(jv==QJsonValue::Undefined){
             childItem->setData(key+" : "+"null");
+            childItem->setProperty(key,"",0);
         }else if(jv.isBool()){
             childItem->setData(key+" : "+(jv.toBool()?"true":"false"));
+            childItem->setProperty(key,(jv.toBool()?"true":"false"),1);
         }else if(jv.isString()){
             childItem->setData(key+" : "+jv.toString());
+            childItem->setProperty(key,jv.toString(),3);
         }else if(jv.isDouble())
         {
             childItem->setData(key+" : "+QString::number(jv.toDouble()));
+            childItem->setProperty(key,QString::number(jv.toDouble()),4);
         }
         else if (jv.isObject()) {
             childItem->setData(key);
+            childItem->setProperty(key,"",5);
             QJsonObject jo=jv.toObject();
             parseJsonObject(childItem,&jo);
         }else if (jv.isArray()) {
             childItem->setData(key);
             QJsonArray ja=jv.toArray();
+              childItem->setProperty(key,"",6);
             parseJsonArray(childItem,&ja);
         }else {
             qDebug()<<jv.toString();
             childItem->setData(key+":"+jv.toString("null"));
+              childItem->setProperty(key,"",7);
         }
         parentItem->appendChild(childItem);
     }
@@ -167,18 +179,24 @@ void JsonModel::parseJsonArray(TreeItem *parentItem, QJsonArray *jsonValue)
         if(jv.isBool())
         {
             childItem->setData(QString::number(i)+" : "+(jv.toBool()?"true":"false"));
+              childItem->setProperty(QString::number(i),jv.toBool()?"true":"false",1);
         }
         else if(jv.isString()){
             childItem->setData(QString::number(i)+" : "+jv.toString());
+            childItem->setProperty(QString::number(i),jv.toString(),2);
+
         }
         else if (jv.isDouble()) {
             childItem->setData(QString::number(i)+" : "+QString::number(jv.toDouble()));
+           childItem->setProperty(QString::number(i),QString::number(jv.toDouble()),3);
         }
         else if(jv.isObject()){
             childItem->setData(QString::number(i)+" : ");
+            childItem->setProperty(QString::number(i),"",3);
             QJsonObject jo=jv.toObject();
             parseJsonObject(childItem,&jo);
         }else if(jv.isArray()){
+            childItem->setProperty(QString::number(i),"",3);
             QJsonArray ja=jv.toArray();
             childItem->setData(QString::number(i)+" : ");
             parseJsonArray(childItem,&ja);
