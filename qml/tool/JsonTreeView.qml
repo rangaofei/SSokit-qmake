@@ -31,6 +31,7 @@ Item {
                 color: "transparent"
 
             }
+            indentation: 4
             rowDelegate:Rectangle{
                 color: styleData.selected ? "#3399FF" : "transparent";
                 height: 28

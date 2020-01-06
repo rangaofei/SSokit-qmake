@@ -36,41 +36,17 @@ TreeItem *TreeItem::parentItem()
     return m_parentItem;
 }
 
-QString TreeItem::key()
+void TreeItem::setProperty(QString key,QString value,int type)
 {
-    return m_key;
+    this->m_property.setKey(key);
+    this->m_property.setValue(value);
+    this->m_property.setType(type);
 }
 
-void TreeItem::setKey(QString key)
+QVariant TreeItem::property()
 {
-    this->m_key=key;
+    return this->m_property;
 }
-
-QString TreeItem::sep()
-{
-    return m_sep;
-}
-
-void TreeItem::setSep(QString sep)
-{
-    this->m_sep=sep;
-}
-
-QString TreeItem::value()
-{
-    return m_value;
-}
-
-void TreeItem::setValue(QString value)
-{
-    this->m_value=value;
-}
-
-QString TreeItem::itemData()
-{
-    return m_itemData;
-}
-
 
 int TreeItem::row() const
 {

@@ -91,7 +91,7 @@ QVariant JsonModel::data(const QModelIndex &index, int role) const
     TreeItem *item = static_cast<TreeItem*>(index.internalPointer());
     switch (role) {
     case JsonType::KEY:
-        return item->itemData();
+        return item->property();
     case JsonType::VALUE:
         return "value";
     }
