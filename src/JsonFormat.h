@@ -57,6 +57,8 @@ public:
     Q_PROPERTY(JsonModel* jsonModel READ jsonModel WRITE setJsonModel NOTIFY jsonModelChanged)
 signals:
     void formattedJson(QString data);
+
+    void formattedError(QString error);
 public slots:
 
     JsonModel *jsonModel();

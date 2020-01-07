@@ -23,10 +23,11 @@ ColumnLayout{
             Layout.fillHeight: true
             Layout.fillWidth: false
             Layout.preferredWidth: 200
-            gradient: Gradient {
-                GradientStop { position: 0.0; color: "#ffffff" }
-                GradientStop { position: 1.0; color: "#cfd8dc" }
-            }
+            color: "transparent"
+//            gradient: Gradient {
+//                GradientStop { position: 0.0; color: "#ffffff" }
+//                GradientStop { position: 1.0; color: "#cfd8dc" }
+//            }
             ListView{
                 id:titleListView
                 anchors.top: parent.top
@@ -41,7 +42,6 @@ ColumnLayout{
                 delegate: itemDelegate
                 focus: true
                 onCurrentIndexChanged: {
-                    //                detail.text=model.count>0 ? model.get(logListView.currentIndex).ascData : ""
                 }
             }
             RowLayout{
@@ -91,6 +91,7 @@ ColumnLayout{
         Rectangle {
             Layout.fillHeight:true
             Layout.fillWidth: true
+            color: "transparent"
             ColumnLayout{
                 id:edit_layout
                 width: parent.width-10
@@ -169,16 +170,17 @@ ColumnLayout{
                     selectByMouse: true
                     selectedTextColor: "white"
                     selectionColor: "#3399FF"
+                    background: Rectangle{color: "transparent"}
                     onTextChanged: {
                         titleListView.model[titleListView.currentIndex].content=text
                     }
                 }
 
             }
-            gradient: Gradient {
-                GradientStop { position: 0.0; color: "#ffffff" }
-                GradientStop { position: 1.0; color: "#cfd8dc" }
-            }
+//            gradient: Gradient {
+//                GradientStop { position: 0.0; color: "#ffffff" }
+//                GradientStop { position: 1.0; color: "#cfd8dc" }
+//            }
         }
     }
 

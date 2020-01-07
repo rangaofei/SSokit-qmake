@@ -14,6 +14,7 @@ ColumnLayout{
         id: tabBar
         width: parent.width
         currentIndex: contentLayout.currentIndex
+        Layout.alignment: Qt.AlignHCenter
         Widgets.TopButton {
             name:"格式化"
         }
@@ -33,25 +34,68 @@ ColumnLayout{
             jsonModel: jsonFormat.jsonModel
         }
     }
+    RowLayout{
+        Layout.preferredHeight: 50
+        Layout.leftMargin: 20
+        Layout.rightMargin: 20
+
+        Button{
+            text: "格式化"
+            background: Rectangle {
+                implicitWidth: 100
+                implicitHeight: 40
+                opacity: enabled ? 1 : 0.3
+                border.color: parent.down ? "#17a81a" : "#21be2b"
+                border.width: 1
+                radius: 2
+                color: "transparent"
+            }
+            onClicked: {
+                formattedClick()
+            }
+        }
+        TextArea{
+            text: ""
+            font.pixelSize: 15
+            color: "black"
+            id:errTxt
+        }
+    }
 
     Shortcut{
         sequences: ["Ctrl+F"]
         onActivated: {
-            var json=jsonFormatView.getText()
-            jsonFormat.checkJonsStr(json)
-            jsonFormat.convertJsonToTreeModel(json)
+            formattedClick()
         }
 
     }
 
+    function formattedClick(){
+
+        var json=jsonFormatView.getText()
+        if(json===null||json===""){
+            errTxt.text="请填写需要格式话的内容"
+            return
+        }
+        jsonFormat.checkJonsStr(json)
+        jsonFormat.convertJsonToTreeModel(json)
+    }
+
+
+    function formattedError(errMsg){
+        console.log("++++++"+errMsg)
+        errTxt.text=errMsg
+    }
 
     Component.onCompleted: {
         jsonFormat.formattedJson.connect(jsonFormatView.formattedJson)
-
+        jsonFormat.formattedError.connect(formattedError)
     }
 
     Component.onDestruction: {
         jsonFormat.formattedJson.disconnect(jsonFormatView.formattedJson)
+        jsonFormat.formattedError.disconnect(formattedError)
+
     }
 
 }
