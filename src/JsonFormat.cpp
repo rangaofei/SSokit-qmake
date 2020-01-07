@@ -22,7 +22,11 @@ void JsonFormat::setJsonModel(JsonModel *jsonModel){
     this->m_jsonModel=jsonModel;
 }
 
-
+/**
+ * @brief JsonFormat::checkJonsStr
+ * @param data
+ * 检查是否可以格式化json
+ */
 void JsonFormat::checkJonsStr(const QVariant data)
 {
     QString jsonStr=data.toString();
@@ -31,13 +35,14 @@ void JsonFormat::checkJonsStr(const QVariant data)
     m_jsonDocument=new QJsonDocument(QJsonDocument::fromJson(jsonArray,&m_error));
     if(m_error.error != QJsonParseError::NoError)
     {
-        qDebug() << "json error!"<<m_error.errorString();
-        qDebug()<<m_error.offset;
+        emit formattedError(m_error.errorString()+":"+QString::number( m_error.offset));
         return;
     }
     QByteArray result=m_jsonDocument->toJson(QJsonDocument::Indented);
     emit formattedJson(QString(result));
+    emit formattedError("");
     delete m_jsonDocument;
+    m_jsonDocument=nullptr;
 }
 
 
