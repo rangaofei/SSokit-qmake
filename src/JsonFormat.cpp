@@ -97,8 +97,8 @@ QVariant JsonModel::data(const QModelIndex &index, int role) const
     JsonCustomProperty* prop=item->property();
     switch (role) {
     case JsonType::KEY:
-        return  QVariant::fromValue(prop);
-        //        return item->property().key();
+        //        return  QVariant::fromValue(prop);
+        return item->itemData();
     case JsonType::VALUE:
         return "value";
     }

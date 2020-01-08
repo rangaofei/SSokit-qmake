@@ -19,9 +19,10 @@ RowLayout {
             radius: 10
         }
         TreeView {
-            anchors.fill: parent
-
-            backgroundVisible: true
+            anchors.left: parent.left
+            anchors.right: parent.right
+            horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOff
+            backgroundVisible: false
             TableViewColumn {
                 title: "View"
                 role: "key"
@@ -35,28 +36,32 @@ RowLayout {
                 textColor: "black"
                 itemDelegate: Rectangle {
                     RowLayout{
+                         id:txtKey
                         anchors.fill: parent
                         Text {
-                            Layout.alignment: Qt.AlignVCenter
 
-                            text: styleData.value.jsonKey===null?"":styleData.value.jsonKey
+                            Layout.alignment: Qt.AlignVCenter
+                            wrapMode: Text.Wrap
+                            Layout.preferredWidth: 200
+                            text: styleData.value
                             color: styleData.selected ? "white" : "black"
                             font.bold: styleData.selected
                         }
-                        Text {
-                            Layout.leftMargin: 20
-//                            Layout.alignment: Qt.AlignVCenter
-                            text: styleData.value.jsonValue===null?"":styleData.value.jsonValue
-                            color: styleData.selected ? "white" : "black"
-                            font.bold: styleData.selected
-                        }
+//                        Text {
+//                            Layout.leftMargin: 20
+////                            Layout.alignment: Qt.AlignVCenter
+//                            text: styleData.value.jsonValue===null?"":styleData.value.jsonValue
+//                            color: styleData.selected ? "white" : "black"
+//                            font.bold: styleData.selected
+//                        }
                     }
                     color: "transparent"
 
                 }
                 rowDelegate:Rectangle{
                     color: styleData.selected ? "#3399FF" : "transparent";
-                    height: 28
+                    width: 200
+                    height: txtKey.implicitHeight
                 }
 
             }
