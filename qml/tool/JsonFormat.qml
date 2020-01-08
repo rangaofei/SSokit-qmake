@@ -54,8 +54,8 @@ ColumnLayout{
                 formattedClick()
             }
         }
-        TextArea{
-            text: ""
+        Text{
+            text: "1\n2\n3"
             font.pixelSize: 15
             color: "black"
             id:errTxt
@@ -83,7 +83,6 @@ ColumnLayout{
 
 
     function formattedError(errMsg){
-        console.log("++++++"+errMsg)
         errTxt.text=errMsg
     }
 
