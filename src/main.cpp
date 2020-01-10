@@ -24,6 +24,7 @@
 #include "SendMessageData.h"
 #include "LogMessageModel.h"
 #include "SoundManager.h"
+#include "JsonFormat.h"
 
 
 /**
@@ -48,6 +49,7 @@ void registerQml(){
     qmlRegisterType<TcpClientModel>("src.tcpclientmodel", 1, 0, "TcpClientModel");
     qmlRegisterType<UdpClientModel>("src.udpclientmodel", 1, 0, "UdpClientModel");
     qmlRegisterType<SendMessageData>("src.sendmessagedata",1,0,"SendMessageData");
+    qmlRegisterType<JsonFormat>("src.jsonformat",1,0,"JsonFormat");
     qmlRegisterUncreatableType<LogMessageModel>("src.logmessagedata",1,0,"LogMessageData","Reference only");
     qmlRegisterType<NoteBook>("src.notebook",1,0,"NoteBook");
     qmlRegisterSingletonType<SQLiteTool>("src.sqlitetool",1,0,"SqliteTool",[](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
@@ -84,6 +86,7 @@ void registerQml(){
         SoundManager *manager = new SoundManager();
         return manager;
     });
+    qmlRegisterUncreatableType<TreeItem>("src.treeitem",1,0,"TreeItem","Reference only");
 }
 
 
@@ -97,7 +100,6 @@ int main(int argc, char *argv[]) {
     TranslatorTool translatorTool;
     translatorTool.initLanguage();
     registerQml();
-    qDebug()<<"main thread:"<<QThread::currentThreadId();
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/qml/SSokit.qml")));
     if (engine.rootObjects().isEmpty())
