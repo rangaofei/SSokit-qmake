@@ -13,6 +13,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        src/JsonFormat.cpp \
         src/LogMessageModel.cpp \
         src/HttpManager.cpp \
         src/QmlLogModel.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
         src/SettingTool.cpp \
         src/SoundManager.cpp \
         src/TranslatorTool.cpp \
+        src/TreeItem.cpp \
         src/itemport.cpp \
         src/main.cpp \
         src/Logger.cpp \
@@ -40,6 +42,7 @@ SOURCES += \
         src/sqlitetool.cpp
 
 HEADERS +=  src/bluetoothmodel.h \
+    src/JsonFormat.h \
             src/LogMessageModel.h \
             src/HttpManager.h \
             src/QmlLogModel.h \
@@ -48,6 +51,7 @@ HEADERS +=  src/bluetoothmodel.h \
             src/SettingTool.h \
             src/SoundManager.h \
             src/TranslatorTool.h \
+    src/TreeItem.h \
     src/Util.h \
             src/atomicops.h \
             src/config.h \

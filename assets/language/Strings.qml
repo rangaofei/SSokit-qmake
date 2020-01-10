@@ -14,10 +14,14 @@ QtObject {
     //主页底部按钮
     property var mainTabTcp: qsTr("TCP")
     property var mainTabUdp: qsTr("UDP")
-    property var mainTabNotePad: qsTr("NotePad")
     property var mainTabWebSocket: qsTr("WebSocket")
     property var mainTabBlueTooth: qsTr("BlueTooth")
     property var mainTabCOM: qsTr("COM")
+    property var mainTabTool: qsTr("Tool")
+
+    //Tool界面
+    property var toolNotePad: qsTr("NotePad")
+    property var toolJsonFormat: qsTr("JsonFormat")
 
     //升级对话框
     property var newVersionTitle: qsTr("Find New Version")

@@ -16,28 +16,18 @@ ColumnLayout{
         id:noteBook
     }
 
-    TabBar {
-        id:notepadTopBar
-        Layout.fillWidth: false
-        Layout.preferredHeight: title.height
-        Layout.topMargin: 15
-        currentIndex: 0
-        Layout.alignment: Qt.AlignHCenter
-        Widgets.TopButton {
-            id:title
-            name:Strings.mainTabNotePad
-        }
-    }
+
     RowLayout{
         spacing: 0
         Rectangle{
             Layout.fillHeight: true
             Layout.fillWidth: false
             Layout.preferredWidth: 200
-            gradient: Gradient {
-                GradientStop { position: 0.0; color: "#ffffff" }
-                GradientStop { position: 1.0; color: "#cfd8dc" }
-            }
+            color: "transparent"
+//            gradient: Gradient {
+//                GradientStop { position: 0.0; color: "#ffffff" }
+//                GradientStop { position: 1.0; color: "#cfd8dc" }
+//            }
             ListView{
                 id:titleListView
                 anchors.top: parent.top
@@ -52,7 +42,6 @@ ColumnLayout{
                 delegate: itemDelegate
                 focus: true
                 onCurrentIndexChanged: {
-                    //                detail.text=model.count>0 ? model.get(logListView.currentIndex).ascData : ""
                 }
             }
             RowLayout{
@@ -102,6 +91,7 @@ ColumnLayout{
         Rectangle {
             Layout.fillHeight:true
             Layout.fillWidth: true
+            color: "transparent"
             ColumnLayout{
                 id:edit_layout
                 width: parent.width-10
@@ -111,6 +101,9 @@ ColumnLayout{
                     Layout.fillWidth: true
                     font.pixelSize: 20
                     text: titleListView.model.length<=0?"":titleListView.model[titleListView.currentIndex].title
+                    selectByMouse: true
+                    selectedTextColor: "white"
+                    selectionColor: "#3399FF"
                     onTextChanged: {
                         if(titleListView.currentIndex==-1){
                             return
@@ -174,17 +167,20 @@ ColumnLayout{
                     focus: true
                     font.pixelSize: 15
                     text: titleListView.model.length<=0?"":titleListView.model[titleListView.currentIndex].content
-
+                    selectByMouse: true
+                    selectedTextColor: "white"
+                    selectionColor: "#3399FF"
+                    background: Rectangle{color: "transparent"}
                     onTextChanged: {
                         titleListView.model[titleListView.currentIndex].content=text
                     }
                 }
 
             }
-            gradient: Gradient {
-                GradientStop { position: 0.0; color: "#ffffff" }
-                GradientStop { position: 1.0; color: "#cfd8dc" }
-            }
+//            gradient: Gradient {
+//                GradientStop { position: 0.0; color: "#ffffff" }
+//                GradientStop { position: 1.0; color: "#cfd8dc" }
+//            }
         }
     }
 
