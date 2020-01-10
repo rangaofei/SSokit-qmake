@@ -45,9 +45,9 @@ ColumnLayout{
                 implicitWidth: 100
                 implicitHeight: 40
                 opacity: enabled ? 1 : 0.3
-                border.color: parent.down ? "#17a81a" : "#21be2b"
+                border.color: "#37474f"
                 border.width: 1
-                radius: 2
+                radius: parent.width/2
                 color: "transparent"
             }
             onClicked: {
@@ -55,9 +55,8 @@ ColumnLayout{
             }
         }
         Text{
-            text: "1\n2\n3"
             font.pixelSize: 15
-            color: "black"
+            color: "red"
             id:errTxt
         }
     }
@@ -74,7 +73,7 @@ ColumnLayout{
 
         var json=jsonFormatView.getText()
         if(json===null||json===""){
-            errTxt.text="请填写需要格式话的内容"
+            errTxt.text="请填写需要格式化的内容"
             return
         }
         jsonFormat.checkJonsStr(json)
