@@ -19,8 +19,7 @@ RowLayout {
             radius: 10
         }
         TreeView {
-            anchors.left: parent.left
-            anchors.right: parent.right
+            anchors.fill: parent
             horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOff
             backgroundVisible: false
             TableViewColumn {
@@ -42,7 +41,6 @@ RowLayout {
 
                             Layout.alignment: Qt.AlignVCenter
                             wrapMode: Text.Wrap
-                            Layout.preferredWidth: 200
                             text: styleData.value
                             color: styleData.selected ? "white" : "black"
                             font.bold: styleData.selected
@@ -59,9 +57,11 @@ RowLayout {
 
                 }
                 rowDelegate:Rectangle{
+                    anchors.leftMargin: 20
+                    anchors.rightMargin: 20
                     color: styleData.selected ? "#3399FF" : "transparent";
                     width: 200
-                    height: txtKey.implicitHeight
+                    height: 30
                 }
 
             }
