@@ -78,5 +78,8 @@
         <file>qml/components/TextTreeHeaderDelegate.qml</file>
         <file>qml/tool/JsonTreeView.qml</file>
         <file>qml/tool/JsonFormatView.qml</file>
+        <file>qml/widgets/BaseButton.qml</file>
+        <file>qml/widgets/RectButton.qml</file>
+        <file>qml/dialogs/DeviceInfoDialog.qml</file>
     </qresource>
 </RCC>

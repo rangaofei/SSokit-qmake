@@ -8,7 +8,7 @@ Item{
         height: implicitHeight
         anchors.top: parent.top
         anchors.topMargin: 50
-        columns: 3
+        columns: 2
         Text {
             Layout.columnSpan: 1
             text: Strings.settingSwtichTab
@@ -16,6 +16,15 @@ Item{
         Text {
             Layout.columnSpan: 1
             text: "shift+tab"
+        }
+
+        Text {
+            Layout.columnSpan: 1
+            text: "格式化JSON"
+        }
+        Text {
+            Layout.columnSpan: 1
+            text: "Command+F"
         }
     }
 }

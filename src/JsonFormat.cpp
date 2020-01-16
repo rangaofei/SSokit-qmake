@@ -39,6 +39,7 @@ void JsonFormat::checkJonsStr(const QVariant data)
         return;
     }
     QByteArray result=m_jsonDocument->toJson(QJsonDocument::Indented);
+    qDebug()<<result;
     emit formattedJson(QString(result));
     emit formattedError("");
     delete m_jsonDocument;
@@ -49,7 +50,7 @@ void JsonFormat::checkJonsStr(const QVariant data)
 void JsonFormat::convertJsonToTreeModel(const QVariant data)
 {
     QString jsonStr=data.toString();
-    qDebug()<<jsonStr;
+
     if(jsonStr==nullptr||jsonStr.isNull()||jsonStr.isEmpty()){
         return;
     }

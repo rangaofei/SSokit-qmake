@@ -7,6 +7,7 @@ import src.settingtool 1.0
 import src.sendmessagedata 1.0
 
 import "../widgets" as Widgets
+import src.colors 1.0
 
 GroupBox{
     property bool canSendMsg: false
@@ -54,10 +55,10 @@ GroupBox{
                 Layout.fillWidth: true
                 Layout.preferredHeight: 30
                 Label{
-                    Layout.preferredWidth: 50
+//                    Layout.preferredWidth: 50
                     Layout.fillHeight: false
-                    Layout.preferredHeight: 30
-                    text: Strings.sendBuf1
+//                    Layout.preferredHeight: 30
+                    text: "·"
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                 }
@@ -84,21 +85,20 @@ GroupBox{
                     }
                     visible: SettingTool.getShowSendClear()
                 }
-                Button{
+                Widgets.BaseButton{
                     enabled: canSendMsg
                     Layout.preferredWidth: 50
                     Layout.fillHeight:false
                     Layout.preferredHeight: 25
                     text: Strings.send
-                    background: Rectangle{
-                        border.color: enabled?"#37474f":"#cfd8dc"
-                        color: "transparent"
-                        border.width: 1
-                        radius: parent.height/2
-                    }
+
                     onClicked: {
                         sendMessageData.setPlainText(false)
                         sendMessage(buffer1.text)
+                    }
+
+                    onPressAndHold: {
+                        console.log("long click")
                     }
                 }
             }
@@ -106,10 +106,10 @@ GroupBox{
                 Layout.fillWidth: true
                 Layout.preferredHeight: 30
                 Label{
-                    Layout.preferredWidth: 50
+//                    Layout.preferredWidth: 50
                     Layout.fillHeight: false
-                    Layout.preferredHeight: 30
-                    text: Strings.sendBuf2
+//                    Layout.preferredHeight: 30
+                    text: "·"
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                 }
@@ -134,20 +134,14 @@ GroupBox{
                     TapHandler{
                         onTapped: buffer2.clear()
                     }
-                     visible: SettingTool.getShowSendClear()
+                    visible: SettingTool.getShowSendClear()
                 }
-                Button{
+                Widgets.BaseButton{
                     enabled: canSendMsg
                     Layout.preferredWidth: 50
-                    Layout.fillHeight:false
                     Layout.preferredHeight: 25
                     text: Strings.send
-                    background: Rectangle{
-                        border.color: enabled?"#37474f":"#cfd8dc"
-                        color: "transparent"
-                        border.width: 1
-                        radius: parent.height/2
-                    }
+
                     onClicked: {
                         sendMessageData.setPlainText(false)
 
@@ -159,10 +153,10 @@ GroupBox{
                 Layout.fillWidth: true
                 Layout.preferredHeight: 30
                 Label{
-                    Layout.preferredWidth: 50
+//                    Layout.preferredWidth: 50
                     Layout.fillHeight: false
-                    Layout.preferredHeight: 30
-                    text: Strings.sendBuf3
+//                    Layout.preferredHeight: 30
+                    text: "·"
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                 }
@@ -188,24 +182,20 @@ GroupBox{
                     TapHandler{
                         onTapped: buffer3.clear()
                     }
-                     visible: SettingTool.getShowSendClear()
+                    visible: SettingTool.getShowSendClear()
                 }
 
-                Button{
+                Widgets.RectButton{
+                    id:btn3
                     enabled: canSendMsg
-                    Layout.preferredWidth: 50
-                    Layout.fillHeight:false
-                    Layout.preferredHeight: 25
                     text: Strings.send
-                    background: Rectangle{
-                        border.color: enabled?"#37474f":"#cfd8dc"
-                        color: "transparent"
-                        border.width: 1
-                        radius: parent.height/2
-                    }
+                    font.pixelSize: 10
+                    font.bold: true
+                    checkable: false
                     onClicked: {
                         sendMessageData.setPlainText(true)
                         sendMessage(buffer3.text)
+                        console.log("btn3++"+btn3.checkable)
                     }
                 }
             }
@@ -214,7 +204,7 @@ GroupBox{
                 Layout.fillHeight: false
                 Layout.preferredHeight: 30
                 Widgets.GeneralCheckBox{
-                    Layout.leftMargin: 50
+                    Layout.leftMargin: 0
                     id:showHeader
                     text: Strings.sendAdvance
                     Layout.preferredHeight: 16

@@ -30,7 +30,7 @@ QtObject {
     property var newReleaseDate: "ReleaseDate"
     property var download: qsTr("Downlaod Now")
 
-    //AboutDialog和AboutSettingView
+    //AboutSettingView
     property var aboutDialogTitle: qsTr("About SSokit")
     property var author: qsTr("Author")
     property var version: qsTr("Version")
@@ -38,6 +38,11 @@ QtObject {
     property var releaseDate: qsTr("ReleaseDate")
     property var releaseDateValue: Config.getDate()
     property var source: qsTr("Source")
+
+    //DeviceInfoDialog
+    property var deviceInfoTitle: qsTr("DeviceInfo")
+    property var mtu: qsTr("MTU")
+    property var netName: qsTr("NetName")
 
     //SettingView
     property var setting: qsTr("Setting")

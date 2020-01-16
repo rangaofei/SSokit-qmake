@@ -110,21 +110,14 @@ ColumnLayout{
             horizontalAlignment: Text.AlignHCenter
         }
 
-        Button{
+        Widgets.BaseButton{
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.preferredWidth: 30
             Layout.columnSpan: 1
-            background: Rectangle{
-                color: "#00000000"
-                radius: parent.height/2
-                border.width: 1
-                border.color: "#37474f"
 
-            }
             text: Strings.logClear
             onClicked: {
-                console.log("clear Button cl")
                 showLogItemDetail.checked=false
                 clearData()
             }
@@ -138,7 +131,6 @@ ColumnLayout{
             Layout.preferredHeight: 15
             text: "详细信息"
             onCheckedChanged: {
-                console.log("GeneralCheckBox GeneralCheckBox")
                 if(modelList.rowCount()<=0){
                     checked=false
                     if(logDetailView.state==='out'){

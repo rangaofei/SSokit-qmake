@@ -3,9 +3,9 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#define MAJOR_VERSION 1
-#define MINOR_VERSION 1
-#define PATCH_VERSION 5
+#define MAJOR_VERSION 1     //major_version
+#define MINOR_VERSION 1     //minor_version
+#define PATCH_VERSION 5     //patch_version
 
 #define YEAR 2020
 #define MONTH 1

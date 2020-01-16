@@ -18,8 +18,8 @@ ApplicationWindow{
     property int windwoH: 600
 
     //关于对话框
-    Dialogs.AboutDialog{
-        id:aboutDialog
+    Dialogs.DeviceInfoDialog{
+        id:deviceInfoDialog
     }
 
     Dialogs.UpdateDialog{
@@ -126,7 +126,7 @@ ApplicationWindow{
             anchors.top: parent.top
             anchors.margins:15
             TapHandler {
-                onTapped: aboutDialog.toggleAboutDialog()
+                onTapped: deviceInfoDialog.toggleDialog()
             }
             visible: true
         }

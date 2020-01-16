@@ -3,10 +3,11 @@ import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5
 import QtGraphicalEffects 1.12
 
+import "../widgets" as Widgets
 import src.settingtool 1.0
 import src.strings 1.0
+import src.colors 1.0
 
-import "../widgets" as Widgets
 Column {
     property int viewType: 1 /*1是tcpserver,2是tcpclient,3是udpserver,4是udpclient*/
     property string title: Strings.controlCenter//标题
@@ -109,30 +110,14 @@ Column {
                 height: 15
             }
 
-            Button {
+            Widgets.BaseButton {
                 id: toggleConnect
                 Layout.preferredHeight: 30
                 Layout.fillWidth: true
                 Layout.leftMargin: 20
                 Layout.rightMargin: 20
-                text: checked?btnDisconnect:btnConnect
+                text: checked ? btnDisconnect:btnConnect
                 checkable: true
-                contentItem: Text {
-                    text: toggleConnect.text
-                    font: toggleConnect.font
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    elide: Text.ElideRight
-                    color: toggleConnect.checked?"white":"black"
-                }
-
-                background: Rectangle {
-                    opacity: enabled ? 1 : 0.3
-                    border.color:  "#37474f"
-                    border.width: 1
-                    radius: toggleConnect.width/2
-                    color: parent.checked?"#37474f":"#00ffffff"
-                }
 
                 onToggled: {
                     if(!isAccectablePort(portBox.getEditText())){
@@ -197,10 +182,11 @@ Column {
                     height: 20
                     font.pixelSize: 10
                     color:parent.parent.highlighted ? "#cfd8dc" : "#424242"
-                    text: labelTime+time }
+                    text: labelTime+time
+                }
             }
             background: Rectangle{
-                color:highlighted?"#37474f":"#00000000"
+                color:highlighted? Colors.main : Colors.transparent
                 radius: 4
             }
             highlighted: connectList.currentIndex==index
@@ -208,6 +194,10 @@ Column {
                 anchors.fill: parent
                 onClicked: {
                     connectList.currentIndex=index
+                }
+
+                onDoubleClicked: {
+                    console.log("double click parent")
                 }
             }
         }
@@ -233,17 +223,11 @@ Column {
         height: 30
         visible: viewType===1||viewType===3
         color: "#00000000"
-        Button{
+        Widgets.BaseButton {
             anchors.centerIn: parent
             width: parent.width*0.5
             height: 30
             text: btnDisable
-            background: Rectangle{
-                color: "#00000000"
-                border.color:"#37474f"
-                border.width: 1
-                radius: parent.height/2
-            }
 
             onClicked:{
                 if(connectList.currentIndex<0){
@@ -255,7 +239,7 @@ Column {
         }
     }
     function isAccectablePort(port){
-        if(port>1024&&port<65535){
+        if(port > 1024 && port < 65535){
             return true
         }
         return false

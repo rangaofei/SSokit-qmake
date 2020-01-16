@@ -25,6 +25,7 @@
 #include "LogMessageModel.h"
 #include "SoundManager.h"
 #include "JsonFormat.h"
+#include "DeviceInfo.h"
 
 
 /**
@@ -86,6 +87,14 @@ void registerQml(){
         SoundManager *manager = new SoundManager();
         return manager;
     });
+
+//    qmlRegisterSingletonType<DeviceInfo>("src.deviceinfo",1,0,"DeviceInfo",[](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
+//        Q_UNUSED(engine)
+//        Q_UNUSED(scriptEngine)
+//        DeviceInfo *deviceInfo = new DeviceInfo();
+//        return deviceInfo;
+//    });
+    qmlRegisterType<DeviceInfo>("src.deviceinfo",1,0,"DeviceInfo");
     qmlRegisterUncreatableType<TreeItem>("src.treeitem",1,0,"TreeItem","Reference only");
 }
 

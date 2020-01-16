@@ -15,7 +15,6 @@ RowLayout {
         Layout.fillWidth: true
         id: title
         font.pixelSize: 13
-
     }
 
     Widget.SwitchButton{
