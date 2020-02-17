@@ -5,6 +5,7 @@
 #include <QObject>
 #include <QJsonObject>
 #include <QJsonParseError>
+#include <QUrlQuery>
 #include "config.h"
 
 class HttpManager : public QObject

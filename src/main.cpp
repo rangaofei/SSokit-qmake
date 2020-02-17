@@ -8,9 +8,10 @@
 #include <QTranslator>
 #include <QLibraryInfo>
 #include <QThread>
+#include <QHostInfo>
+#include <QNetworkInterface>
 
 #include "bluetoothmodel.h"
-#include "logmodel.h"
 #include "TcpServerModel.h"
 #include "UdpServerModel.h"
 #include "notepadmodel.h"
@@ -21,11 +22,10 @@
 #include "HttpManager.h"
 #include "sqlitetool.h"
 #include "SendMessageData.h"
-#include "WavTools.h"
 #include "LogMessageModel.h"
 #include "SoundManager.h"
+#include "JsonFormat.h"
 #include "BroadcastModel.h"
-
 
 /**
  * @brief initSettings
@@ -49,7 +49,7 @@ void registerQml(){
     qmlRegisterType<TcpClientModel>("src.tcpclientmodel", 1, 0, "TcpClientModel");
     qmlRegisterType<UdpClientModel>("src.udpclientmodel", 1, 0, "UdpClientModel");
     qmlRegisterType<SendMessageData>("src.sendmessagedata",1,0,"SendMessageData");
-    qmlRegisterType<BroadcastModel>("src.broadcastmodel",1,0,"BroadcastModel");
+    qmlRegisterType<JsonFormat>("src.jsonformat",1,0,"JsonFormat");
     qmlRegisterUncreatableType<LogMessageModel>("src.logmessagedata",1,0,"LogMessageData","Reference only");
     qmlRegisterType<NoteBook>("src.notebook",1,0,"NoteBook");
     qmlRegisterSingletonType<SQLiteTool>("src.sqlitetool",1,0,"SqliteTool",[](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
@@ -66,8 +66,7 @@ void registerQml(){
                                           [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
         Q_UNUSED(engine)
         Q_UNUSED(scriptEngine)
-        SettingTool *settintTool = new SettingTool();
-        return settintTool;
+        return SettingTool::getInstance();
     });
     qmlRegisterSingletonType<HttpManager>("src.httpmanager",1,0,"HttpManager", [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
         Q_UNUSED(engine)
@@ -87,7 +86,10 @@ void registerQml(){
         SoundManager *manager = new SoundManager();
         return manager;
     });
+    qmlRegisterUncreatableType<TreeItem>("src.treeitem",1,0,"TreeItem","Reference only");
+    qmlRegisterType<BroadcastModel>("src.broadcastmodel",1,0,"BroadcastModel");
 }
+
 
 /**
  * 程序入口
@@ -99,7 +101,6 @@ int main(int argc, char *argv[]) {
     TranslatorTool translatorTool;
     translatorTool.initLanguage();
     registerQml();
-    qDebug()<<"main thread:"<<QThread::currentThreadId();
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/qml/SSokit.qml")));
     if (engine.rootObjects().isEmpty())

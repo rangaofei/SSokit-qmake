@@ -13,50 +13,50 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        src/BroadcastModel.cpp \
-        src/LogMessageModel.cpp \
-        src/HttpManager.cpp \
-        src/QmlLogModel.cpp \
-        src/ReceiveMessageData.cpp \
-        src/SendMessageData.cpp \
-        src/SettingTool.cpp \
-        src/SoundManager.cpp \
-        src/TranslatorTool.cpp \
-        src/WavTools.cpp \
-        src/itemport.cpp \
-        src/main.cpp \
-        src/Logger.cpp \
-        src/toolkit.cpp \
-        src/notepadmodel.cpp \
-        src/ServerModel.cpp \
-        src/bluetoothmodel.cpp \
-        src/logmodel.cpp \
-        src/logtreemodel.cpp \
-        src/TcpServerModel.cpp \
-        src/UdpServerModel.cpp \
-        src/StringListModel.cpp \
-        src/ClientModel.cpp \
-        src/TcpClientModel.cpp \
-        src/UdpClientModel.cpp \
-        src/websocketservermodel.cpp \
-        src/websocketclientmodel.cpp \
-        src/sqlitetool.cpp
+            src/JsonFormat.cpp \
+            src/LogMessageModel.cpp \
+            src/HttpManager.cpp \
+            src/QmlLogModel.cpp \
+            src/ReceiveMessageData.cpp \
+            src/SendMessageData.cpp \
+            src/SettingTool.cpp \
+            src/SoundManager.cpp \
+            src/TranslatorTool.cpp \
+            src/TreeItem.cpp \
+            src/itemport.cpp \
+            src/main.cpp \
+            src/Logger.cpp \
+            src/toolkit.cpp \
+            src/notepadmodel.cpp \
+            src/ServerModel.cpp \
+            src/bluetoothmodel.cpp \
+            src/logtreemodel.cpp \
+            src/TcpServerModel.cpp \
+            src/UdpServerModel.cpp \
+            src/StringListModel.cpp \
+            src/ClientModel.cpp \
+            src/TcpClientModel.cpp \
+            src/UdpClientModel.cpp \
+            src/websocketservermodel.cpp \
+            src/websocketclientmodel.cpp \
+            src/sqlitetool.cpp \
+            src/BroadcastModel.cpp
 
 HEADERS +=  src/bluetoothmodel.h \
-    src/BroadcastModel.h \
-    src/LogMessageModel.h \
+            src/JsonFormat.h \
+            src/LogMessageModel.h \
             src/HttpManager.h \
-    src/QmlLogModel.h \
-    src/ReceiveMessageData.h \
-    src/SendMessageData.h \
+            src/QmlLogModel.h \
+            src/ReceiveMessageData.h \
+            src/SendMessageData.h \
             src/SettingTool.h \
-    src/SoundManager.h \
+            src/SoundManager.h \
             src/TranslatorTool.h \
-    src/WavTools.h \
+            src/TreeItem.h \
+            src/Util.h \
             src/atomicops.h \
             src/config.h \
             src/itemport.h \
-            src/logmodel.h \
             src/TcpServerModel.h \
             src/UdpServerModel.h \
             src/notepadmodel.h \
@@ -70,7 +70,7 @@ HEADERS +=  src/bluetoothmodel.h \
             src/websocketservermodel.h \
             src/websocketclientmodel.h \
             src/sqlitetool.h \
-
+            src/BroadcastModel.h
 
 RESOURCES += qml.qrc
 

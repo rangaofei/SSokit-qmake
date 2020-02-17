@@ -89,7 +89,7 @@ void UdpServerModel::newData() {
         SoundManager::playReceive();
         dumpLogMsg(true, conn->key, buf, readLen);
     }
-    TK::releaseBuffer(buf);
+//    TK::releaseBuffer(buf);
 }
 
 bool UdpServerModel::close(void *cookie) {
@@ -108,10 +108,10 @@ void UdpServerModel::error() {
 
 void UdpServerModel::sendToDst(void *cookie, const QByteArray &bin) {
     Conn *conn = (Conn *) cookie;
-
-    const char *src = bin.constData();
     qint64 srcLen = bin.length();
-
+    char * src=TK::createBuffer(srcLen,MAXBUFFER);
+    qDebug()<<bin<<"+++++"<<src;
+    memcpy(src,bin.data(),srcLen);
     qint64 writeLen = 0;
     qint64 ioLen = m_udp_server.writeDatagram(src, srcLen, conn->addr, conn->port);
 

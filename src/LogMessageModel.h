@@ -12,8 +12,6 @@ class LogMessageModel : public QObject
     Q_PROPERTY(QString time READ time WRITE setTime NOTIFY timeChanged)
     Q_PROPERTY(bool isRev READ isRev WRITE setIsRev NOTIFY isRevChanged)
     Q_PROPERTY(QString host READ host WRITE setHost NOTIFY hostChanged)
-//    Q_PROPERTY(QString ascData READ ascData WRITE setAscData NOTIFY ascDataChanged)
-//    Q_PROPERTY(QString hexData READ hexData WRITE setHexData NOTIFY hexDataChanged)
     Q_PROPERTY(int32_t length READ length WRITE setLength NOTIFY lengthChanged)
 
 public:
@@ -21,7 +19,7 @@ public:
     QVariant obj;
 
     explicit LogMessageModel(QObject *parent = nullptr){
-        Q_UNUSED(parent);
+        Q_UNUSED(parent)
         m_time=QTime::currentTime().toString("HH:mm:ss.zzz ");
     }
     ~LogMessageModel(){
@@ -50,21 +48,6 @@ public:
         this->m_host=host;
     }
 
-//    Q_INVOKABLE QString ascData() const{
-//        return this->m_ascData;
-//    }
-
-//    Q_INVOKABLE void setAscData(QString ascData){
-//        this->m_ascData=ascData;
-//    }
-
-//    Q_INVOKABLE QString hexData() const{
-//        return m_hexData;
-//    }
-
-//    Q_INVOKABLE void setHexData(QString hexData){
-//        this->m_hexData=hexData;
-//    }
 
     Q_INVOKABLE int64_t length() const{
         return this->m_length;
@@ -75,14 +58,11 @@ public:
     }
 
     Q_INVOKABLE const char* buf(){
-        return this->m_buf.constData();
-    }
-
-    QByteArray byteArray(){
         return this->m_buf;
     }
 
-    Q_INVOKABLE void setBuf(const QByteArray& buf){
+
+    Q_INVOKABLE void setBuf(const char* buf){
         this->m_buf=buf;
     }
 
@@ -90,8 +70,6 @@ signals:
     void timeChanged();
     void isRevChanged();
     void hostChanged();
-//    void ascDataChanged();
-//    void hexDataChanged();
     void lengthChanged();
 
 public slots:
@@ -101,10 +79,8 @@ private:
     QString m_time;
     bool m_isRev;
     QString m_host;
-//    QString m_ascData;
-//    QString m_hexData;
     int64_t m_length;
-    QByteArray m_buf;
+    const char* m_buf;
 };
 
 class LogMessageListPrivate;
@@ -125,6 +101,7 @@ public:
         textData,
         binData,
     };
+    Q_ENUM(Datatype)
 
     explicit LogMessageList(QObject *parent=nullptr);
     ~LogMessageList();
@@ -136,6 +113,10 @@ public slots:
     void addData(LogMessageModel* model);
 
     void clearData();
+
+    void clearRecvData();
+
+    void clearSendData();
 
     LogMessageModel* get(int index);
 

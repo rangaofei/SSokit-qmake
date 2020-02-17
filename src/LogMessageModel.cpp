@@ -30,9 +30,40 @@ void LogMessageList::addData(LogMessageModel *model)
 
 void LogMessageList::clearData()
 {
-    beginRemoveRows(QModelIndex(), 0, m_dataList.size());
+    beginRemoveRows(QModelIndex(), 0, m_dataList.size()-1);
+    qDeleteAll(m_dataList);
     m_dataList.clear();
     endRemoveRows();
+}
+
+void LogMessageList::clearRecvData()
+{
+    int length=m_dataList.size();
+    if(length<=0){
+        return;
+    }
+    for(int i=length-1;i>=0;i--){
+        if(m_dataList.at(i)->isRev()){
+            beginRemoveRows(QModelIndex(),i,i);
+            m_dataList.removeAt(i);
+            endRemoveRows();
+        }
+    }
+}
+
+void LogMessageList::clearSendData()
+{
+    int length=m_dataList.size();
+    if(length<=0){
+        return;
+    }
+    for(int i=length-1;i>=0;i--){
+        if(!m_dataList.at(i)->isRev()){
+            beginRemoveRows(QModelIndex(),i,1);
+            m_dataList.removeAt(i);
+            endRemoveRows();
+        }
+    }
 }
 
 LogMessageModel* LogMessageList::get(int index)
@@ -45,7 +76,7 @@ LogMessageModel* LogMessageList::get(int index)
 
 int LogMessageList::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent);
+    Q_UNUSED(parent)
     return m_dataList.size();
 }
 
@@ -56,6 +87,7 @@ QVariant LogMessageList::data(const QModelIndex &index, int role) const
         return QVariant();
     }
     LogMessageModel* d = m_dataList[index.row()];
+    qDebug()<<"now is "<<d->buf();
     if (role == Datatype::time)
     {
         return d->time();
@@ -78,15 +110,16 @@ QVariant LogMessageList::data(const QModelIndex &index, int role) const
         return hexData;
     }
     else if (role == Datatype::textData) {
-        return QString(d->byteArray());
+        return QString(d->buf());
     }
     else if (role == Datatype::length) {
         return d->length();
     }
     else if (role == Datatype::binData) {
-        QString binData="0x"+d->byteArray().toHex(' ').toUpper();
-        QStringList list=binData.split(' ');
-        return list.join(" 0x");
+//        QString binData="0x"+d->byteArray().toHex(' ').toUpper();
+//        QStringList list=binData.split(' ');
+//        return list.join(" 0x");
+        return "123";
     }
     return QVariant();
 

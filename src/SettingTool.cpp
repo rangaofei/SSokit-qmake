@@ -1,10 +1,9 @@
 #include "SettingTool.h"
 
-QSettings *SettingTool::settings=new QSettings;
 
 SettingTool::SettingTool(QObject *parent) : QObject(parent)
 {
-    qDebug()<<"constructor settingtool";
+    settings=new QSettings;
 }
 
 SettingTool::~SettingTool()
@@ -186,6 +185,7 @@ bool SettingTool::getRememberWindowPos()
 
 void SettingTool::setShowSendClear(bool clear)
 {
+    qDebug()<<"setShowSendClear  "<<clear;
     settings->setValue(SHOW_SEND_CLEAR,clear);
 }
 
