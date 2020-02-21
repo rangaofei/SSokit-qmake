@@ -96,7 +96,7 @@ QtObject {
     property var header: qsTr("Header")
     property var tailer: qsTr("Tailer")
     property var headerLengthType: qsTr("Length")
-    property var headerLengthValue: [qsTr("None"),qsTr("Short"),qsTr("Int")]
+    property var headerLengthValue: [qsTr("None"),qsTr("Byte"),qsTr("Short"),qsTr("Int")]
     property var headerEndian: qsTr("Endian")
     property var headerEndianValue: [qsTr("Big"),qsTr("Little")]
     property var headerEnable: qsTr("Enable")

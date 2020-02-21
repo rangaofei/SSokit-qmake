@@ -79,6 +79,7 @@ ColumnLayout{
                             append({ text: Strings.headerLengthValue[0] })
                             append({ text: Strings.headerLengthValue[1] })
                             append({ text: Strings.headerLengthValue[2] })
+                            append({ text: Strings.headerLengthValue[3] })
                         }
                     }
 
@@ -169,7 +170,7 @@ ColumnLayout{
     }
 
     function getLengthSize(){
-        return lengthSizeBox.currentIndex*2
+        return (lengthSizeBox.currentIndex<=1) ? lengthSizeBox.currentIndex : ((lengthSizeBox.currentIndex-1)*2)
     }
 
     function isBigEndian(){

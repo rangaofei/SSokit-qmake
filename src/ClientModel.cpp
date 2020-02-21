@@ -66,6 +66,9 @@ void ClientModel::sendWithHeader(const QString header, const qint32 lengthSize, 
     switch (lengthSize) {
     case 0:
         break;
+    case 1:
+        sendData<<quint8(dataBin.size());
+        break;
     case 2:
         sendData<<quint16(dataBin.size());
         break;
@@ -112,6 +115,9 @@ void ClientModel::sendMessageData(SendMessageData *data)
     sendData.setByteOrder(data->endian()? QDataStream::BigEndian: QDataStream::LittleEndian);
     switch (data->lengthSize()) {
     case 0:
+        break;
+    case 1:
+        sendData<<quint8(dataBin.size());
         break;
     case 2:
         sendData<<quint16(dataBin.size());

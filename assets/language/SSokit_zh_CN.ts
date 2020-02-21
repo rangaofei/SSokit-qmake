@@ -362,13 +362,18 @@
     </message>
     <message>
         <location filename="Strings.qml" line="99"/>
+        <source>Byte</source>
+        <translation>字节型(1)</translation>
+    </message>
+    <message>
+        <location filename="Strings.qml" line="99"/>
         <source>Short</source>
-        <translation>短整型</translation>
+        <translation>短整型(2)</translation>
     </message>
     <message>
         <location filename="Strings.qml" line="99"/>
         <source>Int</source>
-        <translation>整型</translation>
+        <translation>整型(4)</translation>
     </message>
     <message>
         <location filename="Strings.qml" line="100"/>
