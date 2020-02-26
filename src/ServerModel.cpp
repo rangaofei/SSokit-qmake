@@ -99,13 +99,13 @@ void ServerModel::kill(const QString &key) {
         unsetCookie(key);
     }
 }
-void ServerModel::send(const QString &key, const QString &data) {
+void ServerModel::send(const QString &key, const QString &data, bool withhex) {
     void *v = m_conns.value(key);
     if (v) {
         QString err;
         QByteArray bin;
 
-        if (!TK::ascii2bin(data, bin, err))
+        if (!TK::ascii2bin(data, bin, err, withhex))
             qDebug() << ("bad data format to send: " + err);
         else
             qDebug()<<bin<<"==bin";
@@ -139,6 +139,9 @@ void ServerModel::sendWithHeader(const QString &key,const QString header, const 
     switch (lengthSize) {
     case 0:
         break;
+    case 1:
+        sendData<<quint8(dataBin.size());
+        break;
     case 2:
         sendData<<quint16(dataBin.size());
         break;
@@ -154,7 +157,7 @@ void ServerModel::sendWithHeader(const QString &key,const QString header, const 
 void ServerModel::sendMessageData(const QString &key,SendMessageData *data)
 {
     if(!data->withHeader()){
-        send(key,data->content());
+        send(key,data->content(), data->withHex());
         return;
     }
     void *v = m_conns.value(key);
@@ -170,7 +173,7 @@ void ServerModel::sendMessageData(const QString &key,SendMessageData *data)
         return;
     }
 
-    if (!TK::ascii2bin(data->getTargetMsg(), dataBin, err)) {
+    if (!TK::ascii2bin(data->getTargetMsg(), dataBin, err, data->withHex())) {
         qDebug() << ("bad data format to send: " + err);
         return;
     }
@@ -180,6 +183,9 @@ void ServerModel::sendMessageData(const QString &key,SendMessageData *data)
     sendData.setByteOrder(data->endian()? QDataStream::BigEndian: QDataStream::LittleEndian);
     switch (data->lengthSize()) {
     case 0:
+        break;
+    case 1:
+        sendData<<quint8(dataBin.size());
         break;
     case 2:
         sendData<<quint16(dataBin.size());

@@ -19,6 +19,7 @@ GroupBox{
         lengthSize: socketView.getLengthSize()
         endian: socketView.isBigEndian()
         withHeader: socketView.isWithHeader()
+        withHex: socketView.isWithHex()
     }
 
     background: Rectangle{

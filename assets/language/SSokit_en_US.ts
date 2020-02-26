@@ -350,13 +350,18 @@
     </message>
     <message>
         <location filename="Strings.qml" line="99"/>
+        <source>Byte</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="Strings.qml" line="99"/>
         <source>Short</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="Strings.qml" line="99"/>
         <source>Int</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="Strings.qml" line="100"/>
@@ -376,6 +381,11 @@
     <message>
         <location filename="Strings.qml" line="102"/>
         <source>Enable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Strings.qml" line="102"/>
+        <source>DataHex</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

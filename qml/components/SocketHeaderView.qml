@@ -70,7 +70,7 @@ ColumnLayout{
                 Widgets.EditComboBox{
                     id:lengthSizeBox
                     Layout.preferredHeight: content_height
-                    Layout.preferredWidth: content_Width*2/3
+                    Layout.preferredWidth: content_Width*3/5
                     showLeftIndicator: false
                     editable: false
                     currentIndex:0
@@ -79,6 +79,7 @@ ColumnLayout{
                             append({ text: Strings.headerLengthValue[0] })
                             append({ text: Strings.headerLengthValue[1] })
                             append({ text: Strings.headerLengthValue[2] })
+                            append({ text: Strings.headerLengthValue[3] })
                         }
                     }
 
@@ -97,7 +98,7 @@ ColumnLayout{
                 Widgets.EditComboBox{
                     id:endianBox
                     Layout.preferredHeight: content_height
-                    Layout.preferredWidth: content_Width*2/3
+                    Layout.preferredWidth: content_Width*3/5
                     showLeftIndicator: false
                     currentIndex: 0
                     model: ListModel {
@@ -111,10 +112,10 @@ ColumnLayout{
         }
         ColumnLayout{
             Layout.fillWidth: true
-            Layout.leftMargin: 10
+            Layout.leftMargin: 5
             Layout.preferredHeight: 30
             Text{
-                Layout.preferredWidth: 30
+                Layout.preferredWidth: 20
                 Layout.preferredHeight: 20
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
@@ -125,9 +126,32 @@ ColumnLayout{
             Widgets.RoundCheckBox{
                 id:withHeader
                 enabled: checkEnabled
-                Layout.preferredWidth: 30
+                Layout.preferredWidth: 20
                 Layout.preferredHeight: 30
                 checked: false
+                showText: false
+                visible: true
+            }
+        }
+        ColumnLayout{
+            Layout.fillWidth: true
+            Layout.leftMargin: 5
+            Layout.preferredHeight: 30
+            Text{
+                Layout.preferredWidth: 20
+                Layout.preferredHeight: 20
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                text: Strings.dataHex
+                visible: true
+            }
+
+            Widgets.RoundCheckBox{
+                id:withHex
+                enabled: checkEnabled
+                Layout.preferredWidth: 20
+                Layout.preferredHeight: 30
+                checked: true
                 showText: false
                 visible: true
             }
@@ -169,7 +193,7 @@ ColumnLayout{
     }
 
     function getLengthSize(){
-        return lengthSizeBox.currentIndex*2
+        return (lengthSizeBox.currentIndex<=1) ? lengthSizeBox.currentIndex : ((lengthSizeBox.currentIndex-1)*2)
     }
 
     function isBigEndian(){
@@ -177,6 +201,9 @@ ColumnLayout{
     }
     function isWithHeader(){
         return withHeader.checked
+    }
+    function isWithHex(){
+        return withHex.checked
     }
 
     function startShow(){

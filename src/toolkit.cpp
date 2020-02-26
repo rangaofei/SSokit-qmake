@@ -228,7 +228,7 @@ QString TK::bin2ascii(const char* buf, uint len)
 	return res;
 }
 
-bool TK::ascii2bin(const QString& src, QByteArray& dst, QString& err)
+bool TK::ascii2bin(const QString& src, QByteArray& dst, QString& err, bool withhex)
 {
 	dst.clear();
 	err.clear();
@@ -246,7 +246,7 @@ bool TK::ascii2bin(const QString& src, QByteArray& dst, QString& err)
 	for (int i=0; i<len; ++i)
 	{
 		uint val = lst.at(i);
-		if ('[' == val)
+		if ('[' == val && withhex)
 		{
 			switch (status)
 			{
@@ -260,7 +260,7 @@ bool TK::ascii2bin(const QString& src, QByteArray& dst, QString& err)
 				continue;
 		}
 		else
-		if (']' == val)
+		if (']' == val && withhex)
 		{
 			if (OUT !=status)
 			{

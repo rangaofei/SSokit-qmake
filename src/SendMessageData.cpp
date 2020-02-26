@@ -50,6 +50,16 @@ void SendMessageData::setWithHeader(bool withHeader)
     this->m_withHeader=withHeader;
 }
 
+bool SendMessageData::withHex()
+{
+    return m_withHex;
+}
+
+void SendMessageData::setWithHex(bool withHex)
+{
+    this->m_withHex=withHex;
+}
+
 int SendMessageData::lengthSize()
 {
     return this->m_lengthSize;
