@@ -31,11 +31,11 @@ void ClientModel::toggleConnect(bool checked, QString addr, QString port) {
     }
 }
 
-void ClientModel::send(const QString &data) {
+void ClientModel::send(const QString &data, bool withhex) {
     QString err;
     QByteArray bin;
 
-    if (!TK::ascii2bin(data, bin, err)) {
+    if (!TK::ascii2bin(data, bin, err, withhex)) {
         qDebug() << ("bad data format to send: " + err);
         return;
     }
@@ -93,7 +93,7 @@ void ClientModel::sendMessageData(SendMessageData *data)
         qDebug()<<"非纯文本发送";
     }
     if(!data->withHeader()){
-        send(data->content());
+        send(data->content(), data->withHex());
         return;
     }
     QString err;
@@ -105,7 +105,7 @@ void ClientModel::sendMessageData(SendMessageData *data)
         return;
     }
 
-    if (!TK::ascii2bin(data->getTargetMsg(), dataBin, err)) {
+    if (!TK::ascii2bin(data->getTargetMsg(), dataBin, err, data->withHex())) {
         qDebug() << ("bad data format to send: " + err);
         return;
     }

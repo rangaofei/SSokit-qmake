@@ -363,17 +363,17 @@
     <message>
         <location filename="Strings.qml" line="99"/>
         <source>Byte</source>
-        <translation>字节型(1)</translation>
+        <translation>字节型-1</translation>
     </message>
     <message>
         <location filename="Strings.qml" line="99"/>
         <source>Short</source>
-        <translation>短整型(2)</translation>
+        <translation>短整型-2</translation>
     </message>
     <message>
         <location filename="Strings.qml" line="99"/>
         <source>Int</source>
-        <translation>整型(4)</translation>
+        <translation>整型-4</translation>
     </message>
     <message>
         <location filename="Strings.qml" line="100"/>
@@ -394,6 +394,11 @@
         <location filename="Strings.qml" line="102"/>
         <source>Enable</source>
         <translation>激活</translation>
+    </message>
+    <message>
+        <location filename="Strings.qml" line="102"/>
+        <source>DataHex</source>
+        <translation>HEX</translation>
     </message>
     <message>
         <location filename="Strings.qml" line="105"/>

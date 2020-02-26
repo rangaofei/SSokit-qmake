@@ -384,6 +384,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="Strings.qml" line="102"/>
+        <source>DataHex</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="Strings.qml" line="105"/>
         <source>ASC</source>
         <translation type="unfinished"></translation>

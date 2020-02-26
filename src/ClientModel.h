@@ -95,7 +95,7 @@ public slots:
      * @param key
      * @param data
      */
-    void send(const QString &data);
+    void send(const QString &data, bool withhex);
 
     void sendWithHeader(const QString header,const qint32 lengthSize,bool bigEndian, const QString &data);
 

@@ -12,6 +12,7 @@ class SendMessageData : public QObject
     Q_PROPERTY(QString header READ header WRITE setHeader)
     Q_PROPERTY(QString footer READ footer WRITE setFooter)
     Q_PROPERTY(bool withHeader READ withHeader WRITE setWithHeader)
+    Q_PROPERTY(bool withHex READ withHex WRITE setWithHex)
     Q_PROPERTY(int lengthSize READ lengthSize WRITE setLengthSize)
     Q_PROPERTY(bool endian READ endian WRITE setEndian)
     Q_PROPERTY(bool plainText READ plainText WRITE setPlainText)
@@ -38,6 +39,10 @@ public slots:
     bool withHeader();
     //设置是否发送头
     void setWithHeader(bool withHeader);
+    //是否Hex发送
+    bool withHex();
+    //设置是否发送Hex
+    void setWithHex(bool withHex);
     //内容长度
     int lengthSize();
     //设置内容长度
@@ -58,6 +63,7 @@ private:
     QString m_header;//头信息
     QString m_footer;//尾信息
     bool m_withHeader;//是否包含头信息
+    bool m_withHex;//是否包含头信息
     int m_lengthSize;//长度大小
     bool m_endian;//字节序模式
     bool m_plainText;//是否是纯文本

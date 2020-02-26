@@ -100,6 +100,7 @@ QtObject {
     property var headerEndian: qsTr("Endian")
     property var headerEndianValue: [qsTr("Big"),qsTr("Little")]
     property var headerEnable: qsTr("Enable")
+    property var dataHex: qsTr("DataHex")
 
     //LogItemDetailView
     property var logItemDataType: [qsTr("ASC"),qsTr("HEX"),qsTr("TEXT"),qsTr("HEX2")]
