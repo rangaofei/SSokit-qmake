@@ -42,7 +42,7 @@ SOURCES += \
         src/sqlitetool.cpp
 
 HEADERS +=  src/bluetoothmodel.h \
-    src/JsonFormat.h \
+            src/JsonFormat.h \
             src/LogMessageModel.h \
             src/HttpManager.h \
             src/QmlLogModel.h \
@@ -51,8 +51,8 @@ HEADERS +=  src/bluetoothmodel.h \
             src/SettingTool.h \
             src/SoundManager.h \
             src/TranslatorTool.h \
-    src/TreeItem.h \
-    src/Util.h \
+            src/TreeItem.h \
+            src/Util.h \
             src/atomicops.h \
             src/config.h \
             src/itemport.h \
