@@ -67,6 +67,8 @@ GroupBox{
                     Layout.fillHeight: false
                     Layout.preferredHeight: 30
                     selectByMouse: true
+                    selectedTextColor: "white"
+                    selectionColor: "#37474f"
                     background: Rectangle {
                         color: buffer1.enabled ? "transparent" : "#00ffffff"
                         border.color: buffer1.enabled ? "#bdbdbd" : "#bdbdbd"
@@ -119,6 +121,8 @@ GroupBox{
                     Layout.fillWidth: true
                     Layout.fillHeight: false
                     Layout.preferredHeight: 30
+                    selectedTextColor: "white"
+                    selectionColor: "#37474f"
                     selectByMouse: true
                     background: Rectangle {
                         color: buffer2.enabled ? "transparent" : "transparent"
@@ -174,6 +178,8 @@ GroupBox{
                     Layout.fillHeight: false
                     Layout.preferredHeight: 30
                     selectByMouse: true
+                    selectedTextColor: "white"
+                    selectionColor: "#37474f"
                     placeholderText: "该行内容为纯文本发送"
                     background: Rectangle {
                         color: buffer3.enabled ? "transparent" : "transparent"
