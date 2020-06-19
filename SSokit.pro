@@ -77,7 +77,7 @@ macx{
 RC_FILE += Icon.icns
 }
 win32{
-RC_ICONS += SSOkit.ico
+RC_ICONS += SSokit.ico
 }
 
 TRANSLATIONS += assets/language/SSokit_zh_CN.ts \
