@@ -27,16 +27,10 @@ public slots:
     }
 
     static QString getVersionName(){
-//        QString versionName;
-//        versionName.sprintf("%d.%d.%d",MAJOR_VERSION,MINOR_VERSION,PATCH_VERSION);
-//        return versionName;
         return QString("%1.%2.%3").arg(MAJOR_VERSION).arg(MINOR_VERSION).arg(PATCH_VERSION);
     }
 
     static QString getDate(){
-//        QString date;
-//        date.sprintf("%d-%d-%d",YEAR,MONTH,DAY);
-//        return date;
         return QString("%1-%2-%3").arg(YEAR).arg(MONTH).arg(DAY);
     }
 

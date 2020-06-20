@@ -108,6 +108,9 @@ GroupBox{
             Layout.fillHeight: true
             Layout.columnSpan: 8
             text: detailLogText
+            selectByMouse: true
+            selectedTextColor: "#37474f"
+            selectionColor: "white"
             color: "white"
             wrapMode: Text.Wrap
             readOnly: true
