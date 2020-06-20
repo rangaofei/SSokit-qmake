@@ -7,6 +7,7 @@ import src.soundmanager 1.0
 
 import "../widgets" as Widgets
 
+
 GroupBox{
     property var detailLogText: ""
     property var time: ""
@@ -52,10 +53,6 @@ GroupBox{
                         for(var a in Strings.logItemDataType){
                             append({ text: Strings.logItemDataType[a] })
                         }
-                        //                        append({ text: Strings.logItemDataType[0] })
-                        //                        append({ text: Strings.logItemDataType[1] })
-                        //                        append({ text: Strings.logItemDataType[2] })
-                        //                        append({ text: Strings.logItemDataType[3] })
                     }
                 }
                 onCurrentIndexChanged: {
@@ -65,60 +62,27 @@ GroupBox{
             }
         }
 
-        //        ScrollView{
-        //            Layout.fillWidth: false
-        //            Layout.preferredWidth: dataWidth
-        //            Layout.fillHeight: true
-        //            Layout.leftMargin: 10
-        //            Layout.rightMargin: 10
-        //            Layout.alignment: Qt.AlignTop
-        //            ScrollBar.horizontal.policy: ScrollBar.AsNeeded
-        //            ScrollBar.vertical.policy: ScrollBar.AsNeeded
-        //            ScrollBar.horizontal.interactive: false
-        //            ScrollBar.vertical.interactive: true
-        //            clip: true
-        //            background: Rectangle{
-        //                radius: 0
-        //                color:"#37474f"
-        //                border.color: "#bdbdbd"
-        //                border.width: 1
-        //            }
-        //            ColumnLayout{
-        //                anchors.left: parent.left
-        //                anchors.right: parent.right
-        //                anchors.top: parent.top
-        //                anchors.leftMargin: 10
-        //                anchors.rightMargin: 10
-        //                anchors.topMargin: 10
-        //                anchors.bottomMargin: 10
-        //                clip: true
-        //                Text {
-        //                    id: detail
-        //                    Layout.fillWidth: true
-        //                    Layout.columnSpan: 8
-        //                    text: detailLogText
-        //                    color: "white"
-        //                    wrapMode: Text.Wrap
-        //                }
-        //            }
-        //        }
-        TextArea {
-            id: detail
+        ScrollView{
             Layout.fillWidth: true
             Layout.fillHeight: true
+            clip: true
             Layout.columnSpan: 8
-            text: detailLogText
-            selectByMouse: true
-            selectedTextColor: "#37474f"
-            selectionColor: "white"
-            color: "white"
-            wrapMode: Text.Wrap
-            readOnly: true
             background: Rectangle{
                 radius: 0
                 color:"#37474f"
                 border.color: "#bdbdbd"
                 border.width: 1
+            }
+            TextArea {
+                id: detail
+                text: detailLogText
+                selectByMouse: true
+                selectedTextColor: "#37474f"
+                selectionColor: "white"
+                color: "white"
+                wrapMode: Text.Wrap
+                readOnly: true
+
             }
         }
         GridLayout{
