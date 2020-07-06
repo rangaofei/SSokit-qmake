@@ -9,7 +9,8 @@
 
 #define YEAR 2020
 #define MONTH 6
-#define DAY 18
+
+#define DAY 19
 
 class Config : public QObject
 {
