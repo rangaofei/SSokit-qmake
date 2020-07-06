@@ -7,6 +7,7 @@ import src.soundmanager 1.0
 
 import "../widgets" as Widgets
 
+
 GroupBox{
     property var detailLogText: ""
     property var time: ""
@@ -16,6 +17,8 @@ GroupBox{
     property var dataWidth
 
     signal dataTypeChanged(var index)
+    topPadding: 5
+    bottomPadding: 5
     id:container
 
     background: Rectangle{
@@ -33,17 +36,20 @@ GroupBox{
             Layout.rightMargin: 10
             Layout.alignment: Qt.AlignTop
             Text {
+                height: 12
                 Layout.fillWidth: true
                 text: "显示形式"
-                color: "white"
+                font.pixelSize: 10
+                color: "#AAAAAA"
                 wrapMode: Text.WordWrap
             }
-            Widgets.EditComboBox{
+            Widgets.SmallEidtComboBox{
                 id: dataType
-                Layout.preferredHeight: 30
+                Layout.preferredHeight: 20
                 Layout.preferredWidth: 150
                 showLeftIndicator: false
                 editable: false
+                font.pixelSize: 10
                 currentIndex:0
                 normalColor:"white"
                 indicatorColor: "white"
@@ -52,117 +58,86 @@ GroupBox{
                         for(var a in Strings.logItemDataType){
                             append({ text: Strings.logItemDataType[a] })
                         }
-                        //                        append({ text: Strings.logItemDataType[0] })
-                        //                        append({ text: Strings.logItemDataType[1] })
-                        //                        append({ text: Strings.logItemDataType[2] })
-                        //                        append({ text: Strings.logItemDataType[3] })
                     }
                 }
                 onCurrentIndexChanged: {
-                    console.log(currentIndex)
                     dataTypeChanged(currentIndex)
                 }
             }
         }
 
-        //        ScrollView{
-        //            Layout.fillWidth: false
-        //            Layout.preferredWidth: dataWidth
-        //            Layout.fillHeight: true
-        //            Layout.leftMargin: 10
-        //            Layout.rightMargin: 10
-        //            Layout.alignment: Qt.AlignTop
-        //            ScrollBar.horizontal.policy: ScrollBar.AsNeeded
-        //            ScrollBar.vertical.policy: ScrollBar.AsNeeded
-        //            ScrollBar.horizontal.interactive: false
-        //            ScrollBar.vertical.interactive: true
-        //            clip: true
-        //            background: Rectangle{
-        //                radius: 0
-        //                color:"#37474f"
-        //                border.color: "#bdbdbd"
-        //                border.width: 1
-        //            }
-        //            ColumnLayout{
-        //                anchors.left: parent.left
-        //                anchors.right: parent.right
-        //                anchors.top: parent.top
-        //                anchors.leftMargin: 10
-        //                anchors.rightMargin: 10
-        //                anchors.topMargin: 10
-        //                anchors.bottomMargin: 10
-        //                clip: true
-        //                Text {
-        //                    id: detail
-        //                    Layout.fillWidth: true
-        //                    Layout.columnSpan: 8
-        //                    text: detailLogText
-        //                    color: "white"
-        //                    wrapMode: Text.Wrap
-        //                }
-        //            }
-        //        }
-        TextArea {
-            id: detail
+        ScrollView{
             Layout.fillWidth: true
             Layout.fillHeight: true
+            clip: true
             Layout.columnSpan: 8
-            text: detailLogText
-            color: "white"
-            wrapMode: Text.Wrap
-            readOnly: true
             background: Rectangle{
                 radius: 0
                 color:"#37474f"
                 border.color: "#bdbdbd"
                 border.width: 1
             }
+            TextArea {
+                id: detail
+                text: detailLogText
+                selectByMouse: true
+                selectedTextColor: "#37474f"
+                selectionColor: "white"
+                color: "white"
+                wrapMode: Text.Wrap
+                readOnly: true
+            }
         }
-        GridLayout{
+        RowLayout{
             Layout.fillWidth: true
-            Layout.leftMargin: 10
-            Layout.rightMargin: 10
-            rows: 1
-            columns: 6
-            Layout.alignment: Qt.AlignBottom|Qt.AlignHCenter
-            Text {
-                text: (isRev?"接收":"发送")+"时间"
-                color: "white"
-                font.pixelSize: 10
-                wrapMode: Text.WordWrap
-            }
+            Layout.alignment: Qt.AlignBottom
+            RowLayout{
+                Layout.alignment: Qt.AlignLeft
+                Text {
+                    text: (isRev?"接收":"发送")+"时间: "
+                    color: "#AAAAAA"
+                    font.pixelSize: 10
+                    wrapMode: Text.WordWrap
+                }
 
-            Text {
-                text: time
-                color: "white"
-                font.pixelSize: 10
-                wrapMode: Text.WordWrap
+                Text {
+                    text: time
+                    color: "white"
+                    font.pixelSize: 10
+                    wrapMode: Text.WordWrap
+                }
             }
-            Text {
-                text: (isRev?"接收":"发送")+"地址"
-                color: "white"
-                font.pixelSize: 10
-                wrapMode: Text.WordWrap
-            }
+            RowLayout{
+                Layout.alignment: Qt.AlignLeft
+                Text {
+                    text: (isRev ? "接收":"发送")+"地址: "
+                    color: "#AAAAAA"
+                    font.pixelSize: 10
+                    wrapMode: Text.WordWrap
+                }
 
-            Text {
-                text: host
-                color: "white"
-                font.pixelSize: 10
-                wrapMode: Text.WordWrap
+                Text {
+                    text: host
+                    color: "white"
+                    font.pixelSize: 10
+                    wrapMode: Text.WordWrap
+                }
             }
-            Text {
-                text: (isRev?"接收":"发送")+"长度"
-                color: "white"
-                font.pixelSize: 10
-                wrapMode: Text.WordWrap
-            }
+            RowLayout{
+                Layout.alignment: Qt.AlignLeft
+                Text {
+                    text: (isRev?"接收":"发送")+"长度: "
+                    color: "#AAAAAA"
+                    font.pixelSize: 10
+                    wrapMode: Text.WordWrap
+                }
 
-            Text {
-                text: length
-                color: "white"
-                font.pixelSize: 10
-                wrapMode: Text.WordWrap
+                Text {
+                    text: length
+                    color: "white"
+                    font.pixelSize: 10
+                    wrapMode: Text.WordWrap
+                }
             }
         }
     }

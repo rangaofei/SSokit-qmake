@@ -9,6 +9,7 @@
 
 #define YEAR 2020
 #define MONTH 6
+
 #define DAY 19
 
 class Config : public QObject
@@ -27,15 +28,11 @@ public slots:
     }
 
     static QString getVersionName(){
-        QString versionName;
-        versionName.sprintf("%d.%d.%d",MAJOR_VERSION,MINOR_VERSION,PATCH_VERSION);
-        return versionName;
+        return QString("%1.%2.%3").arg(MAJOR_VERSION).arg(MINOR_VERSION).arg(PATCH_VERSION);
     }
 
     static QString getDate(){
-        QString date;
-        date.sprintf("%d-%d-%d",YEAR,MONTH,DAY);
-        return date;
+        return QString("%1-%2-%3").arg(YEAR).arg(MONTH).arg(DAY);
     }
 
     static int32_t getSystem(){
