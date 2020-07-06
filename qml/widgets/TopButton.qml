@@ -16,6 +16,5 @@ TabButton {
         height: parent.implicitHeight
         opacity: enabled ? 1 : 0.3
         color: checked ? "#22000000":"#00000000"
-        radius: 5
     }
 }

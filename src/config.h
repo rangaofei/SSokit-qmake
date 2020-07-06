@@ -5,7 +5,7 @@
 
 #define MAJOR_VERSION 1
 #define MINOR_VERSION 1
-#define PATCH_VERSION 5
+#define PATCH_VERSION 6
 
 #define YEAR 2020
 #define MONTH 6

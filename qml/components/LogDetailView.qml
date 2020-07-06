@@ -17,6 +17,8 @@ GroupBox{
     property var dataWidth
 
     signal dataTypeChanged(var index)
+    topPadding: 5
+    bottomPadding: 5
     id:container
 
     background: Rectangle{
@@ -34,17 +36,20 @@ GroupBox{
             Layout.rightMargin: 10
             Layout.alignment: Qt.AlignTop
             Text {
+                height: 12
                 Layout.fillWidth: true
                 text: "显示形式"
-                color: "white"
+                font.pixelSize: 10
+                color: "#AAAAAA"
                 wrapMode: Text.WordWrap
             }
-            Widgets.EditComboBox{
+            Widgets.SmallEidtComboBox{
                 id: dataType
-                Layout.preferredHeight: 30
+                Layout.preferredHeight: 20
                 Layout.preferredWidth: 150
                 showLeftIndicator: false
                 editable: false
+                font.pixelSize: 10
                 currentIndex:0
                 normalColor:"white"
                 indicatorColor: "white"
@@ -56,7 +61,6 @@ GroupBox{
                     }
                 }
                 onCurrentIndexChanged: {
-                    console.log(currentIndex)
                     dataTypeChanged(currentIndex)
                 }
             }
@@ -82,54 +86,58 @@ GroupBox{
                 color: "white"
                 wrapMode: Text.Wrap
                 readOnly: true
-
             }
         }
-        GridLayout{
+        RowLayout{
             Layout.fillWidth: true
-            Layout.leftMargin: 10
-            Layout.rightMargin: 10
-            rows: 1
-            columns: 6
-            Layout.alignment: Qt.AlignBottom|Qt.AlignHCenter
-            Text {
-                text: (isRev?"接收":"发送")+"时间"
-                color: "white"
-                font.pixelSize: 10
-                wrapMode: Text.WordWrap
-            }
+            Layout.alignment: Qt.AlignBottom
+            RowLayout{
+                Layout.alignment: Qt.AlignLeft
+                Text {
+                    text: (isRev?"接收":"发送")+"时间: "
+                    color: "#AAAAAA"
+                    font.pixelSize: 10
+                    wrapMode: Text.WordWrap
+                }
 
-            Text {
-                text: time
-                color: "white"
-                font.pixelSize: 10
-                wrapMode: Text.WordWrap
+                Text {
+                    text: time
+                    color: "white"
+                    font.pixelSize: 10
+                    wrapMode: Text.WordWrap
+                }
             }
-            Text {
-                text: (isRev?"接收":"发送")+"地址"
-                color: "white"
-                font.pixelSize: 10
-                wrapMode: Text.WordWrap
-            }
+            RowLayout{
+                Layout.alignment: Qt.AlignLeft
+                Text {
+                    text: (isRev ? "接收":"发送")+"地址: "
+                    color: "#AAAAAA"
+                    font.pixelSize: 10
+                    wrapMode: Text.WordWrap
+                }
 
-            Text {
-                text: host
-                color: "white"
-                font.pixelSize: 10
-                wrapMode: Text.WordWrap
+                Text {
+                    text: host
+                    color: "white"
+                    font.pixelSize: 10
+                    wrapMode: Text.WordWrap
+                }
             }
-            Text {
-                text: (isRev?"接收":"发送")+"长度"
-                color: "white"
-                font.pixelSize: 10
-                wrapMode: Text.WordWrap
-            }
+            RowLayout{
+                Layout.alignment: Qt.AlignLeft
+                Text {
+                    text: (isRev?"接收":"发送")+"长度: "
+                    color: "#AAAAAA"
+                    font.pixelSize: 10
+                    wrapMode: Text.WordWrap
+                }
 
-            Text {
-                text: length
-                color: "white"
-                font.pixelSize: 10
-                wrapMode: Text.WordWrap
+                Text {
+                    text: length
+                    color: "white"
+                    font.pixelSize: 10
+                    wrapMode: Text.WordWrap
+                }
             }
         }
     }
