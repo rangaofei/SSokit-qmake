@@ -13,7 +13,6 @@ Drawer {
     property bool isOpened: false
     signal drawXChanged(var positionXPercent)
 
-
     id: drawer
     clip: true
     edge: Qt.LeftEdge
@@ -22,6 +21,17 @@ Drawer {
     background: Rectangle{
         color: "#ffffff"
     }
+
+    onClosed: {
+        console.log("close")
+        SoundManager.playSlideClose()
+    }
+
+    onOpened: {
+        SoundManager.playSlideOpen()
+        console.log("open")
+    }
+
     Rectangle{
         id:menuBar;
         width: 60;
@@ -170,10 +180,8 @@ Drawer {
 
     function toggleDrawer(){
         if(visible){
-            SoundManager.playSlideClose()
             close()
         }else{
-            SoundManager.playSlideOpen()
             open()
         }
     }

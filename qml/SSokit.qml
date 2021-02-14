@@ -15,13 +15,14 @@ import "./setting" as Settings
 
 ApplicationWindow{
     property int windowW: 900
-    property int windwoH: 600
+    property int windowH: 600
 
     //关于对话框
     Dialogs.AboutDialog{
         id:aboutDialog
     }
 
+    //升级提示对话框
     Dialogs.UpdateDialog{
         id:updateDialog
     }
@@ -31,9 +32,9 @@ ApplicationWindow{
     visible: true
     title: Strings.applicationTitle
     width: SettingTool.getRememberWindowSize()?SettingTool.getWindowWidth() : windowW
-    height: SettingTool.getRememberWindowSize()?SettingTool.getWindowHeight() : windwoH
+    height: SettingTool.getRememberWindowSize()?SettingTool.getWindowHeight() : windowH
     minimumWidth: windowW
-    minimumHeight:windwoH
+    minimumHeight:windowH
     x:SettingTool.getWindowPositionX()
     y:SettingTool.getWindowPositionY()
 
