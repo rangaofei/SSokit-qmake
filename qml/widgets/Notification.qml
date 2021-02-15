@@ -18,7 +18,7 @@ Rectangle{
     radius: 10
     border.color: Colors.borderSecondary
     border.width: 1
-    color: Colors.bgMain
+    color: Colors.bgSecond
     ColumnLayout{
         id:layout
         anchors.fill: parent

@@ -4,6 +4,7 @@ import QtQuick 2.12
 
 QtObject {
     property var bgMain: "#37474f"
+    property var bgSecond: "#DD37474f"
     property var bgWhite: "#FFFFFF"
     property var bgTransparent: "#00000000"
 
