@@ -167,6 +167,10 @@ ApplicationWindow{
         }
     }
 
+    Widgets.Notification{
+        id:notification
+    }
+
     //关闭时保存当前窗口位置
     onClosing: {
         SettingTool.setWindowPosition(window.x,window.y)
@@ -200,4 +204,14 @@ ApplicationWindow{
         footerBar.currentIndex++
         footerBar.currentIndex=footerBar.currentIndex % footerBar.count
     }
+
+
+    function showNotification(title,content){
+        notification.showNotification(title,content)
+    }
+
+    function hideNotification(){
+        notification.hideNotification()
+    }
+
 }

@@ -80,5 +80,6 @@
         <file>qml/tool/JsonFormatView.qml</file>
         <file>qml/widgets/SmallEidtComboBox.qml</file>
         <file>qml/widgets/BgStrokeR5.qml</file>
+        <file>qml/widgets/Notification.qml</file>
     </qresource>
 </RCC>

@@ -10,7 +10,7 @@ import src.colors 1.0
 import "../widgets" as Widgets
 
 Column {
-    //1是tcpserver,2是tcpclient,3是udpserver,4是udpclient
+    //1-tcpserver,2-tcpclient,3-udpserver,4-udpclient
     property int viewType: 1
     //标题
     property string title: Strings.controlCenter
@@ -50,7 +50,6 @@ Column {
     GroupBox{
         id:groupBox
         width: parent.width
-        height: 250
         background: Widgets.BgStrokeR5{
         }
 
@@ -145,7 +144,6 @@ Column {
                 onToggled: {
                     if(!isAccectablePort(portBox.getEditText())){
                         toggleConnect.checked=false
-                        tip.setState(!toggleConnect.checked,portTip)
                         return
                     }
                     startConnect(checked,addrBox.editText,portBox.editText)
@@ -171,12 +169,6 @@ Column {
             Item {
                 height:10
             }
-            Widgets.TipLabel{
-                id:tip
-                Layout.fillWidth: true
-                Layout.preferredHeight: 30
-            }
-
         }
     }
     Item{
@@ -308,7 +300,17 @@ Column {
         }else if(type===2){
             toggleConnect.checked=false
         }
-        tip.setState(isErr,msg)
+        var title = "TCPServer"
+        if(viewType==1){
+            title = "TCPServer"
+        }else if(viewType==2){
+            title = "TCPClient"
+        }else if(viewType ==3){
+            title = "UDPServer"
+        }else if(viewType==4){
+            title = "UDPClient"
+        }
+        showNotification(title,msg)
     }
 
     Component.onCompleted: {

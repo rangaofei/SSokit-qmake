@@ -7,7 +7,10 @@ QtObject {
     property var bgWhite: "#FFFFFF"
     property var bgTransparent: "#00000000"
 
+    property var textWhite: "#FFFFFFFF"
+
     property var borderPrimary: "#BDBDBD"
+    property var borderSecondary: "#33BDBDBD"
 
     //checkbox
     property var cbChecked: "#37474f"
