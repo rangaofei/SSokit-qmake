@@ -45,7 +45,7 @@ Rectangle{
     MouseArea{
         anchors.fill: parent
         onClicked: {
-            console.log("click here")
+            hideNotification()
         }
     }
 
@@ -91,6 +91,7 @@ Rectangle{
    }
 
    function hideNotification(){
+       state="HIDE"
        countDown.stop()
    }
 }
