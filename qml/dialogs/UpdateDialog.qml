@@ -34,7 +34,7 @@ Dialog {
             text: Strings.newVersionTitle
         }
         Image{
-            Layout.preferredHeight: 80
+            Layout.preferredHeight: 100
             Layout.preferredWidth: 100
             Layout.alignment: Qt.AlignHCenter
             source: "qrc:/assets/images/ic_update.png"

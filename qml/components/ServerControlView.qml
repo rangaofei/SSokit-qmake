@@ -5,28 +5,40 @@ import QtGraphicalEffects 1.12
 
 import src.settingtool 1.0
 import src.strings 1.0
+import src.colors 1.0
 
 import "../widgets" as Widgets
+
 Column {
-    property int viewType: 1 /*1是tcpserver,2是tcpclient,3是udpserver,4是udpclient*/
-    property string title: Strings.controlCenter//标题
+    //1是tcpserver,2是tcpclient,3是udpserver,4是udpclient
+    property int viewType: 1
+    //标题
+    property string title: Strings.controlCenter
+    //地址标签
     property string labelAddr: Strings.controlAddr
+    //端口标签
     property string labelPort: Strings.controlPort
+    //连接标签
     property string btnConnect: Strings.controlConnect
+    //断开连接标签
     property string btnDisconnect: Strings.controlDisconnect
+    //连接不可用标签
     property string btnDisable: Strings.controlDisable
+    //端口提示
     property string portTip: Strings.controlPortTip
+    //连接时间
     property string labelTime: Strings.controlTime
+    //窗口宽度
     property int windowW: 250
 
     //开启/关闭连接
     signal startConnect(bool checked,string addr,string port)
-    //断开某个指定连接
+    //断开指定ip的连接
     signal disconnectConn(string addr)
     //当前连接状态
     signal connectState(bool state)
 
-    //端口数据列表
+    //端口列表，存储在本地文件
     ListModel{
         id:portListModel
     }
@@ -39,11 +51,7 @@ Column {
         id:groupBox
         width: parent.width
         height: 250
-        background: Rectangle{
-            color: "#00000000"
-            border.color: "#bdbdbd"
-            border.width: 1
-            radius: 5
+        background: Widgets.BgStrokeR5{
         }
 
         label: Label{

@@ -79,5 +79,6 @@
         <file>qml/tool/JsonTreeView.qml</file>
         <file>qml/tool/JsonFormatView.qml</file>
         <file>qml/widgets/SmallEidtComboBox.qml</file>
+        <file>qml/widgets/BgStrokeR5.qml</file>
     </qresource>
 </RCC>

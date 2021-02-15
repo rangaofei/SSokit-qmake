@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.12
 import src.settingtool 1.0
 import src.strings 1.0
 import src.httpmanager 1.0
+import QtGraphicalEffects 1.12
 
 import "./dialogs" as Dialogs
 import "./widgets" as Widgets
@@ -105,6 +106,7 @@ ApplicationWindow{
             //            }
         }
         Image {
+            id: iv_cata
             source: "qrc:/assets/images/catalogue.png"
             smooth: true
             width: 18
@@ -118,7 +120,18 @@ ApplicationWindow{
             visible: true
         }
 
+//        DropShadow {
+//            anchors.fill: iv_cata
+//            horizontalOffset: 3
+//            verticalOffset: 3
+//            radius: 8.0
+//            samples: 16
+//            color: "#80000000"
+//            source: iv_cata
+//        }
+
         Image {
+            id:iv_about
             source: "qrc:/assets/images/about.png"
             smooth: true
             width: 18
@@ -131,6 +144,15 @@ ApplicationWindow{
             }
             visible: true
         }
+//        DropShadow {
+//            anchors.fill: iv_about
+//            horizontalOffset: 3
+//            verticalOffset: 3
+//            radius: 8.0
+//            samples: 16
+//            color: "#80000000"
+//            source: iv_about
+//        }
     }
 
 
@@ -144,6 +166,7 @@ ApplicationWindow{
             container.x=positionXPercent*drawer.width
         }
     }
+
     //关闭时保存当前窗口位置
     onClosing: {
         SettingTool.setWindowPosition(window.x,window.y)

@@ -2,6 +2,7 @@ import QtQuick 2.13
 import QtQuick.Controls 2.5
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.13
+import QtGraphicalEffects 1.12
 
 import src.settingtool 1.0
 import src.strings 1.0
@@ -23,13 +24,11 @@ Drawer {
     }
 
     onClosed: {
-        console.log("close")
         SoundManager.playSlideClose()
     }
 
     onOpened: {
         SoundManager.playSlideOpen()
-        console.log("open")
     }
 
     Rectangle{
@@ -62,7 +61,7 @@ Drawer {
             }
             Rectangle {
                 Layout.preferredWidth: parent.width
-                Layout.preferredHeight: 2
+                Layout.preferredHeight: 1
                 color: "#ffffff"
             }
 
@@ -141,17 +140,29 @@ Drawer {
             }
         }
     }
-    Rectangle{
-        id:divider
-        anchors.left: menuBar.right
-        anchors.leftMargin: 2
-        height: parent.height
-        width: 1
-        color: "#bdbdbd"
+
+    DropShadow {
+        anchors.fill: menuBar
+        horizontalOffset: 3
+        verticalOffset: 0
+        radius: 8.0
+        samples: 16
+        color: "#80000000"
+        source: menuBar
     }
+
+//    Rectangle{
+//        id:divider
+//        anchors.left: menuBar.right
+//        anchors.leftMargin: 2
+//        height: parent.height
+//        width: 2
+//        color: "#bdbdbd"
+//    }
+
     TabView{
         id:tabView;
-        anchors.left: divider.right;
+        anchors.left: menuBar.right;
         anchors.top:parent.top
         anchors.right: parent.right
         anchors.bottom: parent.bottom

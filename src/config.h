@@ -5,12 +5,12 @@
 
 #define MAJOR_VERSION 1
 #define MINOR_VERSION 1
-#define PATCH_VERSION 6
+#define PATCH_VERSION 7
 
-#define YEAR 2020
-#define MONTH 6
+#define YEAR 2021
+#define MONTH 02
 
-#define DAY 19
+#define DAY 14
 
 class Config : public QObject
 {
@@ -23,14 +23,15 @@ public:
 signals:
 
 public slots:
+    //获取versioncode
     static int getVersionCode(){
         return MAJOR_VERSION*1000+MINOR_VERSION*100+PATCH_VERSION;
     }
-
+    //获取versionname
     static QString getVersionName(){
         return QString("%1.%2.%3").arg(MAJOR_VERSION).arg(MINOR_VERSION).arg(PATCH_VERSION);
     }
-
+    //获取更新时间
     static QString getDate(){
         return QString("%1-%2-%3").arg(YEAR).arg(MONTH).arg(DAY);
     }
