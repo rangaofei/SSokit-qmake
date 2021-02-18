@@ -30,6 +30,7 @@ Column {
     property string labelTime: Strings.controlTime
     //窗口宽度
     property int windowW: 250
+    property int windowH:parent.height
 
     //开启/关闭连接
     signal startConnect(bool checked,string addr,string port)
@@ -45,7 +46,7 @@ Column {
 
     id: column
     width: windowW
-    height: parent.height
+    height: windowH
 
     GroupBox{
         id:groupBox
@@ -146,7 +147,6 @@ Column {
                 }
 
                 onToggled: {
-                    console.log("onToggled",checked)
                     if(!isAccectablePort(portBox.getEditText())){
                         toggleConnect.checked=false
                         showMsg(viewType,portTip)
@@ -172,9 +172,6 @@ Column {
                     SettingTool.savePorts(viewType,ports)
                 }
             }
-            Item {
-                height:10
-            }
         }
     }
     Item{
@@ -186,9 +183,12 @@ Column {
         id: contactDelegate
         ItemDelegate {
             width: connectList.width
-            height: 50
+            height: c.implicitHeight
             Column {
+                id: c
                 anchors.verticalCenter: parent.verticalCenter
+                anchors.topMargin: 5
+                anchors.bottomMargin: 5
                 Text {
                     x:10
                     verticalAlignment: Text.AlignVCenter
@@ -198,12 +198,57 @@ Column {
                     color:parent.parent.highlighted ? "white" : "black"
                 }
                 Text {
-                    x:15
+                    x:10
                     verticalAlignment: Text.AlignVCenter
                     height: 20
                     font.pixelSize: 10
                     color:parent.parent.highlighted ? "#cfd8dc" : "#424242"
-                    text: labelTime+time }
+                    text: labelTime + " : " + time
+                }
+//                RowLayout{
+//                    width:parent.width
+//                    Button{
+//                        width: parent.width*0.5
+////                        height: 20
+//                        text: btnDisable
+//                        font.pixelSize: 10
+//                        background: Rectangle{
+//                            color: "#FFFFFF"
+//                            border.color:"#37474f"
+//                            border.width: 1
+//                            radius: parent.height/2
+//                        }
+
+//                        onClicked:{
+////                            if(connectList.currentIndex<0){
+////                                console.log("当前无连接")
+////                                return
+////                            }
+////                            disconnectConn(historyConnect.get(connectList.currentIndex).addr)
+//                        }
+//                    }
+//                    Button{
+//                        width: parent.width*0.5
+////                        height: 20
+//                        text: btnDisable
+//                        font.pixelSize: 10
+//                        background: Rectangle{
+//                            color: "#FFFFFF"
+//                            border.color:"#37474f"
+//                            border.width: 1
+//                            radius: parent.height/2
+//                        }
+
+//                        onClicked:{
+////                            if(connectList.currentIndex<0){
+////                                console.log("当前无连接")
+////                                return
+////                            }
+////                            disconnectConn(historyConnect.get(connectList.currentIndex).addr)
+//                        }
+//                    }
+//                }
+
             }
             background: Rectangle{
                 color:highlighted?"#37474f":"#00000000"
@@ -224,7 +269,7 @@ Column {
         id:connectList
         visible: true
         width: parent.width
-        height: parent.height-320
+        height: parent.height-260
         clip:true
         model: ListModel {
             id:historyConnect
