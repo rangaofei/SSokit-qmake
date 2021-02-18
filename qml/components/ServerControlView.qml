@@ -52,7 +52,7 @@ Column {
         width: parent.width
         background: Widgets.BgStrokeR5{
         }
-
+//标题
         label: Label{
             x: groupBox.leftPadding
             width: groupBox.availableWidth
@@ -60,11 +60,13 @@ Column {
             color: "black"
             font.bold: true
             topPadding: 10
-            font.pixelSize:15
+            font.pixelSize:14
             elide: Text.ElideRight
         }
+
         ColumnLayout{
             width:parent.width
+            //IP地址
             RowLayout{
                 Layout.fillWidth: true
                 Layout.preferredHeight: 30
@@ -83,9 +85,11 @@ Column {
                     model: ListModel{ id:addrListModel }
                 }
             }
+            //空白占位
             Item {
-                height: 15
+                height: 10
             }
+            //端口
             RowLayout{
                 Layout.fillWidth: true
                 Layout.preferredHeight: 30
@@ -113,7 +117,7 @@ Column {
 
 
             Item {
-                height: 15
+                height: 10
             }
 
             Button {
@@ -142,8 +146,10 @@ Column {
                 }
 
                 onToggled: {
+                    console.log("onToggled",checked)
                     if(!isAccectablePort(portBox.getEditText())){
                         toggleConnect.checked=false
+                        showMsg(viewType,portTip)
                         return
                     }
                     startConnect(checked,addrBox.editText,portBox.editText)
@@ -254,8 +260,14 @@ Column {
             }
         }
     }
+
+    Component.onCompleted: {
+        initPortView()
+    }
+
+    //检测端口是否在可用范围内
     function isAccectablePort(port){
-        if(port>1024&&port<65535){
+        if(port > 1024 && port < 65535){
             return true
         }
         return false
@@ -294,12 +306,25 @@ Column {
         return historyConnect.get(connectList.currentIndex).addr
     }
 
+    //初始化端口view
+    function initPortView(){
+        var ports=SettingTool.getPorts(viewType)
+        for(var i=0;i<ports.length;i++){
+            portListModel.append({port:ports[i]})
+        }
+        portBox.currentIndex=0
+    }
+
     function setErrMsg(type,msg,isErr){
         if(type===1){
             toggleConnect.checked=!isErr
         }else if(type===2){
             toggleConnect.checked=false
         }
+        showMsg(type,msg)
+    }
+
+    function showMsg(type,msg){
         var title = "TCPServer"
         if(viewType==1){
             title = "TCPServer"
@@ -311,13 +336,5 @@ Column {
             title = "UDPClient"
         }
         showNotification(title,msg)
-    }
-
-    Component.onCompleted: {
-        var ports=SettingTool.getPorts(viewType)
-        for(var i=0;i<ports.length;i++){
-            portListModel.append({port:ports[i]})
-        }
-        portBox.currentIndex=0
     }
 }
