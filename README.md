@@ -4,6 +4,11 @@
 官方<br>
 [http://product.rangaofei.cn/ssokit/pages/](http://product.rangaofei.cn/ssokit/pages/)
 
+mac用户可直接使用homebrew安装
+```
+brew install ssokit --cask
+```
+
 可以用作TCP/UDP服务端:
 
 ![](https://github.com/rangaofei/SSokit-qmake/blob/master/img/1_en.png)
