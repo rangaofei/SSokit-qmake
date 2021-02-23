@@ -8,6 +8,8 @@
 
 class Util{
 public:
+
+    //获取主机的mac地址
     static QString getHostMacAddress()
     {
         QList<QNetworkInterface> nets = QNetworkInterface::allInterfaces();// 获取所有网络接口列表
@@ -26,16 +28,17 @@ public:
 
     }
 
+    //获取系统类型，osx，win，linux
     static QString getSystemType()
     {
         return QSysInfo::productType();
     }
-
+    //获取系统版本
     static QString getSystemVersion()
     {
         return QSysInfo::productVersion();
     }
-
+    //获取用户名称
     static QString getProductName()
     {
         return QSysInfo::prettyProductName();
