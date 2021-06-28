@@ -24,11 +24,11 @@ Drawer {
     }
 
     onClosed: {
-        SoundManager.playSlideClose()
+        SoundManager.playSlideCloseSound()
     }
 
     onOpened: {
-        SoundManager.playSlideOpen()
+        SoundManager.playSlideOpenSound()
     }
 
     Rectangle{

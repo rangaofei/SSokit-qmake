@@ -99,9 +99,13 @@ int main(int argc, char *argv[]) {
     initSettings();
     TranslatorTool translatorTool;
     translatorTool.initLanguage();
+    qDebug()<<"translatorTool.initLanguage end";
     registerQml();
+    qDebug()<<"registerQml end";
     QQmlApplicationEngine engine;
+    qDebug()<<"QQmlApplicationEngine end";
     engine.load(QUrl(QStringLiteral("qrc:/qml/SSokit.qml")));
+    qDebug()<<"engine.load";
     if (engine.rootObjects().isEmpty())
         return -1;
     return QApplication::exec();

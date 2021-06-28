@@ -7,6 +7,10 @@ HttpManager::HttpManager(QObject *parent) : QObject(parent)
 
 }
 
+/**
+ * @brief HttpManager::checkVersion
+ * 检查版本
+ */
 void HttpManager::checkVersion()
 {
 #ifdef QT_NO_DEBUG
@@ -23,23 +27,34 @@ void HttpManager::checkVersion()
     request.setRawHeader(QByteArray("sys-version"),Util::getSystemVersion().toUtf8());
     naManager->get(request);
 #else
-    qDebug() << "debug mode,will not update";
+    qDebug() << "debug mode,checkVersion disabled";
 #endif
 }
 
+/**
+ * @brief HttpManager::requestFinished
+ * @param reply
+ * 请求结束
+ */
 void HttpManager::requestFinished(QNetworkReply *reply)
 {
     // 获取http状态码
     QVariant statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute);
-    if(statusCode.isValid())
-        qDebug() << "status code=" << statusCode.toInt();
+
+    if(!statusCode.isValid())
+    {
+        return;
+    }
+    qDebug() << "status code=" << statusCode.toInt();
 
     QVariant reason = reply->attribute(QNetworkRequest::HttpReasonPhraseAttribute).toString();
     if(reason.isValid())
         qDebug() << "reason=" << reason.toString();
 
     QNetworkReply::NetworkError err = reply->error();
-    if(err != QNetworkReply::NoError) {
+
+    if(err != QNetworkReply::NoError)
+    {
         qDebug() << "Failed: " << reply->errorString();
     }
     else {

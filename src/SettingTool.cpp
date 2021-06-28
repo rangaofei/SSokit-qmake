@@ -9,7 +9,7 @@ SettingTool::SettingTool(QObject *parent) : QObject(parent)
 SettingTool::~SettingTool()
 {
     if( settings!=nullptr){
-        delete  SettingTool::settings;
+        delete SettingTool::settings;
         settings=nullptr;
     }
 }
@@ -18,7 +18,6 @@ void SettingTool::setLaunched()
 {
     settings->setValue(LAUNCHED,true);
     flush();
-
 }
 
 bool SettingTool::isFirstLaunched()
@@ -36,7 +35,7 @@ void SettingTool::setWindowWidth(int w)
 
 int SettingTool::getWindowWidth()
 {
-    return settings->value(WINDOW_W,WINDOW_DEFAULT_W).toInt();
+    return settings->value(WINDOW_W, WINDOW_DEFAULT_W).toInt();
 }
 
 void SettingTool::setWindowHeight(int h)
@@ -47,7 +46,7 @@ void SettingTool::setWindowHeight(int h)
 
 int SettingTool::getWindowHeight()
 {
-    return settings->value(WINDOW_H,WINDOW_DEFAULT_H).toInt();
+    return settings->value(WINDOW_H, WINDOW_DEFAULT_H).toInt();
 }
 
 void SettingTool::setWindowSize(int w, int h)
@@ -72,12 +71,12 @@ void SettingTool::setWindowPosition(int x, int y)
 
 int SettingTool::getWindowPositionX()
 {
-    return settings->value(POSITION_X,100).toInt();
+    return settings->value(POSITION_X, 100).toInt();
 }
 
 int SettingTool::getWindowPositionY()
 {
-    return settings->value(POSITION_Y,100).toInt();
+    return settings->value(POSITION_Y, 100).toInt();
 }
 
 void SettingTool::setLanguage(QString type)
@@ -185,7 +184,6 @@ bool SettingTool::getRememberWindowPos()
 
 void SettingTool::setShowSendClear(bool clear)
 {
-    qDebug()<<"setShowSendClear  "<<clear;
     settings->setValue(SHOW_SEND_CLEAR,clear);
 }
 

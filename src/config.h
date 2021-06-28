@@ -5,7 +5,7 @@
 
 #define MAJOR_VERSION 1
 #define MINOR_VERSION 1
-#define PATCH_VERSION 8
+#define PATCH_VERSION 6
 
 #define YEAR 2021
 #define MONTH 02
@@ -25,7 +25,7 @@ signals:
 public slots:
     //获取versioncode
     static int getVersionCode(){
-        return MAJOR_VERSION*1000+MINOR_VERSION*100+PATCH_VERSION;
+        return MAJOR_VERSION * 1000 + MINOR_VERSION * 100 + PATCH_VERSION;
     }
     //获取versionname
     static QString getVersionName(){

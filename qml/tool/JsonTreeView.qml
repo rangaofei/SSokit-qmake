@@ -61,7 +61,7 @@ RowLayout {
                     anchors.rightMargin: 20
                     color: styleData.selected ? "#3399FF" : "transparent";
                     width: 200
-                    height: 30
+                    height: 20
                 }
 
             }

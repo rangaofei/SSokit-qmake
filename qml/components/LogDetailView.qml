@@ -167,12 +167,12 @@ GroupBox{
     }
 
     function showLogItemDetail(){
-        SoundManager.playSlideOpen()
+        SoundManager.playSlideOpenSound()
         container.state="in"
     }
 
     function hideLogItemDetail(){
-        SoundManager.playSlideClose()
+        SoundManager.playSlideCloseSound()
         container.state="out"
     }
 

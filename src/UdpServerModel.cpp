@@ -86,7 +86,7 @@ void UdpServerModel::newData() {
         }
         conn->stamp = QDateTime::currentDateTime();
 //        dump(buf, readLen, false, conn->key);
-        SoundManager::playReceive();
+        SoundManager::playReceiveMsgSound();
         dumpLogMsg(true, conn->key, buf, readLen);
     }
 //    TK::releaseBuffer(buf);
@@ -129,7 +129,7 @@ void UdpServerModel::sendToDst(void *cookie, const QByteArray &bin) {
                 .arg(conn->addr.toString()).arg(conn->port).arg(writeLen)),true);
         return;
     }
-    SoundManager::playSend();
+    SoundManager::playSendMsgSound();
     dumpLogMsg(false, conn->key, src, writeLen);
 }
 

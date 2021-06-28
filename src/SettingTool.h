@@ -46,46 +46,60 @@ public:
     }
 
 private:
+
     explicit SettingTool(QObject *parent = nullptr);
+
     ~SettingTool();
+
     SettingTool(const SettingTool&);
+
     SettingTool& operator=(const SettingTool&);
+
 private:
+
     QSettings *settings;
 
 signals:
 
 public slots:
+
     //设置加载状态
     void setLaunched();
+
     //是否运行过程序
     bool isFirstLaunched();
 
     //设置窗口的宽度
     void setWindowWidth(int w);
+
     //获取窗口宽度
     int getWindowWidth();
 
     //设置窗口高度
     void setWindowHeight(int h);
+
     //获取窗口高度
     int getWindowHeight();
 
     //设置窗口大小
     void setWindowSize(int w,int h);
+
     //设置窗口位置
     void setWindowPosition(int x,int y);
+
     //获取窗口坐标
     int getWindowPositionX();
     int getWindowPositionY();
 
     //设置语言种类
     void setLanguage(QString type);
+
     //获取语言种类
     int getLanguage();
 
     //获取端口列表
     QList<QString> getPorts(int viewType);
+
     //保存新端口
     void savePorts( int viewType,QList<QString> ports);
 
@@ -93,6 +107,7 @@ public slots:
 
     //设置是否显示头信息
     void setShowHeader(bool show);
+
     //获取显示头信息
     bool getShowHeader();
 

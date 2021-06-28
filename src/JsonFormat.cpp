@@ -97,7 +97,6 @@ QVariant JsonModel::data(const QModelIndex &index, int role) const
     JsonCustomProperty* prop=item->property();
     switch (role) {
     case JsonType::KEY:
-        //        return  QVariant::fromValue(prop);
         return item->itemData();
     case JsonType::VALUE:
         return "value";
@@ -140,26 +139,34 @@ void JsonModel::parseJsonObject(TreeItem *parentItem, QJsonObject *jsonValue)
         QJsonValue jv = jsonValue->value(key);
 
         TreeItem * childItem=new TreeItem(rootItem);
-        if(jv==QJsonValue::Undefined){
+        if(jv==QJsonValue::Undefined)
+        {
             childItem->setData(key+" : "+"null");
             childItem->setProperty(key,"",0);
-        }else if(jv.isBool()){
+        }
+        else if(jv.isBool())
+        {
             childItem->setData(key+" : "+(jv.toBool()?"true":"false"));
             childItem->setProperty(key,(jv.toBool()?"true":"false"),1);
-        }else if(jv.isString()){
+        }
+        else if(jv.isString())
+        {
             childItem->setData(key+" : "+jv.toString());
             childItem->setProperty(key,jv.toString(),3);
-        }else if(jv.isDouble())
+        }
+        else if(jv.isDouble())
         {
             childItem->setData(key+" : "+QString::number(jv.toDouble()));
             childItem->setProperty(key,QString::number(jv.toDouble()),4);
         }
-        else if (jv.isObject()) {
+        else if (jv.isObject())
+        {
             childItem->setData(key);
             childItem->setProperty(key,"",5);
             QJsonObject jo=jv.toObject();
             parseJsonObject(childItem,&jo);
-        }else if (jv.isArray()) {
+        }else if (jv.isArray())
+        {
             childItem->setData(key);
             QJsonArray ja=jv.toArray();
             childItem->setProperty(key,"",6);
@@ -195,13 +202,16 @@ void JsonModel::parseJsonArray(TreeItem *parentItem, QJsonArray *jsonValue)
             childItem->setData(QString::number(i)+" : "+QString::number(jv.toDouble()));
             childItem->setProperty(QString::number(i),QString::number(jv.toDouble()),3);
         }
-        else if(jv.isObject()){
+        else if(jv.isObject())
+        {
             childItem->setData(QString::number(i)+" : ");
             childItem->setProperty(QString::number(i),"",4);
             QJsonObject jo=jv.toObject();
             parseJsonObject(childItem,&jo);
-        }else if(jv.isArray()){
-            childItem->setProperty(QString::number(i),"",5);
+        }
+        else if(jv.isArray())
+        {
+            childItem->setProperty(QString::number(i)+" : ","",5);
             QJsonArray ja=jv.toArray();
             childItem->setData(QString::number(i)+" : ");
             childItem->setProperty(QString::number(i),"",6);

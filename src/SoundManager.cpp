@@ -2,7 +2,6 @@
 
 SoundManager::SoundManager(QObject *parent) : QObject(parent)
 {
-
 }
 
 SoundManager::~SoundManager()
@@ -14,7 +13,7 @@ void SoundManager::playSound(int type)
     Q_UNUSED(type)
 }
 
-void SoundManager::playSlideOpen()
+void SoundManager::playSlideOpenSound()
 {
     if(SettingTool::getInstance()->getEnableSysSound())
     {
@@ -22,7 +21,7 @@ void SoundManager::playSlideOpen()
     }
 }
 
-void SoundManager::playSlideClose()
+void SoundManager::playSlideCloseSound()
 {
     if(SettingTool::getInstance()->getEnableSysSound())
     {
@@ -30,7 +29,7 @@ void SoundManager::playSlideClose()
     }
 }
 
-void SoundManager::playReceive()
+void SoundManager::playReceiveMsgSound()
 {
     if(SettingTool::getInstance()->getEnableReceiveSound())
     {
@@ -38,7 +37,7 @@ void SoundManager::playReceive()
     }
 }
 
-void SoundManager::playSend()
+void SoundManager::playSendMsgSound()
 {
     if(SettingTool::getInstance()->getEnableSendSound())
     {

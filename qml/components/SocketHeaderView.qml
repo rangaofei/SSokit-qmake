@@ -180,12 +180,12 @@ ColumnLayout{
     }
 
     function startShow(){
-        SoundManager.playSlideOpen()
+        SoundManager.playSlideOpenSound()
         container.state="in"
     }
 
     function stopShow(){
-        SoundManager.playSlideClose()
+        SoundManager.playSlideCloseSound()
         container.state="out"
     }
 }

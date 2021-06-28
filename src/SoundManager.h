@@ -27,16 +27,16 @@ public slots:
     static void playSound(int type);
 
     //播放滑动打开音效
-    static void playSlideOpen();
+    static void playSlideOpenSound();
 
     //播放滑动关闭音效
-    static void playSlideClose();
+    static void playSlideCloseSound();
 
     //播放接收消息音效
-    static void playReceive();
+    static void playReceiveMsgSound();
 
     //播放发送消息音效
-    static void playSend();
+    static void playSendMsgSound();
 private:
 };
 

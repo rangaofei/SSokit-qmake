@@ -2,7 +2,9 @@ import QtQuick.Layouts 1.12
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import src.strings 1.0
+
 Dialog {
+
     property int defaultW: 400
     property int defaultH: 400
 

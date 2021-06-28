@@ -50,7 +50,7 @@ void TcpClientModel::sendToDst(const QByteArray &bin) {
         emit sendErrMsg(SEND_ERR, "Send data failed", true);
         return;
     }
-    SoundManager::playSend();
+    SoundManager::playSendMsgSound();
     dumpLogMsg(false, host, src, writeLen);
 
 }
@@ -77,7 +77,7 @@ void TcpClientModel::newData() {
     }
 
     if (ioLen >= 0) {
-        SoundManager::playReceive();
+        SoundManager::playReceiveMsgSound();
         dumpLogMsg(true, host, buf, readLen);
     }
 

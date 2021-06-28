@@ -25,6 +25,9 @@ public slots:
     void checkVersion();
 
     void requestFinished(QNetworkReply* reply);
+
+private:
+    void dealWithReply(QByteArray* reply);
 };
 
 #endif // HTTPMANAGER_H

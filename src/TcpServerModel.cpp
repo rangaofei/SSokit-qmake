@@ -75,7 +75,7 @@ void TcpServerModel::sendToDst(void *cookie, const QByteArray &bin) {
 
 //    recordSend(writeLen);
 //    dump(src, srcLen, true, conn->key);
-    SoundManager::playSend();
+    SoundManager::playSendMsgSound();
     dumpLogMsg(false, conn->key, src, writeLen);
 }
 
@@ -142,7 +142,7 @@ void TcpServerModel::newData() {
     if (ioLen >= 0) {
 //        recordRecv(readLen);
 //        dump(buf, readLen, false, conn->key);
-        SoundManager::playReceive();
+        SoundManager::playReceiveMsgSound();
         dumpLogMsg(true, conn->key, buf, readLen);
     }
 

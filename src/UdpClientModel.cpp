@@ -53,7 +53,7 @@ void UdpClientModel::sendToDst(const QByteArray &bin) {
         sendErrMsg(SEND_ERR,"Send data error",true);
         return;
     }
-    SoundManager::playSend();
+    SoundManager::playSendMsgSound();
     dumpLogMsg(false, host, src, writeLen);
 
 }
@@ -80,7 +80,7 @@ void UdpClientModel::newData() {
     }
 
     if (ioLen >= 0) {
-        SoundManager::playReceive();
+        SoundManager::playReceiveMsgSound();
         dumpLogMsg(true, host, QByteArray::fromRawData(buf,readLen), readLen);
     }
 

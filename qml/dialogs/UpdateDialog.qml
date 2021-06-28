@@ -5,13 +5,13 @@ import src.strings 1.0
 import src.settingtool 1.0
 
 Dialog {
-    property int defaultW: 400
-    property int defaultH: 400
+    property int defaultW : 400
+    property int defaultH : 400
 
-    property var newVersion:""
-    property var content:""
-    property var downloadUrl:""
-    property var date:""
+    property var newVersion : ""
+    property var content : ""
+    property var downloadUrl : ""
+    property var date : ""
 
     id:dialog
 
@@ -23,16 +23,19 @@ Dialog {
         radius: 5
         color: "#ffffff"
     }
+
     ColumnLayout{
         Layout.fillHeight: true
         Layout.fillWidth: true
         anchors.fill: parent
+
         Text {
             Layout.alignment: Qt.AlignHCenter
             font.pixelSize: 20
             font.bold: true
             text: Strings.newVersionTitle
         }
+
         Image{
             Layout.preferredHeight: 100
             Layout.preferredWidth: 100
@@ -42,6 +45,7 @@ Dialog {
                 onTapped: close()
             }
         }
+
         Text {
             Layout.fillWidth: true
             Layout.leftMargin: 20
@@ -51,7 +55,6 @@ Dialog {
             verticalAlignment: Text.AlignVCenter
             clip: true
             font.pixelSize: 15
-
         }
 
         GridLayout {
