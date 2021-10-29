@@ -32,7 +32,7 @@ brew install ssokit --cask
 ![](https://github.com/rangaofei/SSokit-qmake/blob/master/img/4_en.png)
 
 个人开发不易
-![](http://ssokit.rangaofei.cn/wechat_charge_qr.png)
+![](http://ssokit.rangaofei.cn/wechat_charge_qr.jpg)
 
 欢迎issue或者询问
 
