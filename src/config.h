@@ -8,8 +8,8 @@
 #define PATCH_VERSION 8
 
 #define YEAR 2021
-#define MONTH 10
-#define DAY 24
+#define MONTH 12
+#define DAY 18
 
 class Config : public QObject
 {
