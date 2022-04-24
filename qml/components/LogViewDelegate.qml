@@ -22,128 +22,132 @@ Component{
         }
 
         highlighted: logListView.currentIndex===index
-        ColumnLayout{
+
+        RowLayout{
             width:parent.width
             spacing: 5
-
-            RowLayout{
-                Layout.leftMargin: 10
-                Layout.rightMargin: 10
-                Layout.fillWidth: true
-                Layout.fillHeight: false
-                Layout.topMargin: 5
-                clip: true
-                Icons.IconUpArrow{
-                    id:upArrow
-                    y:5
-                    hightlighted: delegate.highlighted
-                    visible: !isRev
-                }
-                Icons.IconDownArrow{
-                    id:downArrow
-                    y:5
-                    hightlighted: delegate.highlighted
-                    visible:isRev
-                }
-                Text {
-                    width: 50
-                    height: 20
-                    verticalAlignment: Text.AlignVCenter
-                    maximumLineCount: 1
-                    textFormat: Text.PlainText
-                    clip :true
-                    wrapMode: Text.NoWrap
-                    color:delegate.highlighted?"white":"#37474f"
-                    text: Strings.logTime+" : "
-                }
-                Text {
-                    height: 20
-                    text: time
-                    width: 150
-                    elide: Text.ElideRight
-                    verticalAlignment: Text.AlignVCenter
-                    maximumLineCount: 1
-                    textFormat: Text.PlainText
-                    clip :true
-                    wrapMode: Text.NoWrap
-                    color:delegate.highlighted?"white":"#37474f"
-
-                }
-                Text {
-                    height: 20
-                    width: 50
-                    verticalAlignment: Text.AlignVCenter
-                    maximumLineCount: 1
-                    textFormat: Text.PlainText
-                    clip :true
-                    wrapMode: Text.NoWrap
-                    color:delegate.highlighted?"white":"#37474f"
-                    text: Strings.logHost+" : "
-                    rightPadding: 10
-                }
-                Text {
-                    width: 200
-                    height: 20
-                    text: host
-                    elide: Text.ElideRight
-                    verticalAlignment: Text.AlignVCenter
-                    maximumLineCount: 1
-                    textFormat: Text.PlainText
-                    clip :true
-                    wrapMode: Text.NoWrap
-                    color:delegate.highlighted?"white":"#37474f"
-
-                }
-                Text {
-                    height: 20
-                    width: 50
-                    verticalAlignment: Text.AlignVCenter
-
-                    maximumLineCount: 1
-                    textFormat: Text.PlainText
-                    clip :true
-                    wrapMode: Text.NoWrap
-                    color:delegate.highlighted?"white":"#37474f"
-                    text: Strings.logLength+" : "
-                    rightPadding: 10
-                }
-                Text {
-                    height: 20
-                    text: length
-                    elide: Text.ElideRight
-                    verticalAlignment: Text.AlignVCenter
-                    maximumLineCount: 1
-                    textFormat: Text.PlainText
-                    clip :true
-                    wrapMode: Text.NoWrap
-                    color:delegate.highlighted?"white":"#37474f"
-
-                }
+            Icons.IconUpArrow{
+                id:upArrow
+                y:5
+                hightlighted: delegate.highlighted
+                visible: !isRev
             }
 
-            RowLayout{
-                Layout.fillWidth: true
-                Layout.fillHeight: false
-                Layout.leftMargin: 10
-                Layout.rightMargin: 10
-                clip: true
-                Image{
-                    Layout.preferredWidth: 20
-                    Layout.preferredHeight: 20
-                    z: 4
-                    source: delegate.highlighted?"qrc:/assets/images/translate_white.png":"qrc:/assets/images/translate.png"
-                }
-                Text {
+            Icons.IconDownArrow{
+                id:downArrow
+                y:5
+                hightlighted: delegate.highlighted
+                visible:isRev
+            }
+            ColumnLayout{
+                width:parent.width
+                spacing: 5
+
+                RowLayout{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
                     Layout.fillWidth: true
-                    text: hexData
-                    elide: Text.ElideRight
-                    maximumLineCount: 1
-                    textFormat: Text.PlainText
-                    clip :true
-                    wrapMode: Text.NoWrap
-                    color:delegate.highlighted?"white":"#37474f"
+                    Layout.fillHeight: false
+                    Layout.topMargin: 5
+                    clip: true
+
+                    Text {
+                        width: 50
+                        height: 20
+                        verticalAlignment: Text.AlignVCenter
+                        maximumLineCount: 1
+                        textFormat: Text.PlainText
+                        clip :true
+                        wrapMode: Text.NoWrap
+                        color:delegate.highlighted?"white":"#37474f"
+                        text: Strings.logTime+" : "
+                        font.pixelSize: 10
+                    }
+                    Text {
+                        height: 20
+                        text: time
+                        width: 150
+                        elide: Text.ElideRight
+                        verticalAlignment: Text.AlignVCenter
+                        maximumLineCount: 1
+                        textFormat: Text.PlainText
+                        clip :true
+                        wrapMode: Text.NoWrap
+                        color:delegate.highlighted?"white":"#37474f"
+                        font.pixelSize: 10
+                    }
+                    Text {
+                        height: 20
+                        width: 50
+                        verticalAlignment: Text.AlignVCenter
+                        maximumLineCount: 1
+                        textFormat: Text.PlainText
+                        clip :true
+                        wrapMode: Text.NoWrap
+                        color:delegate.highlighted?"white":"#37474f"
+                        text: Strings.logHost+" : "
+                        rightPadding: 10
+                        font.pixelSize: 10
+                    }
+                    Text {
+                        width: 200
+                        height: 20
+                        text: host
+                        elide: Text.ElideRight
+                        verticalAlignment: Text.AlignVCenter
+                        maximumLineCount: 1
+                        textFormat: Text.PlainText
+                        clip :true
+                        wrapMode: Text.NoWrap
+                        color:delegate.highlighted?"white":"#37474f"
+                        font.pixelSize: 10
+                    }
+                    Text {
+                        height: 20
+                        width: 50
+                        verticalAlignment: Text.AlignVCenter
+
+                        maximumLineCount: 1
+                        textFormat: Text.PlainText
+                        clip :true
+                        wrapMode: Text.NoWrap
+                        color:delegate.highlighted?"white":"#37474f"
+                        text: Strings.logLength+" : "
+                        rightPadding: 10
+                        font.pixelSize: 10
+                    }
+                    Text {
+                        height: 20
+                        text: length
+                        elide: Text.ElideRight
+                        verticalAlignment: Text.AlignVCenter
+                        maximumLineCount: 1
+                        textFormat: Text.PlainText
+                        clip :true
+                        wrapMode: Text.NoWrap
+                        color:delegate.highlighted?"white":"#37474f"
+                        font.pixelSize: 10
+                    }
                 }
 
+                RowLayout{
+                    Layout.fillWidth: true
+                    Layout.fillHeight: false
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    clip: true
+                    Text {
+                        Layout.fillWidth: true
+                        text: hexData
+                        elide: Text.ElideRight
+                        maximumLineCount: 1
+                        textFormat: Text.PlainText
+                        clip :true
+                        wrapMode: Text.NoWrap
+                        color:delegate.highlighted?"white":"#37474f"
+                    }
+
+                }
             }
         }
         MouseArea{
