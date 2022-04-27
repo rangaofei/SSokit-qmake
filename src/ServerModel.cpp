@@ -30,7 +30,7 @@ void ServerModel::kill(QStringList &list) {
 
 
 void ServerModel::getAddr() {
-     emit appendLocalAddr("0:0:0:0");
+    emit appendLocalAddr("0:0:0:0");
     QList<QHostAddress> lst = QNetworkInterface::allAddresses();
     foreach (QHostAddress a, lst) {
         if (QAbstractSocket::IPv4Protocol == a.protocol()) {
@@ -111,7 +111,7 @@ void ServerModel::send(const QString &key, const QString &data) {
             qDebug() << ("bad data format to send: " + err);
         else
             qDebug()<<bin<<"==bin";
-            sendToDst(v, bin);
+        sendToDst(v, bin);
     }
 }
 
