@@ -3,11 +3,17 @@
 #include <QSettings>
 
 
-QTranslator *TranslatorTool::translator=nullptr;
 
 TranslatorTool::TranslatorTool(QObject *parent) : QObject(parent)
 {
+    translator = new QTranslator;
+    qDebug()<<"TranslatorTool()";
+}
 
+TranslatorTool::~TranslatorTool()
+{
+    delete translator;
+    qDebug()<<"~TranslatorTool()";
 }
 
 
@@ -34,14 +40,12 @@ void TranslatorTool::initLanguage()
         }
     }
     qDebug()<<"language type::"<<fileName;
-    getInstance()->load(fileName,QLatin1String(LANGUAGE_DIR));
-    QApplication::installTranslator(getInstance()); //安装翻译器
+    translator->load(fileName,QLatin1String(LANGUAGE_DIR));
+    QApplication::installTranslator(translator); //安装翻译器
 }
 
-QTranslator *TranslatorTool::getInstance()
+TranslatorTool &TranslatorTool::getInstance()
 {
-    if(translator==nullptr){
-        translator=new QTranslator;
-    }
-    return translator;
+    static TranslatorTool instance;
+    return instance;
 }

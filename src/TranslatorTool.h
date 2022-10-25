@@ -12,17 +12,24 @@ class TranslatorTool : public QObject
 {
     Q_OBJECT
 public:
+    ~TranslatorTool();
+    TranslatorTool(const TranslatorTool&)=delete;
+    TranslatorTool& operator=(const TranslatorTool&)=delete;
+
+private:
     explicit TranslatorTool(QObject *parent = nullptr);
 
 signals:
+
 public slots:
 
     void initLanguage();
 
+public:
+    static TranslatorTool &getInstance();
+
 private:
-    static QTranslator *translator;
-private:
-    static QTranslator *getInstance();
+    QTranslator *translator;
 };
 
 #endif // TRANSLATORTOOL_H

@@ -97,15 +97,14 @@ int main(int argc, char *argv[]) {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication app(argc, argv);
     initSettings();
-    TranslatorTool translatorTool;
-    translatorTool.initLanguage();
+    TranslatorTool::getInstance().initLanguage();
     qDebug()<<"translatorTool.initLanguage end";
     registerQml();
     qDebug()<<"registerQml end";
     QQmlApplicationEngine engine;
     qDebug()<<"QQmlApplicationEngine end";
     engine.load(QUrl(QStringLiteral("qrc:/qml/SSokit.qml")));
-    qDebug()<<"engine.load";
+    qDebug()<<"engine.load end";
     if (engine.rootObjects().isEmpty())
         return -1;
     return QApplication::exec();
