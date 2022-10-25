@@ -82,6 +82,7 @@ public slots:
     /**
      * qml槽
      * 获取本机ip地址
+     * 作为服务端时，需添加0:0:0:0
      */
     void getAddr();
 

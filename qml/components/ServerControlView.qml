@@ -53,7 +53,7 @@ Column {
         width: parent.width
         background: Widgets.BgStrokeR5{
         }
-//标题
+        //标题
         label: Label{
             x: groupBox.leftPadding
             width: groupBox.availableWidth
@@ -205,49 +205,49 @@ Column {
                     color:parent.parent.highlighted ? "#cfd8dc" : "#424242"
                     text: labelTime + " : " + time
                 }
-//                RowLayout{
-//                    width:parent.width
-//                    Button{
-//                        width: parent.width*0.5
-////                        height: 20
-//                        text: btnDisable
-//                        font.pixelSize: 10
-//                        background: Rectangle{
-//                            color: "#FFFFFF"
-//                            border.color:"#37474f"
-//                            border.width: 1
-//                            radius: parent.height/2
-//                        }
+                //                RowLayout{
+                //                    width:parent.width
+                //                    Button{
+                //                        width: parent.width*0.5
+                ////                        height: 20
+                //                        text: btnDisable
+                //                        font.pixelSize: 10
+                //                        background: Rectangle{
+                //                            color: "#FFFFFF"
+                //                            border.color:"#37474f"
+                //                            border.width: 1
+                //                            radius: parent.height/2
+                //                        }
 
-//                        onClicked:{
-////                            if(connectList.currentIndex<0){
-////                                console.log("当前无连接")
-////                                return
-////                            }
-////                            disconnectConn(historyConnect.get(connectList.currentIndex).addr)
-//                        }
-//                    }
-//                    Button{
-//                        width: parent.width*0.5
-////                        height: 20
-//                        text: btnDisable
-//                        font.pixelSize: 10
-//                        background: Rectangle{
-//                            color: "#FFFFFF"
-//                            border.color:"#37474f"
-//                            border.width: 1
-//                            radius: parent.height/2
-//                        }
+                //                        onClicked:{
+                ////                            if(connectList.currentIndex<0){
+                ////                                console.log("当前无连接")
+                ////                                return
+                ////                            }
+                ////                            disconnectConn(historyConnect.get(connectList.currentIndex).addr)
+                //                        }
+                //                    }
+                //                    Button{
+                //                        width: parent.width*0.5
+                ////                        height: 20
+                //                        text: btnDisable
+                //                        font.pixelSize: 10
+                //                        background: Rectangle{
+                //                            color: "#FFFFFF"
+                //                            border.color:"#37474f"
+                //                            border.width: 1
+                //                            radius: parent.height/2
+                //                        }
 
-//                        onClicked:{
-////                            if(connectList.currentIndex<0){
-////                                console.log("当前无连接")
-////                                return
-////                            }
-////                            disconnectConn(historyConnect.get(connectList.currentIndex).addr)
-//                        }
-//                    }
-//                }
+                //                        onClicked:{
+                ////                            if(connectList.currentIndex<0){
+                ////                                console.log("当前无连接")
+                ////                                return
+                ////                            }
+                ////                            disconnectConn(historyConnect.get(connectList.currentIndex).addr)
+                //                        }
+                //                    }
+                //                }
 
             }
             background: Rectangle{

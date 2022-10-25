@@ -4,12 +4,12 @@
 #define CONFIG_H
 
 #define MAJOR_VERSION 1
-#define MINOR_VERSION 1
-#define PATCH_VERSION 8
+#define MINOR_VERSION 2
+#define PATCH_VERSION 1
 
-#define YEAR 2021
-#define MONTH 10
-#define DAY 24
+#define YEAR 2022
+#define MONTH 04
+#define DAY 27
 
 class Config : public QObject
 {

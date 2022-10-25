@@ -48,7 +48,7 @@ void registerQml(){
     qmlRegisterType<UdpServerModel>("src.udpservermodel", 1, 0, "UdpServerModel");
     qmlRegisterType<TcpClientModel>("src.tcpclientmodel", 1, 0, "TcpClientModel");
     qmlRegisterType<UdpClientModel>("src.udpclientmodel", 1, 0, "UdpClientModel");
-    qmlRegisterType<SendMessageData>("src.sendmessagedata",1,0,"SendMessageData");
+    qmlRegisterType<SendMessageData>("src.sendmessagedata",1, 0, "SendMessageData");
     qmlRegisterType<JsonFormat>("src.jsonformat",1,0,"JsonFormat");
     qmlRegisterUncreatableType<LogMessageModel>("src.logmessagedata",1,0,"LogMessageData","Reference only");
     qmlRegisterType<NoteBook>("src.notebook",1,0,"NoteBook");

@@ -28,12 +28,11 @@ ApplicationWindow{
         id:updateDialog
     }
 
-
     id:window
     visible: true
     title: Strings.applicationTitle
-    width: SettingTool.getRememberWindowSize()?SettingTool.getWindowWidth() : windowW
-    height: SettingTool.getRememberWindowSize()?SettingTool.getWindowHeight() : windowH
+    width: SettingTool.getRememberWindowSize() ? SettingTool.getWindowWidth() : windowW
+    height: SettingTool.getRememberWindowSize() ? SettingTool.getWindowHeight() : windowH
     minimumWidth: windowW
     minimumHeight:windowH
     x:SettingTool.getWindowPositionX()

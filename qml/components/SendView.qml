@@ -74,6 +74,17 @@ GroupBox{
                         border.color: buffer1.enabled ? "#bdbdbd" : "#bdbdbd"
                         radius: 3
                     }
+                    Keys.onPressed: {
+                        switch(event.key)
+                        {
+                        case Qt.Key_Return:
+                            event.accepted=true;
+                            sendMessageData.setPlainText(false)
+                            sendMessage(buffer1.text)
+                            break;
+                        }
+                    }
+
                 }
                 Image {
                     Layout.preferredHeight: 15
@@ -129,6 +140,16 @@ GroupBox{
                         border.color: buffer2.enabled ? "#bdbdbd" : "#bdbdbd"
                         radius: 3
                     }
+                    Keys.onPressed: {
+                        switch(event.key)
+                        {
+                        case Qt.Key_Return:
+                            event.accepted=true;
+                            sendMessageData.setPlainText(false)
+                            sendMessage(buffer2.text)
+                            break;
+                        }
+                    }
                 }
                 Image {
                     Layout.preferredHeight: 15
@@ -156,7 +177,6 @@ GroupBox{
                     }
                     onClicked: {
                         sendMessageData.setPlainText(false)
-
                         sendMessage(buffer2.text)
                     }
                 }
@@ -185,6 +205,16 @@ GroupBox{
                         color: buffer3.enabled ? "transparent" : "transparent"
                         border.color: buffer3.enabled ? "#bdbdbd" : "#bdbdbd"
                         radius: 3
+                    }
+                    Keys.onPressed: {
+                        switch(event.key)
+                        {
+                        case Qt.Key_Return:
+                            event.accepted=true;
+                            sendMessageData.setPlainText(true)
+                            sendMessage(buffer3.text)
+                            break;
+                        }
                     }
                 }
                 Image {
